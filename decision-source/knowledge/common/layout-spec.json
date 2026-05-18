@@ -1,0 +1,4319 @@
+{
+  "meta": {
+    "source": "user-defined layout classification",
+    "collected_at": "2026-05-19",
+    "collector": "codex",
+    "schema_note": "layout-spec.json stores structured layout taxonomy and future layout harvest results. Narrative rules belong in layout-decision.md. Layout sources may be frames or components."
+  },
+  "layout_categories": [
+    {
+      "name": "主界面",
+      "level": 1,
+      "category": "main_screen",
+      "children": []
+    },
+    {
+      "name": "通用界面",
+      "level": 1,
+      "category": "general_screen",
+      "children": [
+        {
+          "name": "区块类",
+          "level": 2,
+          "category": "section_based"
+        },
+        {
+          "name": "长列表类",
+          "level": 2,
+          "category": "long_list"
+        },
+        {
+          "name": "左右结构类",
+          "level": 2,
+          "category": "left_right_structure"
+        },
+        {
+          "name": "上下结构类",
+          "level": 2,
+          "category": "top_bottom_structure"
+        }
+      ]
+    },
+    {
+      "name": "弹窗",
+      "level": 1,
+      "category": "dialog",
+      "children": [
+        {
+          "name": "大弹窗",
+          "level": 2,
+          "category": "large_dialog"
+        },
+        {
+          "name": "小弹窗",
+          "level": 2,
+          "category": "small_dialog"
+        }
+      ]
+    },
+    {
+      "name": "特殊界面",
+      "level": 1,
+      "category": "special_screen",
+      "children": [
+        {
+          "name": "场景类",
+          "level": 2,
+          "category": "scene_based"
+        },
+        {
+          "name": "其他",
+          "level": 2,
+          "category": "other"
+        }
+      ]
+    }
+  ],
+  "layout_examples": [],
+  "layout_templates": [
+    {
+      "name": "主界面",
+      "category": "main_screen",
+      "layout_source_type": "frame",
+      "page_context": {
+        "page_name": "主界面",
+        "page_node_id": "4004:305",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4009:478",
+      "componentKey": null,
+      "semantic_hint": "游戏主界面的 layout 布局规则",
+      "frame": {
+        "x": 86,
+        "y": 190,
+        "width": 2340,
+        "height": 1080
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_stage",
+        "vertical_mode": "fixed_height_stage",
+        "notes": [
+          "整页以 2340x1080 横版主舞台为基准",
+          "地图铺满全屏，HUD 与功能区覆盖在地图之上",
+          "顶部、左下、右下与右侧列表形成稳定锚点布局"
+        ]
+      },
+      "regions": [
+        {
+          "name": "地图",
+          "role": "main_stage",
+          "source_type": "shape",
+          "nodeId": "4090:704",
+          "componentKey": null,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 2340,
+            "height": 1080
+          },
+          "constraints": [
+            "full_screen_background"
+          ],
+          "adaptation_notes": [
+            "作为整页承载底图，其他 HUD 与功能区叠加其上"
+          ]
+        },
+        {
+          "name": "HUD上底",
+          "role": "top_hud_bar",
+          "source_type": "instance",
+          "nodeId": "4089:1018",
+          "componentKey": "e7094740c5d5b0cd0bb859cf6b032d260852508d",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 2340,
+            "height": 75
+          },
+          "constraints": [
+            "top_anchor",
+            "full_width"
+          ],
+          "adaptation_notes": [
+            "顶部栏横跨全屏，用于承接繁荣栏、资源栏、货币栏和右上状态按钮"
+          ]
+        },
+        {
+          "name": "繁荣栏",
+          "role": "top_status_bar",
+          "source_type": "instance",
+          "nodeId": "4090:659",
+          "componentKey": "4661e2f9fb1ef021bdfaa7621ea2f2f9814502c2",
+          "position": {
+            "x": 236,
+            "y": 5
+          },
+          "size": {
+            "width": 280,
+            "height": 61
+          },
+          "constraints": [
+            "top_left_cluster"
+          ],
+          "adaptation_notes": [
+            "位于顶部左中区域，与资源栏形成连续状态带"
+          ]
+        },
+        {
+          "name": "资源栏",
+          "role": "top_resource_strip",
+          "source_type": "frame",
+          "nodeId": "4090:639",
+          "componentKey": null,
+          "position": {
+            "x": 548,
+            "y": 7
+          },
+          "size": {
+            "width": 634,
+            "height": 61
+          },
+          "constraints": [
+            "top_center_cluster"
+          ],
+          "adaptation_notes": [
+            "内部由 4 个等高资源单元横向排列，间距固定"
+          ]
+        },
+        {
+          "name": "右上资源list",
+          "role": "top_right_icon_list",
+          "source_type": "frame",
+          "nodeId": "4089:952",
+          "componentKey": null,
+          "position": {
+            "x": 1667,
+            "y": 82
+          },
+          "size": {
+            "width": 614,
+            "height": 76
+          },
+          "constraints": [
+            "top_right_anchor"
+          ],
+          "adaptation_notes": [
+            "右上图标入口区横向排布，并用分隔线分组"
+          ]
+        },
+        {
+          "name": "货币栏-1",
+          "role": "top_currency_item",
+          "source_type": "instance",
+          "nodeId": "4089:953",
+          "componentKey": "5ad3f706a249201b7473eabf43c83baa91a5a947",
+          "position": {
+            "x": 1658,
+            "y": 13
+          },
+          "size": {
+            "width": 217,
+            "height": 50
+          },
+          "constraints": [
+            "top_right_anchor"
+          ],
+          "adaptation_notes": [
+            "顶部右侧货币信息，与第二个货币栏并排"
+          ]
+        },
+        {
+          "name": "货币栏-2",
+          "role": "top_currency_item",
+          "source_type": "instance",
+          "nodeId": "4089:960",
+          "componentKey": "5ad3f706a249201b7473eabf43c83baa91a5a947",
+          "position": {
+            "x": 1900,
+            "y": 13
+          },
+          "size": {
+            "width": 217,
+            "height": 50
+          },
+          "constraints": [
+            "top_right_anchor"
+          ],
+          "adaptation_notes": [
+            "与第一个货币栏等宽并排，形成顶部右上货币组"
+          ]
+        },
+        {
+          "name": "地块栏",
+          "role": "secondary_status_strip",
+          "source_type": "frame",
+          "nodeId": "4551:781",
+          "componentKey": null,
+          "position": {
+            "x": 247,
+            "y": 82
+          },
+          "size": {
+            "width": 528,
+            "height": 42
+          },
+          "constraints": [
+            "top_left_secondary"
+          ],
+          "adaptation_notes": [
+            "内部由 3 个地块信息单元横向排列，用于顶部次级状态展示"
+          ]
+        },
+        {
+          "name": "hud任务",
+          "role": "left_task_panel",
+          "source_type": "instance",
+          "nodeId": "4044:1049",
+          "componentKey": "2d14d3e24f225b44abb6610b52144d8384a85699",
+          "position": {
+            "x": 58,
+            "y": 200
+          },
+          "size": {
+            "width": 445,
+            "height": 417
+          },
+          "constraints": [
+            "left_anchor"
+          ],
+          "adaptation_notes": [
+            "左侧主任务区，靠近头像区域下方，承担常驻任务与引导信息"
+          ]
+        },
+        {
+          "name": "部队list",
+          "role": "right_troop_stack",
+          "source_type": "frame",
+          "nodeId": "4029:446",
+          "componentKey": null,
+          "position": {
+            "x": 1854,
+            "y": 175
+          },
+          "size": {
+            "width": 485,
+            "height": 628
+          },
+          "constraints": [
+            "right_anchor",
+            "vertical_stack"
+          ],
+          "adaptation_notes": [
+            "右侧纵向部队状态栈，内部 5 个状态栏上下等间距排布"
+          ]
+        },
+        {
+          "name": "右下按钮区域",
+          "role": "bottom_right_action_cluster",
+          "source_type": "instance",
+          "nodeId": "4095:1059",
+          "componentKey": "7cbc1b85df8608d01c23a20b125094c9e4bdee31",
+          "position": {
+            "x": 1437,
+            "y": 863
+          },
+          "size": {
+            "width": 652,
+            "height": 218
+          },
+          "constraints": [
+            "bottom_right_anchor"
+          ],
+          "adaptation_notes": [
+            "右下主操作区，与招募区一起形成右下角复合功能块"
+          ]
+        },
+        {
+          "name": "招募 2",
+          "role": "bottom_right_recruit_entry",
+          "source_type": "instance",
+          "nodeId": "4089:861",
+          "componentKey": "63a987ac2f99ebaa263a7ff4f61258814a578da8",
+          "position": {
+            "x": 2033,
+            "y": 831
+          },
+          "size": {
+            "width": 307,
+            "height": 248
+          },
+          "constraints": [
+            "bottom_right_anchor"
+          ],
+          "adaptation_notes": [
+            "位于右下角边缘，作为高优先级入口，与按钮区域相邻但独立成块"
+          ]
+        },
+        {
+          "name": "HUD左下部分",
+          "role": "bottom_left_action_cluster",
+          "source_type": "group",
+          "nodeId": "4551:782",
+          "componentKey": null,
+          "position": {
+            "x": 59,
+            "y": 665
+          },
+          "size": {
+            "width": 1040,
+            "height": 389
+          },
+          "constraints": [
+            "bottom_left_anchor"
+          ],
+          "adaptation_notes": [
+            "左下操作组，内部包括查看/查找按钮、左下功能按钮组和聊天频道区"
+          ]
+        },
+        {
+          "name": "回城",
+          "role": "bottom_left_primary_entry",
+          "source_type": "instance",
+          "nodeId": "4098:2958",
+          "componentKey": "2eb09dcc3cf885ebd1ac2a9c6a0ee6d16d635b8c",
+          "position": {
+            "x": 48,
+            "y": 890
+          },
+          "size": {
+            "width": 235,
+            "height": 189
+          },
+          "constraints": [
+            "bottom_left_anchor"
+          ],
+          "adaptation_notes": [
+            "独立于左下功能组之外，作为左下角强语义主入口"
+          ]
+        }
+      ],
+      "summary": "横版主界面 layout。整页以地图满铺为底，顶部是横向 HUD 状态带，左侧承载任务与头像，右侧承载部队状态栈，左下和右下各自形成稳定功能簇。",
+      "use_scenes": [
+        "SLG 游戏主界面",
+        "地图常驻主界面",
+        "带 HUD 的横版主舞台界面"
+      ]
+    },
+    {
+      "name": "小弹窗空白模板",
+      "category": "small_dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "小弹窗",
+        "page_node_id": "4804:1400",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "6617:12375",
+      "componentKey": "072a53c213ee07a0c0bca4a62580635ebee52248",
+      "semantic_hint": "小弹窗空白模板，同时也是可实例化 component",
+      "frame": {
+        "x": 53,
+        "y": 236,
+        "width": 946,
+        "height": 600
+      },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "stacked_dialog_sections",
+        "notes": [
+          "采用标准小弹窗尺寸 946x600",
+          "整体按顶部区、内容区、底部按钮区三段式组织",
+          "适合承载轻量确认、短文本输入、简短说明与双按钮操作"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "6617:12297",
+          "componentKey": null,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 946,
+            "height": 103
+          },
+          "constraints": [
+            "top_anchor",
+            "full_width"
+          ],
+          "adaptation_notes": [
+            "承载标题、关闭按钮与顶部装饰，横向满宽"
+          ]
+        },
+        {
+          "name": "内容背景区",
+          "role": "dialog_body",
+          "source_type": "instance",
+          "nodeId": "6617:12295",
+          "componentKey": null,
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 946,
+            "height": 600
+          },
+          "constraints": [
+            "full_dialog_body"
+          ],
+          "adaptation_notes": [
+            "作为整张弹窗的主体背景，内容区实际可用空间位于标题区与底部按钮区之间"
+          ]
+        },
+        {
+          "name": "底部按钮区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "6617:12296",
+          "componentKey": null,
+          "position": {
+            "x": 0,
+            "y": 435
+          },
+          "size": {
+            "width": 946,
+            "height": 167
+          },
+          "constraints": [
+            "bottom_anchor",
+            "full_width"
+          ],
+          "adaptation_notes": [
+            "固定吸附在底部，承载操作按钮与按钮区相关花费信息"
+          ]
+        }
+      ],
+      "summary": "标准小弹窗空白模板。适用于大多数双按钮轻量弹窗，由顶部标题区、主体内容区和底部操作区组成，同时也是可实例化 component。",
+      "use_scenes": [
+        "小弹窗空白骨架",
+        "确认弹窗",
+        "轻量输入弹窗",
+        "短说明弹窗"
+      ]
+    },
+    {
+      "name": "UIAristocracyApplyConditionPopUp_S",
+      "category": "small_dialog",
+      "layout_source_type": "component",
+      "page_context": { "page_name": "小弹窗", "page_node_id": "4804:1400", "file_key": "jB3vJujGbA7pKX9rNIlJUt" },
+      "nodeId": "4786:938",
+      "componentKey": "534adbba05e339a5b77456834ab3e23306d17394",
+      "semantic_hint": "双行条件输入型小弹窗",
+      "frame": { "x": 53, "y": 952, "width": 946, "height": 600 },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "two_row_form",
+        "notes": ["内容区为两行条件项，适合条件设置与门槛配置"]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4798:1103",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 946, "height": 103 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容区",
+          "role": "dialog_body_form",
+          "source_type": "frame",
+          "nodeId": "4804:1440",
+          "componentKey": null,
+          "position": { "x": 145, "y": 197 },
+          "size": { "width": 656, "height": 144 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": ["两行标签+输入控件上下排列"]
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4804:1193",
+          "componentKey": null,
+          "position": { "x": 0, "y": 435 },
+          "size": { "width": 946, "height": 167 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "双行条件设置型小弹窗。",
+      "use_scenes": ["申请条件设置", "门槛配置弹窗"]
+    },
+    {
+      "name": "UIAristocracyApplyPopUp",
+      "category": "small_dialog",
+      "layout_source_type": "component",
+      "page_context": { "page_name": "小弹窗", "page_node_id": "4804:1400", "file_key": "jB3vJujGbA7pKX9rNIlJUt" },
+      "nodeId": "4810:1499",
+      "componentKey": "227021fd50dd395348c147998f8cb69a2a49e643",
+      "semantic_hint": "长文本输入申请类小弹窗",
+      "frame": { "x": 53, "y": 1638, "width": 946, "height": 600 },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "large_textarea",
+        "notes": ["中部为大尺寸长文本输入框，适合留言与申请理由"]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4810:1473",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 946, "height": 103 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "输入区",
+          "role": "long_text_input",
+          "source_type": "frame",
+          "nodeId": "4810:1474",
+          "componentKey": null,
+          "position": { "x": 134, "y": 148 },
+          "size": { "width": 678, "height": 240 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": ["长文本框需统一长度，并补字数统计"]
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4810:1472",
+          "componentKey": null,
+          "position": { "x": 0, "y": 433 },
+          "size": { "width": 946, "height": 167 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "长文本输入型小弹窗。",
+      "use_scenes": ["申请留言", "长文本输入弹窗"]
+    },
+    {
+      "name": "UIAristocracyDonatePopUp_S",
+      "category": "small_dialog",
+      "layout_source_type": "component",
+      "page_context": { "page_name": "小弹窗", "page_node_id": "4804:1400", "file_key": "jB3vJujGbA7pKX9rNIlJUt" },
+      "nodeId": "4822:2061",
+      "componentKey": "3d2c749eb14938816827f1efd46396acc7f47178",
+      "semantic_hint": "捐献或数值输入型小弹窗",
+      "frame": { "x": 53, "y": 2334, "width": 946, "height": 600 },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "compact_form",
+        "notes": ["内容区较宽，适合捐献与数值输入说明"]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4822:1946",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 946, "height": 103 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容区",
+          "role": "value_form",
+          "source_type": "frame",
+          "nodeId": "4822:1948",
+          "componentKey": null,
+          "position": { "x": 92, "y": 185 },
+          "size": { "width": 762, "height": 174 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4822:1945",
+          "componentKey": null,
+          "position": { "x": 0, "y": 433 },
+          "size": { "width": 946, "height": 167 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "捐献/数值输入类小弹窗。",
+      "use_scenes": ["捐献弹窗", "数值型输入弹窗"]
+    },
+    {
+      "name": "UIAristocracyNameEditPopUp_S",
+      "category": "small_dialog",
+      "layout_source_type": "component",
+      "page_context": { "page_name": "小弹窗", "page_node_id": "4804:1400", "file_key": "jB3vJujGbA7pKX9rNIlJUt" },
+      "nodeId": "4832:2211",
+      "componentKey": "271322f310d9db245cec9fd3b77f6115b730e500",
+      "semantic_hint": "名称修改类小弹窗",
+      "frame": { "x": 53, "y": 3672, "width": 946, "height": 600 },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "input_plus_condition_list",
+        "notes": ["上方输入框，下方条件列表"]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4822:2095",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 946, "height": 103 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "输入框",
+          "role": "single_line_input",
+          "source_type": "frame",
+          "nodeId": "4822:2096",
+          "componentKey": null,
+          "position": { "x": 143, "y": 149 },
+          "size": { "width": 660, "height": 58 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "条件列表",
+          "role": "validation_list",
+          "source_type": "frame",
+          "nodeId": "4832:2175",
+          "componentKey": null,
+          "position": { "x": 149, "y": 224 },
+          "size": { "width": 557, "height": 124 },
+          "constraints": ["below_input"],
+          "adaptation_notes": ["与输入框间使用统一大间距"]
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4822:2094",
+          "componentKey": null,
+          "position": { "x": 0, "y": 433 },
+          "size": { "width": 946, "height": 167 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "名称修改型小弹窗。",
+      "use_scenes": ["世族名称修改", "命名输入弹窗"]
+    },
+    {
+      "name": "UIDialogue",
+      "category": "small_dialog",
+      "layout_source_type": "component",
+      "page_context": { "page_name": "小弹窗", "page_node_id": "4804:1400", "file_key": "jB3vJujGbA7pKX9rNIlJUt" },
+      "nodeId": "4832:2282",
+      "componentKey": "c5c04df7e94f90d22320db8f579852524bb19923",
+      "semantic_hint": "纯文本确认类小弹窗",
+      "frame": { "x": 53, "y": 5112, "width": 946, "height": 600 },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "single_message",
+        "notes": ["中部只有一条提示信息"]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4832:2248",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 946, "height": 103 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容区",
+          "role": "dialog_message",
+          "source_type": "frame",
+          "nodeId": "4832:2250",
+          "componentKey": null,
+          "position": { "x": 57, "y": 242 },
+          "size": { "width": 832, "height": 41 },
+          "constraints": ["centered_message"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4832:2247",
+          "componentKey": null,
+          "position": { "x": 0, "y": 433 },
+          "size": { "width": 946, "height": 167 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "纯提示/确认类小弹窗。",
+      "use_scenes": ["普通确认弹窗", "简短提示弹窗"]
+    },
+    {
+      "name": "UIAristocracyTargetDisappearPopUp_S",
+      "category": "small_dialog",
+      "layout_source_type": "component",
+      "page_context": { "page_name": "小弹窗", "page_node_id": "4804:1400", "file_key": "jB3vJujGbA7pKX9rNIlJUt" },
+      "nodeId": "4832:2514",
+      "componentKey": "1d4a04ede0d18d99cc3a07e924c97e77f843b8b5",
+      "semantic_hint": "提示+目标列表类小弹窗",
+      "frame": { "x": 53, "y": 4358, "width": 946, "height": 600 },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "message_plus_list",
+        "notes": ["文本与目标list间距45，list内部操作间距28"]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4832:2390",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 946, "height": 103 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容区",
+          "role": "message_plus_list",
+          "source_type": "group",
+          "nodeId": "4832:2420",
+          "componentKey": null,
+          "position": { "x": 57, "y": 172 },
+          "size": { "width": 832, "height": 194 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4832:2387",
+          "componentKey": null,
+          "position": { "x": 0, "y": 434 },
+          "size": { "width": 946, "height": 167 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "提示+目标列表型小弹窗。",
+      "use_scenes": ["目标消失提示", "提示+列表弹窗"]
+    },
+    {
+      "name": "城池名字",
+      "category": "small_dialog",
+      "layout_source_type": "component",
+      "page_context": { "page_name": "小弹窗", "page_node_id": "4804:1400", "file_key": "jB3vJujGbA7pKX9rNIlJUt" },
+      "nodeId": "4822:1794",
+      "componentKey": "4bcedcc8a4135c62a83ad0d35364f7e33a7e5f8d",
+      "semantic_hint": "名称输入+行内辅助按钮小弹窗",
+      "frame": { "x": 50, "y": 7852, "width": 946, "height": 600 },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "name_input_with_inline_action",
+        "notes": ["内容区右侧带一个58x58辅助图形按钮"]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4847:1539",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 946, "height": 103 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容区",
+          "role": "name_input_block",
+          "source_type": "frame",
+          "nodeId": "4822:1886",
+          "componentKey": null,
+          "position": { "x": 248, "y": 185 },
+          "size": { "width": 451, "height": 146 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "辅助按钮",
+          "role": "inline_action_button",
+          "source_type": "instance",
+          "nodeId": "4817:1753",
+          "componentKey": null,
+          "position": { "x": 715, "y": 271 },
+          "size": { "width": 58, "height": 58 },
+          "constraints": ["inline_right"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4817:1748",
+          "componentKey": null,
+          "position": { "x": 0, "y": 433 },
+          "size": { "width": 946, "height": 167 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "名称输入并带右侧辅助按钮的小弹窗。",
+      "use_scenes": ["城池命名", "名称输入类小弹窗"]
+    },
+    {
+      "name": "UIExchangePopUp_S",
+      "category": "small_dialog",
+      "layout_source_type": "component",
+      "page_context": { "page_name": "小弹窗", "page_node_id": "4804:1400", "file_key": "jB3vJujGbA7pKX9rNIlJUt" },
+      "nodeId": "4817:1697",
+      "componentKey": "e43094c6c8b1ecebf817c1395098337d0bdf1695",
+      "semantic_hint": "短输入框型小弹窗",
+      "frame": { "x": 50, "y": 5774, "width": 946, "height": 600 },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "single_short_input",
+        "notes": ["中部短输入框规范值应为438x58"]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4810:1562",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 946, "height": 103 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容区",
+          "role": "single_input_block",
+          "source_type": "frame",
+          "nodeId": "4822:1885",
+          "componentKey": null,
+          "position": { "x": 254, "y": 185 },
+          "size": { "width": 438, "height": 146 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": ["作为短输入框规范样板"]
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4810:1561",
+          "componentKey": null,
+          "position": { "x": 0, "y": 433 },
+          "size": { "width": 946, "height": 167 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "短输入框型小弹窗。",
+      "use_scenes": ["礼包码输入", "兑换输入弹窗"]
+    },
+    {
+      "name": "UIAristocracyConnectPopUp",
+      "category": "small_dialog",
+      "layout_source_type": "component",
+      "page_context": { "page_name": "小弹窗", "page_node_id": "4804:1400", "file_key": "jB3vJujGbA7pKX9rNIlJUt" },
+      "nodeId": "4822:1882",
+      "componentKey": "42d57ef8de1e8c6bd807a421d24bb1fb7dae97b2",
+      "semantic_hint": "单输入框特例小弹窗",
+      "frame": { "x": 53, "y": 2998, "width": 946, "height": 600 },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "single_input_special_case",
+        "notes": ["当前样例仅展示顶部和输入框，底部区未显式挂出"]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4822:1831",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 946, "height": 103 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "输入框",
+          "role": "single_line_input",
+          "source_type": "frame",
+          "nodeId": "4822:1864",
+          "componentKey": null,
+          "position": { "x": 254, "y": 272 },
+          "size": { "width": 438, "height": 58 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": ["遵守438x58短输入规范"]
+        }
+      ],
+      "summary": "当前展示不完整的单输入框小弹窗。",
+      "use_scenes": ["连接关系输入", "申请类简短输入弹窗"]
+    },
+    {
+      "name": "UICurrencyExchangePopUp_M",
+      "category": "small_dialog",
+      "layout_source_type": "component",
+      "page_context": { "page_name": "小弹窗", "page_node_id": "4804:1400", "file_key": "jB3vJujGbA7pKX9rNIlJUt" },
+      "nodeId": "4832:2729",
+      "componentKey": "1e0f8578292ec3d86fabe0ccc9329a70be3b02e3",
+      "semantic_hint": "货币兑换类小弹窗",
+      "frame": { "x": 53, "y": 7098, "width": 946, "height": 600 },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "form_plus_exchange_hint",
+        "notes": ["内容区下方多一行兑换比例说明"]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4847:1531",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 946, "height": 103 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容区",
+          "role": "exchange_form",
+          "source_type": "frame",
+          "nodeId": "4832:2728",
+          "componentKey": null,
+          "position": { "x": 122, "y": 141 },
+          "size": { "width": 703, "height": 200 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "兑换比例说明",
+          "role": "supplement_text",
+          "source_type": "text",
+          "nodeId": "4832:2687",
+          "componentKey": null,
+          "position": { "x": 57, "y": 378 },
+          "size": { "width": 832, "height": 38 },
+          "constraints": ["above_footer"],
+          "adaptation_notes": ["位于内容区与按钮区之间"]
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4832:2573",
+          "componentKey": null,
+          "position": { "x": 0, "y": 433 },
+          "size": { "width": 946, "height": 167 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "货币兑换类小弹窗。",
+      "use_scenes": ["货币兑换弹窗", "兑换比例说明弹窗"]
+    },
+    {
+      "name": "中小弹窗空白模板",
+      "category": "general_screen",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "5922:5503",
+      "componentKey": "e7f7247e6a482c6810529e1043851efede893c96",
+      "semantic_hint": "中小弹窗空白模板，同时也是可实例化 component",
+      "frame": {
+        "x": 108,
+        "y": 158,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "stacked_dialog_sections",
+        "notes": [
+          "采用标准中小弹窗尺寸 1307x800",
+          "整体按顶部区、主体内容区、底部按钮区三段式组织",
+          "适合承载比小弹窗更长的信息与更复杂的表单/列表内容"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "5922:5427",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 1307,
+            "height": 77
+          },
+          "constraints": [
+            "top_anchor",
+            "full_width"
+          ],
+          "adaptation_notes": [
+            "承载标题与顶部装饰，整体比小弹窗头部更扁、更宽"
+          ]
+        },
+        {
+          "name": "主体背景区",
+          "role": "dialog_body",
+          "source_type": "instance",
+          "nodeId": "5922:5401",
+          "componentKey": "976232109b6c473b89d0475d0a625a75ded56b22",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "size": {
+            "width": 1307,
+            "height": 800
+          },
+          "constraints": [
+            "full_dialog_body"
+          ],
+          "adaptation_notes": [
+            "作为整个中小弹窗的主体背景，内容区可承载更长内容流"
+          ]
+        },
+        {
+          "name": "底部按钮区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "5922:5405",
+          "componentKey": "5760ca2309ded7998fb3761f0f1f4524a05b711b",
+          "position": {
+            "x": 0,
+            "y": 624
+          },
+          "size": {
+            "width": 1307,
+            "height": 176
+          },
+          "constraints": [
+            "bottom_anchor",
+            "full_width"
+          ],
+          "adaptation_notes": [
+            "固定吸附在底部，默认采用双按钮+花费的中小弹窗底部结构"
+          ]
+        }
+      ],
+      "summary": "标准中小弹窗空白模板。适用于中等信息密度的弹窗，由顶部区、主体内容区和底部操作区组成，同时也是可实例化 component。",
+      "use_scenes": [
+        "中小弹窗空白骨架",
+        "中等信息量弹窗",
+        "中型表单弹窗",
+        "中型列表弹窗"
+      ]
+    },
+    {
+      "name": "UIAristocracyDetailsPopUp",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4864:2332",
+      "componentKey": "aa7fefd758ecd128e1055e9f0854affc5bf4a3c1",
+      "semantic_hint": "世族详情查看型中小弹窗，左侧为身份展示，右侧为双段信息区",
+      "frame": {
+        "x": 108,
+        "y": 1000,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "left_identity_right_content",
+        "vertical_mode": "double_content_stack_with_footer",
+        "notes": [
+          "左侧是强识别身份展示区，右侧是两段内容区",
+          "适合详情查看、信息概览和说明文案组合"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4883:3565",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧身份展示区",
+          "role": "identity_visual_block",
+          "source_type": "composite",
+          "nodeId": "4860:2109",
+          "componentKey": null,
+          "position": { "x": 46, "y": 116 },
+          "size": { "width": 378, "height": 488 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": ["由旗帜、族徽、名字框与称号区组成"]
+        },
+        {
+          "name": "内容1",
+          "role": "detail_summary_block",
+          "source_type": "frame",
+          "nodeId": "4938:5000",
+          "componentKey": null,
+          "position": { "x": 498, "y": 112 },
+          "size": { "width": 765, "height": 220 },
+          "constraints": ["right_column", "top_stack"],
+          "adaptation_notes": ["适合结构化详情字段列表"]
+        },
+        {
+          "name": "内容2",
+          "role": "detail_description_block",
+          "source_type": "frame",
+          "nodeId": "4864:2203",
+          "componentKey": null,
+          "position": { "x": 498, "y": 344 },
+          "size": { "width": 764, "height": 260 },
+          "constraints": ["right_column", "bottom_stack"],
+          "adaptation_notes": ["适合说明性长文案或次级详情"]
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4864:2250",
+          "componentKey": "5760ca2309ded7998fb3761f0f1f4524a05b711b",
+          "position": { "x": 0, "y": 624 },
+          "size": { "width": 1307, "height": 176 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左侧身份展示加右侧双段详情的中小弹窗。",
+      "use_scenes": ["详情查看弹窗", "世族信息弹窗", "双段说明弹窗"]
+    },
+    {
+      "name": "UIAristocracyGradePopUp_M",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4860:2029",
+      "componentKey": "16956f9e967796a18d26a8b2f5fd148100d9e522",
+      "semantic_hint": "等级信息说明型中小弹窗，左侧为身份展示，右侧为单段说明",
+      "frame": {
+        "x": 108,
+        "y": 1842,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "left_identity_right_single_content",
+        "vertical_mode": "single_content_plus_status",
+        "notes": [
+          "沿用左侧身份展示区",
+          "右侧只保留一块主内容区，下方补状态数值"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4883:3570",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧身份展示区",
+          "role": "identity_visual_block",
+          "source_type": "composite",
+          "nodeId": "4984:7062",
+          "componentKey": null,
+          "position": { "x": 47, "y": 116 },
+          "size": { "width": 376, "height": 552 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": ["由旗帜、族徽、名字框和族望信息组成"]
+        },
+        {
+          "name": "主内容区",
+          "role": "grade_rule_block",
+          "source_type": "frame",
+          "nodeId": "4938:5064",
+          "componentKey": null,
+          "position": { "x": 498, "y": 113 },
+          "size": { "width": 764, "height": 238 },
+          "constraints": ["right_column"],
+          "adaptation_notes": ["适合等级规则、权益说明或阶段说明"]
+        }
+      ],
+      "summary": "左侧身份展示加右侧单块等级说明的中小弹窗。",
+      "use_scenes": ["等级说明弹窗", "权益说明弹窗"]
+    },
+    {
+      "name": "UIChatReportPopUp",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4864:2581",
+      "componentKey": "a06b3e48bc64123eb3d63e40e38a602b78ecac6b",
+      "semantic_hint": "举报表单型中小弹窗，上方选项，下方长文本输入",
+      "frame": {
+        "x": 108,
+        "y": 2684,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_form",
+        "vertical_mode": "options_then_textarea_then_footer",
+        "notes": [
+          "主内容从上到下依次是选项区、提示文案、输入框、按钮区",
+          "适合问卷、举报、反馈类长表单"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4883:3575",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "举报选项区",
+          "role": "option_list_block",
+          "source_type": "frame",
+          "nodeId": "4864:2446",
+          "componentKey": null,
+          "position": { "x": 43, "y": 112 },
+          "size": { "width": 1220, "height": 285 },
+          "constraints": ["centered_body", "full_content_width"],
+          "adaptation_notes": ["适合多选项、单选项或原因列表"]
+        },
+        {
+          "name": "提示文案",
+          "role": "supporting_text",
+          "source_type": "text",
+          "nodeId": "4864:3174",
+          "componentKey": null,
+          "position": { "x": 43, "y": 418 },
+          "size": { "width": 646, "height": 38 },
+          "constraints": ["above_input"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "输入框",
+          "role": "textarea_input",
+          "source_type": "frame",
+          "nodeId": "4864:3179",
+          "componentKey": null,
+          "position": { "x": 49, "y": 464 },
+          "size": { "width": 1214, "height": 143 },
+          "constraints": ["full_content_width", "above_footer"],
+          "adaptation_notes": ["带字数统计，适合多行补充说明"]
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4864:2445",
+          "componentKey": "97d8940101dc7caa51739540467df784f0bd5ffb",
+          "position": { "x": 0, "y": 624 },
+          "size": { "width": 1307, "height": 176 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "上方原因选择、下方长文本输入的中小弹窗表单。",
+      "use_scenes": ["举报弹窗", "反馈弹窗", "多步骤单页表单弹窗"]
+    },
+    {
+      "name": "UISLGRuleText",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4990:12259",
+      "componentKey": "7a21832fc64c51ddf83af5376158a668b4efd08e",
+      "semantic_hint": "纯规则阅读型中小弹窗，大段正文无底部按钮区",
+      "frame": {
+        "x": 108,
+        "y": 3526,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_text_reading",
+        "vertical_mode": "header_plus_large_scroll_text",
+        "notes": [
+          "主体为大面积正文阅读区",
+          "当前样例未挂标准底部按钮，更接近说明页或规则页"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4990:12212",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "正文背景区",
+          "role": "reading_background",
+          "source_type": "instance",
+          "nodeId": "4990:12205",
+          "componentKey": "a203cf3bbef1767c2cf4b92839b6c58d36beaa1b",
+          "position": { "x": 44, "y": 106 },
+          "size": { "width": 1220, "height": 640 },
+          "constraints": ["centered_body", "full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "文字内容",
+          "role": "long_form_text",
+          "source_type": "frame",
+          "nodeId": "4990:12461",
+          "componentKey": null,
+          "position": { "x": 46, "y": 115 },
+          "size": { "width": 1149, "height": 564 },
+          "constraints": ["inner_text_flow"],
+          "adaptation_notes": ["适合多段规则说明、条款和帮助文本"]
+        }
+      ],
+      "summary": "大面积正文阅读型中小弹窗。",
+      "use_scenes": ["规则说明弹窗", "帮助说明弹窗", "长文案阅读弹窗"]
+    },
+    {
+      "name": "UIHeroMilitaryPerformancePopUp",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4883:4694",
+      "componentKey": "bc524bc90b64a3d2ad6eff3f3eef0311af512da1",
+      "semantic_hint": "列表选择型中小弹窗，左侧主对象，右侧列表切换",
+      "frame": {
+        "x": 108,
+        "y": 4372,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "left_focus_right_list",
+        "vertical_mode": "title_strip_plus_selection_body",
+        "notes": [
+          "左侧用于主对象展示，右侧用于列表切换和详情内容",
+          "适合角色选择、部队表现设置等左右联动场景"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "frame",
+          "nodeId": "4883:4616",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "主内容背景",
+          "role": "selection_background",
+          "source_type": "instance",
+          "nodeId": "4883:4793",
+          "componentKey": "a203cf3bbef1767c2cf4b92839b6c58d36beaa1b",
+          "position": { "x": 360, "y": 103 },
+          "size": { "width": 903, "height": 646 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧对象展示",
+          "role": "focus_preview",
+          "source_type": "frame",
+          "nodeId": "4883:4961",
+          "componentKey": null,
+          "position": { "x": 57, "y": 103 },
+          "size": { "width": 273, "height": 194 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右侧列表区",
+          "role": "selectable_list",
+          "source_type": "frame",
+          "nodeId": "4883:5009",
+          "componentKey": null,
+          "position": { "x": 433, "y": 226 },
+          "size": { "width": 770, "height": 394 },
+          "constraints": ["right_panel", "scrollable_content"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左侧预览、右侧列表切换的中小弹窗。",
+      "use_scenes": ["角色选择弹窗", "表现设置弹窗", "左右联动配置弹窗"]
+    },
+    {
+      "name": "UISlgBuild",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4883:3388",
+      "componentKey": "a563b14bb0531fab452f6f418ff8ba7e57d10e4d",
+      "semantic_hint": "建筑说明或建造型中小弹窗，左图右内容",
+      "frame": {
+        "x": 108,
+        "y": 5214,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "left_visual_right_content",
+        "vertical_mode": "content_plus_footer",
+        "notes": [
+          "左侧是建筑视觉识别块，右侧是主内容区",
+          "适合建筑说明、建造确认和对象详情"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "frame",
+          "nodeId": "4883:3263",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧建筑展示区",
+          "role": "visual_identity_block",
+          "source_type": "composite",
+          "nodeId": "4883:4527",
+          "componentKey": null,
+          "position": { "x": 43, "y": 127 },
+          "size": { "width": 434, "height": 428 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": ["由名牌、空状态底图和建筑插图组成"]
+        },
+        {
+          "name": "右侧内容区",
+          "role": "build_detail_block",
+          "source_type": "frame",
+          "nodeId": "4883:4335",
+          "componentKey": null,
+          "position": { "x": 502, "y": 104 },
+          "size": { "width": 765, "height": 500 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4883:3259",
+          "componentKey": "5760ca2309ded7998fb3761f0f1f4524a05b711b",
+          "position": { "x": 0, "y": 624 },
+          "size": { "width": 1307, "height": 176 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左侧建筑展示、右侧主体信息的中小弹窗。",
+      "use_scenes": ["建筑说明弹窗", "建造弹窗", "对象详情弹窗"]
+    },
+    {
+      "name": "UISmithyManyTimesWindow",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4871:4196",
+      "componentKey": "416a715dcee7a804e22456dc91a868921d266d15",
+      "semantic_hint": "双区块说明加操作型中小弹窗",
+      "frame": {
+        "x": 108,
+        "y": 6056,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_blocks",
+        "vertical_mode": "large_block_then_secondary_block",
+        "notes": [
+          "主体分为上下两块内容区",
+          "适合锻造、批量操作、资源预览等说明"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4883:3580",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "上部内容区",
+          "role": "primary_detail_block",
+          "source_type": "frame",
+          "nodeId": "4883:4792",
+          "componentKey": null,
+          "position": { "x": 44, "y": 103 },
+          "size": { "width": 1219, "height": 325 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "下部内容区",
+          "role": "secondary_detail_block",
+          "source_type": "frame",
+          "nodeId": "4871:4087",
+          "componentKey": null,
+          "position": { "x": 44, "y": 440 },
+          "size": { "width": 1219, "height": 163 },
+          "constraints": ["full_content_width", "above_footer"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4871:4091",
+          "componentKey": "5760ca2309ded7998fb3761f0f1f4524a05b711b",
+          "position": { "x": 0, "y": 624 },
+          "size": { "width": 1307, "height": 176 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "上下双区块信息加底部操作的中小弹窗。",
+      "use_scenes": ["批量操作弹窗", "锻造说明弹窗", "结果预览弹窗"]
+    },
+    {
+      "name": "UIOutOfResourcesWindow",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4873:5785",
+      "componentKey": "0a49266969c498952f28d54971a146ddbbe273d9",
+      "semantic_hint": "资源不足说明型中小弹窗，上部产量，中部现状，下部获取途径",
+      "frame": {
+        "x": 108,
+        "y": 6898,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_status_blocks",
+        "vertical_mode": "header_metric_block_list_block",
+        "notes": [
+          "从上到下是产量概览、资源现状、获取途径",
+          "下部列表高度需要额外校验是否统一为58"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4883:3585",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "产量区",
+          "role": "metric_strip",
+          "source_type": "frame",
+          "nodeId": "4873:5987",
+          "componentKey": null,
+          "position": { "x": 337, "y": 97 },
+          "size": { "width": 597, "height": 60 },
+          "constraints": ["top_summary"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "资源现状区",
+          "role": "resource_status_block",
+          "source_type": "frame",
+          "nodeId": "4873:6024",
+          "componentKey": null,
+          "position": { "x": 47, "y": 159 },
+          "size": { "width": 1219, "height": 252 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "获取途径区",
+          "role": "resource_source_list",
+          "source_type": "frame",
+          "nodeId": "4882:1695",
+          "componentKey": null,
+          "position": { "x": 68, "y": 500 },
+          "size": { "width": 1172, "height": 206 },
+          "constraints": ["above_bottom_edge"],
+          "adaptation_notes": ["条目高度是否统一为58应继续作为检查项"]
+        }
+      ],
+      "summary": "资源不足时展示产量、现状和获取途径的中小弹窗。",
+      "use_scenes": ["资源不足提示弹窗", "获取途径弹窗", "数值缺口说明弹窗"]
+    },
+    {
+      "name": "UIDrillIdleRewardPanel",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4873:4688",
+      "componentKey": "0453d7998be1aa61f27c3a344fd6296fde3c06df",
+      "semantic_hint": "挂机奖励型中小弹窗，上部状态条，中部说明，下部奖励",
+      "frame": {
+        "x": 108,
+        "y": 7740,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_reward_panel",
+        "vertical_mode": "status_bar_then_two_blocks_then_footer",
+        "notes": [
+          "上方先展示时间上限和摘要条",
+          "下方是两段内容区和底部按钮"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4883:3590",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "状态条",
+          "role": "summary_strip",
+          "source_type": "frame",
+          "nodeId": "4873:4902",
+          "componentKey": null,
+          "position": { "x": 44, "y": 111 },
+          "size": { "width": 1220, "height": 50 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "中部说明区",
+          "role": "description_block",
+          "source_type": "frame",
+          "nodeId": "4873:4917",
+          "componentKey": null,
+          "position": { "x": 44, "y": 218 },
+          "size": { "width": 1219, "height": 163 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "奖励区",
+          "role": "reward_block",
+          "source_type": "frame",
+          "nodeId": "4873:4567",
+          "componentKey": null,
+          "position": { "x": 44, "y": 394 },
+          "size": { "width": 1219, "height": 210 },
+          "constraints": ["full_content_width", "above_footer"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4873:4586",
+          "componentKey": "5760ca2309ded7998fb3761f0f1f4524a05b711b",
+          "position": { "x": 0, "y": 624 },
+          "size": { "width": 1307, "height": 176 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "挂机奖励摘要加奖励列表的中小弹窗。",
+      "use_scenes": ["挂机奖励弹窗", "离线收益弹窗", "摘要加奖励弹窗"]
+    },
+    {
+      "name": "UIHeroPromoteWindow",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4873:5178",
+      "componentKey": "1a492106773d070a75495daf91b3a81136894148",
+      "semantic_hint": "角色晋升型中小弹窗，中部主对象，下部说明",
+      "frame": {
+        "x": 108,
+        "y": 8582,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "center_focus_dialog",
+        "vertical_mode": "hero_focus_then_text_then_footer",
+        "notes": [
+          "中间聚焦主对象卡片",
+          "下方补成长说明文案"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4883:3595",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "主对象区",
+          "role": "focus_card",
+          "source_type": "instance",
+          "nodeId": "4873:5289",
+          "componentKey": null,
+          "position": { "x": 531, "y": 120 },
+          "size": { "width": 245, "height": 348 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "说明文案",
+          "role": "supporting_text",
+          "source_type": "text",
+          "nodeId": "4873:5286",
+          "componentKey": null,
+          "position": { "x": 281, "y": 502 },
+          "size": { "width": 746, "height": 82 },
+          "constraints": ["above_footer", "centered_text"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4873:5100",
+          "componentKey": "5760ca2309ded7998fb3761f0f1f4524a05b711b",
+          "position": { "x": 0, "y": 624 },
+          "size": { "width": 1307, "height": 176 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "中部聚焦对象、下部说明和底部操作的晋升型中小弹窗。",
+      "use_scenes": ["晋升弹窗", "成长说明弹窗", "对象确认弹窗"]
+    },
+    {
+      "name": "UIHeroLineupBonusPopUp",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4864:3387",
+      "componentKey": "006f030376f60fbf3a505b9fd967401a4de77f47",
+      "semantic_hint": "纯文本自适应说明型中小弹窗",
+      "frame": {
+        "x": 108,
+        "y": 9424,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_text_dialog",
+        "vertical_mode": "adaptive_text_block",
+        "notes": [
+          "正文区高度自适应",
+          "适合阵容加成、规则说明等纯文案场景"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4883:3600",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "正文区",
+          "role": "adaptive_text_block",
+          "source_type": "frame",
+          "nodeId": "4993:13009",
+          "componentKey": null,
+          "position": { "x": 46, "y": 82 },
+          "size": { "width": 1220, "height": 416 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": ["高度随文案长度变化"]
+        }
+      ],
+      "summary": "正文高度自适应的纯说明中小弹窗。",
+      "use_scenes": ["加成说明弹窗", "纯文案说明弹窗", "规则文本弹窗"]
+    },
+    {
+      "name": "UIResourceTransformationPopUp",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4882:2737",
+      "componentKey": "3f1c4616851599457e7486584dbd688bba958b9a",
+      "semantic_hint": "资源转换型中小弹窗，上方摘要，中部主转化区",
+      "frame": {
+        "x": 108,
+        "y": 10266,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_conversion_form",
+        "vertical_mode": "summary_strip_then_main_form_then_footer",
+        "notes": [
+          "上方先展示打造次数等摘要信息",
+          "中部是转换主区域"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4883:3605",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "摘要条",
+          "role": "summary_strip",
+          "source_type": "group",
+          "nodeId": "4883:2827",
+          "componentKey": null,
+          "position": { "x": 54, "y": 111 },
+          "size": { "width": 1200, "height": 52 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "主转化区",
+          "role": "transformation_block",
+          "source_type": "frame",
+          "nodeId": "4883:3016",
+          "componentKey": null,
+          "position": { "x": 75, "y": 200 },
+          "size": { "width": 1157, "height": 372 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4882:2700",
+          "componentKey": "5760ca2309ded7998fb3761f0f1f4524a05b711b",
+          "position": { "x": 0, "y": 624 },
+          "size": { "width": 1307, "height": 176 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "上方摘要、中部主转化区和底部操作的资源转换弹窗。",
+      "use_scenes": ["资源转换弹窗", "打造操作弹窗", "配方式转化弹窗"]
+    },
+    {
+      "name": "UIBagUsePanel",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4873:5530",
+      "componentKey": "3d5df0da3b62cf16a7004e7c1dbf398b9d910c33",
+      "semantic_hint": "道具使用型中小弹窗，中部道具卡，下方数量选择",
+      "frame": {
+        "x": 108,
+        "y": 11108,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "center_focus_with_quantity",
+        "vertical_mode": "summary_then_item_then_quantity_then_footer",
+        "notes": [
+          "上方摘要说明，中间道具主体，下方数量选择",
+          "适合道具使用、购买前数量调整等场景"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4883:3610",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "摘要条",
+          "role": "summary_strip",
+          "source_type": "group",
+          "nodeId": "4873:5649",
+          "componentKey": null,
+          "position": { "x": 54, "y": 111 },
+          "size": { "width": 1200, "height": 52 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "道具主体区",
+          "role": "item_focus_block",
+          "source_type": "group",
+          "nodeId": "4873:5638",
+          "componentKey": null,
+          "position": { "x": 577, "y": 264 },
+          "size": { "width": 154, "height": 154 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "数量选择区",
+          "role": "quantity_selector",
+          "source_type": "frame",
+          "nodeId": "4873:5581",
+          "componentKey": null,
+          "position": { "x": 340, "y": 513 },
+          "size": { "width": 628, "height": 58 },
+          "constraints": ["centered_body", "above_footer"],
+          "adaptation_notes": ["单行高度58，可作为数量选择规范"]
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4873:5494",
+          "componentKey": "5760ca2309ded7998fb3761f0f1f4524a05b711b",
+          "position": { "x": 0, "y": 624 },
+          "size": { "width": 1307, "height": 176 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "中部道具主体、下方数量选择的道具使用中小弹窗。",
+      "use_scenes": ["道具使用弹窗", "数量选择弹窗", "购买前确认弹窗"]
+    },
+    {
+      "name": "UIActPrayerFestivalPopUp_M",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4882:1879",
+      "componentKey": "3b2e2f49d3862fd57b22e1b917791e1cb9262961",
+      "semantic_hint": "大输入区留言型中小弹窗",
+      "frame": {
+        "x": 108,
+        "y": 11950,
+        "width": 1307,
+        "height": 800
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_input_dialog",
+        "vertical_mode": "lead_text_then_large_textarea_then_footer",
+        "notes": [
+          "开头是前置信息文案",
+          "中部是大面积文本输入框，带字数统计"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4883:3615",
+          "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1307, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "前置说明",
+          "role": "lead_text",
+          "source_type": "text",
+          "nodeId": "4882:1761",
+          "componentKey": null,
+          "position": { "x": 58, "y": 106 },
+          "size": { "width": 295, "height": 43 },
+          "constraints": ["top_lead"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "输入框",
+          "role": "large_textarea_input",
+          "source_type": "frame",
+          "nodeId": "4882:2826",
+          "componentKey": null,
+          "position": { "x": 49, "y": 159 },
+          "size": { "width": 1214, "height": 350 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": ["白色文本框背景需额外检查底部是否过低"]
+        },
+        {
+          "name": "右下辅助区",
+          "role": "secondary_info_block",
+          "source_type": "frame",
+          "nodeId": "4882:2653",
+          "componentKey": null,
+          "position": { "x": 941, "y": 523 },
+          "size": { "width": 297, "height": 77 },
+          "constraints": ["above_footer", "right_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4882:2027",
+          "componentKey": "5760ca2309ded7998fb3761f0f1f4524a05b711b",
+          "position": { "x": 0, "y": 624 },
+          "size": { "width": 1307, "height": 176 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "带大面积留言输入框的中小弹窗。",
+      "use_scenes": ["活动留言弹窗", "大输入区弹窗", "祈福留言弹窗"]
+    },
+    {
+      "name": "UIChatViewMembersPopUpMs",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中小弹窗",
+        "page_node_id": "4832:3245",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4990:12550",
+      "componentKey": "630337ec6f10230f2ef7fe2d0be09de0837fb4cb",
+      "semantic_hint": "窄版成员查看弹窗，属于 ms 尺寸变体",
+      "frame": {
+        "x": 108,
+        "y": 12792,
+        "width": 840,
+        "height": 936
+      },
+      "adaptation": {
+        "horizontal_mode": "narrow_centered_dialog",
+        "vertical_mode": "header_plus_long_list",
+        "notes": [
+          "比标准中小弹窗更窄更高",
+          "适合成员列表、名单列表、较长滚动列表"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "frame",
+          "nodeId": "4990:12542",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 840, "height": 103 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容区",
+          "role": "member_list_block",
+          "source_type": "frame",
+          "nodeId": "5042:6679",
+          "componentKey": null,
+          "position": { "x": 59, "y": 115 },
+          "size": { "width": 722, "height": 690 },
+          "constraints": ["centered_body", "long_scroll_list"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "窄版高挑的成员列表中小弹窗变体。",
+      "use_scenes": ["成员列表弹窗", "名单查看弹窗", "窄版长列表弹窗"]
+    },
+    {
+      "name": "中弹窗空白模板",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "6617:13137",
+      "componentKey": "1872f05dddd3b7c2a81a7bf1493c44c4a19b1a96",
+      "semantic_hint": "中弹窗空白模板，同时也是可实例化 component",
+      "frame": {
+        "x": 92,
+        "y": 190,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "centered_dialog",
+        "vertical_mode": "header_plus_large_body",
+        "notes": [
+          "采用标准中弹窗尺寸 1567x860",
+          "默认具备顶部区和大面积主体内容区",
+          "部分业务变体带底部操作区，部分则以内嵌底部或纯阅读结构结束"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "6617:12924",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "主体背景区",
+          "role": "dialog_body",
+          "source_type": "instance",
+          "nodeId": "6617:12803",
+          "componentKey": "be3d3f9ad1ebe699583e6198f1e0325964072f2c",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 860 },
+          "constraints": ["full_dialog_body"],
+          "adaptation_notes": ["适合承载大列表、双栏说明、图文详情和长文本阅读"]
+        }
+      ],
+      "summary": "标准中弹窗空白模板，适合高信息密度但仍以弹窗形式承载的内容。",
+      "use_scenes": ["中弹窗空白骨架", "大型列表弹窗", "图文详情弹窗", "长说明弹窗"]
+    },
+    {
+      "name": "UIAristocracyApplicationListPopUp",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4884:1903",
+      "componentKey": "2f2146f57d1b16b1cb69bad615b01f29f6d2f665",
+      "semantic_hint": "申请列表型中弹窗，表头 + 列表 + 内嵌底部操作区",
+      "frame": {
+        "x": 92,
+        "y": 1145,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_list_dialog",
+        "vertical_mode": "header_table_list_footer",
+        "notes": [
+          "顶部下方先是表头，再是大列表区域，最下方是内嵌底部操作区",
+          "适合审批类、多操作行列表弹窗"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4899:1961",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "表头区",
+          "role": "table_header",
+          "source_type": "frame",
+          "nodeId": "4908:5800",
+          "componentKey": null,
+          "position": { "x": 6, "y": 113 },
+          "size": { "width": 1555, "height": 52 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "列表区",
+          "role": "scroll_list",
+          "source_type": "group",
+          "nodeId": "4909:12851",
+          "componentKey": null,
+          "position": { "x": 53, "y": 179 },
+          "size": { "width": 1460, "height": 500 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "embedded_footer",
+          "source_type": "frame",
+          "nodeId": "4908:7179",
+          "componentKey": null,
+          "position": { "x": 0, "y": 673 },
+          "size": { "width": 1567, "height": 187 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": ["底部区内嵌在页面本体，不是独立底部组件实例"]
+        }
+      ],
+      "summary": "适合审批和申请处理的表头+列表+底部操作中弹窗。",
+      "use_scenes": ["申请列表弹窗", "审批列表弹窗", "多操作列表弹窗"]
+    },
+    {
+      "name": "UIAristocracyOfficialsRevisionPopUp_M",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4908:1946",
+      "componentKey": "4763af72384e7029e7b39e8a1ff9c94ef6f36ea3",
+      "semantic_hint": "搜索 + 表头 + 列表型中弹窗",
+      "frame": {
+        "x": 92,
+        "y": 2093,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_search_list_dialog",
+        "vertical_mode": "search_then_header_then_list",
+        "notes": [
+          "顶部区下先放一行搜索输入，再进入表头和列表",
+          "适合成员管理、任命调任、带搜索的列表弹窗"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4908:1934",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "搜索输入区",
+          "role": "search_input",
+          "source_type": "frame",
+          "nodeId": "4908:1964",
+          "componentKey": null,
+          "position": { "x": 53, "y": 104 },
+          "size": { "width": 1461, "height": 58 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": ["单行搜索框高度58，可作为大宽度搜索输入规范"]
+        },
+        {
+          "name": "表头区",
+          "role": "table_header",
+          "source_type": "frame",
+          "nodeId": "4908:2021",
+          "componentKey": null,
+          "position": { "x": 6, "y": 173 },
+          "size": { "width": 1555, "height": 52 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "列表区",
+          "role": "scroll_list",
+          "source_type": "frame",
+          "nodeId": "4908:3159",
+          "componentKey": null,
+          "position": { "x": 53, "y": 243 },
+          "size": { "width": 1460, "height": 538 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "带搜索输入的全宽列表型中弹窗。",
+      "use_scenes": ["成员管理弹窗", "任命调整弹窗", "带搜索列表弹窗"]
+    },
+    {
+      "name": "UIAristocracyMemberInvitationPopUp",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4908:2599",
+      "componentKey": "4b4037bb1af6aad7defd30cd07bf495303502762",
+      "semantic_hint": "搜索 + 表头 + 列表 + 底部分页提示型中弹窗",
+      "frame": {
+        "x": 92,
+        "y": 3041,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_search_list_dialog",
+        "vertical_mode": "search_then_header_then_list_then_pager_hint",
+        "notes": [
+          "与搜索列表型近似，但底部增加了翻页提示组件",
+          "适合邀请、检索和多页列表选择"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4908:2501",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "搜索输入区",
+          "role": "search_input",
+          "source_type": "frame",
+          "nodeId": "4908:2485",
+          "componentKey": null,
+          "position": { "x": 53, "y": 104 },
+          "size": { "width": 1461, "height": 58 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "表头区",
+          "role": "table_header",
+          "source_type": "frame",
+          "nodeId": "4908:2488",
+          "componentKey": null,
+          "position": { "x": 6, "y": 173 },
+          "size": { "width": 1555, "height": 52 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "列表区",
+          "role": "scroll_list",
+          "source_type": "group",
+          "nodeId": "4909:12853",
+          "componentKey": null,
+          "position": { "x": 53, "y": 243 },
+          "size": { "width": 1460, "height": 538 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部分页提示",
+          "role": "pager_hint",
+          "source_type": "composite",
+          "nodeId": "4908:3666",
+          "componentKey": null,
+          "position": { "x": 54, "y": 776 },
+          "size": { "width": 1460, "height": 28 },
+          "constraints": ["bottom_inner_hint"],
+          "adaptation_notes": ["由底部分割线和中间箭头提示构成"]
+        }
+      ],
+      "summary": "带搜索、表头、列表和底部分页提示的中弹窗。",
+      "use_scenes": ["成员邀请弹窗", "检索选择弹窗", "多页列表弹窗"]
+    },
+    {
+      "name": "UIChatFriendAddPopUp_M",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4909:13089",
+      "componentKey": "2f24a0ede6cecd1bb525b8ca2695ee82bab20c8c",
+      "semantic_hint": "搜索 + 推荐列表型中弹窗，中部加分区标题",
+      "frame": {
+        "x": 93,
+        "y": 3989,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_search_list_dialog",
+        "vertical_mode": "search_then_section_title_then_list_then_pager_hint",
+        "notes": [
+          "列表前先插入推荐好友分区标题",
+          "适合好友添加、推荐列表、搜索结果页"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4909:12991",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "搜索输入区",
+          "role": "search_input",
+          "source_type": "frame",
+          "nodeId": "4909:12975",
+          "componentKey": null,
+          "position": { "x": 53, "y": 104 },
+          "size": { "width": 1461, "height": 58 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "分区标题",
+          "role": "section_title",
+          "source_type": "composite",
+          "nodeId": "4909:13219",
+          "componentKey": null,
+          "position": { "x": 53, "y": 183 },
+          "size": { "width": 1460, "height": 52 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": ["用于在列表前标记推荐好友等分区语义"]
+        },
+        {
+          "name": "列表区",
+          "role": "scroll_list",
+          "source_type": "group",
+          "nodeId": "4909:14280",
+          "componentKey": null,
+          "position": { "x": 53, "y": 243 },
+          "size": { "width": 1460, "height": 538 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "带搜索和推荐分区标题的好友添加中弹窗。",
+      "use_scenes": ["好友添加弹窗", "推荐好友弹窗", "搜索结果弹窗"]
+    },
+    {
+      "name": "好友申请",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4908:8635",
+      "componentKey": "9878ae4e95cd788f65b0c15122490532b0e4b5a6",
+      "semantic_hint": "纯大列表型中弹窗，无搜索栏",
+      "frame": {
+        "x": 92,
+        "y": 4937,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_list_dialog",
+        "vertical_mode": "header_then_large_list_then_pager_hint",
+        "notes": [
+          "内容几乎全部留给列表区",
+          "适合申请、消息、请求等大列表场景"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4908:8481",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "列表区",
+          "role": "scroll_list",
+          "source_type": "group",
+          "nodeId": "4909:12205",
+          "componentKey": null,
+          "position": { "x": 53, "y": 119 },
+          "size": { "width": 1460, "height": 664 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": ["没有搜索栏，列表从更靠上的位置开始"]
+        }
+      ],
+      "summary": "无搜索栏、以大列表为主体的好友申请中弹窗。",
+      "use_scenes": ["好友申请弹窗", "请求列表弹窗", "纯列表消息弹窗"]
+    },
+    {
+      "name": "UIAristocracyInvitePopUp",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4908:7612",
+      "componentKey": "a759336e30b99d04c5cd911be8ca090d224215c5",
+      "semantic_hint": "表头 + 大列表型中弹窗",
+      "frame": {
+        "x": 92,
+        "y": 5885,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_list_dialog",
+        "vertical_mode": "header_then_table_list",
+        "notes": [
+          "结构比好友申请更标准化，包含明确表头",
+          "适合邀请、筛选和排序列表"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4908:7399",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "表头区",
+          "role": "table_header",
+          "source_type": "frame",
+          "nodeId": "4908:7288",
+          "componentKey": null,
+          "position": { "x": 6, "y": 113 },
+          "size": { "width": 1555, "height": 52 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "列表区",
+          "role": "scroll_list",
+          "source_type": "frame",
+          "nodeId": "4908:7302",
+          "componentKey": null,
+          "position": { "x": 53, "y": 179 },
+          "size": { "width": 1460, "height": 604 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "带表头的大列表邀请型中弹窗。",
+      "use_scenes": ["邀请弹窗", "排序列表弹窗", "多列列表弹窗"]
+    },
+    {
+      "name": "UILogInAnnouncement",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4906:3013",
+      "componentKey": "c49b1248b18cd77871146761e6f0badb66bce1f8",
+      "semantic_hint": "左侧缩略导航 + 右侧正文阅读型中弹窗",
+      "frame": {
+        "x": 93,
+        "y": 6833,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "left_nav_right_content",
+        "vertical_mode": "header_plus_two_column_body",
+        "notes": [
+          "左侧是缩略导航或公告目录，右侧是主正文区",
+          "适合公告、新闻、分页说明阅读"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4906:2989",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧导航区",
+          "role": "nav_panel",
+          "source_type": "frame",
+          "nodeId": "4906:3214",
+          "componentKey": null,
+          "position": { "x": 53, "y": 100 },
+          "size": { "width": 328, "height": 253 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右侧正文区",
+          "role": "reading_content",
+          "source_type": "frame",
+          "nodeId": "4906:2991",
+          "componentKey": null,
+          "position": { "x": 409, "y": 100 },
+          "size": { "width": 1111, "height": 704 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左侧目录、右侧正文的公告阅读型中弹窗。",
+      "use_scenes": ["公告弹窗", "新闻弹窗", "双栏阅读弹窗"]
+    },
+    {
+      "name": "UILogInProtocolPopUp_M",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4903:2841",
+      "componentKey": "b8cca0e8e3f7c190456a9feb354d43bdcb9a9164",
+      "semantic_hint": "长协议阅读 + 标准底部操作型中弹窗",
+      "frame": {
+        "x": 93,
+        "y": 7781,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_reading_dialog",
+        "vertical_mode": "header_then_reading_then_footer",
+        "notes": [
+          "主体是大段文本阅读区，底部是标准操作区",
+          "适合协议、条款和确认阅读"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4903:2829",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "正文区",
+          "role": "reading_content",
+          "source_type": "frame",
+          "nodeId": "4903:2857",
+          "componentKey": null,
+          "position": { "x": 54, "y": 100 },
+          "size": { "width": 1466, "height": 570 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4903:2830",
+          "componentKey": "133f3cfcde8c8d3190841f8921a7eb9a223c485d",
+          "position": { "x": 0, "y": 683 },
+          "size": { "width": 1567, "height": 177 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "正文阅读加标准底部确认操作的协议型中弹窗。",
+      "use_scenes": ["协议弹窗", "条款阅读弹窗", "确认阅读弹窗"]
+    },
+    {
+      "name": "UIRecruitmentInstitute",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4909:18165",
+      "componentKey": "27d45dafc7f199938ed4ef76c1d4cb6c6eb3ab8a",
+      "semantic_hint": "左侧主对象展示 + 右侧双内容区 + 右下切换模块的中弹窗",
+      "frame": {
+        "x": 92,
+        "y": 8729,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "left_visual_right_double_panel",
+        "vertical_mode": "object_then_two_content_blocks",
+        "notes": [
+          "左侧是建筑/对象主视觉和名牌信息",
+          "右侧上下一共两段内容区，右下补 tab 切换模块"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4909:18083",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧对象展示区",
+          "role": "visual_identity_block",
+          "source_type": "composite",
+          "nodeId": "4909:18480",
+          "componentKey": null,
+          "position": { "x": 51, "y": 102 },
+          "size": { "width": 548, "height": 572 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容1",
+          "role": "detail_block_primary",
+          "source_type": "frame",
+          "nodeId": "4909:18475",
+          "componentKey": null,
+          "position": { "x": 621, "y": 102 },
+          "size": { "width": 900, "height": 322 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容2",
+          "role": "detail_block_secondary",
+          "source_type": "frame",
+          "nodeId": "4914:3664",
+          "componentKey": null,
+          "position": { "x": 621, "y": 437 },
+          "size": { "width": 900, "height": 227 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右下切换模块",
+          "role": "tab_switcher",
+          "source_type": "frame",
+          "nodeId": "4919:4622",
+          "componentKey": null,
+          "position": { "x": 1091, "y": 723 },
+          "size": { "width": 426, "height": 58 },
+          "constraints": ["bottom_right_inner"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左侧主对象、右侧双区块信息并带右下切换模块的中弹窗。",
+      "use_scenes": ["建筑研究弹窗", "对象培养弹窗", "双区块详情弹窗"]
+    },
+    {
+      "name": "UIMainCityBuildingLevelUpWindow",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4912:3518",
+      "componentKey": "cc474919a7839fddef6574fc59b3952673c44b9e",
+      "semantic_hint": "左侧主对象展示 + 右侧双内容区 + 标准底部操作型中弹窗",
+      "frame": {
+        "x": 92,
+        "y": 9645,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "left_visual_right_double_panel",
+        "vertical_mode": "object_then_two_content_blocks_then_footer",
+        "notes": [
+          "与研究型相似，但底部落到标准操作区",
+          "适合升级、强化、建造确认"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4912:3377",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧对象展示区",
+          "role": "visual_identity_block",
+          "source_type": "composite",
+          "nodeId": "4912:3403",
+          "componentKey": null,
+          "position": { "x": 51, "y": 102 },
+          "size": { "width": 548, "height": 572 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容1",
+          "role": "detail_block_primary",
+          "source_type": "frame",
+          "nodeId": "4912:3379",
+          "componentKey": null,
+          "position": { "x": 621, "y": 102 },
+          "size": { "width": 900, "height": 322 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容2",
+          "role": "detail_block_secondary",
+          "source_type": "frame",
+          "nodeId": "4942:5416",
+          "componentKey": null,
+          "position": { "x": 621, "y": 437 },
+          "size": { "width": 900, "height": 227 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4914:3680",
+          "componentKey": "133f3cfcde8c8d3190841f8921a7eb9a223c485d",
+          "position": { "x": 0, "y": 683 },
+          "size": { "width": 1567, "height": 177 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左侧对象展示、右侧双区块并带底部操作的升级型中弹窗。",
+      "use_scenes": ["升级弹窗", "强化弹窗", "建造确认弹窗"]
+    },
+    {
+      "name": "UIRuleText",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4909:14717",
+      "componentKey": "35c6633c2f5f06c469610fa6f06d2e3fa581fca4",
+      "semantic_hint": "左侧辅助区 + 右侧长文本阅读型中弹窗",
+      "frame": {
+        "x": 93,
+        "y": 10625,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "left_aux_right_reading",
+        "vertical_mode": "header_plus_two_column_reading",
+        "notes": [
+          "左侧保留辅助图片区或目录块",
+          "右侧是大面积阅读区和标题"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4909:14543",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧辅助区",
+          "role": "aux_panel",
+          "source_type": "frame",
+          "nodeId": "4909:14646",
+          "componentKey": null,
+          "position": { "x": 53, "y": 100 },
+          "size": { "width": 275, "height": 197 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右侧阅读区",
+          "role": "reading_content",
+          "source_type": "instance",
+          "nodeId": "4909:14675",
+          "componentKey": "a203cf3bbef1767c2cf4b92839b6c58d36beaa1b",
+          "position": { "x": 370, "y": 100 },
+          "size": { "width": 1150, "height": 694 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": ["文本框内部文字与框的间距当前规范为左右20、上下32"]
+        }
+      ],
+      "summary": "左侧辅助区、右侧大段阅读内容的规则文本中弹窗。",
+      "use_scenes": ["规则说明弹窗", "帮助阅读弹窗", "图文说明弹窗"]
+    },
+    {
+      "name": "UILandMgrProducePanel",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4990:12719",
+      "componentKey": "a1310cd12950df56e2e394d92c7adbea566ee384",
+      "semantic_hint": "左侧列表 + 右侧大图预览型中弹窗",
+      "frame": {
+        "x": 93,
+        "y": 11566,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "left_list_right_preview",
+        "vertical_mode": "header_plus_split_body",
+        "notes": [
+          "左侧是表头加列表，右侧是大图预览或详情图",
+          "适合产出管理、资源点管理、预览类配置"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4990:12673",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧表头区",
+          "role": "table_header",
+          "source_type": "frame",
+          "nodeId": "4990:12824",
+          "componentKey": null,
+          "position": { "x": 10, "y": 113 },
+          "size": { "width": 870, "height": 52 },
+          "constraints": ["left_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧列表区",
+          "role": "scroll_list",
+          "source_type": "frame",
+          "nodeId": "4993:13379",
+          "componentKey": null,
+          "position": { "x": 40, "y": 184 },
+          "size": { "width": 810, "height": 620 },
+          "constraints": ["left_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右侧预览区",
+          "role": "large_preview",
+          "source_type": "rectangle",
+          "nodeId": "4990:12858",
+          "componentKey": null,
+          "position": { "x": 882, "y": 207 },
+          "size": { "width": 640, "height": 465 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左侧列表、右侧大图预览的分栏中弹窗。",
+      "use_scenes": ["产出管理弹窗", "资源管理弹窗", "列表加预览弹窗"]
+    },
+    {
+      "name": "UIRewardsPreviewPopUp",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4909:15972",
+      "componentKey": "8d1890e7368519548068920225efa04e07ca8d37",
+      "semantic_hint": "左侧辅助区 + 右侧奖励预览列表型中弹窗",
+      "frame": {
+        "x": 93,
+        "y": 12564,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "left_aux_right_list",
+        "vertical_mode": "header_plus_two_column_list",
+        "notes": [
+          "左侧保留辅助图片区，右侧是奖励表头和列表区",
+          "适合奖励预览、战利品预览、结果清单"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4909:15872",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧辅助区",
+          "role": "aux_panel",
+          "source_type": "frame",
+          "nodeId": "4993:13800",
+          "componentKey": null,
+          "position": { "x": 53, "y": 100 },
+          "size": { "width": 275, "height": 197 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右侧表头区",
+          "role": "table_header",
+          "source_type": "frame",
+          "nodeId": "4909:15810",
+          "componentKey": null,
+          "position": { "x": 328, "y": 113 },
+          "size": { "width": 1226, "height": 52 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右侧列表区",
+          "role": "scroll_list",
+          "source_type": "group",
+          "nodeId": "4909:15819",
+          "componentKey": null,
+          "position": { "x": 370, "y": 187 },
+          "size": { "width": 1136, "height": 580 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左侧辅助区、右侧奖励列表的预览型中弹窗。",
+      "use_scenes": ["奖励预览弹窗", "战利品预览弹窗", "结果清单弹窗"]
+    },
+    {
+      "name": "UIRankSiegePopUp_M",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4909:14839",
+      "componentKey": "f55d55c9021c80c6aebb66d44f811d08fe6b4cb9",
+      "semantic_hint": "左侧辅助区 + 右侧排行列表型中弹窗",
+      "frame": {
+        "x": 93,
+        "y": 13486,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "left_aux_right_list",
+        "vertical_mode": "header_plus_two_column_list",
+        "notes": [
+          "结构与奖励预览接近，但语义是排行攻城列表",
+          "适合排行、战报列表、排名结果查看"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4909:14793",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧辅助区",
+          "role": "aux_panel",
+          "source_type": "frame",
+          "nodeId": "4993:13874",
+          "componentKey": null,
+          "position": { "x": 53, "y": 100 },
+          "size": { "width": 275, "height": 197 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右侧表头区",
+          "role": "table_header",
+          "source_type": "frame",
+          "nodeId": "4909:14900",
+          "componentKey": null,
+          "position": { "x": 328, "y": 113 },
+          "size": { "width": 1226, "height": 52 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右侧列表区",
+          "role": "scroll_list",
+          "source_type": "group",
+          "nodeId": "4909:15338",
+          "componentKey": null,
+          "position": { "x": 370, "y": 187 },
+          "size": { "width": 1136, "height": 580 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左侧辅助区、右侧排行列表的中弹窗。",
+      "use_scenes": ["排行弹窗", "攻城排行弹窗", "排名结果弹窗"]
+    },
+    {
+      "name": "UITrainingHorseOverviewWindow/战马",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4909:16614",
+      "componentKey": "5078ca42728a17ec986e8eda767c8d973910285c",
+      "semantic_hint": "组件集中的战马页中弹窗变体",
+      "frame": {
+        "x": 93,
+        "y": 14398,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "variant_based_medium_dialog",
+        "vertical_mode": "component_set_variant",
+        "notes": [
+          "来自 UITrainingHorseOverviewWindow 组件集",
+          "应与特技变体并列看作同一家族不同语义页"
+        ]
+      },
+      "regions": [],
+      "summary": "战马页中弹窗变体，作为组件集子页保留。",
+      "use_scenes": ["战马概览弹窗", "培养概览页签"]
+    },
+    {
+      "name": "UITrainingHorseOverviewWindow/特技",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4990:11416",
+      "componentKey": "5d22bd54eb3627c2582bcd0695662fd901458ff6",
+      "semantic_hint": "组件集中的特技页中弹窗变体",
+      "frame": {
+        "x": 93,
+        "y": 15278,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "variant_based_medium_dialog",
+        "vertical_mode": "component_set_variant",
+        "notes": [
+          "来自 UITrainingHorseOverviewWindow 组件集",
+          "与战马页构成同一家族变体"
+        ]
+      },
+      "regions": [],
+      "summary": "特技页中弹窗变体，作为组件集子页保留。",
+      "use_scenes": ["特技概览弹窗", "培养概览页签"]
+    },
+    {
+      "name": "UIPopUp_M",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4906:3317",
+      "componentKey": "4a53c9452a130a8ed6bd67e80dcdc6c498e37567",
+      "semantic_hint": "全宽正文说明型中弹窗",
+      "frame": {
+        "x": 93,
+        "y": 16382,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "full_width_content_dialog",
+        "vertical_mode": "header_then_large_body",
+        "notes": [
+          "中部是完整大内容区，没有左侧独立主视觉列",
+          "适合大面积图文说明或综合内容展示"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4906:3293",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "主体内容区",
+          "role": "full_width_content",
+          "source_type": "frame",
+          "nodeId": "4906:3295",
+          "componentKey": null,
+          "position": { "x": 54, "y": 100 },
+          "size": { "width": 1466, "height": 704 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "单块全宽主体内容的中弹窗。",
+      "use_scenes": ["综合说明弹窗", "大面积图文弹窗", "单主体内容弹窗"]
+    },
+    {
+      "name": "UITacticPromoteWindow",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4942:5254",
+      "componentKey": "5730923c94ec2a1488cf2b59430eb8c7f19ccd8a",
+      "semantic_hint": "左侧战法主体 + 右侧双内容区 + 底部操作的中弹窗",
+      "frame": {
+        "x": 93,
+        "y": 17397,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "left_focus_right_double_panel",
+        "vertical_mode": "object_then_two_content_blocks_then_footer",
+        "notes": [
+          "左侧是战法主体，右侧上下两段内容区",
+          "适合培养、升阶、说明和确认"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4942:5165",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧战法主体区",
+          "role": "focus_card",
+          "source_type": "instance",
+          "nodeId": "4951:5548",
+          "componentKey": "f1bb924a4928e248691eec228bbeeb5a01530162",
+          "position": { "x": 120, "y": 112 },
+          "size": { "width": 292, "height": 404 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容1",
+          "role": "detail_block_primary",
+          "source_type": "frame",
+          "nodeId": "4942:5098",
+          "componentKey": null,
+          "position": { "x": 476, "y": 102 },
+          "size": { "width": 1045, "height": 230 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容2",
+          "role": "detail_block_secondary",
+          "source_type": "frame",
+          "nodeId": "4951:5587",
+          "componentKey": null,
+          "position": { "x": 476, "y": 345 },
+          "size": { "width": 1045, "height": 319 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4942:5092",
+          "componentKey": "9d257e505244eaf5e5ef49a1d38ded056209c94f",
+          "position": { "x": 0, "y": 683 },
+          "size": { "width": 1567, "height": 177 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左侧主体、右侧双内容区并带底部操作的战法培养中弹窗。",
+      "use_scenes": ["战法培养弹窗", "升阶弹窗", "说明确认弹窗"]
+    },
+    {
+      "name": "UITacticWindow",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4951:6245",
+      "componentKey": "863d417ca1512f8e612186c4162dd9b3bf7b0518",
+      "semantic_hint": "左侧战法主体 + 右侧双内容区 + 左下附加操作的中弹窗",
+      "frame": {
+        "x": 93,
+        "y": 18361,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "left_focus_right_double_panel",
+        "vertical_mode": "object_then_two_content_blocks_then_mixed_footer",
+        "notes": [
+          "和战法培养型接近，但左下追加名字框和图形按钮操作",
+          "适合需要对象说明和额外快捷按钮的详情弹窗"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4951:6135",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧战法主体区",
+          "role": "focus_card",
+          "source_type": "instance",
+          "nodeId": "4951:6136",
+          "componentKey": "f1bb924a4928e248691eec228bbeeb5a01530162",
+          "position": { "x": 120, "y": 112 },
+          "size": { "width": 292, "height": 404 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容1",
+          "role": "detail_block_primary",
+          "source_type": "frame",
+          "nodeId": "4951:6110",
+          "componentKey": null,
+          "position": { "x": 476, "y": 102 },
+          "size": { "width": 1045, "height": 230 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "内容2",
+          "role": "detail_block_secondary",
+          "source_type": "frame",
+          "nodeId": "4951:6131",
+          "componentKey": null,
+          "position": { "x": 476, "y": 345 },
+          "size": { "width": 1045, "height": 319 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左下附加操作区",
+          "role": "aux_action_block",
+          "source_type": "composite",
+          "nodeId": "4951:6384",
+          "componentKey": null,
+          "position": { "x": 97, "y": 524 },
+          "size": { "width": 334, "height": 140 },
+          "constraints": ["bottom_left_inner"],
+          "adaptation_notes": ["世族名称前面会有icon，名称区需要适当加长"]
+        },
+        {
+          "name": "底部区",
+          "role": "dialog_footer",
+          "source_type": "instance",
+          "nodeId": "4951:6109",
+          "componentKey": "325151e933c32332c6bd182f9e6da5cf72b969b5",
+          "position": { "x": 0, "y": 683 },
+          "size": { "width": 1567, "height": 177 },
+          "constraints": ["bottom_anchor", "full_width"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左侧主体、右侧双内容区并带左下附加操作的战法详情中弹窗。",
+      "use_scenes": ["战法详情弹窗", "对象详情弹窗", "带附加按钮的说明弹窗"]
+    },
+    {
+      "name": "UIGridLandDefenderInfo",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "中弹窗",
+        "page_node_id": "4884:1889",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4962:7804",
+      "componentKey": "039ae0fa0d489d6a6a7d0ff6414340fbb2594eb0",
+      "semantic_hint": "上部大信息区 + 下部双分区 + 右下按钮型中弹窗",
+      "frame": {
+        "x": 93,
+        "y": 19293,
+        "width": 1567,
+        "height": 860
+      },
+      "adaptation": {
+        "horizontal_mode": "top_large_info_bottom_split",
+        "vertical_mode": "header_then_main_block_then_dual_bottom_blocks",
+        "notes": [
+          "上部是大面积守军信息区",
+          "下部左侧是详情列表，右侧是补充信息和按钮"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4962:7649",
+          "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1567, "height": 76 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "上部主信息区",
+          "role": "main_info_block",
+          "source_type": "frame",
+          "nodeId": "4962:8328",
+          "componentKey": null,
+          "position": { "x": 110, "y": 115 },
+          "size": { "width": 1348, "height": 382 },
+          "constraints": ["full_content_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "下部左侧详情区",
+          "role": "detail_list_block",
+          "source_type": "frame",
+          "nodeId": "4962:8804",
+          "componentKey": null,
+          "position": { "x": 38, "y": 557 },
+          "size": { "width": 983, "height": 248 },
+          "constraints": ["bottom_left_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "下部右侧信息区",
+          "role": "supplement_panel",
+          "source_type": "frame",
+          "nodeId": "4962:8784",
+          "componentKey": null,
+          "position": { "x": 1029, "y": 560 },
+          "size": { "width": 448, "height": 153 },
+          "constraints": ["bottom_right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右下按钮区",
+          "role": "action_button_block",
+          "source_type": "frame",
+          "nodeId": "4962:8726",
+          "componentKey": null,
+          "position": { "x": 1140, "y": 719 },
+          "size": { "width": 340, "height": 88 },
+          "constraints": ["bottom_right_panel"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "上部大信息、下部双分区并带右下按钮的守军信息中弹窗。",
+      "use_scenes": ["守军信息弹窗", "地块防守信息弹窗", "上下复合信息弹窗"]
+    },
+    {
+      "name": "大弹窗空白模板",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "大弹窗",
+        "page_node_id": "4970:4432",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "6617:13728",
+      "componentKey": "0742cb746faa1630cb6dc9543c90c2bcd0ac7e38",
+      "semantic_hint": "大弹窗空白模板，同时也是可实例化 component",
+      "frame": {
+        "x": 36,
+        "y": 239,
+        "width": 1768,
+        "height": 932
+      },
+      "adaptation": {
+        "horizontal_mode": "extra_wide_dialog",
+        "vertical_mode": "header_plus_large_body_plus_primary_action",
+        "notes": [
+          "采用标准大弹窗尺寸 1768x932",
+          "默认底部右下预留一级按钮操作位",
+          "适合大规模信息展示、左侧 tab 导航、右侧复合详情和列表"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "6617:13469",
+          "componentKey": "38204e36cc5a045acde105ae847e225f76dc19b9",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1768, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "主体背景区",
+          "role": "dialog_body",
+          "source_type": "instance",
+          "nodeId": "6617:13434",
+          "componentKey": "5118ffbdd19253ea7549b9ec8b265533a569cc7a",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1768, "height": 932 },
+          "constraints": ["full_dialog_body"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右下主按钮区",
+          "role": "primary_action",
+          "source_type": "instance",
+          "nodeId": "7176:50704",
+          "componentKey": "8605e9a6357b08a5c20ac236351918f499a3f11a",
+          "position": { "x": 1378, "y": 795 },
+          "size": { "width": 340, "height": 88 },
+          "constraints": ["bottom_right_anchor"],
+          "adaptation_notes": ["大弹窗默认在右下角放置一级主按钮"]
+        }
+      ],
+      "summary": "标准大弹窗空白模板，适用于高密度、多区块、左导航右主体的复杂弹窗。",
+      "use_scenes": ["大弹窗空白骨架", "大型概览弹窗", "多区块管理弹窗", "复杂双栏弹窗"]
+    },
+    {
+      "name": "UIHeroUnitOverviewPopUp_M/Default",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "大弹窗",
+        "page_node_id": "4970:4432",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4980:4818",
+      "componentKey": "e911e81924c1fea41f1d5eac4c622c5a168f8876",
+      "semantic_hint": "左侧 tab 导航 + 中央大列表 + 下方信息 + 右下主操作的大弹窗",
+      "frame": {
+        "x": 36,
+        "y": 1459,
+        "width": 1768,
+        "height": 932
+      },
+      "adaptation": {
+        "horizontal_mode": "left_tab_center_main_right_action",
+        "vertical_mode": "main_list_then_bottom_info",
+        "notes": [
+          "左侧是竖向 tab，中央上方是大列表，中央下方是补充信息区，右下是主操作",
+          "适合大单位概览、阵容概览、守军概览等复杂面板"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4980:5255",
+          "componentKey": "38204e36cc5a045acde105ae847e225f76dc19b9",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1768, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧tab区",
+          "role": "vertical_tab_nav",
+          "source_type": "frame",
+          "nodeId": "4980:5430",
+          "componentKey": null,
+          "position": { "x": 49, "y": 105 },
+          "size": { "width": 273, "height": 629 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "中央主列表区",
+          "role": "main_list_block",
+          "source_type": "frame",
+          "nodeId": "4980:4526",
+          "componentKey": null,
+          "position": { "x": 376, "y": 130 },
+          "size": { "width": 1320, "height": 424 },
+          "constraints": ["center_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "下部信息区",
+          "role": "bottom_detail_block",
+          "source_type": "frame",
+          "nodeId": "4982:5540",
+          "componentKey": null,
+          "position": { "x": 284, "y": 625 },
+          "size": { "width": 983, "height": 248 },
+          "constraints": ["bottom_left_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右下主按钮区",
+          "role": "primary_action",
+          "source_type": "frame",
+          "nodeId": "4980:4621",
+          "componentKey": null,
+          "position": { "x": 1378, "y": 795 },
+          "size": { "width": 340, "height": 88 },
+          "constraints": ["bottom_right_anchor"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左侧 tab、中央大列表、下部信息、右下主操作的大弹窗。",
+      "use_scenes": ["单位概览弹窗", "阵容概览弹窗", "大规模信息总览弹窗"]
+    },
+    {
+      "name": "UIHeroUnitOverviewPopUp_M/空状态",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "大弹窗",
+        "page_node_id": "4970:4432",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4984:7705",
+      "componentKey": "ba4797c54ed9735eb0a2478416c9df50e37241df",
+      "semantic_hint": "与 Default 同骨架的大弹窗空状态变体",
+      "frame": {
+        "x": 36,
+        "y": 2411,
+        "width": 1768,
+        "height": 932
+      },
+      "adaptation": {
+        "horizontal_mode": "left_tab_center_main_right_action",
+        "vertical_mode": "empty_state_variant",
+        "notes": [
+          "整体骨架与 Default 版一致",
+          "主内容区语义切换为空状态承载"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4984:7739",
+          "componentKey": "38204e36cc5a045acde105ae847e225f76dc19b9",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1768, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧tab区",
+          "role": "vertical_tab_nav",
+          "source_type": "frame",
+          "nodeId": "4984:7740",
+          "componentKey": null,
+          "position": { "x": 49, "y": 105 },
+          "size": { "width": 273, "height": 629 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "中央主内容区",
+          "role": "empty_state_main_block",
+          "source_type": "frame",
+          "nodeId": "4984:7752",
+          "componentKey": null,
+          "position": { "x": 376, "y": 130 },
+          "size": { "width": 1320, "height": 424 },
+          "constraints": ["center_panel"],
+          "adaptation_notes": ["空状态下仍保留相同主区块骨架"]
+        },
+        {
+          "name": "下部信息区",
+          "role": "bottom_detail_block",
+          "source_type": "frame",
+          "nodeId": "4984:7707",
+          "componentKey": null,
+          "position": { "x": 284, "y": 625 },
+          "size": { "width": 983, "height": 248 },
+          "constraints": ["bottom_left_panel"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "与 Default 同骨架、但主内容为空状态的大弹窗变体。",
+      "use_scenes": ["空状态总览弹窗", "无数据概览弹窗"]
+    },
+    {
+      "name": "UILogInServerPopUp_M/选角色-单列布局",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "大弹窗",
+        "page_node_id": "4970:4432",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4986:8760",
+      "componentKey": "782a272905206fe7627d71f832284b9a43b412ba",
+      "semantic_hint": "左侧 tab + 中央单列表 + 右侧说明栏的大弹窗",
+      "frame": {
+        "x": 36,
+        "y": 3498,
+        "width": 1768,
+        "height": 932
+      },
+      "adaptation": {
+        "horizontal_mode": "left_tab_center_list_right_info",
+        "vertical_mode": "single_column_list_with_side_info",
+        "notes": [
+          "中央是表头和单列列表，右侧是区服说明或介绍栏",
+          "适合角色选择、单列区服选择、列表加说明"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4986:8583",
+          "componentKey": "38204e36cc5a045acde105ae847e225f76dc19b9",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1768, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧tab区",
+          "role": "vertical_tab_nav",
+          "source_type": "frame",
+          "nodeId": "4986:8584",
+          "componentKey": null,
+          "position": { "x": 49, "y": 105 },
+          "size": { "width": 273, "height": 629 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "中央列表区",
+          "role": "single_column_list",
+          "source_type": "group",
+          "nodeId": "4988:9063",
+          "componentKey": null,
+          "position": { "x": 359, "y": 180 },
+          "size": { "width": 942, "height": 618 },
+          "constraints": ["center_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右侧说明栏",
+          "role": "side_info_panel",
+          "source_type": "frame",
+          "nodeId": "4990:10008",
+          "componentKey": null,
+          "position": { "x": 1345, "y": 108 },
+          "size": { "width": 387, "height": 675 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部状态栏",
+          "role": "status_strip",
+          "source_type": "frame",
+          "nodeId": "4990:9984",
+          "componentKey": null,
+          "position": { "x": 345, "y": 831 },
+          "size": { "width": 565, "height": 41 },
+          "constraints": ["bottom_left_panel"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左 tab、中央单列列表、右说明栏的大弹窗。",
+      "use_scenes": ["角色选择弹窗", "单列区服选择弹窗", "列表加侧说明弹窗"]
+    },
+    {
+      "name": "UILogInServerPopUp_M/选区服-宫格布局",
+      "category": "dialog",
+      "layout_source_type": "component",
+      "page_context": {
+        "page_name": "大弹窗",
+        "page_node_id": "4970:4432",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4990:10036",
+      "componentKey": "5a083684bc2893d23e5c7e69ea96c9e74e52d2c5",
+      "semantic_hint": "左侧 tab + 中央宫格区 + 右侧说明栏的大弹窗",
+      "frame": {
+        "x": 36,
+        "y": 4450,
+        "width": 1768,
+        "height": 932
+      },
+      "adaptation": {
+        "horizontal_mode": "left_tab_center_grid_right_info",
+        "vertical_mode": "grid_content_with_side_info",
+        "notes": [
+          "结构与单列布局相似，但中央内容改为宫格区",
+          "适合区服选择、资源选择、卡片宫格选择"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部区",
+          "role": "dialog_header",
+          "source_type": "instance",
+          "nodeId": "4990:10041",
+          "componentKey": "38204e36cc5a045acde105ae847e225f76dc19b9",
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 1768, "height": 77 },
+          "constraints": ["top_anchor", "full_width"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧tab区",
+          "role": "vertical_tab_nav",
+          "source_type": "frame",
+          "nodeId": "4990:10042",
+          "componentKey": null,
+          "position": { "x": 49, "y": 105 },
+          "size": { "width": 273, "height": 629 },
+          "constraints": ["left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "中央宫格区",
+          "role": "grid_content",
+          "source_type": "frame",
+          "nodeId": "4990:10662",
+          "componentKey": null,
+          "position": { "x": 364, "y": 125 },
+          "size": { "width": 938, "height": 573 },
+          "constraints": ["center_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "右侧说明栏",
+          "role": "side_info_panel",
+          "source_type": "frame",
+          "nodeId": "4990:10124",
+          "componentKey": null,
+          "position": { "x": 1345, "y": 108 },
+          "size": { "width": 387, "height": 675 },
+          "constraints": ["right_panel"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "底部状态栏",
+          "role": "status_strip",
+          "source_type": "frame",
+          "nodeId": "4990:10111",
+          "componentKey": null,
+          "position": { "x": 345, "y": 831 },
+          "size": { "width": 565, "height": 41 },
+          "constraints": ["bottom_left_panel"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "左 tab、中央宫格选择、右说明栏的大弹窗。",
+      "use_scenes": ["区服选择弹窗", "宫格选择弹窗", "卡片宫格选择弹窗"]
+    },
+    {
+      "name": "满屏浮窗/攻占成功",
+      "category": "special_screen",
+      "layout_source_type": "frame",
+      "page_context": {
+        "page_name": "满屏浮窗",
+        "page_node_id": "4009:327",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4443:779",
+      "componentKey": null,
+      "semantic_hint": "覆盖主界面的满屏结果浮窗，展示攻占成功后的通知和排行榜",
+      "frame": {
+        "x": 82,
+        "y": 246,
+        "width": 2340,
+        "height": 1080
+      },
+      "adaptation": {
+        "horizontal_mode": "full_screen_overlay",
+        "vertical_mode": "top_banner_plus_center_list",
+        "notes": [
+          "以主界面为底图，整体压暗后叠加结果层",
+          "上方是成功结果横幅，中下部是排行榜区",
+          "属于整页覆盖式浮层，不是普通弹窗"
+        ]
+      },
+      "regions": [
+        {
+          "name": "底层主界面",
+          "role": "background_scene",
+          "source_type": "rectangle",
+          "nodeId": "4516:827",
+          "componentKey": null,
+          "position": { "x": 0, "y": -24 },
+          "size": { "width": 2347, "height": 1236 },
+          "constraints": ["full_screen_background"],
+          "adaptation_notes": ["保留主界面可见性，作为结果浮层的上下文背景"]
+        },
+        {
+          "name": "压暗层",
+          "role": "overlay_dimmer",
+          "source_type": "rectangle",
+          "nodeId": "4443:768",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 2347, "height": 1080 },
+          "constraints": ["full_screen_overlay"],
+          "adaptation_notes": ["用于压暗底层主界面，突出结果层"]
+        },
+        {
+          "name": "成功标题横幅",
+          "role": "result_banner",
+          "source_type": "composite",
+          "nodeId": "4439:471",
+          "componentKey": null,
+          "position": { "x": 0, "y": 27 },
+          "size": { "width": 2347, "height": 311 },
+          "constraints": ["top_center"],
+          "adaptation_notes": ["包括顶部大标题视觉、通知区和同盟信息"]
+        },
+        {
+          "name": "通知区",
+          "role": "notification_block",
+          "source_type": "group",
+          "nodeId": "4516:925",
+          "componentKey": null,
+          "position": { "x": 507, "y": 355 },
+          "size": { "width": 1329, "height": 224 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "排行榜表头",
+          "role": "table_header",
+          "source_type": "frame",
+          "nodeId": "4440:567",
+          "componentKey": null,
+          "position": { "x": 507, "y": 560 },
+          "size": { "width": 1329, "height": 60 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "排行榜列表区",
+          "role": "ranking_list",
+          "source_type": "frame",
+          "nodeId": "4443:769",
+          "componentKey": null,
+          "position": { "x": 575, "y": 641 },
+          "size": { "width": 1157, "height": 290 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": ["中部列表承载玩家排行与数据展示"]
+        }
+      ],
+      "summary": "覆盖主界面的攻占成功满屏浮窗，上方结果通知、下方排行榜。",
+      "use_scenes": ["攻占成功结果页", "全屏结果浮层", "带排行榜的胜利结算浮层"]
+    },
+    {
+      "name": "满屏浮窗/攻占失败",
+      "category": "special_screen",
+      "layout_source_type": "frame",
+      "page_context": {
+        "page_name": "满屏浮窗",
+        "page_node_id": "4009:327",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "4516:829",
+      "componentKey": null,
+      "semantic_hint": "覆盖主界面的满屏结果浮窗，展示攻占失败后的通知和排行榜",
+      "frame": {
+        "x": 82,
+        "y": 1446,
+        "width": 2340,
+        "height": 1080
+      },
+      "adaptation": {
+        "horizontal_mode": "full_screen_overlay",
+        "vertical_mode": "top_banner_plus_center_list",
+        "notes": [
+          "以主界面为底图，整体压暗后叠加失败结果层",
+          "上方是失败结果横幅，中下部是排行榜区",
+          "和成功页共享主骨架，但通知高度和文案结构不同"
+        ]
+      },
+      "regions": [
+        {
+          "name": "底层主界面",
+          "role": "background_scene",
+          "source_type": "rectangle",
+          "nodeId": "4516:830",
+          "componentKey": null,
+          "position": { "x": 0, "y": -24 },
+          "size": { "width": 2347, "height": 1236 },
+          "constraints": ["full_screen_background"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "压暗层",
+          "role": "overlay_dimmer",
+          "source_type": "rectangle",
+          "nodeId": "4516:831",
+          "componentKey": null,
+          "position": { "x": 0, "y": 0 },
+          "size": { "width": 2347, "height": 1080 },
+          "constraints": ["full_screen_overlay"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "失败标题横幅",
+          "role": "result_banner",
+          "source_type": "composite",
+          "nodeId": "4516:927",
+          "componentKey": null,
+          "position": { "x": 0, "y": 27 },
+          "size": { "width": 2347, "height": 311 },
+          "constraints": ["top_center"],
+          "adaptation_notes": ["包括顶部大标题视觉和失败原因说明"]
+        },
+        {
+          "name": "通知区",
+          "role": "notification_block",
+          "source_type": "rectangle_text_group",
+          "nodeId": "4516:929",
+          "componentKey": null,
+          "position": { "x": 509, "y": 386 },
+          "size": { "width": 1329, "height": 125 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": ["失败页通知区更扁，强调结果原因与补充说明"]
+        },
+        {
+          "name": "排行榜表头",
+          "role": "table_header",
+          "source_type": "frame",
+          "nodeId": "4516:856",
+          "componentKey": null,
+          "position": { "x": 507, "y": 528 },
+          "size": { "width": 1329, "height": 60 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "排行榜列表区",
+          "role": "ranking_list",
+          "source_type": "frame",
+          "nodeId": "4516:836",
+          "componentKey": null,
+          "position": { "x": 575, "y": 609 },
+          "size": { "width": 1157, "height": 290 },
+          "constraints": ["centered_body"],
+          "adaptation_notes": []
+        }
+      ],
+      "summary": "覆盖主界面的攻占失败满屏浮窗，上方失败通知、下方排行榜。",
+      "use_scenes": ["攻占失败结果页", "全屏失败浮层", "带排行榜的失败结算浮层"]
+    }
+  ]
+}

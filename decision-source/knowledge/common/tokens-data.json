@@ -1,0 +1,490 @@
+{
+  "meta": {
+    "source_file_name": "组件 模板 Copy",
+    "fileKey": "jB3vJujGbA7pKX9rNIlJUt",
+    "collected_at": "2026-05-18",
+    "collector": "codex",
+    "counts": {
+      "textStyles": 4,
+      "paintStyles": 17,
+      "effectStyles": 2,
+      "variableCollections": 2,
+      "variables": 7
+    }
+  },
+  "textStyles": [
+    {
+      "name": "48粗 标题",
+      "key": "190f9be355bec67937ff2f26e9a697e457a3ac9d",
+      "fontFamily": "unknown",
+      "fontStyle": "Bold",
+      "fontSize": 48,
+      "lineHeight": {
+        "unit": "AUTO"
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      }
+    },
+    {
+      "name": "42 一级按钮",
+      "key": "9d3fe1b682830be649f5efd9822e03badebf43f9",
+      "fontFamily": "unknown",
+      "fontStyle": "Regular",
+      "fontSize": 42,
+      "lineHeight": {
+        "unit": "AUTO"
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      }
+    },
+    {
+      "name": "38 一级tab、小标题",
+      "key": "a08b3fa43c434a89f339822ee920c8db5de52dbb",
+      "fontFamily": "unknown",
+      "fontStyle": "Regular",
+      "fontSize": 38,
+      "lineHeight": {
+        "unit": "AUTO"
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      }
+    },
+    {
+      "name": "34 标准正文",
+      "key": "8316605f90b968b463da6545728200673660f9a5",
+      "fontFamily": "unknown",
+      "fontStyle": "Regular",
+      "fontSize": 34,
+      "lineHeight": {
+        "unit": "AUTO"
+      },
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0
+      }
+    }
+  ],
+  "paintStyles": {
+    "lightBackground": [
+      {
+        "name": "浅色底/标题1、正文1",
+        "key": "1104047f9a04d69b9fd636f512e819ad8a58bba0",
+        "hex": "#321D14",
+        "rgba": {
+          "r": 50,
+          "g": 29,
+          "b": 20,
+          "a": 1
+        },
+        "semantic": [
+          "标题1",
+          "正文1"
+        ]
+      },
+      {
+        "name": "浅色底/标题2、正文2",
+        "key": "756110b9a8db9c0715e89ed1a0e5c22626d8366e",
+        "hex": "#593323",
+        "rgba": {
+          "r": 89,
+          "g": 51,
+          "b": 35,
+          "a": 1
+        },
+        "semantic": [
+          "标题2",
+          "正文2"
+        ]
+      },
+      {
+        "name": "浅色底/次级正文",
+        "key": "8eb6dcb2da949570f7bf149298f45842b5d2646b",
+        "hex": "#645840",
+        "rgba": {
+          "r": 100,
+          "g": 88,
+          "b": 64,
+          "a": 1
+        },
+        "semantic": [
+          "次级正文"
+        ]
+      },
+      {
+        "name": "浅色底/品质-蓝、友军、同盟",
+        "key": "f2cee467d544589086b7c9cb453e9708c4255c8b",
+        "hex": "#204B93",
+        "rgba": {
+          "r": 32,
+          "g": 75,
+          "b": 147,
+          "a": 1
+        },
+        "semantic": [
+          "品质-蓝",
+          "友军",
+          "同盟"
+        ]
+      },
+      {
+        "name": "浅色底/品质紫",
+        "key": "2f47150e584d651c3e1b9082ae8e02ecbf494735",
+        "hex": "#9E47A6",
+        "rgba": {
+          "r": 158,
+          "g": 71,
+          "b": 166,
+          "a": 1
+        },
+        "semantic": [
+          "品质紫"
+        ]
+      },
+      {
+        "name": "浅色底/品质金、重点、阵营、战法、被@玩家",
+        "key": "906b132c9869a5f21f62e6c0e44b1bcf95102fa6",
+        "hex": "#AC591A",
+        "rgba": {
+          "r": 172,
+          "g": 89,
+          "b": 26,
+          "a": 1
+        },
+        "semantic": [
+          "品质金",
+          "重点",
+          "阵营",
+          "战法",
+          "被@玩家"
+        ]
+      },
+      {
+        "name": "浅色底/品质红、负面、敌军、地名",
+        "key": "79b86f1f22f9b4913b85f36373f4f2c01d1446d9",
+        "hex": "#A82F23",
+        "rgba": {
+          "r": 168,
+          "g": 47,
+          "b": 35,
+          "a": 1
+        },
+        "semantic": [
+          "品质红",
+          "负面",
+          "敌军",
+          "地名"
+        ]
+      },
+      {
+        "name": "浅色底/正面、玩家本人、地标",
+        "key": "3f26d16f2eb53df41d8738f683771a512db1dd83",
+        "hex": "#2A6D3F",
+        "rgba": {
+          "r": 42,
+          "g": 109,
+          "b": 63,
+          "a": 1
+        },
+        "semantic": [
+          "正面",
+          "玩家本人",
+          "地标"
+        ]
+      }
+    ],
+    "darkBackground": [
+      {
+        "name": "深色底/标题1、正文1、未输入",
+        "key": "44949c6e30e1483f48f0fbf2f08a2f09a320f37b",
+        "hex": "#BFBDB0",
+        "rgba": {
+          "r": 191,
+          "g": 189,
+          "b": 176,
+          "a": 1
+        },
+        "semantic": [
+          "标题1",
+          "正文1",
+          "未输入"
+        ]
+      },
+      {
+        "name": "深色底/标题2、正文2",
+        "key": "f078e01d668603ad5eddaccc6300b303c0cad77d",
+        "hex": "#FEE7C2",
+        "rgba": {
+          "r": 254,
+          "g": 231,
+          "b": 194,
+          "a": 1
+        },
+        "semantic": [
+          "标题2",
+          "正文2"
+        ]
+      },
+      {
+        "name": "深色底/正文3、标签、已输入",
+        "key": "2370037db59b7b2b30be7bca67808dca408f62f7",
+        "hex": "#F4F2EE",
+        "rgba": {
+          "r": 244,
+          "g": 242,
+          "b": 238,
+          "a": 1
+        },
+        "semantic": [
+          "正文3",
+          "标签",
+          "已输入"
+        ]
+      },
+      {
+        "name": "深色底/次级正文",
+        "key": "b4eb428f526371eacf835c6de27e1da133e3a22e",
+        "hex": "#A2A098",
+        "rgba": {
+          "r": 162,
+          "g": 160,
+          "b": 152,
+          "a": 1
+        },
+        "semantic": [
+          "次级正文"
+        ]
+      },
+      {
+        "name": "深色底/品质蓝、友军、同盟",
+        "key": "35efb258f4065318f8e5b0ae657e738e2ed3d55a",
+        "hex": "#538DD9",
+        "rgba": {
+          "r": 83,
+          "g": 141,
+          "b": 217,
+          "a": 1
+        },
+        "semantic": [
+          "品质蓝",
+          "友军",
+          "同盟"
+        ]
+      },
+      {
+        "name": "深色底/品质紫",
+        "key": "0e0f1eb90d5f5f70c63b1f980b379cdba7250544",
+        "hex": "#BE6BC5",
+        "rgba": {
+          "r": 190,
+          "g": 107,
+          "b": 197,
+          "a": 1
+        },
+        "semantic": [
+          "品质紫"
+        ]
+      },
+      {
+        "name": "深色底/品质金、重点、阵营、战法、被@玩家",
+        "key": "0a047c17541290845b336caab8bfc673aefd021d",
+        "hex": "#DD8441",
+        "rgba": {
+          "r": 221,
+          "g": 132,
+          "b": 65,
+          "a": 1
+        },
+        "semantic": [
+          "品质金",
+          "重点",
+          "阵营",
+          "战法",
+          "被@玩家"
+        ]
+      },
+      {
+        "name": "深色底/品质红、负面、敌军、地名",
+        "key": "aca883b0cb7bc638a55a43f1c8431a621766edea",
+        "hex": "#C33C3C",
+        "rgba": {
+          "r": 195,
+          "g": 60,
+          "b": 60,
+          "a": 1
+        },
+        "semantic": [
+          "品质红",
+          "负面",
+          "敌军",
+          "地名"
+        ]
+      },
+      {
+        "name": "深色底/正面、玩家本人、地标",
+        "key": "800f566ac28873c89ad9620aaeea2f13a36b09ed",
+        "hex": "#409B6D",
+        "rgba": {
+          "r": 64,
+          "g": 155,
+          "b": 109,
+          "a": 1
+        },
+        "semantic": [
+          "正面",
+          "玩家本人",
+          "地标"
+        ]
+      }
+    ]
+  },
+  "effectStyles": [
+    {
+      "name": "文本描边",
+      "key": "2703ce5230320c2881ca66c9a0684e5781284c5b",
+      "effects": [
+        {
+          "type": "DROP_SHADOW",
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          },
+          "offset": {
+            "x": 0,
+            "y": 2
+          },
+          "radius": 1,
+          "spread": 0,
+          "blendMode": "NORMAL",
+          "showShadowBehindNode": false
+        }
+      ]
+    },
+    {
+      "name": "文本投影",
+      "key": "b0abf6e1e0744120e6696b0c3126f6f98af2d223",
+      "effects": [
+        {
+          "type": "DROP_SHADOW",
+          "color": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.72
+          },
+          "offset": {
+            "x": 0,
+            "y": 2
+          },
+          "radius": 1,
+          "spread": 0,
+          "blendMode": "NORMAL",
+          "showShadowBehindNode": false
+        }
+      ]
+    }
+  ],
+  "variableCollections": [
+    {
+      "name": "Variable collection",
+      "key": "b633e695f2882f43b678922054e74b1ea6ac0108",
+      "modes": [
+        "Mode 1"
+      ]
+    },
+    {
+      "name": "Variable collection",
+      "key": "b8af24fe45aa819bcaa2932535feef49426218bc",
+      "modes": [
+        "Mode 1"
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "name": "String",
+      "key": "f9afa1d71590d777b1a31894fa99fbac2e87f322",
+      "type": "STRING",
+      "value": "String value"
+    },
+    {
+      "name": "描述字色",
+      "key": "27f0fc77be0c953070af170f8685002bec8b6393",
+      "type": "COLOR",
+      "hex": "#A0A0A0",
+      "rgba": {
+        "r": 160,
+        "g": 160,
+        "b": 160,
+        "a": 1
+      }
+    },
+    {
+      "name": "Color",
+      "key": "decf1284f7ac20289fd650b14651b2a4c87a929e",
+      "type": "COLOR",
+      "hex": "#DB7B7B",
+      "rgba": {
+        "r": 219,
+        "g": 123,
+        "b": 123,
+        "a": 1
+      }
+    },
+    {
+      "name": "关系-敌军",
+      "key": "ab1800219c47b3fffcc22225e41e311dd90fcda3",
+      "type": "COLOR",
+      "hex": "#A82F23",
+      "rgba": {
+        "r": 168,
+        "g": 47,
+        "b": 35,
+        "a": 1
+      }
+    },
+    {
+      "name": "关系-玩家本人",
+      "key": "21686870222968c7073c45037a3eb9769c81c28b",
+      "type": "COLOR",
+      "hex": "#2A6D3F",
+      "rgba": {
+        "r": 42,
+        "g": 109,
+        "b": 63,
+        "a": 1
+      }
+    },
+    {
+      "name": "关系-友军",
+      "key": "86fc94c806e64169a19d5d1f85c94e786f6fa697",
+      "type": "COLOR",
+      "hex": "#204B93",
+      "rgba": {
+        "r": 32,
+        "g": 75,
+        "b": 147,
+        "a": 1
+      }
+    },
+    {
+      "name": "关系-阵营",
+      "key": "0069d83bb5cc97cca602aec5abc5354eed1482f7",
+      "type": "COLOR",
+      "hex": "#AC591A",
+      "rgba": {
+        "r": 172,
+        "g": 89,
+        "b": 26,
+        "a": 1
+      }
+    }
+  ]
+}

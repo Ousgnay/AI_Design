@@ -46,10 +46,11 @@ disable-model-invocation: false
 ### 组件读取优先级（component resolution order）
 
 读取 `component-spec.json` 时，组件选择必须遵循以下优先级：
+- 先检查 `organism_components`，判断是否已存在语义完整、结构完整、可直接承载一个业务块的组织层组件。
 - 先检查 `molecular_components`，判断是否已存在语义完整、状态完整、可直接复用的分子组件。
-- 只有当 `molecular_components` 中不存在可覆盖当前场景的条目时，才回退到原分类中的原子 / 底板 / 图标组件。
+- 只有当 `organism_components` 与 `molecular_components` 中都不存在可覆盖当前场景的条目时，才回退到原分类中的原子 / 底板 / 图标组件。
 - 原分类条目默认视为“原始采集归档 + 底层构件检索池”，不是优先实例化入口。
-- 若同一语义同时存在分子与原子方案，必须优先输出分子方案，并在组件清单中说明原子方案未采用。
+- 若同一语义同时存在组织层、分子与原子方案，必须优先输出组织层；若无组织层再输出分子方案，并在组件清单中说明低层方案未采用。
 
 ### 按需读取（semantic-loaded）
 
@@ -95,11 +96,14 @@ disable-model-invocation: false
 
 ### Component 决策附加规则
 
+- 若目标是完整业务块、完整状态栏、完整信息模块、地图对象标识模块等高阶复合单元，先匹配 `organism_components`。
+- 若命中组织层组件，输出时应直接引用该组织层组件名称、`nodeId`、`componentKey`，并标注来源为 `component-spec.json -> organism_components`。
 - 若目标是完整 tab、条目、弹出操作菜单、带业务语义按钮、聊天控制区等复合交互单元，先匹配 `molecular_components`。
 - 若命中分子组件，输出时应直接引用该分子组件名称、`nodeId`、`componentKey`，并标注来源为 `component-spec.json -> molecular_components`。
-- 只有在知识库中找不到可复用分子，或策划明确要求新组合时，才允许退回原子层拼装；此时必须在“决策备注”中说明为什么没有使用分子组件。
-- 不得因为原子层视觉更接近，就绕过已存在的分子组件；语义完整性优先于外观相似度。
+- 只有在知识库中找不到可复用组织层与分子层，或策划明确要求新组合时，才允许退回原子层拼装；此时必须在“决策备注”中说明为什么没有使用更高层组件。
+- 不得因为原子层视觉更接近，就绕过已存在的组织层或分子组件；语义完整性优先于外观相似度。
 - 对以下典型场景，默认先查分子层：主 tab、局部 tab、聊天 tab、可展开 tab、联系人 / 黑名单条目、聊天操作浮窗、特殊语义按钮。
+- 对以下典型场景，默认先查组织层：完整信息卡、完整状态栏、地图对象标记、带多分子组合的业务模块。
 
 ### 步骤 3 - 产出 IA 结构化文档
 
@@ -122,6 +126,7 @@ disable-model-invocation: false
 - 不得修改策划文档原文
 - 不得在本文件内硬编码 `decision-source/` 路径
 - Component 清单中每一项都必须明确标注来源
+- 若组件来自 `organism_components`，必须显式标注 `layer: organism`
 - 若组件来自 `molecular_components`，必须显式标注 `layer: molecule`
 - 若组件来自原分类兜底拼装，必须显式标注 `layer: atom-fallback`
 - 软约束偏离时必须在“决策备注”中说明理由

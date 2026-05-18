@@ -36,13 +36,46 @@ disable-model-invocation: false
 - 但凡某个 variant 后续需要被实例化，就必须补齐该 variant 的 `componentKey`
 - 需要读取 `componentKey` 时，必须调用 `use_figma`，并先遵循 `figma-use` skill；不能只依赖 `get_design_context` / `get_metadata`
 
+如果本次采集会写入 `component-spec.json`，还必须先判断组件层级归属：
+- 若目标是完整业务块、完整状态栏、完整信息模块、地图对象标识模块等高阶复合单元，优先写入 `organism_components`
+- 若目标是语义完整、状态完整的复合交互单元，但还未达到完整业务块层级，写入 `molecular_components`
+- 若目标仅是底板、图标、纹样、切图、标签底图或其他底层构件，保留在原分类区块或 `atomic_component_sets`
+- 不得因为画板上摆在一起，就把多个分子/原子误记成组织层；只有当 Figma 中已存在明确组织层组件入口，或经规则归纳确认其承载完整业务块语义时，才提升为 `organism_components`
+
 ### 步骤 2 — 先读现有 knowledge/ 避免重复
 
 读取 `decision-source/knowledge/common/` 下已有文件，判断是否重复。
 
+同时必须先判断本次采集内容属于哪一类知识文件：
+
+- `tokens`
+  - 数据写入 `tokens-data.json`
+  - 规则写入 `tokens-decision.md`
+- `component`
+  - 数据写入 `component-spec.json`
+  - 规则写入 `component-decision.md`
+- `layout`
+  - 数据写入 `layout-spec.json`
+  - 规则写入 `layout-decision.md`
+- `flow`
+  - 规则默认写入 `flow-decision.md`
+
+判定原则：
+
+- 若采集对象是颜色、字号、样式、effect、变量等设计 token，归为 `tokens`
+- 若采集对象是可实例化组件、组件层级、变体与实例化规则，归为 `component`
+- 若采集对象是页面骨架、分区方式、界面分类、容器结构与布局范式，归为 `layout`
+- 若采集对象是页面之间的关系、入口跳转、交互链路、状态流转、步骤顺序与前后置依赖，归为 `flow`
+
 ### 步骤 3 — 与用户协作提炼规则
 
 AI 整理初步采集内容后，必须先呈现给用户。
+
+若本次采集属于 layout 家族页、模板页或规范页，还必须先完成以下解释动作，再给用户确认：
+- 若页面右侧存在成列文字说明、问题记录、标注说明，默认按与左侧示例的横向位置和 `y` 轴邻近关系进行映射，不得把右侧说明误记为独立 layout
+- 若一个页面同时包含“空白模板 + 多个具体变体”，应先抽取空白模板的共性骨架，再抽取各变体的差异结构
+- 若对象同时具备 layout template 与真实 component 双重属性，必须先向用户说明会并行写入 `layout-*` 与 `component-*`
+- 若页面是满屏结果层、全屏浮窗、主界面覆盖层等特殊界面，应默认按 `layout-first` 方式解释整页结构，只把其中真实存在的子级 `COMPONENT` / `COMPONENT_SET` 单独归入 `component-*`
 
 ### 步骤 4 — 写入 knowledge/
 
@@ -53,6 +86,19 @@ AI 整理初步采集内容后，必须先呈现给用户。
 - 每个可实例化组件或 variant 都要有 `componentKey`
 - 只有“归纳出来的分组条目”允许顶层 `componentKey = null`
 - 不允许出现“新增了 nodeId，但本应可实例化的 variant 仍缺 `componentKey`”的情况
+- 若来源是 `component_set` 家族，不能只记录顶层 set；所有后续可能被真实实例化的 variant，都要单独补齐自己的 `componentKey`
+
+如果本次写入包含 `layout-spec.json`，写入前必须完成以下校验：
+- 每个 layout 条目都要有稳定的 `name`
+- 每个 layout 条目都要有明确的 `category`
+- 若 layout 来自真实 Figma 页面，还应记录来源 page 或 node 信息
+- layout 来源可以是 `frame`、`component`、`component_set` 或其他稳定表达整页骨架的节点，不要求一定是可实例化组件
+- 若用户提供了额外语义提示，应一并记录为 layout 命名、分类与使用场景判断依据
+- layout 需要记录整页主要 UI 区块的结构化数据，包括位置、尺寸、对齐与适配信息
+- `layout-spec.json` 只存结构化 layout 数据，不混入长篇规则说明
+- 若来源是弹窗家族、模板家族或 `component_set` 家族，应优先录入空白模板或共性骨架，再录入具体变体
+- 若 layout 与 component 同源共存，layout 侧记录家族骨架和变体结构，component 侧记录真实可实例化入口与 `componentKey`
+- 若页面为满屏覆盖层、结果层或主界面叠加层，不得因视觉完整就把整页 frame 误记为普通组件；应以 layout 为主，仅拆出真实发布组件
 
 ---
 

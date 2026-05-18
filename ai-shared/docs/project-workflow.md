@@ -59,6 +59,20 @@
 
 ---
 
+## 组件层级约定
+
+`decision-source/knowledge/common/component-spec.json` 当前按原子设计分层维护组件知识：
+
+- `organism_components`：组织层，承载完整业务块、完整状态栏、完整信息模块、地图对象标识模块等高阶复合单元
+- `molecular_components`：分子层，承载语义完整、状态完整的复合交互单元
+- 原有分类区块与 `atomic_component_sets`：原子层/原始采集归档，默认仅作内部构件检索与兜底拼装材料
+
+默认消费优先级：
+
+- `organism_components -> molecular_components -> atom fallback`
+
+---
+
 ## 读取顺序
 
 1. 先读 `ai-shared/state/project-status.md`

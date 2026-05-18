@@ -65,12 +65,17 @@
         "page": "英雄卡牌",
         "page_node_id": "6453:23911",
         "collected": "2026-05-18"
+      },
+      {
+        "page": "英雄卡牌",
+        "page_node_id": "1928:3750",
+        "collected": "2026-05-19"
       }
     ],
-    "last_synced": "2026-05-18",
+    "last_synced": "2026-05-19",
     "file_key": "jB3vJujGbA7pKX9rNIlJUt",
     "_note_componentKeys": "componentKey 已下沉至各条目（及 variants 子项），与 nodeId 并排存放。值暂为 null，待 ux-collect 补录。nodeId 供 MCP 读取工具（get_design_context / get_screenshot）；componentKey 供 use_figma 中 figma.importComponentByKeyAsync(key)。",
-    "_note_component_layers": "知识库同时收录原子层与分子层。若存在语义完整、状态完整的分子组件，应优先实例化分子组件，原子条目默认作为分子内部构件或兜底拼装材料。"
+    "_note_component_layers": "知识库同时收录组织层、分子层与原子层。若存在语义完整、状态完整、可直接承载业务块的组织层组件，应优先实例化组织层；其次才是分子组件；原子条目默认作为组织层/分子层内部构件或兜底拼装材料。"
   },
   "tab_backgrounds": [
     {
@@ -5309,6 +5314,2526 @@
       "use_scenes": [
         "侧边面板收起箭头按钮"
       ]
+    }
+  ],
+  "atomic_component_sets": [
+    {
+      "name": "部队头像",
+      "nodeId": "4029:477",
+      "componentKey": "40d02e5e24f40d32d4b6ea28762aa815d1e92093",
+      "layer": "atom",
+      "category": "hero_head_strip",
+      "size": { "w": 1040, "h": 276 },
+      "variants": [
+        { "state": "蔡文姬", "nodeId": "4029:349", "componentKey": "cdb6747a1d97457691a61e1633faa564f70fc0a1" },
+        { "state": "蔡文姬-灰", "nodeId": "4029:478", "componentKey": "af215111e1584db900f9263fb078466e10c10fad" },
+        { "state": "诸葛亮", "nodeId": "4029:480", "componentKey": "c56936a51ba5f153981d05eafe333e8c63a07e90" },
+        { "state": "周瑜", "nodeId": "4029:1248", "componentKey": "cd474e5d5485c2fe0b89d3da905ffe33b0682011" },
+        { "state": "郭嘉", "nodeId": "4029:1265", "componentKey": "5b0c81844b0bc605a04d6c0a430e7d6bb7be7af4" },
+        { "state": "孙尚香", "nodeId": "4029:1268", "componentKey": "4d5d623cd729a59997a7f0c44fc93efc2ac33f05" }
+      ],
+      "use_scenes": ["部队头像切图", "头像条素材", "武将头条素材"],
+      "instantiation_rule": "这是头像切图原子集；若目标是完整头像组件，应优先实例化现成分子组件。"
+    },
+    {
+      "name": "icon_c_big",
+      "nodeId": "4035:861",
+      "componentKey": "c8347ae3e28e2bd355bd1f67296f947d70dad1e3",
+      "layer": "atom",
+      "category": "resource_icon_large",
+      "size": { "w": 1178, "h": 478 },
+      "variants": [
+        { "state": "装备", "nodeId": "4035:860", "componentKey": "68cb139b543f49101e463c64d8bf9b87e891fc7a" },
+        { "state": "粮食", "nodeId": "4822:1987", "componentKey": "058508a5632d92e549c4edd713ae0a349e1aef6e" },
+        { "state": "木材", "nodeId": "4873:5950", "componentKey": "ce84d2e999ef800eba9ef33cc19695926db474ea" },
+        { "state": "铁矿", "nodeId": "4873:5952", "componentKey": "4d32309dbab74ace032e7a3e2de7985070010a41" },
+        { "state": "玉环", "nodeId": "4882:2518", "componentKey": "5f68d872da58bdf47e876a43c0fd724bfed3f9cd" },
+        { "state": "金币", "nodeId": "4882:2526", "componentKey": "17c9bf351f6d53e6d39f94318ef7f4698c3f5f5b" },
+        { "state": "玉佩", "nodeId": "4882:2509", "componentKey": "77f3b29d398e39388f119c618580fc2766e2c46a" },
+        { "state": "招募令", "nodeId": "5862:5235", "componentKey": "2e118f5d163da9f429a4cf9c495d6e48ec05a0ba" },
+        { "state": "策力", "nodeId": "6459:23235", "componentKey": "20f4c254ab9aa7963149d9d5dc76860b3bde2684" },
+        { "state": "足印", "nodeId": "6459:23249", "componentKey": "fc3e3f07b6074d2d47ab31853ea806e8faa6ffeb" },
+        { "state": "测点", "nodeId": "6459:23239", "componentKey": "288169231dce70e28d290923956e2f0a94eff622" },
+        { "state": "形势", "nodeId": "6459:23245", "componentKey": "f0db85e5d1c372600f544eeb053f32bd7690c2dc" },
+        { "state": "居民", "nodeId": "6459:23224", "componentKey": "f5ddb7c2cff65861c937306712bc6060b874011f" },
+        { "state": "预备兵", "nodeId": "6459:23231", "componentKey": "8597cfc8d71c0198a577e11e1d6a803dedd3399e" },
+        { "state": "石块", "nodeId": "4873:5954", "componentKey": "7e6ad33793f13035927d85655073e4dfb10396a4" },
+        { "state": "铜币", "nodeId": "4873:5956", "componentKey": "9887595d82891b15422ed6f8caaa392137b0f269" }
+      ],
+      "use_scenes": ["大尺寸资源图标", "物品大图标", "资源面板切图"],
+      "instantiation_rule": "该组用于大尺寸资源与物品图标原子素材；不直接等同于完整道具格或资源标签。"
+    },
+    {
+      "name": "玩家头像",
+      "nodeId": "4044:879",
+      "componentKey": "48c3d4ccf0b4b489ca8e713fb488372f7fcf0304",
+      "layer": "atom",
+      "category": "avatar_portrait",
+      "size": { "w": 1648, "h": 464 },
+      "variants": [
+        { "state": "zhouyu", "nodeId": "4044:869", "componentKey": "524895bc19541ed5749480167e70e8120bdbbad4" },
+        { "state": "zhoucang", "nodeId": "4236:441", "componentKey": "7ff2d5d5d324e8d2f200183ba6554fa5874a0016" },
+        { "state": "sunquan", "nodeId": "4236:460", "componentKey": "6f608ebce1c50fe35974a3393d08876f49bbd337" },
+        { "state": "masu", "nodeId": "4236:462", "componentKey": "e3dd8d8bfc359cc7bd5dcb8959ff5be457bc4d2b" },
+        { "state": "zhangfei", "nodeId": "4236:464", "componentKey": "7e4c9d52eab6fe08de54bc087040cb8a24fbcba4" },
+        { "state": "sunshangxiang", "nodeId": "4236:466", "componentKey": "e973954232de85cad00cc8e0eb39a40ce1e69e0b" },
+        { "state": "huangyueying", "nodeId": "4236:468", "componentKey": "9a2e32751f6e0570ec359e53491d64207147ebc4" },
+        { "state": "guojia", "nodeId": "4236:470", "componentKey": "74fc262bfdc139cb6c38ff1f0eef135b246974d4" },
+        { "state": "ganning", "nodeId": "4236:472", "componentKey": "e8ccee24dd096099fd59639f64c26f63bf6a3201" },
+        { "state": "diaochan", "nodeId": "4236:474", "componentKey": "3c11ffaca1fe5d03f2c86d34924a9cbaf48b8a61" },
+        { "state": "caocao", "nodeId": "4236:476", "componentKey": "45a5fef2df00288fd89140798cf10c8c5c35a5fa" },
+        { "state": "handang", "nodeId": "4236:478", "componentKey": "c0288919e5b6a6696afcc4490abb511d71d088a8" },
+        { "state": "zhugeliang", "nodeId": "4236:480", "componentKey": "142cd6fd62f89955a408113966770be449044d32" },
+        { "state": "guanyu", "nodeId": "4236:482", "componentKey": "3f07d5685a64507379ed19b39d8ca1db7ffde19c" },
+        { "state": "dingfeng", "nodeId": "4236:484", "componentKey": "6b68df0bf69a0faa84c9c1b92f1c4de886a26e10" },
+        { "state": "liubei", "nodeId": "4236:486", "componentKey": "279932b58cb773b0d77d4ab0d7008c02eff7bc1d" },
+        { "state": "caiwenji", "nodeId": "4236:488", "componentKey": "6b65735f287b3c52fc6f3319d9c85b2ac38380ce" },
+        { "state": "lvbu", "nodeId": "4236:490", "componentKey": "c482dd0a4e6339ea3262ef7bb6ed8de665a531b2" },
+        { "state": "xiaoqiao", "nodeId": "4236:492", "componentKey": "129a1a4f49106c54b162611b8e88bb55dacc33ec" },
+        { "state": "machao", "nodeId": "4236:494", "componentKey": "1f82c1ac361bdf279dd8af8ac1f3f3b30c196e6e" },
+        { "state": "simayi", "nodeId": "4236:496", "componentKey": "089653e47b31647d110ddaace3daf1a175cc7c85" },
+        { "state": "xunyu", "nodeId": "4236:498", "componentKey": "84bb0aea1b3a03fb22a5ecf4addc7efb52acf9d4" },
+        { "state": "yuanshao", "nodeId": "4236:500", "componentKey": "15476e56f0082c98f900f36ce138b8991e4f5f5a" },
+        { "state": "zhangliao", "nodeId": "4236:502", "componentKey": "ff3f78ca77cf16b9c4d9457325afb35a6b3cd45f" },
+        { "state": "dongzhuo", "nodeId": "4236:504", "componentKey": "4fb9f23c92bf35a29fbd81bdcb281787ade9b905" },
+        { "state": "zhangjiao", "nodeId": "4236:506", "componentKey": "971c3c54ca477ce7b1583a21c910039804e75a5c" },
+        { "state": "zhangbao", "nodeId": "4236:508", "componentKey": "420fc07360ddae83b0afc0127291e0474856244c" },
+        { "state": "xuhuang", "nodeId": "4236:510", "componentKey": "56a19514851c35567effed5ad085b60f268ac3be" },
+        { "state": "dengai", "nodeId": "4236:512", "componentKey": "d382152ff8fea22ef120d8be3426a93f34219739" }
+      ],
+      "use_scenes": ["玩家头像原图", "头像替换素材", "头像内部构件来源"],
+      "instantiation_rule": "这是玩家头像原子素材集；若目标是 HUD头像、群头像等组合件，应优先实例化现成分子组件。"
+    },
+    {
+      "name": "战法图片",
+      "nodeId": "4586:482",
+      "componentKey": "3fbbbaee7a9ebd61274c72a608eb805975efb194",
+      "layer": "atom",
+      "category": "skill_art",
+      "size": { "w": 636, "h": 1823 },
+      "variants": [
+        { "state": "以逸待劳", "nodeId": "4586:481", "componentKey": "d09d5c637d408af95c74ea4e1f86d909df10a579" },
+        { "state": "pic_zf_tieji 1", "nodeId": "4586:480", "componentKey": "a7544d709a0a692ad4554d0fdf4aabe29b74d20c" }
+      ],
+      "use_scenes": ["战法插图", "战法卡内部素材", "技能图切图"],
+      "instantiation_rule": "战法图片是战法卡的内部视觉原子，不应直接替代完整战法卡分子组件。"
+    },
+    {
+      "name": "道具256",
+      "nodeId": "4832:2204",
+      "componentKey": "ac9058cd9ca523803260ad49e39607226e30a6af",
+      "layer": "atom",
+      "category": "item_icon_256",
+      "size": { "w": 1198, "h": 572 },
+      "variants": [
+        { "state": "icon_256_cl_bingkuangsha 1", "nodeId": "4832:2203", "componentKey": "365bef07156f4276f39a7f4758ffe043fcce7f2a" },
+        { "state": "icon_256_zq_ma", "nodeId": "4909:17315", "componentKey": "1cfed3794da0fcd4e09260c6829d2560dbd89e9c" },
+        { "state": "icon_256_zq_ma_2", "nodeId": "4909:17314", "componentKey": "fbfdcf673c1933ed2bdf05fb27bafcfdf56a35b0" },
+        { "state": "icon_256_zq_ma_3", "nodeId": "4909:17313", "componentKey": "d4f26f0ddd84b4d608434b985fbfe4cefa45c995" },
+        { "state": "icon_256_zq_ma_4", "nodeId": "4909:17283", "componentKey": "1216f6300d94107c1d6c0011cbe5e09eb3151908" }
+      ],
+      "use_scenes": ["256 尺寸道具图", "大图切图", "道具原图素材"],
+      "instantiation_rule": "该组用于 256 规格原始道具图；不直接等同于完整道具格。"
+    },
+    {
+      "name": "icon_aristocracy_flag_2",
+      "nodeId": "4854:1807",
+      "componentKey": "c13c48536e345fc97ac1f74d0b108a0fba10296a",
+      "layer": "atom",
+      "category": "banner_art",
+      "size": { "w": 488, "h": 544 },
+      "use_scenes": ["旗帜插图", "装饰挂旗素材"],
+      "instantiation_rule": "该条目是固定装饰切图，作为视觉素材使用。"
+    },
+    {
+      "name": "族徽",
+      "nodeId": "4855:1827",
+      "componentKey": "d5ca5f5624365d135de365f3bf41aeab4f093f2d",
+      "layer": "atom",
+      "category": "crest",
+      "size": { "w": 590, "h": 296 },
+      "variants": [
+        { "state": "1", "nodeId": "4855:1826", "componentKey": "cf645fce7d7b05582022c026168713defffbd157" },
+        { "state": "2", "nodeId": "4855:1825", "componentKey": "99bd2b3c25400242d3041094c9d05de5c0c62591" }
+      ],
+      "use_scenes": ["族徽切图", "徽记素材", "势力标识素材"],
+      "instantiation_rule": "族徽是独立原子标识素材，按具体图形语义选用。"
+    },
+    {
+      "name": "建筑",
+      "nodeId": "4883:4484",
+      "componentKey": "94754efb9e54dfa448993b02d03434dbf2a5af8f",
+      "layer": "atom",
+      "category": "building_icon",
+      "size": { "w": 88, "h": 224 },
+      "variants": [
+        { "state": "icon_build_toushiche", "nodeId": "4883:4483", "componentKey": "9f378b863c2eab2875f68e50d758c78594049861" },
+        { "state": "icon_build_yingzhang", "nodeId": "4883:4485", "componentKey": "126af2a497a21cd6f3ded77e099f6efd69e3ae42" },
+        { "state": "icon_c_zhiye_dun", "nodeId": "4962:8611", "componentKey": "0a8bac4a34b80d3d3aa669efd5f23ea43c041f7a" }
+      ],
+      "use_scenes": ["建筑图标", "职业/建筑小图标", "地表对象图标"],
+      "instantiation_rule": "这是建筑与职业相关的小型原子图标组，适合作为图标内容层使用。"
+    },
+    {
+      "name": "服务器icon",
+      "nodeId": "4990:9928",
+      "componentKey": "7ee2e73e09e8e05f7c14d1a08fd25e69c43ec15b",
+      "layer": "atom",
+      "category": "server_status_icon",
+      "size": { "w": 220, "h": 69 },
+      "variants": [
+        { "state": "爆满", "nodeId": "4990:9927", "componentKey": "7b9a8f847817484b2c606763df2df4f600101c78" },
+        { "state": "流畅", "nodeId": "4990:9926", "componentKey": "61b70e6c9c81da27afc91eaa6ff91da2a0bc8b61" },
+        { "state": "维护", "nodeId": "4990:9925", "componentKey": "e1b19630b72e78214ee80af098d78f9c27d6ab5f" },
+        { "state": "火爆", "nodeId": "4990:9924", "componentKey": "6b5951b8464efff9f37c9deee2b8665964cb5b23" }
+      ],
+      "use_scenes": ["服务器状态标识", "区服列表状态", "服务器负载提示"],
+      "instantiation_rule": "服务器状态图标按服务器状态语义严格选用，不混作普通标签。"
+    },
+    {
+      "name": "兵种",
+      "nodeId": "4962:7584",
+      "componentKey": "c517c0b4bd8f10450a95cd56beafd4cb2212b789",
+      "layer": "atom",
+      "category": "unit_icon",
+      "size": { "w": 90, "h": 300 },
+      "variants": [
+        { "state": "盾", "nodeId": "4962:7583", "componentKey": "1cc2b65c38f45f8163a9886f9cfbeb081b8a53c0" },
+        { "state": "枪", "nodeId": "4962:7585", "componentKey": "35dcefed996926312e9cf6f1eb9b87200029f2e1" },
+        { "state": "骑", "nodeId": "4962:7587", "componentKey": "ffea1124c7c14c2ce53e189019f3a843bae344de" },
+        { "state": "弓", "nodeId": "4962:7589", "componentKey": "5471bf3c8e15dc543a07599cd956c4a53d97e335" }
+      ],
+      "use_scenes": ["兵种图标", "武将兵种标识", "兵种关系展示"],
+      "instantiation_rule": "兵种图标是基础语义原子，按兵种语义直接选用。"
+    },
+    {
+      "name": "pic_c_circle",
+      "nodeId": "4860:2002",
+      "componentKey": "8f927ceeb95a0bfe2521b67cf936e1c000034233",
+      "layer": "atom",
+      "category": "dot",
+      "size": { "w": 14, "h": 14 },
+      "use_scenes": ["圆点装饰", "状态点", "轻量标记"],
+      "instantiation_rule": "该条目是最小圆点原子，适合作为装饰点或小型状态提示。"
+    },
+    {
+      "name": "部队状态背景",
+      "nodeId": "4027:328",
+      "componentKey": "fa6cbd69d04148923908d881d239a675927b32b9",
+      "layer": "atom",
+      "category": "unit_state_bg",
+      "size": { "w": 66, "h": 245 },
+      "variants": [
+        { "state": "蓝", "nodeId": "4027:327", "componentKey": "afa29836539415362141f978781fc84a40d27469" },
+        { "state": "黄", "nodeId": "4027:329", "componentKey": "62759e495a0461dceb8e692026be8da95e4212ec" },
+        { "state": "红", "nodeId": "4027:331", "componentKey": "0140fe098938cc97aaa51e6b3af3b1e5bdf2e36f" },
+        { "state": "灰", "nodeId": "4027:333", "componentKey": "9e9de61a1a28393d3f0652a5ad9fd1bcae4ecb48" },
+        { "state": "绿", "nodeId": "4027:335", "componentKey": "5dc17549268a230a7c151ca3326752c434372006" }
+      ],
+      "use_scenes": ["部队状态图标底色", "状态背景色条", "状态语义底板"],
+      "instantiation_rule": "该组表达状态颜色语义，通常作为部队状态图标的背景层使用。"
+    },
+    {
+      "name": "兵种图标",
+      "nodeId": "4027:403",
+      "componentKey": "2cbf59f0afd39bf87d080f07ab1639838562a104",
+      "layer": "atom",
+      "category": "unit_field_icon",
+      "size": { "w": 204, "h": 186 },
+      "variants": [
+        { "state": "弓兵-红", "nodeId": "4027:402", "componentKey": "1e18940635026ca534dbba88fc1c52ec21f4d8ff" },
+        { "state": "弓兵-蓝", "nodeId": "4027:406", "componentKey": "778dd867e9082feb04c436e6927145f3b109ef7f" },
+        { "state": "弓兵-绿", "nodeId": "4027:404", "componentKey": "f331d805a5a3e09293b70dd7d7ba8d2e2af8d6e2" },
+        { "state": "骑兵-红", "nodeId": "4027:408", "componentKey": "b41adc412022d621425e4a066c4d64da88ba117f" },
+        { "state": "枪兵-白", "nodeId": "4247:737", "componentKey": "96675d8875cc6786e35f4fd3abec24aeb1edb913" }
+      ],
+      "use_scenes": ["地表部队兵种图标", "部队卡面图标", "战场单位标识"],
+      "instantiation_rule": "兵种图标同时携带兵种与颜色语义，需按具体阵营/状态组合选用。"
+    },
+    {
+      "name": "兵种背景",
+      "nodeId": "4027:426",
+      "componentKey": "d0397994fec5cba595cdbd4b36a2fcc17766e6af",
+      "layer": "atom",
+      "category": "unit_bg",
+      "size": { "w": 66, "h": 155 },
+      "variants": [
+        { "state": "绿", "nodeId": "4027:425", "componentKey": "4cc2d0e4b4a129c2dc4e2010e64b13ffd01a80c4" },
+        { "state": "红", "nodeId": "4027:427", "componentKey": "d49a26152c1bad320ac80b806016a5a7fb8a39d5" },
+        { "state": "蓝", "nodeId": "4027:429", "componentKey": "da6f702139dbc29af3d6d8703fca116eae2555aa" }
+      ],
+      "use_scenes": ["兵种图标背景色条", "地表部队底色", "兵种颜色语义底板"],
+      "instantiation_rule": "兵种背景通常与兵种图标搭配使用，表达阵营或状态颜色。"
+    },
+    {
+      "name": "HUD-资源图标底",
+      "nodeId": "4089:1024",
+      "componentKey": "ed71cd5b8a9fc3d53de3d2f3e811bfbbd3419e96",
+      "layer": "atom",
+      "category": "hud_resource_bg",
+      "size": { "w": 90, "h": 162 },
+      "variants": [
+        { "state": "绿", "nodeId": "4089:1023", "componentKey": "ae3b2fd216095a69249088575b53c2723999b8f1" },
+        { "state": "红", "nodeId": "4089:1025", "componentKey": "b13c7510aecefb3c3f20f049422280b243faeb37" }
+      ],
+      "use_scenes": ["HUD 资源入口底板", "HUD 资源按钮底色"],
+      "instantiation_rule": "这是 HUD 资源图标的底板原子，通常与资源 icon 搭配。"
+    },
+    {
+      "name": "HUD-资源",
+      "nodeId": "4089:1031",
+      "componentKey": "e29d43b285f480d215f177a005affde53a4a4e1a",
+      "layer": "atom",
+      "category": "hud_resource_icon",
+      "size": { "w": 68, "h": 212 },
+      "variants": [
+        { "state": "铁", "nodeId": "4089:1030", "componentKey": "46537dfa9824e696c22ce57ae193ceaba473c995" },
+        { "state": "木", "nodeId": "4089:1032", "componentKey": "9ebee2caf7aca862016381a272ee66ab65b0a0e2" },
+        { "state": "石", "nodeId": "4089:1035", "componentKey": "220af1a1f9e5940ff933eebe4889c891a523a9e7" },
+        { "state": "粮", "nodeId": "4089:1037", "componentKey": "f11eba2ad56f41ed5b45873a51a3f0d453606459" }
+      ],
+      "use_scenes": ["HUD 资源图标", "顶部资源栏 icon"],
+      "instantiation_rule": "HUD 资源图标按资源类型选用，通常不单独承载完整交互。"
+    },
+    {
+      "name": "部队状态-小",
+      "nodeId": "4095:2729",
+      "componentKey": "e0e731eb6748d7d7a7cca7da990e48fb990c3477",
+      "layer": "atom",
+      "category": "unit_state_icon",
+      "size": { "w": 109, "h": 740 },
+      "variants": [
+        { "state": "停驻", "nodeId": "4095:2728", "componentKey": "9a1a1d31f248f3b6b1d8f874e0559efcb54126a3" },
+        { "state": "调动停驻", "nodeId": "4095:2737", "componentKey": "3c35db9ffa53eac38d365dbf6806d68755a34f8d" },
+        { "state": "调动中", "nodeId": "4095:2742", "componentKey": "1af4f8bea1a4166291fabe12c79811026ce3f555" },
+        { "state": "撤退", "nodeId": "4095:2747", "componentKey": "1a22e5e80282c370128c702184a725fce32b4060" },
+        { "state": "战斗", "nodeId": "4095:2752", "componentKey": "bf7d6bedf3b4a17e181346c12a02758d3a6968c6" },
+        { "state": "战平", "nodeId": "4095:2757", "componentKey": "979ea92ddb588bf1d268d5edc7a4787a3bade23f" },
+        { "state": "战斗排队", "nodeId": "4095:2767", "componentKey": "fe821bad13a7dc91c976d5d7717c8b89657e7b08" },
+        { "state": "占领", "nodeId": "4095:2772", "componentKey": "d704fe093b657efdbe3ec86eb7b365c3af65bc51" },
+        { "state": "驻守", "nodeId": "4095:2778", "componentKey": "98a132cd19ed42d82ee6b10410b740fd91dc7ed5" },
+        { "state": "操控", "nodeId": "4095:2783", "componentKey": "4b3d7efea71811dd5ffc318fb92bbce33c4ff600" },
+        { "state": "施法", "nodeId": "4095:2789", "componentKey": "94866cf016c3a08de5cc4a45c97d0717ff13e7f0" },
+        { "state": "征兵", "nodeId": "4095:2795", "componentKey": "01cee9507c32caa6f5ed30cc585c9336f26a0eea" },
+        { "state": "集结中", "nodeId": "4095:2800", "componentKey": "4dc63226d33e2b40be521567a647c024f87a8c1b" },
+        { "state": "集结到达", "nodeId": "4095:2806", "componentKey": "465a9520473a4c0212224abd9eaeca55d4f83335" },
+        { "state": "船移动", "nodeId": "4095:2811", "componentKey": "5873d22163cde87bac466063298cb3b7285414b9" },
+        { "state": "船战斗", "nodeId": "4095:2816", "componentKey": "1a5f57c22997ac77c1c6439ef5bb667f634fa81e" },
+        { "state": "船停驻", "nodeId": "4095:2822", "componentKey": "4be4a02f632b7c23fe1cda28b3d01f27c21de2f9" },
+        { "state": "移动", "nodeId": "4095:2730", "componentKey": "46d5283e3f7d91d3e638f2e755d1ebf44e7c2cfd" },
+        { "state": "操控-棕色", "nodeId": "6682:19982", "componentKey": "337975891747e3b33614282a302bcbab50ddffb7" }
+      ],
+      "use_scenes": ["部队小状态图标", "地图状态提示", "行军与战斗状态标识"],
+      "instantiation_rule": "该组是部队状态原子图标体系，常与部队状态背景组合使用。"
+    },
+    {
+      "name": "策牌",
+      "nodeId": "4982:5515",
+      "componentKey": "948b13033fd5f5c2eb64c385d82e1e4b7e226934",
+      "layer": "atom",
+      "category": "card_icon",
+      "size": { "w": 130, "h": 80 },
+      "variants": [
+        { "state": "杀", "nodeId": "4982:5514", "componentKey": "bb10a1f1c3ec831c317cf9b1d53928a7462ce583" },
+        { "state": "桃", "nodeId": "4982:5513", "componentKey": "13142c3f6b8da103a33ac48f008987829d742265" }
+      ],
+      "use_scenes": ["策牌图标", "卡牌内容图标"],
+      "instantiation_rule": "策牌图标是内容型原子，按具体牌面语义选用。"
+    },
+    {
+      "name": "icon_slg_buff_zhen",
+      "nodeId": "6312:8359",
+      "componentKey": "c18738b8541a814e5ade23d95bc7aaeecfb4c8a4",
+      "layer": "atom",
+      "category": "buff_icon",
+      "size": { "w": 218, "h": 136 },
+      "variants": [
+        { "state": "无时间", "nodeId": "6312:8360", "componentKey": "d3e6d2e40e6545754d40fd629d4dd51b1b5942f5" },
+        { "state": "有时间", "nodeId": "6312:8362", "componentKey": "61630b2b35cfc63c20b369edeb20b541297d8226" }
+      ],
+      "use_scenes": ["buff 图标", "阵效果图标", "带时效/无时效状态图标"],
+      "instantiation_rule": "该组按是否带时间语义区分，用于 buff 状态展示。"
+    },
+    {
+      "name": "属性tag",
+      "nodeId": "2027:2707",
+      "componentKey": "88c633dbb2aee3ff3eb1ed6905e9dd363836cf04",
+      "layer": "atom",
+      "category": "attribute_tag",
+      "size": { "w": 931, "h": 81 },
+      "variants": [
+        { "state": "文武", "nodeId": "2027:2706", "componentKey": "47f8de488fc0d013afdd8efccafb101de6a21749" },
+        { "state": "辅助", "nodeId": "2027:2708", "componentKey": "546668b0d5bc16dde5f40640b8d72a657318775c" },
+        { "state": "治疗", "nodeId": "2027:2710", "componentKey": "0f56f8d3328273b9630fd00489b24812b6c8e595" },
+        { "state": "防御", "nodeId": "4345:876", "componentKey": "fbcef2939eb8d79a2bf1d518423a917f26ba66f2" },
+        { "state": "谋略", "nodeId": "4345:883", "componentKey": "a897f2d3bfa88d379d346818b052ccc2972c6f6c" },
+        { "state": "兵刃", "nodeId": "4345:887", "componentKey": "63b50dbbdebd0df93ce741601bfb8d74d55d59e2" }
+      ],
+      "use_scenes": ["属性标签", "武将特征标签", "能力分类标签"],
+      "instantiation_rule": "属性 tag 是轻语义原子标签，通常作为武将或技能信息补充。"
+    },
+    {
+      "name": "阵营",
+      "nodeId": "2027:2748",
+      "componentKey": "6cfa587ade5bba8aeb1ad19149084b35b2210229",
+      "layer": "atom",
+      "category": "faction_badge",
+      "size": { "w": 361, "h": 102 },
+      "variants": [
+        { "state": "蜀", "nodeId": "2027:2747", "componentKey": "7333c5e6af737f4522ffd824757e1b92ce9900ba" },
+        { "state": "魏", "nodeId": "2027:2749", "componentKey": "e6bb2e75b2bde7c50559d4370ab7438f970a1407" },
+        { "state": "吴", "nodeId": "2027:2751", "componentKey": "98b014fddbbb3f8b38a31a86ac525dad833d560f" },
+        { "state": "群", "nodeId": "2027:2753", "componentKey": "eb8451c4b5e47708d3bc600234b8655d41a6bf4c" }
+      ],
+      "use_scenes": ["阵营标识", "武将归属标签", "势力小徽章"],
+      "instantiation_rule": "阵营小标是基础原子徽章，按势力语义直接选用。"
+    },
+    {
+      "name": "勾玉 52*65",
+      "nodeId": "2037:3504",
+      "componentKey": "02acf4df9dd585d8183efdd1cef445d624a2adbf",
+      "layer": "atom",
+      "category": "gem_badge",
+      "size": { "w": 52, "h": 65 },
+      "use_scenes": ["武将卡勾玉", "评分装饰", "武将卡内部构件"],
+      "instantiation_rule": "该条目主要作为武将列表卡与武将大卡的内部依赖原子。"
+    },
+    {
+      "name": "阵营（武将牌）",
+      "nodeId": "2040:3507",
+      "componentKey": "dd1f53e17c4488c71569451979ba3c60e90b96e0",
+      "layer": "atom",
+      "category": "hero_card_faction",
+      "size": { "w": 361, "h": 214 },
+      "variants": [
+        { "state": "蜀", "nodeId": "2040:3506", "componentKey": "ca2e4c54607cd75b36537bb7d02fca40c71ef149" },
+        { "state": "魏", "nodeId": "2040:3508", "componentKey": "bd5ed5fa2938defbc0c746869d54ed19e69561e6" },
+        { "state": "吴", "nodeId": "2040:3510", "componentKey": "f69bed43ff2d07ab7e2ff02576c91668fb4c165d" },
+        { "state": "群", "nodeId": "2040:3512", "componentKey": "acda192ae93417889c907dd8f6a932f0aff81d0f" }
+      ],
+      "use_scenes": ["武将牌阵营角标", "武将卡内部阵营件"],
+      "instantiation_rule": "该组是武将卡面的内部阵营构件，业务界面优先使用完整武将卡分子组件。"
+    },
+    {
+      "name": "勾玉 40*50",
+      "nodeId": "4951:5823",
+      "componentKey": "7f1b57501992aa510175c8c8513172a39450509f",
+      "layer": "atom",
+      "category": "gem_badge_small",
+      "size": { "w": 138, "h": 90 },
+      "variants": [
+        { "state": "勾玉", "nodeId": "2027:2726", "componentKey": "4fe26f805c5f943083ef916894b14aff3dcce5aa" },
+        { "state": "空槽", "nodeId": "4951:5824", "componentKey": "91137e7f68aad840a8edb3de8381e180ec8158b8" }
+      ],
+      "use_scenes": ["战法卡评分", "小勾玉评价", "空槽占位"],
+      "instantiation_rule": "该组主要作为战法卡等分子组件的内部构件使用。"
+    },
+    {
+      "name": "兵种适应性",
+      "nodeId": "4346:937",
+      "componentKey": "806b555d1c5f5e103a06210b20f231668c4ce553",
+      "layer": "atom",
+      "category": "aptitude_badge",
+      "size": { "w": 460, "h": 340 },
+      "variants": [
+        { "state": "S", "nodeId": "4346:936", "componentKey": "82b1132bb59017a12f5b356e69b26643854fa59b" },
+        { "state": "A", "nodeId": "4346:938", "componentKey": "b99c51aae464e5ada50cb74421251231093d4ed5" },
+        { "state": "B", "nodeId": "4346:940", "componentKey": "581d8eb943782c11751cbca5bc65018944340d26" },
+        { "state": "C", "nodeId": "4346:942", "componentKey": "c9bfd379e5a6d3929fd7986bca230cf1a73df04d" },
+        { "state": "Variant5", "nodeId": "4346:958", "componentKey": "ee4a45283d008dec52690b6917f06f6973541cd6" },
+        { "state": "Variant6", "nodeId": "4346:956", "componentKey": "f84290b88fe4b3b5c4dab16c51619fb0819fe62e" },
+        { "state": "Variant7", "nodeId": "4346:954", "componentKey": "6a2c7a7bf074e733d847072b1023bb7055413c88" },
+        { "state": "Variant8", "nodeId": "4346:952", "componentKey": "8f39f5a4dff66c935e33f034297426c3b1b07365" },
+        { "state": "Variant9", "nodeId": "4346:974", "componentKey": "dbcd97026ea7cb3cddbb6ff123b57d509a23fe2a" },
+        { "state": "Variant10", "nodeId": "4346:972", "componentKey": "fb01106aabff2bb6b1708137f2d945a11e438dd9" },
+        { "state": "Variant11", "nodeId": "4346:970", "componentKey": "15388001d05892db23c18d4d220fc3356b337f0d" },
+        { "state": "Variant12", "nodeId": "4346:968", "componentKey": "f5ada938e47303df158539d1ef8c43fee9ba46c4" },
+        { "state": "Variant13", "nodeId": "4346:990", "componentKey": "ebb2b389185e97e38233c4785cd3f9159d44ddf0" },
+        { "state": "Variant14", "nodeId": "4346:988", "componentKey": "6845276667e06ff2f7d5e1f8521d54db0ef246cc" },
+        { "state": "Variant15", "nodeId": "4346:986", "componentKey": "743a48c53f8959699e110d0691dc85175e879373" },
+        { "state": "Variant16", "nodeId": "4346:984", "componentKey": "cc4b0259b3b068bf99d496baf6bb5d782632149e" },
+        { "state": "Variant17", "nodeId": "4346:1006", "componentKey": "81fc027e32aacf0d4e76218b4ed19145d27e8ff3" },
+        { "state": "Variant18", "nodeId": "4346:1004", "componentKey": "192ea315db1b201166e319892363b66fb851e1fc" },
+        { "state": "Variant19", "nodeId": "4346:1002", "componentKey": "c5dda0ed79961656c4e5115911be9d776987776e" },
+        { "state": "Variant20", "nodeId": "4346:1000", "componentKey": "915b11c3c5e77d4a6fb99cd5996a86c8d94e9486" }
+      ],
+      "use_scenes": ["兵种适应等级", "武将适应性评价", "能力评级图标"],
+      "instantiation_rule": "兵种适应性属于等级原子徽章体系，按评级语义选用。"
+    },
+    {
+      "name": "状态",
+      "nodeId": "6551:28309",
+      "componentKey": "578fdc804f27a90a77a257dfe32b399905c66e9b",
+      "layer": "atom",
+      "category": "status_label",
+      "size": { "w": 108, "h": 42 },
+      "built_from": ["icon/行军"],
+      "use_scenes": ["单行状态标签", "行军状态小条"],
+      "instantiation_rule": "这是由背景、图标和文案组成的轻量原子状态条，不等同于完整趋势/战况分子标签。"
+    },
+    {
+      "name": "HUD右下按钮icon",
+      "nodeId": "6567:12216",
+      "componentKey": "de553f1397fbfc7175ab12eaeefe57961ae1c641",
+      "layer": "atom",
+      "category": "hud_entry_icon",
+      "size": { "w": 582, "h": 492 },
+      "variants": [
+        { "state": "治世", "nodeId": "6567:12207", "componentKey": "e2526c1d5118b01d902e99b4baad33c91b42aefe" },
+        { "state": "设置", "nodeId": "6567:12204", "componentKey": "50c099a194626d7bf449979c76320d0e46ffda75" },
+        { "state": "大将", "nodeId": "6567:12215", "componentKey": "8e18bf5364ca618eb158aba508acd7038608486c" },
+        { "state": "编队", "nodeId": "6567:12206", "componentKey": "f69800dd8c2384d473988ae78b83b5cd61bdb525" },
+        { "state": "战法", "nodeId": "6567:12213", "componentKey": "eba95f8e8c337335806171ae5f1b5d59018605b6" },
+        { "state": "排行", "nodeId": "6567:12208", "componentKey": "2879b5bfa366b7d760c39ccb2934e12bfc3298e9" },
+        { "state": "背包", "nodeId": "6567:12212", "componentKey": "30b052818c281c14d14164961a22f94667e1c03a" },
+        { "state": "职业", "nodeId": "6567:12211", "componentKey": "bbd8ee35758da48671f466927bd692ce33189dda" },
+        { "state": "世族", "nodeId": "6567:12209", "componentKey": "5eacf838723a2e6b95e7da762b0a20d2cbe3264a" },
+        { "state": "武将", "nodeId": "6567:12214", "componentKey": "6876957bf61494d550066a2228d8cf062b9105da" },
+        { "state": "霸业", "nodeId": "6567:12205", "componentKey": "587ff3ca028646b87e644ccc1433edc44a6c4bcf" },
+        { "state": "商城", "nodeId": "6567:12210", "componentKey": "f07faecf30473af06a4c294daa96f13eb506f78d" }
+      ],
+      "use_scenes": ["HUD 右下入口图标", "功能入口大图标"],
+      "instantiation_rule": "HUD 功能入口 icon 作为原子内容层使用；若已有完整 HUD 按钮分子组件，则优先使用分子组件。"
+    },
+    {
+      "name": "icon_c_min",
+      "nodeId": "6597:22807",
+      "componentKey": "6a524906e4d934341e1b17c8a1fbac2904de25b5",
+      "layer": "atom",
+      "category": "resource_icon_small",
+      "size": { "w": 149, "h": 138 },
+      "variants": [
+        { "state": "icon_c_min_liangshi", "nodeId": "6597:22808", "componentKey": "bb0a2a6d0085da983a55fc3616632b878afc5408" },
+        { "state": "icon_c_min_mucai", "nodeId": "6597:22810", "componentKey": "dd4ba20aa3f9659bfb6695b61e47e3b3b95404b2" },
+        { "state": "icon_c_min_shikuai", "nodeId": "6597:22812", "componentKey": "81692d6fb6bf22719483c27d8e228e3d5e2fb607" },
+        { "state": "icon_c_min_tieding", "nodeId": "6597:22814", "componentKey": "517e632a59e0be262849702c2365d7ab410b79ff" }
+      ],
+      "use_scenes": ["小尺寸资源图标", "资源消耗前缀图标", "数值标签小 icon"],
+      "instantiation_rule": "该组是小尺寸资源原子 icon，适合作为资源标签、消耗提示的内容层。"
+    }
+  ],
+  "organism_components": [
+    {
+      "name": "部队信息（他人）",
+      "nodeId": "4035:564",
+      "componentKey": "673531d9df4c479e2b504943a478300a0a923df6",
+      "layer": "organism",
+      "category": "troop_info_card",
+      "size": {
+        "w": 245,
+        "h": 172
+      },
+      "variants": [
+        {
+          "state": "常规",
+          "nodeId": "4035:391",
+          "componentKey": "75127f271fb0cd1c56701091538e16142e353446"
+        },
+        {
+          "state": "置灰",
+          "nodeId": "4035:565",
+          "componentKey": "00d849784ba13a1c2284a046ed6bb003a5cb0178"
+        }
+      ],
+      "built_from": [
+        "军队名底框",
+        "兵种图标",
+        "部队状态-小",
+        "短补给条"
+      ],
+      "use_scenes": [
+        "沙盘大地图他人部队信息",
+        "地图 load5-7 层他人部队识别",
+        "轻量级地图目标信息卡"
+      ],
+      "instantiation_rule": "若目标是地图上的完整他人部队摘要信息块，应优先实例化该组织层组件，不回退为名称底框、兵种图标、状态小标和补给条的手工拼装。"
+    },
+    {
+      "name": "部队信息（他人）/部队信息（自己）",
+      "nodeId": "4035:475",
+      "componentKey": "ba6c6ef425ff5d5c362411893f60faf2eee7d2a7",
+      "layer": "organism",
+      "category": "troop_identity_card",
+      "size": {
+        "w": 175,
+        "h": 142
+      },
+      "built_from": [
+        "部队头像",
+        "长补给条",
+        "兵种",
+        "部队状态-小"
+      ],
+      "use_scenes": [
+        "沙盘大地图本人部队信息",
+        "地图 load5-7 层本人部队识别"
+      ],
+      "instantiation_rule": "若目标是地图上的本人/他人部队头像型信息块，应整体实例化该组织层组件，不拆回头像、兵种、状态和补给条重新组合。"
+    },
+    {
+      "name": "部队状态",
+      "nodeId": "6694:14873",
+      "componentKey": "f026b55e3c50812c89811f3246d6b5d407ae2323",
+      "layer": "organism",
+      "category": "troop_status_stack",
+      "size": {
+        "w": 173,
+        "h": 500
+      },
+      "variants": [
+        {
+          "state": "停驻",
+          "nodeId": "6694:14725",
+          "componentKey": "6e40dfdef65c2aefcfb09345270e16c8da2421bf"
+        },
+        {
+          "state": "移动",
+          "nodeId": "6694:14794",
+          "componentKey": "4dbb2168fda1c130c6ef420662ddbb6e9a6907f6"
+        },
+        {
+          "state": "征兵",
+          "nodeId": "6694:14822",
+          "componentKey": "e1a4fde84af24ad3138d83ca605d7fa1e942fdef"
+        },
+        {
+          "state": "撤退",
+          "nodeId": "6694:14847",
+          "componentKey": "708939581c6d9ac3fa64236e214c7ce80527dfc7"
+        },
+        {
+          "state": "战斗",
+          "nodeId": "6694:14872",
+          "componentKey": "12e1e46af87b4a7d66d1a5a1e6b2241e1604ae7e"
+        }
+      ],
+      "built_from": [
+        "行军状态",
+        "部队状态背景",
+        "文本信息"
+      ],
+      "use_scenes": [
+        "沙盘部队状态纵向列表",
+        "地图多状态切换说明"
+      ],
+      "instantiation_rule": "若目标是成组展示停驻、移动、征兵、撤退、战斗等部队状态，应优先实例化该组织层组件，而不是分别摆放多个状态标签分子或原子。"
+    },
+    {
+      "name": "部队状态栏",
+      "nodeId": "6703:14957",
+      "componentKey": "a654ed251f009d6793bb97a8ae5f441f61af381e",
+      "layer": "organism",
+      "category": "troop_status_bar",
+      "size": {
+        "w": 583,
+        "h": 474
+      },
+      "variants": [
+        {
+          "state": "选中",
+          "nodeId": "6597:20803",
+          "componentKey": "7312c91b40c2441dc742b9e52625ee26c117182b"
+        },
+        {
+          "state": "未选中",
+          "nodeId": "6703:14924",
+          "componentKey": "e3e9bc83a3dab76b458504f1fe2f23f7fec91d01"
+        },
+        {
+          "state": "空",
+          "nodeId": "6703:14926",
+          "componentKey": "983e24f96d933e20cd36d537d3748001a61237d7"
+        }
+      ],
+      "built_from": [
+        "部队状态-小",
+        "部队状态",
+        "兵种图标",
+        "图形按钮-加减/空部队"
+      ],
+      "use_scenes": [
+        "沙盘本人部队状态栏",
+        "地图部队选择条",
+        "部队卡槽状态展示"
+      ],
+      "instantiation_rule": "若目标是带选中态、未选中态、空槽态的完整部队状态栏，应直接实例化该组织层组件，不应回退为单条状态、局部标签和加号按钮的手工拼装。"
+    },
+    {
+      "name": "营帐/icon",
+      "nodeId": "7039:57707",
+      "componentKey": "b86757c901690d800f78abb6d13391ed51c4a2b8",
+      "layer": "organism",
+      "category": "map_camp_marker",
+      "size": {
+        "w": 41,
+        "h": 56
+      },
+      "built_from": [
+        "bg 染色",
+        "icon_map_team"
+      ],
+      "use_scenes": [
+        "沙盘营帐数量标记",
+        "地图驻扎点标识"
+      ],
+      "instantiation_rule": "若目标是地图上的营帐标记组件，应优先实例化该组织层图标，而不是分别组合染色底板、主 icon 和数字文本。"
+    },
+    {
+      "name": "城池名牌",
+      "nodeId": "7097:86593",
+      "componentKey": "4e1497e5c41a1d993a02fe9a032169d6381526ac",
+      "layer": "organism",
+      "category": "map_city_nameplate",
+      "size": {
+        "w": 209,
+        "h": 66
+      },
+      "use_scenes": [
+        "沙盘城市名称标识",
+        "地图城池抬头",
+        "地图对象名称牌"
+      ],
+      "instantiation_rule": "若目标是地图上的完整城池名称牌，应优先实例化该组织层组件，不回退为单独标题底板、阵营色条和文字重新拼装。"
+    },
+    {
+      "name": "营帐",
+      "nodeId": "7097:87673",
+      "componentKey": "cb30a1dbdba488ea1533385277e33323acfa3c63",
+      "layer": "organism",
+      "category": "map_camp_nameplate",
+      "size": {
+        "w": 146,
+        "h": 54
+      },
+      "use_scenes": [
+        "沙盘营帐名称标识",
+        "地图驻扎点名称牌"
+      ],
+      "instantiation_rule": "若目标是地图上的营帐名称牌，应优先整体实例化该组织层组件，不回退为背景条、图标和名称文本手工组合。"
+    },
+    {
+      "name": "标签-窄",
+      "nodeId": "6994:44494",
+      "componentKey": "8773f7d22a206841c178f012f26a72a4f5c1a499",
+      "layer": "organism",
+      "category": "map_object_label",
+      "size": {
+        "w": 133,
+        "h": 50
+      },
+      "use_scenes": [
+        "沙盘窄版对象标签",
+        "地图轻量对象标题"
+      ],
+      "instantiation_rule": "若目标是窄版地图对象名称标签，应优先实例化该组织层组件，不回退为普通底板与文字重新拼装。"
+    },
+    {
+      "name": "标签-宽",
+      "nodeId": "6994:44492",
+      "componentKey": "3f033953270041818ec4b0ab76febdf3c02d099a",
+      "layer": "organism",
+      "category": "map_object_label",
+      "size": {
+        "w": 176,
+        "h": 50
+      },
+      "use_scenes": [
+        "沙盘宽版对象标签",
+        "地图长名称对象标题"
+      ],
+      "instantiation_rule": "若目标是宽版地图对象名称标签，应优先实例化该组织层组件，不回退为普通底板与文字重新拼装。"
+    },
+    {
+      "name": "标签-中",
+      "nodeId": "6993:44467",
+      "componentKey": "3d7aa0098037f3a5d393731edb3b49fd721379e8",
+      "layer": "organism",
+      "category": "map_object_label",
+      "size": {
+        "w": 155,
+        "h": 50
+      },
+      "use_scenes": [
+        "沙盘中版对象标签",
+        "地图标准对象标题"
+      ],
+      "instantiation_rule": "若目标是中版地图对象名称标签，应优先实例化该组织层组件，不回退为普通底板与文字重新拼装。"
+    },
+    {
+      "name": "ranking-前三",
+      "nodeId": "6354:11913",
+      "componentKey": "79fd09fed83c5a8ee4b889989cd30e1b85943326",
+      "layer": "organism",
+      "category": "ranking_top3_block",
+      "size": {
+        "w": 193,
+        "h": 440
+      },
+      "use_scenes": [
+        "排行榜前三展示",
+        "排名榜头部高亮区"
+      ],
+      "instantiation_rule": "若目标是完整的排行榜前三展示块，应优先实例化该组织层组件，不回退为名次徽章、头像、名称和数值分子手工组合。"
+    },
+    {
+      "name": "排名",
+      "nodeId": "6551:34031",
+      "componentKey": "f64413c93e4fe8e476f8d00cc100177a67e76e30",
+      "layer": "organism",
+      "category": "ranking_row",
+      "size": {
+        "w": 337,
+        "h": 96
+      },
+      "use_scenes": [
+        "排行榜标准条目",
+        "排行列表行"
+      ],
+      "instantiation_rule": "若目标是标准排行榜单行条目，应优先实例化该组织层组件，不回退为名次、头像、名称和数值逐项拼装。"
+    },
+    {
+      "name": "tab-bg",
+      "nodeId": "6565:12538",
+      "componentKey": "24c93922bde21dac83f0b81441699e7686a9bade",
+      "layer": "organism",
+      "category": "ranking_tab_header",
+      "size": {
+        "w": 237,
+        "h": 81
+      },
+      "use_scenes": [
+        "排行榜页签头",
+        "排行分组切换头部"
+      ],
+      "instantiation_rule": "若目标是排行榜或列表模块的完整页签头，应优先实例化该组织层组件，不回退为 tab 背景和标题文本重新组合。"
+    },
+    {
+      "name": "表头",
+      "nodeId": "6877:14367",
+      "componentKey": "cdae7e82c446d623ac79e5b373dc93f0b3e83037",
+      "layer": "organism",
+      "category": "table_header",
+      "size": {
+        "w": 409,
+        "h": 66
+      },
+      "use_scenes": [
+        "排行榜表头",
+        "数据列表表头"
+      ],
+      "instantiation_rule": "若目标是列表或排行榜的完整表头，应优先实例化该组织层组件，不回退为底板、列名和装饰条分别拼装。"
+    },
+    {
+      "name": "条目",
+      "nodeId": "7039:49691",
+      "componentKey": "42ec2f5d0a003bc123cc717f5572c42d48a83008",
+      "layer": "organism",
+      "category": "data_row",
+      "size": {
+        "w": 404,
+        "h": 66
+      },
+      "use_scenes": [
+        "通用数据条目",
+        "排行榜内容行",
+        "表格式信息列表"
+      ],
+      "instantiation_rule": "若目标是标准数据行条目，应优先实例化该组织层组件，不回退为标签、数值和底板重新拼装。"
+    },
+    {
+      "name": "HUD左下回城",
+      "nodeId": "4078:540",
+      "componentKey": "9bd43127146c17d23e7dc98af4ef0dfd3a7da4cc",
+      "layer": "organism",
+      "category": "hud_action_cluster",
+      "size": {
+        "w": 348,
+        "h": 202
+      },
+      "use_scenes": [
+        "主页 HUD 左下功能区",
+        "回城入口模块"
+      ],
+      "instantiation_rule": "若目标是 HUD 左下回城功能块，应优先实例化该组织层组件，不回退为按钮、标题和装饰件手工组合。"
+    },
+    {
+      "name": "hud任务",
+      "nodeId": "4044:1046",
+      "componentKey": "25c34a131c43ddfd0bb35881f3222c6f142c9012",
+      "layer": "organism",
+      "category": "hud_task_panel",
+      "size": {
+        "w": 376,
+        "h": 129
+      },
+      "use_scenes": [
+        "主页 HUD 任务模块",
+        "地图任务入口"
+      ],
+      "instantiation_rule": "若目标是 HUD 任务信息块，应优先实例化该组织层组件，不回退为底板、图标、标题和按钮分拆拼装。"
+    },
+    {
+      "name": "招募 1",
+      "nodeId": "4089:860",
+      "componentKey": "63a987ac2f99ebaa263a7ff4f61258814a578da8",
+      "layer": "organism",
+      "category": "hud_recruit_panel",
+      "size": {
+        "w": 268,
+        "h": 121
+      },
+      "use_scenes": [
+        "主页 HUD 招募模块",
+        "招募入口卡片"
+      ],
+      "instantiation_rule": "若目标是 HUD 招募入口块，应优先实例化该组织层组件，不回退为图标、标题和状态信息分拆拼装。"
+    },
+    {
+      "name": "右下按钮/电量",
+      "nodeId": "4089:1009",
+      "componentKey": "2b5dd6dc84575b002c7b6ed5fcbc568e6e32844f",
+      "layer": "organism",
+      "category": "hud_status_button",
+      "size": {
+        "w": 98,
+        "h": 121
+      },
+      "use_scenes": [
+        "主页 HUD 右下状态按钮",
+        "电量状态入口"
+      ],
+      "instantiation_rule": "若目标是 HUD 右下电量状态按钮，应优先实例化该组织层组件，不回退为按钮底板和电量信息手工拼装。"
+    },
+    {
+      "name": "右下按钮/wifi",
+      "nodeId": "4089:1002",
+      "componentKey": "0a6be44250538e5955442e55eeda6de627db8d90",
+      "layer": "organism",
+      "category": "hud_status_button",
+      "size": {
+        "w": 98,
+        "h": 121
+      },
+      "use_scenes": [
+        "主页 HUD 右下状态按钮",
+        "网络状态入口"
+      ],
+      "instantiation_rule": "若目标是 HUD 右下网络状态按钮，应优先实例化该组织层组件，不回退为按钮底板和网络信息手工拼装。"
+    },
+    {
+      "name": "HUD上底",
+      "nodeId": "4089:1017",
+      "componentKey": "e7094740c5d5b0cd0bb859cf6b032d260852508d",
+      "layer": "organism",
+      "category": "hud_top_bar",
+      "size": {
+        "w": 1334,
+        "h": 137
+      },
+      "use_scenes": [
+        "主页 HUD 顶部栏",
+        "地图顶部状态区"
+      ],
+      "instantiation_rule": "若目标是 HUD 顶部完整底栏，应优先实例化该组织层组件，不回退为资源条、按钮和底板分拆拼装。"
+    },
+    {
+      "name": "上方资源图标+数量",
+      "nodeId": "4090:299",
+      "componentKey": "2de4660a30ef2912cef721d0828804edd79ec673",
+      "layer": "organism",
+      "category": "hud_resource_item",
+      "size": {
+        "w": 147,
+        "h": 50
+      },
+      "use_scenes": [
+        "主页 HUD 顶部资源项",
+        "顶部资源栏"
+      ],
+      "instantiation_rule": "若目标是 HUD 顶部资源单元，应优先实例化该组织层组件，不回退为图标、数值和加号入口重新组合。"
+    },
+    {
+      "name": "繁荣栏",
+      "nodeId": "4090:657",
+      "componentKey": "4661e2f9fb1ef021bdfaa7621ea2f2f9814502c2",
+      "layer": "organism",
+      "category": "hud_prosperity_bar",
+      "size": {
+        "w": 468,
+        "h": 56
+      },
+      "use_scenes": [
+        "主页 HUD 繁荣度栏",
+        "地图顶部状态栏"
+      ],
+      "instantiation_rule": "若目标是完整繁荣度展示栏，应优先实例化该组织层组件，不回退为图标、标题、数值和底板分拆拼装。"
+    },
+    {
+      "name": "地块栏",
+      "nodeId": "4090:677",
+      "componentKey": "c9600ad8237b7980babeaa3f34d733e93e42623a",
+      "layer": "organism",
+      "category": "hud_tile_bar",
+      "size": {
+        "w": 379,
+        "h": 56
+      },
+      "use_scenes": [
+        "主页 HUD 地块栏",
+        "地图占地状态栏"
+      ],
+      "instantiation_rule": "若目标是完整地块信息栏，应优先实例化该组织层组件，不回退为图标、标题、数值和底板分拆拼装。"
+    },
+    {
+      "name": "回城",
+      "nodeId": "6567:11951",
+      "componentKey": "d646fe8061fde553c6dc11a2d91072ceb202a7d0",
+      "layer": "organism",
+      "category": "hud_return_button",
+      "size": {
+        "w": 129,
+        "h": 105
+      },
+      "use_scenes": [
+        "主页 HUD 回城按钮",
+        "地图快捷返回入口"
+      ],
+      "instantiation_rule": "若目标是 HUD 中独立的回城快捷入口，应优先实例化该组织层组件，不回退为图标按钮和文案手工组合。"
+    },
+    {
+      "name": "右下按钮区域",
+      "nodeId": "4095:1080",
+      "componentKey": "91b86f989c825ca402bd4d9c595f265e40acf00b",
+      "layer": "organism",
+      "category": "hud_bottom_right_cluster",
+      "size": {
+        "w": 322,
+        "h": 255
+      },
+      "use_scenes": [
+        "主页 HUD 右下操作区",
+        "地图右下功能入口组"
+      ],
+      "instantiation_rule": "若目标是 HUD 右下完整按钮组，应优先实例化该组织层组件，不回退为多个独立按钮和装饰件逐个拼装。"
+    },
+    {
+      "name": "小弹窗-顶部",
+      "nodeId": "4798:1082",
+      "componentKey": "7d0b5cfc8418e89e0f3a0feb4457751fd2d45231",
+      "layer": "organism",
+      "category": "dialog_top",
+      "size": {
+        "w": 946,
+        "h": 103
+      },
+      "use_scenes": [
+        "小弹窗顶部结构",
+        "窄版对话框标题区"
+      ],
+      "instantiation_rule": "若目标是小弹窗的完整顶部结构，应优先实例化该组织层组件，不回退为标题底图、文案与装饰条重新拼装。"
+    },
+    {
+      "name": "小弹窗-底部",
+      "nodeId": "4804:1218",
+      "componentKey": "8b02d8890ecb48acf080fd7f4c20d4ad90679bdf",
+      "layer": "organism",
+      "category": "dialog_bottom",
+      "size": {
+        "w": 986,
+        "h": 904
+      },
+      "variants": [
+        {
+          "state": "2按钮",
+          "nodeId": "4804:1192",
+          "componentKey": "c981815b8da67b4f46d39807a6d762f083665d9a"
+        },
+        {
+          "state": "2按钮+花费",
+          "nodeId": "4804:1241",
+          "componentKey": "92301808b50fb103166e4905003c7e3ac0d20840"
+        },
+        {
+          "state": "1按钮",
+          "nodeId": "4883:3620",
+          "componentKey": "7e2dbfad06d0b3902df1565eeabd7403666314d3"
+        },
+        {
+          "state": "1按钮+花费",
+          "nodeId": "4883:3644",
+          "componentKey": "053cc61ff03363ba4b4d4e24a284b2368fccaf8e"
+        }
+      ],
+      "use_scenes": [
+        "小弹窗底部按钮区",
+        "窄版弹窗操作区"
+      ],
+      "instantiation_rule": "若目标是小弹窗完整底部操作区，应优先实例化该组织层组件，并按按钮数量与是否带花费选择变体，不回退为底板与按钮重新拼装。"
+    },
+    {
+      "name": "中小弹窗-顶部",
+      "nodeId": "4883:3554",
+      "componentKey": "0aab4ddfbdb1ad5e99572d6bec33d090e15994a5",
+      "layer": "organism",
+      "category": "dialog_top",
+      "size": {
+        "w": 1307,
+        "h": 77
+      },
+      "use_scenes": [
+        "中小弹窗顶部结构",
+        "中窄版对话框标题区"
+      ],
+      "instantiation_rule": "若目标是中小弹窗的完整顶部结构，应优先实例化该组织层组件，不回退为标题底图、文案与装饰条重新拼装。"
+    },
+    {
+      "name": "中小弹窗-底部",
+      "nodeId": "4864:2265",
+      "componentKey": "d032d8352a8c97d15f64b8dde1cec2119c9e1a6c",
+      "layer": "organism",
+      "category": "dialog_bottom",
+      "size": {
+        "w": 1347,
+        "h": 864
+      },
+      "variants": [
+        {
+          "state": "2按钮+花费",
+          "nodeId": "4864:2209",
+          "componentKey": "5760ca2309ded7998fb3761f0f1f4524a05b711b"
+        },
+        {
+          "state": "2按钮",
+          "nodeId": "4864:2266",
+          "componentKey": "97d8940101dc7caa51739540467df784f0bd5ffb"
+        },
+        {
+          "state": "1按钮",
+          "nodeId": "4871:4172",
+          "componentKey": "260e9855ce7e124cc5a0926a866166af55251d73"
+        },
+        {
+          "state": "1按钮+花费",
+          "nodeId": "4873:5331",
+          "componentKey": "358463a6a961b51e2e1dd01d503b27dab1e2475d"
+        }
+      ],
+      "use_scenes": [
+        "中小弹窗底部按钮区",
+        "中窄版弹窗操作区"
+      ],
+      "instantiation_rule": "若目标是中小弹窗完整底部操作区，应优先实例化该组织层组件，并按按钮数量与是否带花费选择变体，不回退为底板与按钮重新拼装。"
+    },
+    {
+      "name": "中弹窗-顶部",
+      "nodeId": "4899:1960",
+      "componentKey": "4117f72fd40ea64682c46ba177ede5faa0d8d68e",
+      "layer": "organism",
+      "category": "dialog_top",
+      "size": {
+        "w": 1567,
+        "h": 76
+      },
+      "use_scenes": [
+        "中弹窗顶部结构",
+        "中版对话框标题区"
+      ],
+      "instantiation_rule": "若目标是中弹窗的完整顶部结构，应优先实例化该组织层组件，不回退为标题底图、文案与装饰条重新拼装。"
+    },
+    {
+      "name": "中弹窗-底部",
+      "nodeId": "4901:2748",
+      "componentKey": "e1e0e346a42fcc78026a05705fb5568abda349bd",
+      "layer": "organism",
+      "category": "dialog_bottom",
+      "size": {
+        "w": 1607,
+        "h": 808
+      },
+      "variants": [
+        {
+          "state": "2按钮",
+          "nodeId": "4901:2739",
+          "componentKey": "398d188ab67e33d8cfa89fa703161aa91441934d"
+        },
+        {
+          "state": "2按钮+花费",
+          "nodeId": "4901:2749",
+          "componentKey": "325151e933c32332c6bd182f9e6da5cf72b969b5"
+        },
+        {
+          "state": "1按钮",
+          "nodeId": "4901:2756",
+          "componentKey": "133f3cfcde8c8d3190841f8921a7eb9a223c485d"
+        },
+        {
+          "state": "1按钮+花费",
+          "nodeId": "4903:2763",
+          "componentKey": "9d257e505244eaf5e5ef49a1d38ded056209c94f"
+        }
+      ],
+      "use_scenes": [
+        "中弹窗底部按钮区",
+        "中版弹窗操作区"
+      ],
+      "instantiation_rule": "若目标是中弹窗完整底部操作区，应优先实例化该组织层组件，并按按钮数量与是否带花费选择变体，不回退为底板与按钮重新拼装。"
+    },
+    {
+      "name": "大弹窗-顶部",
+      "nodeId": "4980:5254",
+      "componentKey": "38204e36cc5a045acde105ae847e225f76dc19b9",
+      "layer": "organism",
+      "category": "dialog_top",
+      "size": {
+        "w": 1768,
+        "h": 77
+      },
+      "use_scenes": [
+        "大弹窗顶部结构",
+        "大版对话框标题区"
+      ],
+      "instantiation_rule": "若目标是大弹窗的完整顶部结构，应优先实例化该组织层组件，不回退为标题底图、文案与装饰条重新拼装。"
+    },
+    {
+      "name": "tips-单卡",
+      "nodeId": "6126:7831",
+      "componentKey": "5a9cd6495e66b3298e957255b1d1a43d78c1f5f9",
+      "layer": "organism",
+      "category": "map_tip_card",
+      "size": {
+        "w": 254,
+        "h": 313
+      },
+      "use_scenes": [
+        "轻量 tips 卡片",
+        "单对象提示卡"
+      ],
+      "instantiation_rule": "若目标是轻量单卡提示组件，应优先实例化该组织层组件，不回退为背景条、标题和按钮手工拼装。"
+    },
+    {
+      "name": "tips-场景卡",
+      "nodeId": "7108:22349",
+      "componentKey": "902468e47e6570649f87688799f9d2a53e98674e",
+      "layer": "organism",
+      "category": "map_tip_panel",
+      "size": {
+        "w": 1040,
+        "h": 607
+      },
+      "variants": [
+        {
+          "state": "地块",
+          "nodeId": "7104:22114",
+          "componentKey": "338c796a2ecbe9a787e587ed51c506e13697454a"
+        },
+        {
+          "state": "玩家主城",
+          "nodeId": "7108:22347",
+          "componentKey": "0ec912d51547db94ec382294e11a601b8e2c596d"
+        },
+        {
+          "state": "关卡",
+          "nodeId": "7108:22346",
+          "componentKey": "313eff982534618f2e3441609e625a4832102b23"
+        },
+        {
+          "state": "城池",
+          "nodeId": "7108:22348",
+          "componentKey": "d029632e2d205146b2c17746069a8a268a972cac"
+        }
+      ],
+      "use_scenes": [
+        "地图对象场景 tips",
+        "地块/主城/关卡/城池提示面板"
+      ],
+      "instantiation_rule": "若目标是地图对象的完整 tips 面板，应优先实例化该组织层组件，并按对象类型选择变体，不回退为底板、标题、按钮和信息块重新拼装。"
+    },
+    {
+      "name": "选择",
+      "nodeId": "7104:21938",
+      "componentKey": "8b6387f92d0b4f3b40aed1d63e69ea088fe45012",
+      "layer": "organism",
+      "category": "selection_panel",
+      "size": {
+        "w": 282,
+        "h": 355
+      },
+      "use_scenes": [
+        "地图选择面板",
+        "对象选择提示块"
+      ],
+      "instantiation_rule": "若目标是地图对象选择提示块，应优先实例化该组织层组件，不回退为底板、标题、选项和按钮重新拼装。"
+    },
+    {
+      "name": "对话-左右气泡组",
+      "nodeId": "6126:7464",
+      "componentKey": "1fd5219dfae30b76650c21ca7bea37572a55d38b",
+      "layer": "organism",
+      "category": "chat_dialog_group",
+      "size": {
+        "w": 971,
+        "h": 455
+      },
+      "variants": [
+        {
+          "state": "左",
+          "nodeId": "6126:7462",
+          "componentKey": "6ac66bf9691cccdb375e314798da9dd645b46dc8"
+        },
+        {
+          "state": "右",
+          "nodeId": "6126:7463",
+          "componentKey": "c9b9b2e49e39a570549237241eee62f0d24995ab"
+        }
+      ],
+      "use_scenes": [
+        "聊天对话双侧气泡",
+        "左右消息展示"
+      ],
+      "instantiation_rule": "若目标是标准左右对话气泡组，应优先实例化该组织层组件，并按消息方向选择变体，不回退为背景气泡、头像和文本重新拼装。"
+    },
+    {
+      "name": "对话-横条卡",
+      "nodeId": "6172:10083",
+      "componentKey": "ed24874348e56d4f1439c74d54dabe77bd83d62e",
+      "layer": "organism",
+      "category": "chat_dialog_card",
+      "size": {
+        "w": 661,
+        "h": 195
+      },
+      "use_scenes": [
+        "聊天横条提示卡",
+        "对话内信息卡片"
+      ],
+      "instantiation_rule": "若目标是聊天中的横条信息卡，应优先实例化该组织层组件，不回退为底板、文案和按钮重新拼装。"
+    },
+    {
+      "name": "对话-短横条",
+      "nodeId": "6174:11259",
+      "componentKey": "6cc899175d4b7973897fda711f907a5dcb8b34ac",
+      "layer": "organism",
+      "category": "chat_dialog_bar",
+      "size": {
+        "w": 890,
+        "h": 140
+      },
+      "use_scenes": [
+        "聊天短横条提示",
+        "对话内轻量状态条"
+      ],
+      "instantiation_rule": "若目标是聊天中的短横条提示结构，应优先实例化该组织层组件，不回退为底板、图标和文本重新拼装。"
+    },
+    {
+      "name": "对话-双态提示",
+      "nodeId": "6156:9584",
+      "componentKey": "461668866c78b4be62b93c4b56ac54eb7f829090",
+      "layer": "organism",
+      "category": "chat_dialog_prompt",
+      "size": {
+        "w": 796,
+        "h": 295
+      },
+      "variants": [
+        {
+          "state": "左",
+          "nodeId": "6156:9582",
+          "componentKey": "ac33448df4ebb1034cc81d2bc65bfeebc421e38c"
+        },
+        {
+          "state": "右",
+          "nodeId": "6156:9583",
+          "componentKey": "b0076b13b318b55476ecf8b08bf063f2cab7a2eb"
+        }
+      ],
+      "use_scenes": [
+        "聊天双态提示块",
+        "左右方向提示卡"
+      ],
+      "instantiation_rule": "若目标是带左右方向区分的聊天提示块，应优先实例化该组织层组件，并按方向选择变体，不回退为底板、图标和文本重新拼装。"
+    },
+    {
+      "name": "icon+文本",
+      "nodeId": "6654:14381",
+      "componentKey": "94364bf65c6834bd2caab8247394398594f1ec4b",
+      "layer": "organism",
+      "category": "info_icon_text_list",
+      "size": {
+        "w": 227,
+        "h": 490
+      },
+      "variants": [
+        {
+          "state": "主公",
+          "nodeId": "6654:14382",
+          "componentKey": "03429d0e8a01be5eccb90e1bfdc7d431fbb258ea"
+        },
+        {
+          "state": "全盟资源",
+          "nodeId": "6654:14385",
+          "componentKey": "7cbe9f92b3b4889b691b59cad3a9b8d866d24252"
+        },
+        {
+          "state": "调动数量",
+          "nodeId": "6654:14388",
+          "componentKey": "547b285bb0e6f045313528519fa49abf479f5088"
+        },
+        {
+          "state": "驻城部队",
+          "nodeId": "6654:14391",
+          "componentKey": "489fe33efc2443669f03b9ca9fe2434c6f6cbb0c"
+        },
+        {
+          "state": "守军恢复",
+          "nodeId": "6654:14394",
+          "componentKey": "84561a14ff37b7581b5f6e6b022e2e1f52cf33ec"
+        },
+        {
+          "state": "城防守军",
+          "nodeId": "6654:14397",
+          "componentKey": "24b9354708998d3ab5c8effc73623dc266dd3824"
+        },
+        {
+          "state": "守军兵力",
+          "nodeId": "6654:14400",
+          "componentKey": "a4e5ffa1db05b052634f98243ec39dc44ab964a1"
+        },
+        {
+          "state": "粮食",
+          "nodeId": "6654:14403",
+          "componentKey": "2cc5148a177bc0c0f9a7d1dab656d53277d7201e"
+        },
+        {
+          "state": "消耗",
+          "nodeId": "6654:14406",
+          "componentKey": "4b7c847dea346128c510dd5a92dea47e043f9405"
+        }
+      ],
+      "use_scenes": [
+        "信息栏图标文本项",
+        "轻量信息列表"
+      ],
+      "instantiation_rule": "若目标是带图标与文案的标准信息项列表，应优先实例化该组织层组件，并按语义选择变体，不回退为图标、标签和文本重新拼装。"
+    },
+    {
+      "name": "玩家ID",
+      "nodeId": "6062:6977",
+      "componentKey": "7dba597943590cc749916d61bb6f8195c2bd952c",
+      "layer": "organism",
+      "category": "player_id_bar",
+      "size": {
+        "w": 475,
+        "h": 132
+      },
+      "variants": [
+        {
+          "state": "左",
+          "nodeId": "6044:6800",
+          "componentKey": "af65ca2d89eeed41a817833387f179fc2db13994"
+        },
+        {
+          "state": "右",
+          "nodeId": "6062:6978",
+          "componentKey": "42c0219f35bbfce1f43d40447ae84782ce8c43f4"
+        }
+      ],
+      "use_scenes": [
+        "玩家 ID 展示条",
+        "左右对齐身份信息条"
+      ],
+      "instantiation_rule": "若目标是玩家 ID 展示条，应优先实例化该组织层组件，并按左右位置选择变体，不回退为底板、图标和文字重新拼装。"
+    },
+    {
+      "name": "信息条",
+      "nodeId": "6597:22778",
+      "componentKey": "75153f7fc808f14e0feff3cbda3bf9ec400eaf74",
+      "layer": "organism",
+      "category": "info_row",
+      "size": {
+        "w": 512,
+        "h": 131
+      },
+      "variants": [
+        {
+          "state": "2",
+          "nodeId": "6597:22779",
+          "componentKey": "db63d903bae46eb6637eba9827acae7847743a6c"
+        },
+        {
+          "state": "1",
+          "nodeId": "6597:22787",
+          "componentKey": "f276ad49001038122c87ecf766fa2db8378b0e79"
+        }
+      ],
+      "use_scenes": [
+        "标准信息条",
+        "单列或双列信息展示"
+      ],
+      "instantiation_rule": "若目标是标准信息条，应优先实例化该组织层组件，并按单列或双列选择变体，不回退为底板、标签和文本重新拼装。"
+    },
+    {
+      "name": "信息栏",
+      "nodeId": "6922:160808",
+      "componentKey": "91f4707ec122c23ab46a1d47b000bf5caaafd72d",
+      "layer": "organism",
+      "category": "info_panel_system",
+      "size": {
+        "w": 531,
+        "h": 1780
+      },
+      "variants": [
+        {
+          "state": "主公",
+          "nodeId": "6922:160809",
+          "componentKey": "1cd39d4a049fe62f2ba3c84425c126a2d745e650"
+        },
+        {
+          "state": "全盟资源",
+          "nodeId": "6922:160814",
+          "componentKey": "c982a7d598f71aad966ab129ebcde1a09fd1efe5"
+        },
+        {
+          "state": "调动数量",
+          "nodeId": "6922:160817",
+          "componentKey": "b8218184f13d6a356918f08625a201bb93a37d5d"
+        },
+        {
+          "state": "驻城部队",
+          "nodeId": "6922:160820",
+          "componentKey": "8ed05489259901a5775f5aedacae35bddbd23a78"
+        },
+        {
+          "state": "守军恢复",
+          "nodeId": "6922:160823",
+          "componentKey": "b9029220b5b35db019345fa1156ebd2fde0515d9"
+        },
+        {
+          "state": "城防守军",
+          "nodeId": "6922:160827",
+          "componentKey": "071c7d36e3a81ab961acf8c074f21d6f77640fc1"
+        },
+        {
+          "state": "守军兵力",
+          "nodeId": "6922:160830",
+          "componentKey": "6ac12e4d50d6487d4738bcabc2715c4a85a44914"
+        },
+        {
+          "state": "排名",
+          "nodeId": "6922:160833",
+          "componentKey": "e97e422a3df517f7c6520fba5410447505be367d"
+        },
+        {
+          "state": "粮食",
+          "nodeId": "6922:160836",
+          "componentKey": "f2319f04790d1244645723bcaaf0181e1fd11c73"
+        },
+        {
+          "state": "归属-我盟",
+          "nodeId": "6922:160839",
+          "componentKey": "31c2abc930abddd95db6cbcd83a6d91f6e1de20a"
+        },
+        {
+          "state": "归属-玩家本人",
+          "nodeId": "6922:160842",
+          "componentKey": "aed098782f52eb033fada42c1eb892d55d6eab53"
+        },
+        {
+          "state": "归属-友盟",
+          "nodeId": "6922:160845",
+          "componentKey": "dbc4ad5db640de53360b7064795cd0880e04021e"
+        },
+        {
+          "state": "归属-敌军",
+          "nodeId": "6922:160848",
+          "componentKey": "0f63e6fc9d1add756eb1307ed850e82017a59e74"
+        },
+        {
+          "state": "归属-阵营",
+          "nodeId": "6922:160851",
+          "componentKey": "95c0e9f518755e2f4ffc86ee8570dd1db877b36d"
+        },
+        {
+          "state": "建筑描述",
+          "nodeId": "6922:160854",
+          "componentKey": "7aaeb6f30cd7f19a0c8a51396f87c1fe85de2918"
+        },
+        {
+          "state": "题头区-城池",
+          "nodeId": "6922:160856",
+          "componentKey": "f457e83aca5c044895c00237609c7012f9877c55"
+        },
+        {
+          "state": "题头区-首占信息",
+          "nodeId": "6922:160861",
+          "componentKey": "8702f68f94cbdd4af12c075208f38bb37162e477"
+        },
+        {
+          "state": "武将栏",
+          "nodeId": "6922:160864",
+          "componentKey": "cc431820500fe8f9feda89d1a583a7e7dfc7bd63"
+        },
+        {
+          "state": "消耗",
+          "nodeId": "6922:160869",
+          "componentKey": "9d0d705e6987816369c499e5e3cf2d200d0d7103"
+        },
+        {
+          "state": "首占奖励",
+          "nodeId": "6922:160872",
+          "componentKey": "9dcf7d9347d590dcd03f14c9e5b6a07a6233fe70"
+        },
+        {
+          "state": "buff展示区",
+          "nodeId": "6922:160889",
+          "componentKey": "41fd9253ed7e99415b79b99f1d52043aee0a3709"
+        }
+      ],
+      "use_scenes": [
+        "复杂信息栏系统",
+        "城池或建筑信息面板",
+        "地图对象详细信息区"
+      ],
+      "instantiation_rule": "若目标是复杂信息栏系统，应优先实例化该组织层组件，并按信息语义选择变体，不回退为多个独立信息条、题头区和奖励区手工拼装。"
+    },
+    {
+      "name": "面板",
+      "nodeId": "6877:16384",
+      "componentKey": "1d414254ae506bbecdd5fbbcd9011d3f0074c260",
+      "layer": "organism",
+      "category": "panel_block",
+      "size": {
+        "w": 672,
+        "h": 585
+      },
+      "use_scenes": [
+        "标准功能面板",
+        "中型信息面板"
+      ],
+      "instantiation_rule": "若目标是标准功能面板，应优先实例化该组织层组件，不回退为面板底图、标题区和内容区重新拼装。"
+    },
+    {
+      "name": "list",
+      "nodeId": "7039:50744",
+      "componentKey": "e385fc625aa0767806715d690d8d04f8894101e5",
+      "layer": "organism",
+      "category": "faction_list_panel",
+      "size": {
+        "w": 1459,
+        "h": 504
+      },
+      "variants": [
+        {
+          "state": "阵营1",
+          "nodeId": "7039:50207",
+          "componentKey": "088509e55002eebe8ef62ec99518a452e990be6d"
+        },
+        {
+          "state": "阵营2",
+          "nodeId": "7039:49760",
+          "componentKey": "d534f8b4a0ddfdab4f18fed9d6fd75af404e272d"
+        },
+        {
+          "state": "无阵营",
+          "nodeId": "7039:50208",
+          "componentKey": "05f5abb4bff96f8311b4e8f8580947efee3cca87"
+        }
+      ],
+      "use_scenes": [
+        "阵营列表面板",
+        "带阵营态的列表模块"
+      ],
+      "instantiation_rule": "若目标是带阵营区分的列表模块，应优先实例化该组织层组件，并按阵营态选择变体，不回退为面板、卡片和标题逐项拼装。"
+    },
+    {
+      "name": "小弹窗空白模板",
+      "nodeId": "6617:12375",
+      "componentKey": "072a53c213ee07a0c0bca4a62580635ebee52248",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 946,
+        "h": 600
+      },
+      "built_from": [
+        "小弹窗-顶部",
+        "bg_c_popup_bg_s",
+        "小弹窗-底部"
+      ],
+      "use_scenes": [
+        "小弹窗空白骨架",
+        "确认弹窗",
+        "轻量输入弹窗",
+        "短说明弹窗"
+      ],
+      "instantiation_rule": "若目标是标准小弹窗结构，应优先实例化该模板组件，并在其中替换内容区；不要回退为顶部、背景和底部操作区手工重拼。"
+    },
+    {
+      "name": "UIAristocracyApplyConditionPopUp_S",
+      "nodeId": "4786:938",
+      "componentKey": "534adbba05e339a5b77456834ab3e23306d17394",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 946,
+        "h": 600
+      },
+      "use_scenes": [
+        "申请条件设置弹窗",
+        "双行条件输入弹窗"
+      ],
+      "instantiation_rule": "若目标是双行条件设置型小弹窗，应优先实例化该模板组件，而不是从空白模板重新拼两行条件结构。"
+    },
+    {
+      "name": "UIAristocracyApplyPopUp",
+      "nodeId": "4810:1499",
+      "componentKey": "227021fd50dd395348c147998f8cb69a2a49e643",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 946,
+        "h": 600
+      },
+      "use_scenes": [
+        "申请留言弹窗",
+        "长文本输入弹窗"
+      ],
+      "instantiation_rule": "若目标是长文本输入型小弹窗，应优先实例化该模板组件，不回退为空白模板后再手工拼装大文本框。"
+    },
+    {
+      "name": "UIAristocracyDonatePopUp_S",
+      "nodeId": "4822:2061",
+      "componentKey": "3d2c749eb14938816827f1efd46396acc7f47178",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 946,
+        "h": 600
+      },
+      "use_scenes": [
+        "捐献弹窗",
+        "数值输入弹窗"
+      ],
+      "instantiation_rule": "若目标是捐献或数值输入型小弹窗，应优先实例化该模板组件，不回退为空白模板后再手工拼内容区。"
+    },
+    {
+      "name": "UIAristocracyNameEditPopUp_S",
+      "nodeId": "4832:2211",
+      "componentKey": "271322f310d9db245cec9fd3b77f6115b730e500",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 946,
+        "h": 600
+      },
+      "use_scenes": [
+        "名称修改弹窗",
+        "输入框+条件列表弹窗"
+      ],
+      "instantiation_rule": "若目标是名称修改型小弹窗，应优先实例化该模板组件，而不是从空白模板手工拼输入框与条件列表。"
+    },
+    {
+      "name": "UIDialogue",
+      "nodeId": "4832:2282",
+      "componentKey": "c5c04df7e94f90d22320db8f579852524bb19923",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 946,
+        "h": 600
+      },
+      "use_scenes": [
+        "纯提示确认弹窗",
+        "简短说明弹窗"
+      ],
+      "instantiation_rule": "若目标是纯提示确认型小弹窗，应优先实例化该模板组件，不回退为空白模板再补一条提示文案。"
+    },
+    {
+      "name": "UIAristocracyTargetDisappearPopUp_S",
+      "nodeId": "4832:2514",
+      "componentKey": "1d4a04ede0d18d99cc3a07e924c97e77f843b8b5",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 946,
+        "h": 600
+      },
+      "use_scenes": [
+        "目标消失提示弹窗",
+        "提示+目标列表弹窗"
+      ],
+      "instantiation_rule": "若目标是提示+目标列表型小弹窗，应优先实例化该模板组件，不回退为空白模板后再手工拼提示区与列表区。"
+    },
+    {
+      "name": "城池名字",
+      "nodeId": "4822:1794",
+      "componentKey": "4bcedcc8a4135c62a83ad0d35364f7e33a7e5f8d",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 946,
+        "h": 600
+      },
+      "use_scenes": [
+        "城池命名弹窗",
+        "名称输入+辅助按钮弹窗"
+      ],
+      "instantiation_rule": "若目标是名称输入并带右侧辅助按钮的小弹窗，应优先实例化该模板组件，不回退为空白模板后再手工拼辅助按钮。"
+    },
+    {
+      "name": "UIExchangePopUp_S",
+      "nodeId": "4817:1697",
+      "componentKey": "e43094c6c8b1ecebf817c1395098337d0bdf1695",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 946,
+        "h": 600
+      },
+      "use_scenes": [
+        "礼包码输入弹窗",
+        "短输入框弹窗"
+      ],
+      "instantiation_rule": "若目标是短输入框型小弹窗，应优先实例化该模板组件，不回退为空白模板后再手工拼短输入框。"
+    },
+    {
+      "name": "UIAristocracyConnectPopUp",
+      "nodeId": "4822:1882",
+      "componentKey": "42d57ef8de1e8c6bd807a421d24bb1fb7dae97b2",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 946,
+        "h": 600
+      },
+      "use_scenes": [
+        "连接关系输入弹窗",
+        "单输入框特例弹窗"
+      ],
+      "instantiation_rule": "若目标是单输入框特例小弹窗，应优先实例化该模板组件；若当前样例缺底部区，仍应按小弹窗家族完整结构校验。"
+    },
+    {
+      "name": "UICurrencyExchangePopUp_M",
+      "nodeId": "4832:2729",
+      "componentKey": "1e0f8578292ec3d86fabe0ccc9329a70be3b02e3",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 946,
+        "h": 600
+      },
+      "use_scenes": [
+        "货币兑换弹窗",
+        "兑换说明弹窗"
+      ],
+      "instantiation_rule": "若目标是货币兑换型小弹窗，应优先实例化该模板组件，不回退为空白模板后再手工拼兑换说明区。"
+    },
+    {
+      "name": "中小弹窗空白模板",
+      "nodeId": "5922:5503",
+      "componentKey": "e7f7247e6a482c6810529e1043851efede893c96",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "built_from": [
+        "中小弹窗-顶部",
+        "bg_c_popup_bg_m",
+        "中小弹窗-底部"
+      ],
+      "use_scenes": [
+        "中小弹窗空白骨架",
+        "中等信息量弹窗",
+        "中型表单弹窗",
+        "中型列表弹窗"
+      ],
+      "instantiation_rule": "若目标是标准中小弹窗结构，应优先实例化该模板组件，并在主体内容区替换业务内容；不要回退为顶部、背景和底部操作区手工重拼。"
+    },
+    {
+      "name": "UIAristocracyDetailsPopUp",
+      "nodeId": "4864:2332",
+      "componentKey": "aa7fefd758ecd128e1055e9f0854affc5bf4a3c1",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "世族详情弹窗",
+        "身份详情查看弹窗"
+      ],
+      "instantiation_rule": "若目标是左侧身份展示加右侧双段详情的中小弹窗，应优先实例化该模板组件，而不是从空白模板和多个详情块手工重拼。"
+    },
+    {
+      "name": "UIAristocracyGradePopUp_M",
+      "nodeId": "4860:2029",
+      "componentKey": "16956f9e967796a18d26a8b2f5fd148100d9e522",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "等级说明弹窗",
+        "权益说明弹窗"
+      ],
+      "instantiation_rule": "若目标是左侧身份展示加右侧单段说明的等级类中小弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIChatReportPopUp",
+      "nodeId": "4864:2581",
+      "componentKey": "a06b3e48bc64123eb3d63e40e38a602b78ecac6b",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "举报弹窗",
+        "反馈表单弹窗"
+      ],
+      "instantiation_rule": "若目标是上方选项加下方长文本输入的中小弹窗，应优先实例化该模板组件，不回退为多个表单块重新搭建。"
+    },
+    {
+      "name": "UISLGRuleText",
+      "nodeId": "4990:12259",
+      "componentKey": "7a21832fc64c51ddf83af5376158a668b4efd08e",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "规则说明弹窗",
+        "帮助说明弹窗"
+      ],
+      "instantiation_rule": "若目标是大面积正文阅读型中小弹窗，应优先实例化该模板组件，而不是从空白模板和文本框手工拼长文阅读区。"
+    },
+    {
+      "name": "UIHeroMilitaryPerformancePopUp",
+      "nodeId": "4883:4694",
+      "componentKey": "bc524bc90b64a3d2ad6eff3f3eef0311af512da1",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "角色选择弹窗",
+        "左右联动配置弹窗"
+      ],
+      "instantiation_rule": "若目标是左侧主对象预览、右侧列表切换的中小弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UISlgBuild",
+      "nodeId": "4883:3388",
+      "componentKey": "a563b14bb0531fab452f6f418ff8ba7e57d10e4d",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "建筑说明弹窗",
+        "建造弹窗"
+      ],
+      "instantiation_rule": "若目标是左图右内容的建筑型中小弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UISmithyManyTimesWindow",
+      "nodeId": "4871:4196",
+      "componentKey": "416a715dcee7a804e22456dc91a868921d266d15",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "批量操作弹窗",
+        "锻造说明弹窗"
+      ],
+      "instantiation_rule": "若目标是上下双区块说明的中小弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIOutOfResourcesWindow",
+      "nodeId": "4873:5785",
+      "componentKey": "0a49266969c498952f28d54971a146ddbbe273d9",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "资源不足提示弹窗",
+        "获取途径弹窗"
+      ],
+      "instantiation_rule": "若目标是上部产量、中部现状、下部获取途径的资源不足弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIDrillIdleRewardPanel",
+      "nodeId": "4873:4688",
+      "componentKey": "0453d7998be1aa61f27c3a344fd6296fde3c06df",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "挂机奖励弹窗",
+        "离线收益弹窗"
+      ],
+      "instantiation_rule": "若目标是摘要加奖励区的中小弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIHeroPromoteWindow",
+      "nodeId": "4873:5178",
+      "componentKey": "1a492106773d070a75495daf91b3a81136894148",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "晋升弹窗",
+        "成长说明弹窗"
+      ],
+      "instantiation_rule": "若目标是中部聚焦主对象、下部补说明的晋升型中小弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIHeroLineupBonusPopUp",
+      "nodeId": "4864:3387",
+      "componentKey": "006f030376f60fbf3a505b9fd967401a4de77f47",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "加成说明弹窗",
+        "纯文案说明弹窗"
+      ],
+      "instantiation_rule": "若目标是正文高度自适应的纯说明中小弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIResourceTransformationPopUp",
+      "nodeId": "4882:2737",
+      "componentKey": "3f1c4616851599457e7486584dbd688bba958b9a",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "资源转换弹窗",
+        "打造操作弹窗"
+      ],
+      "instantiation_rule": "若目标是上方摘要、中部主转化区的中小弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIBagUsePanel",
+      "nodeId": "4873:5530",
+      "componentKey": "3d5df0da3b62cf16a7004e7c1dbf398b9d910c33",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "道具使用弹窗",
+        "数量选择弹窗"
+      ],
+      "instantiation_rule": "若目标是中部道具主体加下方数量选择的中小弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIActPrayerFestivalPopUp_M",
+      "nodeId": "4882:1879",
+      "componentKey": "3b2e2f49d3862fd57b22e1b917791e1cb9262961",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1307,
+        "h": 800
+      },
+      "use_scenes": [
+        "活动留言弹窗",
+        "大输入区弹窗"
+      ],
+      "instantiation_rule": "若目标是前置说明加大面积输入框的中小弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIChatViewMembersPopUpMs",
+      "nodeId": "4990:12550",
+      "componentKey": "630337ec6f10230f2ef7fe2d0be09de0837fb4cb",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 840,
+        "h": 936
+      },
+      "use_scenes": [
+        "成员列表弹窗",
+        "窄版长列表弹窗"
+      ],
+      "instantiation_rule": "若目标是窄版高挑的成员列表弹窗，应优先实例化该 ms 变体组件，而不是强行套用标准1307宽度中小弹窗。"
+    },
+    {
+      "name": "中弹窗空白模板",
+      "nodeId": "6617:13137",
+      "componentKey": "1872f05dddd3b7c2a81a7bf1493c44c4a19b1a96",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "中弹窗空白骨架",
+        "大型列表弹窗",
+        "图文详情弹窗",
+        "长说明弹窗"
+      ],
+      "instantiation_rule": "若目标是标准中弹窗结构，应优先实例化该模板组件，再按内容类型填充主体内容区。"
+    },
+    {
+      "name": "UIAristocracyApplicationListPopUp",
+      "nodeId": "4884:1903",
+      "componentKey": "2f2146f57d1b16b1cb69bad615b01f29f6d2f665",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "申请列表弹窗",
+        "审批列表弹窗"
+      ],
+      "instantiation_rule": "若目标是表头、列表和底部操作一体的审批型中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIAristocracyOfficialsRevisionPopUp_M",
+      "nodeId": "4908:1946",
+      "componentKey": "4763af72384e7029e7b39e8a1ff9c94ef6f36ea3",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "成员管理弹窗",
+        "任命调整弹窗",
+        "带搜索列表弹窗"
+      ],
+      "instantiation_rule": "若目标是搜索输入加表头列表的成员管理型中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIAristocracyMemberInvitationPopUp",
+      "nodeId": "4908:2599",
+      "componentKey": "4b4037bb1af6aad7defd30cd07bf495303502762",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "成员邀请弹窗",
+        "检索选择弹窗"
+      ],
+      "instantiation_rule": "若目标是搜索、表头、列表并带底部分页提示的中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIChatFriendAddPopUp_M",
+      "nodeId": "4909:13089",
+      "componentKey": "2f24a0ede6cecd1bb525b8ca2695ee82bab20c8c",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "好友添加弹窗",
+        "推荐好友弹窗"
+      ],
+      "instantiation_rule": "若目标是搜索后接推荐分区标题和列表的中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "好友申请",
+      "nodeId": "4908:8635",
+      "componentKey": "9878ae4e95cd788f65b0c15122490532b0e4b5a6",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "好友申请弹窗",
+        "请求列表弹窗"
+      ],
+      "instantiation_rule": "若目标是无搜索栏、纯大列表承载的请求型中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIAristocracyInvitePopUp",
+      "nodeId": "4908:7612",
+      "componentKey": "a759336e30b99d04c5cd911be8ca090d224215c5",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "邀请弹窗",
+        "多列列表弹窗"
+      ],
+      "instantiation_rule": "若目标是表头加大列表的邀请型中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UILogInAnnouncement",
+      "nodeId": "4906:3013",
+      "componentKey": "c49b1248b18cd77871146761e6f0badb66bce1f8",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "公告弹窗",
+        "双栏阅读弹窗"
+      ],
+      "instantiation_rule": "若目标是左侧目录、右侧正文阅读的双栏中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UILogInProtocolPopUp_M",
+      "nodeId": "4903:2841",
+      "componentKey": "b8cca0e8e3f7c190456a9feb354d43bdcb9a9164",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "协议弹窗",
+        "条款阅读弹窗"
+      ],
+      "instantiation_rule": "若目标是大段协议阅读并带标准底部操作的中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIRecruitmentInstitute",
+      "nodeId": "4909:18165",
+      "componentKey": "27d45dafc7f199938ed4ef76c1d4cb6c6eb3ab8a",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "建筑研究弹窗",
+        "对象培养弹窗"
+      ],
+      "instantiation_rule": "若目标是左侧主对象、右侧双内容区并带右下切换模块的中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIMainCityBuildingLevelUpWindow",
+      "nodeId": "4912:3518",
+      "componentKey": "cc474919a7839fddef6574fc59b3952673c44b9e",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "升级弹窗",
+        "强化弹窗"
+      ],
+      "instantiation_rule": "若目标是左侧主对象、右侧双区块并带标准底部操作的升级型中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIRuleText",
+      "nodeId": "4909:14717",
+      "componentKey": "35c6633c2f5f06c469610fa6f06d2e3fa581fca4",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "规则说明弹窗",
+        "帮助阅读弹窗"
+      ],
+      "instantiation_rule": "若目标是左侧辅助区加右侧大段文本阅读的中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UILandMgrProducePanel",
+      "nodeId": "4990:12719",
+      "componentKey": "a1310cd12950df56e2e394d92c7adbea566ee384",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "产出管理弹窗",
+        "列表加预览弹窗"
+      ],
+      "instantiation_rule": "若目标是左侧列表、右侧大图预览的分栏中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIRewardsPreviewPopUp",
+      "nodeId": "4909:15972",
+      "componentKey": "8d1890e7368519548068920225efa04e07ca8d37",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "奖励预览弹窗",
+        "结果清单弹窗"
+      ],
+      "instantiation_rule": "若目标是左侧辅助区加右侧奖励列表的中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIRankSiegePopUp_M",
+      "nodeId": "4909:14839",
+      "componentKey": "f55d55c9021c80c6aebb66d44f811d08fe6b4cb9",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "排行弹窗",
+        "攻城排行弹窗"
+      ],
+      "instantiation_rule": "若目标是左侧辅助区加右侧排行列表的中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UITrainingHorseOverviewWindow",
+      "nodeId": "4990:11415",
+      "componentKey": "2b5ba9ad28293af9342e4172f49be749b73c9e2d",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1607,
+        "h": 1780
+      },
+      "variants": [
+        {
+          "state": "战马",
+          "nodeId": "4909:16614",
+          "componentKey": "5078ca42728a17ec986e8eda767c8d973910285c"
+        },
+        {
+          "state": "特技",
+          "nodeId": "4990:11416",
+          "componentKey": "5d22bd54eb3627c2582bcd0695662fd901458ff6"
+        }
+      ],
+      "use_scenes": [
+        "战马概览弹窗",
+        "特技概览弹窗",
+        "页签化培养概览弹窗"
+      ],
+      "instantiation_rule": "若目标是战马/特技这类页签化中弹窗，应优先实例化该组件集并按语义选择变体，不要误拆成两个互不相关的独立模板。"
+    },
+    {
+      "name": "UIPopUp_M",
+      "nodeId": "4906:3317",
+      "componentKey": "4a53c9452a130a8ed6bd67e80dcdc6c498e37567",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "综合说明弹窗",
+        "单主体内容弹窗"
+      ],
+      "instantiation_rule": "若目标是单块全宽主体内容的中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UITacticPromoteWindow",
+      "nodeId": "4942:5254",
+      "componentKey": "5730923c94ec2a1488cf2b59430eb8c7f19ccd8a",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "战法培养弹窗",
+        "升阶弹窗"
+      ],
+      "instantiation_rule": "若目标是左侧主体、右侧双内容区并带底部操作的培养型中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UITacticWindow",
+      "nodeId": "4951:6245",
+      "componentKey": "863d417ca1512f8e612186c4162dd9b3bf7b0518",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "战法详情弹窗",
+        "带附加按钮的说明弹窗"
+      ],
+      "instantiation_rule": "若目标是左侧主体、右侧双内容区并带左下附加操作的中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "UIGridLandDefenderInfo",
+      "nodeId": "4962:7804",
+      "componentKey": "039ae0fa0d489d6a6a7d0ff6414340fbb2594eb0",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1567,
+        "h": 860
+      },
+      "use_scenes": [
+        "守军信息弹窗",
+        "上下复合信息弹窗"
+      ],
+      "instantiation_rule": "若目标是上部大信息区、下部双分区并带右下按钮的中弹窗，应优先实例化该模板组件。"
+    },
+    {
+      "name": "大弹窗空白模板",
+      "nodeId": "6617:13728",
+      "componentKey": "0742cb746faa1630cb6dc9543c90c2bcd0ac7e38",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1768,
+        "h": 932
+      },
+      "use_scenes": [
+        "大弹窗空白骨架",
+        "大型概览弹窗",
+        "复杂双栏弹窗"
+      ],
+      "instantiation_rule": "若目标属于标准大弹窗规模，应优先实例化该模板组件，再根据内容类型扩展左侧导航、中央内容和右侧说明区。"
+    },
+    {
+      "name": "UIHeroUnitOverviewPopUp_M",
+      "nodeId": "4984:7704",
+      "componentKey": "de56a2d32acd9bf10e3d73fb52a1282175c38a9b",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1808,
+        "h": 1924
+      },
+      "variants": [
+        {
+          "state": "Default",
+          "nodeId": "4980:4818",
+          "componentKey": "e911e81924c1fea41f1d5eac4c622c5a168f8876"
+        },
+        {
+          "state": "空状态",
+          "nodeId": "4984:7705",
+          "componentKey": "ba4797c54ed9735eb0a2478416c9df50e37241df"
+        }
+      ],
+      "use_scenes": [
+        "单位概览弹窗",
+        "阵容概览弹窗",
+        "空状态总览弹窗"
+      ],
+      "instantiation_rule": "若目标是左 tab、中央主内容、下部信息和右下主操作的大弹窗，应优先实例化该组件集，并根据是否为空状态选择变体。"
+    },
+    {
+      "name": "UILogInServerPopUp_M",
+      "nodeId": "4990:10035",
+      "componentKey": "635aa8ceda1213e70ac697c05bf9c526ad867948",
+      "layer": "organism",
+      "category": "dialog_layout_template",
+      "size": {
+        "w": 1808,
+        "h": 1924
+      },
+      "variants": [
+        {
+          "state": "选角色-单列布局",
+          "nodeId": "4986:8760",
+          "componentKey": "782a272905206fe7627d71f832284b9a43b412ba"
+        },
+        {
+          "state": "选区服-宫格布局",
+          "nodeId": "4990:10036",
+          "componentKey": "5a083684bc2893d23e5c7e69ea96c9e74e52d2c5"
+        }
+      ],
+      "use_scenes": [
+        "角色选择弹窗",
+        "区服选择弹窗",
+        "列表或宫格选择弹窗"
+      ],
+      "instantiation_rule": "若目标是左 tab、中央选择区、右侧说明栏的大弹窗，应优先实例化该组件集，并根据内容形态在单列布局和宫格布局之间选变体。"
+    },
+    {
+      "name": "名次",
+      "nodeId": "4439:469",
+      "componentKey": "ff5eb787de57ba0f5a116cb9fcaadff3e40d1013",
+      "layer": "organism",
+      "category": "ranking_badge_set",
+      "size": {
+        "w": 212,
+        "h": 112
+      },
+      "variants": [
+        {
+          "state": "1",
+          "nodeId": "4439:465",
+          "componentKey": "fdfd3bfc8c5b00acb2f216d077a112bb2e194bb4"
+        },
+        {
+          "state": "2",
+          "nodeId": "4439:467",
+          "componentKey": "88f8ab32db336bc7546922fe73dbc52e77f2fb05"
+        },
+        {
+          "state": "3",
+          "nodeId": "4439:466",
+          "componentKey": "973fa411d2c067567fde2d5b1cbe59e1a08e93a9"
+        }
+      ],
+      "use_scenes": [
+        "满屏浮窗排行榜",
+        "结果页排行徽章",
+        "攻城结果排名"
+      ],
+      "instantiation_rule": "若目标是满屏结果页中的名次入口，应优先实例化该组件集，并严格按 1/2/3 选择变体，不要只回退到底层名次底图素材。"
     }
   ],
   "molecular_components": [

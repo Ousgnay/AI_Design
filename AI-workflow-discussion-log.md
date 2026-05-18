@@ -317,6 +317,105 @@
 | 2026-05-18 | 在 `ia-generate` 的 Component 决策规则中增加输出标注要求：分子命中必须标 `layer: molecule`，原子回退必须标 `layer: atom-fallback` | D19 | 已完成 |
 | 2026-05-18 | 同步更新 `project-status.md` 与 `active-session.md`，移除“ia-generate 尚未消费分子层”的旧状态 | D19 | 已完成 |
 
+## 补注 2026-05-19（组织层正式入库）
+
+### D21 - 组织层 schema 与消费优先级扩展为 organism > molecule > atom-fallback
+**背景**：在继续采集 Figma「组件 模板 Copy」过程中，`1928:3750`「沙盘部队」页明确展示了一组不应再被视为“分子示例拼板”的高阶复合模块，包括 `部队信息（他人）`、`部队信息（他人）/部队信息（自己）`、`部队状态`、`部队状态栏`、`营帐/icon`。这些对象都具有独立 `componentKey`，且承载的是完整业务块语义，若仍强行归入分子层，会导致下游实例化继续拆回较低层级，丢失组织层边界。
+
+**结论**：在 `decision-source/knowledge/common/component-spec.json` 中新增并维护 `organism_components`；在 `component-decision.md` 中补充“组织层优先实例化”规则；在 `ai-shared/skills/ia-generate/SKILL.md` 中把组件消费顺序扩展为先查 `organism_components`，再查 `molecular_components`，最后才允许 `atom fallback`。自本节点起，项目共享口径不再是“分子层唯一显式高阶入口”，而是“组织层与分子层共同构成高阶组件入口”。
+
+**本轮确认的组织层条目（5项）**：
+- `部队信息（他人）`
+- `部队信息（他人）/部队信息（自己）`
+- `部队状态`
+- `部队状态栏`
+- `营帐/icon`
+
+**影响**：
+- `component-spec.json` 已新增 `organism_components` 区块，并补录上述 5 个条目的 `nodeId`、`componentKey`、`built_from`、`use_scenes` 与 `instantiation_rule`
+- `component-decision.md` 已新增“沙盘部队组织层规则”与 176-180 号条目
+- `ia-generate` 已新增组织层优先消费与 `layer: organism` 输出要求
+- `project-status.md`、`active-session.md`、`project-workflow.md` 已同步改写为组织层正式生效后的口径
+
+### 变更日志补注
+
+| 日期 | 变更内容 | 涉及决策 | 执行状态 |
+|---|---|---|---|
+| 2026-05-19 | 在 `component-spec.json` 中新增 `organism_components`，并补录 `1928:3750` 沙盘部队组织层 5 个条目 | D21 | 已完成 |
+| 2026-05-19 | 在 `component-decision.md` 中新增“组织层优先实例化”总规则与“沙盘部队组织层规则” | D21 | 已完成 |
+| 2026-05-19 | 在 `ai-shared/skills/ia-generate/SKILL.md` 中将组件消费顺序扩展为 `organism > molecule > atom-fallback`，并新增 `layer: organism` 输出要求 | D21 | 已完成 |
+| 2026-05-19 | 在 `ai-shared/skills/ux-collect/SKILL.md` 中补充组件分层采集规则，要求完整业务块优先录入 `organism_components` | D21 | 已完成 |
+| 2026-05-19 | 同步更新 `project-status.md`、`active-session.md`、`project-workflow.md`，统一共享口径为组织层正式生效后的状态 | D21 | 已完成 |
+
+## 补注 2026-05-19（layout / flow 文件分类与 layout 采集口径）
+
+### D22 - ux-collect 文件分类显式化为 tokens / component / layout / flow
+**背景**：随着 token、component、layout 与后续 flow 类知识持续增加，仅靠“读现有 knowledge 再判断写哪”已经不够稳定。用户明确回忆起最初希望把采集结果按 `tokens / component / layout / flow` 四类归档，避免不同知识类型继续混写。
+
+**结论**：`ux-collect` 的知识文件分类正式显式化为四组：
+- `tokens`：`tokens-data.json` + `tokens-decision.md`
+- `component`：`component-spec.json` + `component-decision.md`
+- `layout`：`layout-spec.json` + `layout-decision.md`
+- `flow`：当前先落 `flow-decision.md`，后续若需要结构化 flow 数据，再单开 spec 文件
+
+**影响**：
+- `ai-shared/skills/ux-collect/SKILL.md` 已补充文件分类与判定原则
+- `decision-source/knowledge/common/layout-spec.json` 已新建，作为 layout 结构化数据入口
+- `decision-source/knowledge/common/flow-decision.md` 已新建，作为 flow 规则入口
+
+### D23 - layout 采集允许来自 frame，并要求记录整页 UI region 结构化数据
+**背景**：用户明确补充：layout 与 component 不同，一个 layout 不一定是 component，也可能只是一个 frame，但仍然稳定承载某种页面骨架。尤其在主界面布局、空白弹窗模板、列表骨架等场景里，AI 需要学习的是“整页 UI 如何分区与适配”，而不是只判断节点是否可实例化。
+
+**结论**：layout 线正式采用以下采集口径：
+- layout 来源可以是 `frame`、`component`、`component_set` 或其他稳定表达整页骨架的节点
+- 允许结合用户补充的语义提示进行命名、分类和使用场景判断
+- 若对象同时是 layout template 与真实 component，则：
+  - 布局规律、位置关系、适配方式写入 `layout-*`
+  - 可实例化属性、`componentKey` 与组件实例化规则继续写入 `component-*`
+- `layout-spec.json` 必须记录整页主要 UI 区块的结构化数据，包括：
+  - 整体 frame 的 `x / y / width / height`
+  - region 级 `x / y / width / height`
+  - region 的 role、source type、约束、对齐方式和适配说明
+
+**影响**：
+- `layout-decision.md` 已补充 layout 与 component 的边界、layout_component 的归档规则、用户语义提示的使用方式，以及整页 region 级采集目标
+- `layout-spec.json` 已补充 layout template 数据骨架，支持 frame/component 双来源与 region 级位置尺寸记录
+- `ai-shared/skills/ux-collect/SKILL.md` 已增加 layout 写前校验与数据记录要求
+
+### 变更日志补注
+
+| 日期 | 变更内容 | 涉及决策 | 执行状态 |
+|---|---|---|---|
+| 2026-05-19 | 在 `ai-shared/skills/ux-collect/SKILL.md` 中显式固化 `tokens / component / layout / flow` 四类文件分类及其落点 | D22 | 已完成 |
+| 2026-05-19 | 新增 `decision-source/knowledge/common/layout-spec.json` 与 `flow-decision.md`，分别作为 layout 数据入口与 flow 规则入口 | D22 | 已完成 |
+| 2026-05-19 | 在 `layout-decision.md`、`layout-spec.json` 与 `ux-collect/SKILL.md` 中正式落地“layout 可来自 frame，需记录 region 级位置尺寸与适配信息”的采集规则 | D23 | 已完成 |
+
+## 补注 2026-05-19（layout 家族页录入细化）
+
+### D24 - layout 家族页按“模板先行、右注映射、layout-first”执行
+**背景**：在本轮继续采集「中小弹窗」「中弹窗」「大弹窗」「满屏浮窗」过程中，单靠 D23 的“layout 可来自 frame / component / component_set”仍不足以稳定指导实际录入。真实页面普遍同时包含空白模板、多个可实例化变体、右侧问题记录与说明文字，以及少量嵌入式真实组件。如果没有更细的执行顺序，AI 很容易把右侧注释当成独立界面、把整页结果层误记成组件，或只记顶层 `component_set` 而漏掉实际可实例化 variant。
+
+**结论**：layout 家族页正式补充以下执行规则：
+- 先录入空白模板或共性骨架，再录入各具体变体，保证 family 规则先于实例差异
+- 若右侧存在说明文字、问题记录或规范备注，默认按与左侧示例的横向位置和 `y` 轴邻近关系映射回左侧界面，不作为独立 layout
+- 若对象同时是 layout template 与真实 component，则：
+  - `layout-*` 记录整页骨架、region 结构、适配关系与家族差异
+  - `component-*` 记录真实可实例化入口、variant 与 `componentKey`
+- 若来源为 `component_set` 家族，不允许只保留顶层 set；所有后续可能真实实例化的 variant 都必须单独补齐 `componentKey`
+- 若页面属于满屏结果层、全屏浮窗、主界面覆盖层等特殊整页结构，默认采用 `layout-first` 口径，整页写入 `layout-*`，仅将其中真实发布的子组件拆入 `component-*`
+
+**影响**：
+- `ai-shared/skills/ux-collect/SKILL.md` 已补入 layout 家族页的解释动作、`component_set` 变体补 key 规则与 `layout-first` 特殊页处理规则
+- 本轮实际录入的「中小弹窗」「中弹窗」「大弹窗」「满屏浮窗」家族自本节点起成为后续同类采集的执行范式
+- `project-status.md` 与 `active-session.md` 将同步补充“layout 家族页 workflow 已固化”的当前态说明
+
+### 变更日志补注
+
+| 日期 | 变更内容 | 涉及决策 | 执行状态 |
+|---|---|---|---|
+| 2026-05-19 | 在 `ai-shared/skills/ux-collect/SKILL.md` 中补充 layout 家族页规则：右侧注释横向映射、模板先行、`component_set` 变体补 key、满屏页 `layout-first` | D24 | 已完成 |
+| 2026-05-19 | 将本轮弹窗家族与满屏浮窗采集方法归档为共享执行范式，并写入 `AI-workflow-discussion-log.md` | D24 | 已完成 |
+
 ## 补注 2026-05-18（仓库编码治理）
 
 ### D20 - 仓库文本编码统一为 UTF-8 with BOM，显示链路与落盘损坏分治
