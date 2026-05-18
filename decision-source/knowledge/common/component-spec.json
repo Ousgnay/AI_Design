@@ -1,0 +1,6734 @@
+﻿{
+  "meta": {
+    "sources": [
+      {
+        "page": "原子素材1 - TAB背景",
+        "page_node_id": "6897:17567",
+        "collected": "2026-05-15"
+      },
+      {
+        "page": "原子素材2 - Toast/TIP/按钮背景",
+        "page_node_id": "6903:27616",
+        "collected": "2026-05-15"
+      },
+      {
+        "page": "原子素材3 - 标题/标签背景",
+        "page_node_id": "6903:54586",
+        "collected": "2026-05-15"
+      },
+      {
+        "page": "原子素材4 - 纹样/聊天背景",
+        "page_node_id": "6916:99459",
+        "collected": "2026-05-15"
+      },
+      {
+        "page": "原子素材5 - 其他背景",
+        "page_node_id": "6903:47981",
+        "collected": "2026-05-15"
+      },
+      {
+        "page": "原子素材6 - 勾选框/滑条/选中框/条目背景",
+        "page_node_id": "6897:38155",
+        "collected": "2026-05-15"
+      },
+      {
+        "page": "原子素材7 - 按钮图标",
+        "page_node_id": "6916:153266",
+        "collected": "2026-05-15"
+      },
+      {
+        "page": "沙盘控件",
+        "page_node_id": "7108:34705",
+        "collected": "2026-05-15"
+      },
+      {
+        "page": "通用按钮",
+        "page_node_id": "1928:3190",
+        "collected": "2026-05-15"
+      },
+      {
+        "page": "图形按钮",
+        "page_node_id": "5479:5203",
+        "collected": "2026-05-15"
+      },
+      {
+        "page": "英雄卡牌",
+        "page_node_id": "1928:3412",
+        "collected": "2026-05-18"
+      },
+      {
+        "page": "英雄卡牌",
+        "page_node_id": "5480:6611",
+        "collected": "2026-05-18"
+      },
+      {
+        "page": "英雄卡牌",
+        "page_node_id": "6453:23911",
+        "collected": "2026-05-18"
+      }
+    ],
+    "last_synced": "2026-05-18",
+    "file_key": "jB3vJujGbA7pKX9rNIlJUt",
+    "_note_componentKeys": "componentKey 已下沉至各条目（及 variants 子项），与 nodeId 并排存放。值暂为 null，待 ux-collect 补录。nodeId 供 MCP 读取工具（get_design_context / get_screenshot）；componentKey 供 use_figma 中 figma.importComponentByKeyAsync(key)。",
+    "_note_component_layers": "知识库同时收录原子层与分子层。若存在语义完整、状态完整的分子组件，应优先实例化分子组件，原子条目默认作为分子内部构件或兜底拼装材料。"
+  },
+  "tab_backgrounds": [
+    {
+      "name": "tab_c_select_02",
+      "nodeId": "4883:4839",
+      "componentKey": "55d1ef410db777dcf8a11c9d517ba8694c4d9093",
+      "state": "selected",
+      "size": {
+        "w": 275,
+        "h": 86
+      },
+      "scalable": false,
+      "style": "深棕色+暗纹饰",
+      "use_scenes": [
+        "弹窗顶部主tab",
+        "全屏界面顶部主tab"
+      ],
+      "example_labels": [
+        "个人",
+        "文本",
+        "锁甲"
+      ],
+      "notes": "有纹样，不可拉伸，固定尺寸图片"
+    },
+    {
+      "name": "tab_c_normal",
+      "nodeId": "4883:4852",
+      "componentKey": "2d340d43cfa3e57dcb62339345d97174d00d55e8",
+      "state": "normal",
+      "size": {
+        "w": 86,
+        "h": 86
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "style": "米白色+细金框",
+      "use_scenes": [
+        "弹窗顶部主tab",
+        "全屏界面顶部主tab"
+      ],
+      "example_labels": [
+        "同盟",
+        "锁甲"
+      ],
+      "notes": "九宫格可拉伸，适配不同宽度"
+    },
+    {
+      "name": "tab_c_select_05",
+      "nodeId": "6405:16940",
+      "componentKey": "757554693afbbaf1da1a343e4158620d676f853d",
+      "state": "selected",
+      "size": {
+        "w": 32,
+        "h": 66
+      },
+      "scalable": false,
+      "style": "深棕底+浅色图标",
+      "use_scenes": [
+        "HUD图标型tab"
+      ],
+      "notes": "正方形等宽排列，纯图标无文字"
+    },
+    {
+      "name": "tab_c_normal_05",
+      "nodeId": "6405:16582",
+      "componentKey": "2022f8d31beac0bfc4b996fde2380fcb7ca69b5e",
+      "state": "normal",
+      "size": {
+        "w": 32,
+        "h": 66
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "style": "米白底+深色图标",
+      "use_scenes": [
+        "HUD图标型tab"
+      ],
+      "notes": "正方形等宽排列，纯图标无文字"
+    },
+    {
+      "name": "tab_chat_select_01",
+      "nodeId": "6194:9454",
+      "componentKey": "824edee0a4ea04c1d6dbbce095f4ecb63be34948",
+      "state": "selected",
+      "size": {
+        "w": 135,
+        "h": 60
+      },
+      "scalable": false,
+      "style": "深灰色背景（冷色调，区别于暖棕体系）",
+      "use_scenes": [
+        "聊天侧栏tab"
+      ],
+      "example_labels": [
+        "频道"
+      ],
+      "notes": "横向宽条"
+    },
+    {
+      "name": "tab_chat_normal_01",
+      "nodeId": "6194:9417",
+      "componentKey": "b6c64b53e121257b2124a3d1c15b5b7929bd51bc",
+      "state": "normal",
+      "size": {
+        "w": 32,
+        "h": 32
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "style": "浅灰背景（冷色调）",
+      "use_scenes": [
+        "聊天侧栏tab"
+      ],
+      "example_labels": [
+        "好友"
+      ],
+      "notes": "正方形"
+    },
+    {
+      "name": "btn_c_tab_select",
+      "nodeId": "6334:10781",
+      "componentKey": "f1fbab64eb57787103b906850554d15e359285d8",
+      "state": "selected",
+      "size": {
+        "w": 60,
+        "h": 60
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "style": "填充深棕色",
+      "shape": "菱形（45°旋转方块）",
+      "use_scenes": [
+        "二级tab图标型"
+      ],
+      "notes": "图标下方带文字标签"
+    },
+    {
+      "name": "btn_c_tab_deselect",
+      "nodeId": "6334:10462",
+      "componentKey": "ce20098698cd34470e9bd6cf8a64962370ad4b5b",
+      "state": "normal",
+      "size": {
+        "w": 60,
+        "h": 60
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "style": "浅色轮廓",
+      "shape": "菱形（45°旋转方块）",
+      "use_scenes": [
+        "二级tab图标型"
+      ],
+      "notes": "图标下方带文字标签"
+    },
+    {
+      "name": "bg_c_boxblock_14",
+      "nodeId": "4832:2703",
+      "componentKey": "7587692bd9dc2aefaea3a564a6504b09de5c70d5",
+      "state": "any",
+      "size": {
+        "w": 18,
+        "h": 58
+      },
+      "scalable": true,
+      "scale_method": "极细九宫格",
+      "use_scenes": [
+        "局部tab较宽块"
+      ],
+      "example_labels": [
+        "当前效果",
+        "文本"
+      ],
+      "notes": "宽度随文字内容变化，不固定等宽"
+    },
+    {
+      "name": "bg_c_boxblock_16",
+      "nodeId": "4909:18901",
+      "componentKey": "5ab47c0bf14f5a395b83bcd39e38bdfee08ae7f4",
+      "state": "any",
+      "size": {
+        "w": 12,
+        "h": 52
+      },
+      "scalable": true,
+      "scale_method": "极细九宫格",
+      "use_scenes": [
+        "局部tab较窄块"
+      ],
+      "example_labels": [
+        "满级效果",
+        "武勋榜"
+      ],
+      "notes": "宽度随文字内容变化，不固定等宽"
+    },
+    {
+      "name": "tab_armyadviser_select",
+      "nodeId": "6395:13496",
+      "componentKey": "85ab69913ca1fb27022e0f2a28e4d49966f9ac3a",
+      "state": "selected",
+      "size": {
+        "w": 500,
+        "h": 108
+      },
+      "scalable": false,
+      "style": "超宽横幅，左侧暗色装饰竖向背景条",
+      "use_scenes": [
+        "全屏背包界面顶部tab",
+        "全屏装备界面顶部tab",
+        "全屏军师界面顶部tab"
+      ],
+      "notes": "不可拉伸"
+    },
+    {
+      "name": "btn_ranklist_filter_01",
+      "nodeId": "6347:11199",
+      "componentKey": "add070beba711a8c83a8d2add98111a153811492",
+      "size": { "w": 134, "h": 134 },
+      "scalable": false,
+      "use_scenes": ["排行榜菱形筛选tab（大）"],
+      "notes": "134×134 菱形tab背景，来自 COMPONENT_SET「菱形tab」"
+    },
+    {
+      "name": "btn_ranklist_filter_02",
+      "nodeId": "6347:11205",
+      "componentKey": "47ff7bb727af8ca164197c50f6fc6411dc5ea176",
+      "size": { "w": 86, "h": 86 },
+      "scalable": false,
+      "use_scenes": ["排行榜菱形筛选tab（小）"],
+      "notes": "86×86 菱形tab背景，同 COMPONENT_SET"
+    }
+  ],
+  "background_panels": [
+    {
+      "name": "bg_slgmap_tips_bg",
+      "nodeId": "6897:17557",
+      "componentKey": "002d7e026ca5b041e2c6aa79a526e150f51ac56b",
+      "size": {
+        "w": 32,
+        "h": 32
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "SLG地图城市信息卡片popup"
+      ],
+      "notes": "气泡底板，含城市名+等级+坐标+操作按钮"
+    },
+    {
+      "name": "pic_slgmap_city_normal",
+      "nodeId": "6964:42772",
+      "componentKey": "15f55902f08166b4e13bb0599f0773088f96cf39",
+      "state": "normal",
+      "size": {
+        "w": 54,
+        "h": 32
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "SLG地图城市列表行"
+      ],
+      "notes": "城市标记，常规态"
+    },
+    {
+      "name": "pic_slgmap_city_select",
+      "nodeId": "6964:42806",
+      "componentKey": "d21f38fec98953ecce528c7d236f09d6f15e9c10",
+      "state": "selected",
+      "size": {
+        "w": 54,
+        "h": 32
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "SLG地图城市列表行"
+      ],
+      "notes": "城市标记，选中态"
+    },
+    {
+      "name": "tab_slgmap_bg00",
+      "nodeId": "6889:17245",
+      "componentKey": "4cb01124f80d38b4cb3d2bb280bdc310eaa5f79c",
+      "variant": "00",
+      "size": {
+        "w": 555,
+        "h": 81
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图大型tab背景"
+      ],
+      "notes": "与01为同尺寸不同色变体"
+    },
+    {
+      "name": "tab_slgmap_bg01",
+      "nodeId": "6889:17244",
+      "componentKey": "fcae87838a12be3c566a82560ea7b64997880ca4",
+      "variant": "01",
+      "size": {
+        "w": 555,
+        "h": 81
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图大型tab背景"
+      ],
+      "notes": "与00为同尺寸不同色变体"
+    },
+    {
+      "name": "tab_slgmap_bg02",
+      "nodeId": "6889:17243",
+      "componentKey": "97320f203144ed9b05aba750fb7b4f146cae1465",
+      "variant": "02",
+      "size": {
+        "w": 380,
+        "h": 68
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图小型tab背景"
+      ],
+      "notes": "与03为同尺寸不同色变体"
+    },
+    {
+      "name": "tab_slgmap_bg03",
+      "nodeId": "6889:17242",
+      "componentKey": "9e434dc6ef57657899dc1e194a6ceb8e462c728f",
+      "variant": "03",
+      "size": {
+        "w": 380,
+        "h": 68
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图小型tab背景"
+      ],
+      "notes": "与02为同尺寸不同色变体"
+    },
+    {
+      "name": "pic_c_circle_bg_r68_01",
+      "nodeId": "7082:73544",
+      "componentKey": "bd2e65aa1624f829af2f297441b64b233b47f3e0",
+      "size": {
+        "w": 68,
+        "h": 68
+      },
+      "scalable": false,
+      "shape": "圆形",
+      "use_scenes": [
+        "SLG地图玩家聊天气泡头像框",
+        "圆形图标底板"
+      ],
+      "notes": "r68 = radius 68"
+    },
+    {
+      "name": "btn_c_close_bg",
+      "nodeId": "6502:12408",
+      "componentKey": "5129967547ba01b45c7cb9f1fcb4a05cada4337c",
+      "size": {
+        "w": 58,
+        "h": 58
+      },
+      "scalable": false,
+      "use_scenes": [
+        "关闭按钮底板"
+      ],
+      "notes": "独立圆角关闭按钮"
+    },
+    {
+      "name": "Bg6",
+      "nodeId": "6581:16073",
+      "componentKey": "00a88f8d747a9af2fa78a7d1e46c5f81401b9c4c",
+      "figma_component": "bg",
+      "size": {
+        "w": 69,
+        "h": 68
+      },
+      "scalable": false,
+      "use_scenes": [
+        "小图标承载底板",
+        "关闭按钮旁图标"
+      ],
+      "notes": "小圆角方形底板，用于承载功能图标"
+    },
+    {
+      "name": "Bg5",
+      "nodeId": "6897:34488",
+      "componentKey": "1dfe169ae34bf87bd2626ad1b134f7585ce727b1",
+      "figma_component": "bg",
+      "size": {
+        "w": 229,
+        "h": 66
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图行动提示文字条"
+      ],
+      "notes": "左侧竖向装饰条+右侧横向文字背景，如「建造」提示"
+    },
+    {
+      "name": "Bg2",
+      "nodeId": "7101:21184",
+      "componentKey": "d4350157806991915eebfb9e2bfe93cf434d185f",
+      "figma_component": "bg",
+      "size": {
+        "w": 172,
+        "h": 290
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "排行榜面板背景",
+        "数据列表面板背景"
+      ],
+      "notes": "大型九宫格面板背景"
+    },
+    {
+      "name": "Bg1",
+      "nodeId": "7189:18008",
+      "componentKey": "ad48ee16a4a48bd148124cca5b6c9aff85e33c95",
+      "figma_component": "bg",
+      "size": {
+        "w": 74,
+        "h": 198
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图玩家聊天气泡背景条"
+      ],
+      "notes": "大型竖向背景条"
+    },
+    {
+      "name": "Bg3",
+      "nodeId": "6964:42565",
+      "componentKey": "01cce55ea1da65c786b3bb096af6ef3d67369aa6",
+      "figma_component": "bg",
+      "size": {
+        "w": 47,
+        "h": 147
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图行动选择浮层背景条"
+      ],
+      "notes": "小型竖向背景条，承载攻占/行军/驻守等菱形图标浮层"
+    },
+    {
+      "name": "Bg7",
+      "nodeId": {
+        "红": "6572:15222",
+        "深": "6572:15220",
+        "Default": "6572:15221"
+      },
+      "componentKey": {
+        "红": "8dba4060359a0b7aec2eca41f6fde594fa83382d",
+        "深": "dde242b29837caac42b0d60f3f60fb17b6cb878f",
+        "Default": "7430c39847cae2790f6765c048caf1bfdda5184d"
+      },
+      "figma_component": "bg",
+      "size": {
+        "w": 91,
+        "h": 91
+      },
+      "scalable": false,
+      "variants": [
+        "红",
+        "深",
+        "Default"
+      ],
+      "use_scenes": [
+        "侧边建筑分类列表面板",
+        "彩色功能底板"
+      ],
+      "notes": "三色变体；Default 尺寸略有差异(91×90)；nodeId 按变体区分"
+    },
+    {
+      "name": "bg_c_boxblock_00",
+      "nodeId": "4855:1850",
+      "componentKey": "a203cf3bbef1767c2cf4b92839b6c58d36beaa1b",
+      "size": {
+        "w": 24,
+        "h": 24
+      },
+      "scalable": true,
+      "scale_method": "九宫格最小单元",
+      "use_scenes": [
+        "大面积纹理底板平铺"
+      ],
+      "notes": "最小拼接单元，可平铺组成任意大小底板；比boxblock_14/16粒度更小"
+    },
+    {
+      "name": "btn_ranklist_info_bg_02",
+      "nodeId": {
+        "Default": "6334:9786",
+        "浅": "6363:18127",
+        "深": "6371:18883"
+      },
+      "componentKey": {
+        "Default": "5c53e342f8701ef61608e4a9e635937452cf459e",
+        "浅": "9b1259d937188c60dbd8021846f93ebc6e706078",
+        "深": "4f79ef77f324d981fb108bb62d650697d3c175fa"
+      },
+      "variants": {
+        "Default": {
+          "size": {
+            "w": 100,
+            "h": 56
+          },
+          "semantic": "极小态/图标按钮"
+        },
+        "浅": {
+          "size": {
+            "w": 326,
+            "h": 56
+          },
+          "semantic": "正常/未选中态"
+        },
+        "深": {
+          "size": {
+            "w": 326,
+            "h": 56
+          },
+          "semantic": "选中/高亮态"
+        }
+      },
+      "scalable": true,
+      "scale_method": "三段九宫格",
+      "use_scenes": [
+        "排行榜同盟信息按钮背景"
+      ],
+      "notes": "Default尺寸不同；浅/深同尺寸按选中状态区分"
+    },
+    {
+      "name": "bg_c_boxblock_10",
+      "nodeId": "4908:2054",
+      "componentKey": "25a06a7b9d6ed833f4dae40944634a5416d03c94",
+      "size": {
+        "w": 58,
+        "h": 58
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "底板10号（正方形，中等）"
+      ],
+      "notes": "58×58正方形九宫格底板"
+    },
+    {
+      "name": "bg_c_boxblock_11",
+      "nodeId": "4908:1995",
+      "componentKey": "12c8dde822463f351f2f0b759d5816eb1b7ab08f",
+      "size": {
+        "w": 52,
+        "h": 52
+      },
+      "scalable": true,
+      "scale_method": "三段纵向九宫格",
+      "use_scenes": [
+        "底板11号（正方形，三段纵向）"
+      ],
+      "notes": "纵向三段拉伸；与boxblock_12/13同类但略小"
+    },
+    {
+      "name": "bg_c_boxblock_15",
+      "nodeId": "4908:2177",
+      "componentKey": "2cece83bce6d51b8113f1b1eee9cb98ee48f5417",
+      "size": {
+        "w": 16,
+        "h": 58
+      },
+      "scalable": true,
+      "scale_method": "六格九宫格",
+      "use_scenes": [
+        "底板15号（极窄竖向，右侧有装饰边）"
+      ],
+      "notes": "宽度仅16px的竖向底板；右侧有装饰性边框效果"
+    }
+  ],
+  "toast_backgrounds": [
+    {
+      "name": "bg_toast_宽条",
+      "figma_component": "bg/Default",
+      "nodeId": "6544:28114",
+      "componentKey": "a2260bc2a9df323077eb2441fcdcba7a31214071",
+      "size": {
+        "w": 967,
+        "h": 57
+      },
+      "scalable": true,
+      "scale_method": "三段九宫格",
+      "use_scenes": [
+        "地图行军路线信息横条",
+        "全宽通知条"
+      ],
+      "notes": "宽版，适配全屏宽度"
+    },
+    {
+      "name": "bg_战报_红",
+      "figma_component": "bg",
+      "nodeId": "6544:28218",
+      "componentKey": "ff0639d9eeec8ff445f40dac0170fa24aa615824",
+      "size": {
+        "w": 606,
+        "h": 57
+      },
+      "scalable": true,
+      "scale_method": "三段九宫格",
+      "color": "红色",
+      "color_semantic": "战斗/危险/倒计时",
+      "use_scenes": [
+        "战斗倒计时通知",
+        "危险状态通知"
+      ],
+      "notes": "与bg_战报_黑同尺寸，颜色语义不可互换"
+    },
+    {
+      "name": "bg_战报_黑",
+      "figma_component": "bg",
+      "nodeId": "6544:28225",
+      "componentKey": "687e240b08399758c6a1d7aded20e964fd205f1b",
+      "size": {
+        "w": 606,
+        "h": 57
+      },
+      "scalable": true,
+      "scale_method": "三段九宫格",
+      "color": "黑色",
+      "color_semantic": "成功/中性/完成",
+      "use_scenes": [
+        "成功通知",
+        "中性状态通知"
+      ],
+      "notes": "与bg_战报_红同尺寸，颜色语义不可互换"
+    },
+    {
+      "name": "pic_c_toast_bg",
+      "nodeId": "6502:12115",
+      "componentKey": "1e3b46feb5a2e285f5729951d265bd2a1b790e99",
+      "size": {
+        "w": 461,
+        "h": 66
+      },
+      "scalable": false,
+      "use_scenes": [
+        "Toast弹出气泡装饰背景"
+      ],
+      "notes": "固定尺寸图片，与文字叠加使用"
+    }
+  ],
+  "tip_backgrounds": [
+    {
+      "name": "bg_c_tips_gradient",
+      "nodeId": "6091:6865",
+      "componentKey": "55f2f67d406d10bf0b9d3305a13e11b2b1467880",
+      "size": {
+        "w": 60,
+        "h": 96
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "TIP浮层左侧渐变装饰条",
+        "快捷操作浮层面板装饰"
+      ],
+      "notes": "竖向渐变条，深到透明，用作面板左侧或角落装饰"
+    },
+    {
+      "name": "bg_tip_短条",
+      "figma_component": "bg",
+      "nodeId": "6544:27600",
+      "componentKey": "5eb7d9110ba83286a2715216807b6b2c09d624db",
+      "size": {
+        "w": 318,
+        "h": 53
+      },
+      "scalable": false,
+      "use_scenes": [
+        "单行TIP提示横条",
+        "多选按钮横条"
+      ],
+      "notes": "固定尺寸，短版横条"
+    },
+    {
+      "name": "pic_slg_trend_bg01",
+      "nodeId": "6488:12092",
+      "componentKey": "3f9b42bde6fc110201dd6c85f7cae369fc3c9dbe",
+      "faction": "我方阵营",
+      "color": "绿色",
+      "size": {
+        "w": 437,
+        "h": 63
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG趋势标题横条-我方"
+      ],
+      "notes": "阵营颜色强绑定，不可互换"
+    },
+    {
+      "name": "pic_slg_trend_bg02",
+      "nodeId": "6488:12094",
+      "componentKey": "c7baf9c966d46eaa7479dbe4adce9644212aca1e",
+      "faction": "友方阵营",
+      "color": "黄色",
+      "size": {
+        "w": 437,
+        "h": 63
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG趋势标题横条-友方"
+      ],
+      "notes": "阵营颜色强绑定，不可互换"
+    },
+    {
+      "name": "pic_slg_trend_bg03",
+      "nodeId": "6488:12096",
+      "componentKey": "31b98be9ba50f9194c994b414aa64e60a6d683ff",
+      "faction": "敌方阵营",
+      "color": "红色",
+      "size": {
+        "w": 437,
+        "h": 63
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG趋势标题横条-敌方"
+      ],
+      "notes": "阵营颜色强绑定，不可互换"
+    },
+    {
+      "name": "pic_slg_trend_bg04",
+      "nodeId": "6488:12098",
+      "componentKey": "c9a1bbd0a1c5beffd00d1321b60305cd9b3f6b2e",
+      "faction": "NPC阵营",
+      "color": "褐色",
+      "size": {
+        "w": 437,
+        "h": 63
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG趋势标题横条-NPC"
+      ],
+      "notes": "阵营颜色强绑定，不可互换"
+    }
+  ],
+  "title_backgrounds": [
+    {
+      "name": "bg_c_biaotidi_1",
+      "nodeId": "6502:12104",
+      "componentKey": "f568c7eaf9a3cfa2a297b16fcb5cc6d1886d0a54",
+      "size": {
+        "w": 870,
+        "h": 100
+      },
+      "scalable": false,
+      "use_scenes": [
+        "全屏面板顶部大标题背景",
+        "弹窗顶部大标题背景"
+      ],
+      "notes": "最大型标题背景，配合大号标题文字使用"
+    },
+    {
+      "name": "pic_aristocracy_title_bg",
+      "nodeId": "4984:7026",
+      "componentKey": "5e528039af71ee46810948d56c64d17473a8eaf3",
+      "size": {
+        "w": 520,
+        "h": 74
+      },
+      "scalable": false,
+      "use_scenes": [
+        "贵族功能标题背景",
+        "次级面板标题背景"
+      ],
+      "notes": "中型标题背景，比bg_c_biaotidi_1更窄"
+    },
+    {
+      "name": "bg_c_boxblock_12",
+      "nodeId": "4855:1900",
+      "componentKey": "f08bad63b1d49220132d9c9538a3e960fbb17b54",
+      "size": {
+        "w": 52,
+        "h": 52
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "段落小标题装饰方块"
+      ],
+      "notes": "与boxblock_13同类，52px略大于50px"
+    },
+    {
+      "name": "bg_c_boxblock_13",
+      "nodeId": "4855:1943",
+      "componentKey": "ecf8038535d555090cd2f555f189c9d163b97ae6",
+      "size": {
+        "w": 50,
+        "h": 50
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "段落小标题装饰方块"
+      ],
+      "notes": "与boxblock_12同类，50px略小于52px"
+    },
+    {
+      "name": "bg_c_title_01",
+      "nodeId": "6922:160897",
+      "componentKey": "ebcf28e72fd5d2ba249551cc88ae8542c2ac22e4",
+      "size": {
+        "w": 16,
+        "h": 16
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "通用段落标题背景条"
+      ],
+      "notes": "极小九宫格，可拉伸为任意宽度标题背景条"
+    },
+    {
+      "name": "pic_map_title_bg",
+      "nodeId": "6860:14661",
+      "componentKey": "d0b2c717ec90b28e41c4ab81cdb4ccf1058b91dd",
+      "size": {
+        "w": 672,
+        "h": 66
+      },
+      "scalable": false,
+      "use_scenes": [
+        "地图全局标题区域背景"
+      ],
+      "notes": "固定图片，地图专用宽幅标题"
+    },
+    {
+      "name": "bg_slgmap_title_bg",
+      "nodeId": "6860:17666",
+      "componentKey": "c51c431cdd0ed29196196ca43c6fdda3f9387c4f",
+      "size": {
+        "w": 16,
+        "h": 16
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "SLG地图玩家名称标签标题区",
+        "SLG地图城市名称标签标题区"
+      ],
+      "notes": "极小九宫格，可拉伸；区别于bg_c_title_01，专用于SLG地图标签"
+    }
+  ],
+  "label_backgrounds": [
+    {
+      "name": "pic_bag_biaoqian_zixuan",
+      "nodeId": "6399:14286",
+      "componentKey": "65ad1e116f6f1a93f418112215b82c7f7e20d5a4",
+      "size": {
+        "w": 32,
+        "h": 66
+      },
+      "scalable": false,
+      "use_scenes": [
+        "背包物品自选标签"
+      ],
+      "notes": "背包界面竖向标记标签"
+    },
+    {
+      "name": "pic_slg_ranking_01",
+      "nodeId": "6312:8350",
+      "componentKey": "14b79ff1691c44253fefc95905a0d7a65e0cdd5a",
+      "rank": 1,
+      "size": {
+        "w": 44,
+        "h": 72
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG排行榜第1名徽章"
+      ],
+      "notes": "名次严格绑定，不可与02/03互换"
+    },
+    {
+      "name": "pic_slg_ranking_02",
+      "nodeId": "6312:8352",
+      "componentKey": "9e2e0257156901ce5047416041b3384ceef6a894",
+      "rank": 2,
+      "size": {
+        "w": 44,
+        "h": 72
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG排行榜第2名徽章"
+      ],
+      "notes": "名次严格绑定，不可与01/03互换"
+    },
+    {
+      "name": "pic_slg_ranking_03",
+      "nodeId": "6312:8354",
+      "componentKey": "d28e00b285373f7406371cf56f61de49d534698c",
+      "rank": 3,
+      "size": {
+        "w": 44,
+        "h": 72
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG排行榜第3名徽章"
+      ],
+      "notes": "名次严格绑定，不可与01/02互换"
+    },
+    {
+      "name": "城池标签",
+      "nodeId": {
+        "金": "6314:8504",
+        "蓝": "6314:8506",
+        "紫": "6314:8508",
+        "红": "6314:8510"
+      },
+      "componentKey": {
+        "金": "ef39f78e73ff57180a2c73dc3d4d206bcd377bff",
+        "蓝": "e243aef1ffa0da1e6189253832395d445ca23479",
+        "紫": "c487995f8e4399dee3ab4446f59f6454eb622d8d",
+        "红": "4f349de67832b5b0a407464f7d18efb45ab3da85"
+      },
+      "variants": [
+        "金",
+        "蓝",
+        "紫",
+        "红"
+      ],
+      "size": {
+        "w": 74,
+        "h": 41
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "城池品质标签"
+      ],
+      "notes": "颜色与城池品质强绑定；TODO：具体品质-颜色语义待补充"
+    },
+    {
+      "name": "bg_shapan_diban_2",
+      "nodeId": "6581:16006",
+      "componentKey": "e4ef133854c8ce40cbd19993702d0575c0dfe99b",
+      "size": {
+        "w": 463,
+        "h": 64
+      },
+      "scalable": false,
+      "use_scenes": [
+        "沙盘战场模式底部标识条"
+      ],
+      "notes": "战场名称展示底条，如「秋风战」"
+    },
+    {
+      "name": "pic_bag_time",
+      "nodeId": "6405:14615",
+      "componentKey": "368fa832f3c8dd94b16358a8f62474d79f9f66ca",
+      "size": {
+        "w": 28,
+        "h": 48
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "背包物品倒计时徽章"
+      ],
+      "notes": "竖向小徽章，高度可适配内容行数"
+    },
+    {
+      "name": "pic_slg_build_name_box",
+      "nodeId": "4883:4474",
+      "componentKey": "0de35b4be604bc82cd4e4e9750a3392dfbecb4e6",
+      "size": {
+        "w": 54,
+        "h": 210
+      },
+      "scalable": true,
+      "scale_method": "九宫格竖向",
+      "use_scenes": [
+        "SLG地图建筑名称竖排标注框"
+      ],
+      "notes": "固定宽度，高度可适配"
+    },
+    {
+      "name": "bg_map_城标色条",
+      "figma_component": "bg",
+      "nodeId": "7108:23214",
+      "componentKey": "7100856f7b763778a5be2c318b50e74ad3af3deb",
+      "size": {
+        "w": 35,
+        "h": 54
+      },
+      "scalable": false,
+      "use_scenes": [
+        "地图城市标签左侧颜色指示条"
+      ],
+      "notes": "窄竖向色条，配合城市标签使用"
+    },
+    {
+      "name": "bg_map_城名宽条",
+      "figma_component": "bg",
+      "nodeId": "6994:44480",
+      "componentKey": "f099daf896088a91547d37bbb6b4a4b89f915d02",
+      "size": {
+        "w": 210,
+        "h": 60
+      },
+      "scalable": false,
+      "use_scenes": [
+        "地图城市名称完整标签"
+      ],
+      "notes": "横向宽标签，承载城市名+附加信息"
+    },
+    {
+      "name": "bg_map_玩家名条",
+      "figma_component": "bg",
+      "nodeId": "6993:44441",
+      "componentKey": "f6321d68c97c40ae8bd0055e46b30f930b2e77bf",
+      "size": {
+        "w": 121,
+        "h": 29
+      },
+      "scalable": false,
+      "use_scenes": [
+        "地图玩家名称悬浮细标签"
+      ],
+      "notes": "轻量级细横条，地图上玩家名称标签"
+    },
+    {
+      "name": "icon_map_city_bg",
+      "nodeId": "7087:74885",
+      "componentKey": "bd7fab528dd2755b5bb20c48dca5a2275ae0a1fe",
+      "size": {
+        "w": 138,
+        "h": 50
+      },
+      "scalable": true,
+      "scale_method": "三段九宫格",
+      "use_scenes": [
+        "地图城市信息标签行"
+      ],
+      "notes": "承载城市名+等级信息一整行"
+    },
+    {
+      "name": "bg_slgmap_position_bg",
+      "nodeId": "6877:16599",
+      "componentKey": "08c4ba52998b54f57dc21bd1a9688905e60ad0d9",
+      "size": {
+        "w": 108,
+        "h": 50
+      },
+      "scalable": true,
+      "scale_method": "三段九宫格",
+      "use_scenes": [
+        "地图坐标位置标签"
+      ],
+      "notes": "坐标数值展示，如「♥ 225,866」"
+    },
+    {
+      "name": "icon_map_avatar_bg",
+      "nodeId": "7082:72815",
+      "componentKey": "2ae50686fe7bc0669ea91d25abf0c8362eaa1c41",
+      "size": {
+        "w": 64,
+        "h": 64
+      },
+      "scalable": false,
+      "shape": "圆形",
+      "use_scenes": [
+        "地图玩家头像装饰底框"
+      ],
+      "notes": "固定图片，圆形底框"
+    },
+    {
+      "name": "icon_map_county_bg",
+      "nodeId": "6897:17370",
+      "componentKey": null,
+      "size": {
+        "w": 46,
+        "h": 47
+      },
+      "scalable": false,
+      "shape": "方形",
+      "location_type": "郡县类",
+      "color_fill_variants": [
+        "翠绿"
+      ],
+      "use_scenes": [
+        "SLG地图郡县图标底板"
+      ],
+      "notes": "方形地点图标底板；颜色填充代表占领阵营，完整语义待补充"
+    },
+    {
+      "name": "icon_map_pass_ferry_bg",
+      "nodeId": "7039:56993",
+      "componentKey": null,
+      "size": {
+        "w": 42,
+        "h": 42
+      },
+      "scalable": false,
+      "shape": "圆形",
+      "location_type": "关隘/渡口类",
+      "color_fill_variants": [
+        "中立"
+      ],
+      "use_scenes": [
+        "SLG地图关隘/渡口图标底板"
+      ],
+      "notes": "圆形地点图标底板；颜色填充代表占领阵营，完整语义待补充"
+    }
+  ],
+  "pattern_backgrounds": [
+    {
+      "name": "icon_ranklist_ranking_04",
+      "nodeId": {
+        "Default": "6334:11115",
+        "暗": "6334:11119",
+        "浅": "6354:12512"
+      },
+      "componentKey": {
+        "Default": "9f488ec4953bd9cb2a932112fe00788658de6d52",
+        "暗": "33835e8966f96dfb38098ca7476bd3be67eb434a",
+        "浅": "823a850bcf9586997efe89755748884dc94602c7"
+      },
+      "variants": {
+        "Default": {
+          "size": {
+            "w": 58,
+            "h": 58
+          },
+          "semantic": "标准态"
+        },
+        "暗": {
+          "size": {
+            "w": 53,
+            "h": 57
+          },
+          "semantic": "未激活态"
+        },
+        "浅": {
+          "size": {
+            "w": 53,
+            "h": 57
+          },
+          "semantic": "高亮态"
+        }
+      },
+      "scalable": false,
+      "use_scenes": [
+        "排行榜第4名+通用图标底板"
+      ],
+      "notes": "区别于pic_slg_ranking_01~03（固定奖牌形状）；此为可复用方形底板，有三种视觉态"
+    },
+    {
+      "name": "pic_c_pattern_01_tiled",
+      "nodeId": "6348:11504",
+      "componentKey": "2ddadbbda21de88fc3274322c300b87dcf9ea7f1",
+      "size": {
+        "w": 97,
+        "h": 46
+      },
+      "scalable": false,
+      "tileable": true,
+      "use_scenes": [
+        "界面横向装饰纹样带"
+      ],
+      "notes": "可水平平铺拼接，形成宽幅装饰纹样"
+    },
+    {
+      "name": "pic_c_resource_bg",
+      "nodeId": "4883:2912",
+      "componentKey": "6d541c22e42742d4cf3f1727f68fa0ca47a181c0",
+      "size": {
+        "w": 263,
+        "h": 372
+      },
+      "scalable": true,
+      "scale_method": "三段纵向九宫格",
+      "use_scenes": [
+        "资源/道具列表竖向面板背景"
+      ],
+      "notes": "宽度固定，高度可适配"
+    },
+    {
+      "name": "pic_c_empty",
+      "nodeId": "4883:4607",
+      "componentKey": "8092675fcc4edb456219a4a205e7d89d91428632",
+      "size": {
+        "w": 378,
+        "h": 378
+      },
+      "scalable": false,
+      "shape": "圆形大图案",
+      "use_scenes": [
+        "空状态页中央装饰插图"
+      ],
+      "notes": "固定图片，用于「暂无内容」占位"
+    },
+    {
+      "name": "bg_shapan_diban_tips",
+      "nodeId": "6916:139829",
+      "componentKey": "60e4bad85732f7ed0fc7241fa891837b590a1851",
+      "size": {
+        "w": 270,
+        "h": 94
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "沙盘底部提示面板主底板"
+      ],
+      "notes": "与pattern01/02配合使用构成完整提示面板"
+    },
+    {
+      "name": "bg_shapan_diban_tips_pattern01",
+      "nodeId": "6916:139825",
+      "componentKey": "2277756c0bbba246ae9b91271ab85fa99fa8f60b",
+      "size": {
+        "w": 232,
+        "h": 70
+      },
+      "scalable": false,
+      "use_scenes": [
+        "沙盘提示面板纹样横条"
+      ],
+      "notes": "固定图片，较窄横向纹样"
+    },
+    {
+      "name": "bg_shapan_diban_tips_pattern02",
+      "nodeId": "6916:139827",
+      "componentKey": "893438cdf32374d8b9a7e2e96c1827ba324da6dd",
+      "size": {
+        "w": 209,
+        "h": 183
+      },
+      "scalable": false,
+      "use_scenes": [
+        "沙盘提示面板纹样方块"
+      ],
+      "notes": "固定图片，较高方形纹样"
+    },
+    {
+      "name": "pic_main_army_pattern",
+      "nodeId": "6581:20273",
+      "componentKey": "b2f0a6c9317cb102cd02daad3af176ff613a5381",
+      "size": {
+        "w": 426,
+        "h": 74
+      },
+      "scalable": false,
+      "use_scenes": [
+        "主力军队界面横向装饰纹样条"
+      ],
+      "notes": "固定图片"
+    },
+    {
+      "name": "icon_slgmap_picture_hu",
+      "nodeId": {
+        "Default": "6860:14647",
+        "蓝绿": "6860:14707"
+      },
+      "componentKey": {
+        "Default": "3ea33bc8f4a8c92386b0a91d6c0467aba11785c7",
+        "蓝绿": "252cb0cf77169121b993694b4555d9646cb9b2c1"
+      },
+      "variants": {
+        "Default": {
+          "size": {
+            "w": 76,
+            "h": 60
+          },
+          "faction": "中立",
+          "color": "默认"
+        },
+        "蓝绿": {
+          "size": {
+            "w": 72,
+            "h": 60
+          },
+          "faction": "我方阵营",
+          "color": "蓝绿"
+        }
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图胡型装饰图案"
+      ],
+      "notes": "阵营颜色语义：Default=中立/蓝绿=我方；友方/NPC变体待补充"
+    },
+    {
+      "name": "icon_slgmap_picture_long",
+      "nodeId": {
+        "Default": "6860:14656",
+        "红": "6860:14719"
+      },
+      "componentKey": {
+        "Default": "93428e1a75a9bbfb6f76fff05c3961939d2417c5",
+        "红": "52fc4c9f1ee2a2344516f68f800357e9d78906e2"
+      },
+      "variants": {
+        "Default": {
+          "size": {
+            "w": 76,
+            "h": 60
+          },
+          "faction": "中立",
+          "color": "默认"
+        },
+        "红": {
+          "size": {
+            "w": 77,
+            "h": 60
+          },
+          "faction": "敌方阵营",
+          "color": "红"
+        }
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图龙型装饰图案"
+      ],
+      "notes": "阵营颜色语义：Default=中立/红=敌方；友方/NPC变体待补充"
+    }
+  ],
+  "chat_backgrounds": [
+    {
+      "name": "bg_chat_dialogue_window",
+      "nodeId": "6156:9086",
+      "componentKey": "e1a67d60067479ef3b0272c4cab45e62d598065b",
+      "size": {
+        "w": 16,
+        "h": 16
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "聊天窗口内容区整体背景"
+      ],
+      "notes": "极小九宫格，拉伸填充整个聊天面板"
+    },
+    {
+      "name": "bg_chat_system_01",
+      "nodeId": "6174:10955",
+      "componentKey": "0220049ff1598557affb2fb13cf14251ce31e56a",
+      "size": {
+        "w": 42,
+        "h": 40
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "聊天系统通知气泡背景"
+      ],
+      "notes": "主版本；与bg_chat_system外观略有差异"
+    },
+    {
+      "name": "bg_chat_system",
+      "nodeId": "6174:11009",
+      "componentKey": "f4ab7d52198a978821d5d30f5218f28df07b26b3",
+      "size": {
+        "w": 42,
+        "h": 40
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "聊天系统通知气泡背景"
+      ],
+      "notes": "基础版本；优先使用_01"
+    },
+    {
+      "name": "tab_chat_bg",
+      "nodeId": "6086:6708",
+      "componentKey": "19a80cfd4b5dbd52655137ff70b953ed51c76c66",
+      "size": {
+        "w": 256,
+        "h": 16
+      },
+      "scalable": true,
+      "scale_method": "三段九宫格",
+      "use_scenes": [
+        "聊天面板顶部/底部工具栏背景"
+      ],
+      "notes": "极薄横条，宽度可适配"
+    },
+    {
+      "name": "bg_chat_friends_01",
+      "nodeId": "6142:10049",
+      "componentKey": "be0b421af4aab01e83650cc78283ffc2ce8c95e5",
+      "size": {
+        "w": 32,
+        "h": 32
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "好友列表项背景（样式1）"
+      ],
+      "notes": "与02视觉色调略异，具体区分语义待确认"
+    },
+    {
+      "name": "bg_chat_friends_02",
+      "nodeId": "6142:10098",
+      "componentKey": "34f00bf76445b51607e477d7819b707b1b20130a",
+      "size": {
+        "w": 32,
+        "h": 32
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "好友列表项背景（样式2）"
+      ],
+      "notes": "与01视觉色调略异"
+    },
+    {
+      "name": "bg_chat_dialogue_left",
+      "nodeId": "6044:6899",
+      "componentKey": "d9e480f10e796e69eca89e6f52a17e0c80d5af83",
+      "size": {
+        "w": 44,
+        "h": 54
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "direction": "left",
+      "use_scenes": [
+        "聊天己方消息气泡"
+      ],
+      "notes": "方向性组件，不可与right互换"
+    },
+    {
+      "name": "bg_chat_dialogue_right",
+      "nodeId": "6044:6885",
+      "componentKey": "b309ddc7c464048302c2e7ef514915083322b359",
+      "size": {
+        "w": 44,
+        "h": 54
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "direction": "right",
+      "use_scenes": [
+        "聊天他人消息气泡"
+      ],
+      "notes": "方向性组件，不可与left互换"
+    },
+    {
+      "name": "bg_chat_window_tips_01",
+      "nodeId": "6156:8998",
+      "componentKey": "d8e6ff0dbd5869a9942c198ee5da949cea4e736c",
+      "size": {
+        "w": 38,
+        "h": 155
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "聊天界面侧边功能提示弹出面板"
+      ],
+      "notes": "竖向窄面板"
+    },
+    {
+      "name": "bg_chat_emojis_tips",
+      "nodeId": "6174:13242",
+      "componentKey": "2da0602dab2eab6a5b7598cf075f2d762b31a749",
+      "size": {
+        "w": 44,
+        "h": 81
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "聊天表情选择器弹出面板"
+      ],
+      "notes": "比window_tips_01更扁"
+    },
+    {
+      "name": "bg_chat_window_tips",
+      "nodeId": "6194:9396",
+      "componentKey": "01a737a42fa1b3b21ee2da4ea717ad1843193fb3",
+      "size": {
+        "w": 44,
+        "h": 84
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "聊天窗口提示面板（备用）"
+      ],
+      "notes": "暂无使用场景示例"
+    },
+    {
+      "name": "tab_chat_select_02",
+      "nodeId": "6174:13426",
+      "componentKey": "ccaec1126faba8af0851225845dfab32923aaa7b",
+      "size": {
+        "w": 34,
+        "h": 68
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "state": "selected",
+      "use_scenes": [
+        "聊天Tab选中态（竖向紧凑布局）"
+      ],
+      "notes": "竖向版；select_01(135×60)用于横向宽布局，select_02用于竖向紧凑布局"
+    },
+    {
+      "name": "bg_chat_reply_tips_black",
+      "nodeId": "6212:20657",
+      "componentKey": "6bfd880a36d9c4d04d01c9d3746391b2ef4e98dc",
+      "size": {
+        "w": 32,
+        "h": 32
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "color": "深色",
+      "use_scenes": [
+        "聊天回复提示气泡（深色背景场景）"
+      ],
+      "notes": "与bg_chat_reply_tips成对，按背景色选用"
+    },
+    {
+      "name": "bg_chat_reply_tips",
+      "nodeId": "6212:19984",
+      "componentKey": "aa0a11ef666f117cf66342d0d001e17b8f578b1c",
+      "size": {
+        "w": 30,
+        "h": 30
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "color": "浅色",
+      "use_scenes": [
+        "聊天回复提示气泡（浅色背景场景）"
+      ],
+      "notes": "与bg_chat_reply_tips_black成对，按背景色选用"
+    }
+  ],
+  "other_backgrounds": [
+    {
+      "name": "bar_hud_health",
+      "nodeId": "6581:15995",
+      "componentKey": "d9e0c9fb913f2c9d09d6be0034a294c63659dce3",
+      "size": {
+        "w": 18,
+        "h": 18
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "HUD血量条背景",
+        "进度条背景"
+      ],
+      "notes": "极小九宫格，三段横向拉伸"
+    },
+    {
+      "name": "bg_c_boxblock_18",
+      "nodeId": "6334:9084",
+      "componentKey": "9c3975c2e8726a84681853704e0885986891ba06",
+      "size": {
+        "w": 32,
+        "h": 40
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "底板系列18号（竖向矩形）"
+      ],
+      "notes": "比boxblock_14/16更宽更高，竖向矩形九宫格"
+    },
+    {
+      "name": "pic_bag_item_bg",
+      "nodeId": "6395:13895",
+      "componentKey": "56dc9c39431c5a6d964ac33fe71a8e3614e3d53a",
+      "size": {
+        "w": 16,
+        "h": 16
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "背包物品格底板"
+      ],
+      "notes": "极小九宫格，拉伸为物品格"
+    },
+    {
+      "name": "btn_ranklist_sel_01",
+      "nodeId": "6374:19556",
+      "componentKey": "2cb18b12e3f2b3c3068c530ec2785ccefaf02247",
+      "size": {
+        "w": 30,
+        "h": 58
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "下拉列表选择竖按钮",
+        "排行榜展开按钮"
+      ],
+      "notes": "竖向窄按钮，用于触发下拉展开"
+    },
+    {
+      "name": "input_field_bg",
+      "figma_component": "Component 473/Component 469",
+      "nodeId": "4795:959",
+      "componentKey": "373c04df637a100a1496bbd9daf41b44c4607fdf",
+      "size": {
+        "w": 58,
+        "h": 58
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "搜索框背景",
+        "文字输入框底板"
+      ],
+      "notes": "Figma内部名为 Component 473/Component 469；九宫格可拉伸适配不同宽度"
+    },
+    {
+      "name": "icon_ranklist_ranking_04_bg",
+      "figma_component": "icon_ranklist_ranking_04/bg",
+      "nodeId": "6597:22529",
+      "componentKey": "72b1303e934f13adda1673de72dbcd9d87307e03",
+      "size": {
+        "w": 458,
+        "h": 50
+      },
+      "scalable": false,
+      "use_scenes": [
+        "排行榜宽版行背景条"
+      ],
+      "notes": "固定宽幅图片，排行榜行底板"
+    },
+    {
+      "name": "pic_main_add_bg",
+      "nodeId": "6544:27556",
+      "componentKey": "181ff3e6f3ce4208f3bf4c3cc773e86edcc48248",
+      "size": {
+        "w": 206,
+        "h": 55
+      },
+      "scalable": false,
+      "use_scenes": [
+        "主界面「+」添加按钮背景"
+      ],
+      "notes": "固定图片，配合加号图标使用"
+    },
+    {
+      "name": "bg_army_march_side",
+      "figma_component": "bg",
+      "nodeId": "6594:20586",
+      "componentKey": "3025f8ff37bbf9602e9a8536289ec5e04e4c94b1",
+      "size": {
+        "w": 38,
+        "h": 75
+      },
+      "scalable": false,
+      "use_scenes": [
+        "行军/行动浮层竖向背景条"
+      ],
+      "notes": "匿名bg组件，推断场景：行军面板侧边竖条"
+    },
+    {
+      "name": "bg_unit_badge_circle",
+      "figma_component": "bg",
+      "nodeId": "6995:45868",
+      "componentKey": "3660cbe00dd4608b2054ee34c4d27725364a1132",
+      "size": {
+        "w": 42,
+        "h": 42
+      },
+      "scalable": false,
+      "use_scenes": [
+        "地表部队铭牌圆形底板"
+      ],
+      "notes": "匿名bg组件"
+    },
+    {
+      "name": "bg_map_icon_circle",
+      "figma_component": "bg",
+      "nodeId": "6964:42624",
+      "componentKey": "51548452207f54721175829a286f09a58d7b38f5",
+      "size": {
+        "w": 44,
+        "h": 44
+      },
+      "scalable": false,
+      "opacity": 0.8,
+      "use_scenes": [
+        "地图城市图标圆形底"
+      ],
+      "notes": "匿名bg组件，不透明度80%"
+    },
+    {
+      "name": "bg_progress_bar",
+      "figma_component": "bg",
+      "nodeId": "7087:73779",
+      "componentKey": "358c041d323f6acaad857b7925765cf63c0ceec2",
+      "size": {
+        "w": 119,
+        "h": 33
+      },
+      "scalable": false,
+      "use_scenes": [
+        "血量/进度横条底板"
+      ],
+      "notes": "匿名bg组件"
+    },
+    {
+      "name": "bg_army_info_wide",
+      "figma_component": "bg",
+      "nodeId": "6581:20302",
+      "componentKey": "84ef7a771a826f7d15254c3df64f3264e0019ccb",
+      "size": {
+        "w": 503,
+        "h": 76
+      },
+      "scalable": false,
+      "use_scenes": [
+        "宽幅部队信息横条（大版）"
+      ],
+      "notes": "匿名bg组件，宽版固定图片"
+    },
+    {
+      "name": "bg_army_info_slim",
+      "figma_component": "bg",
+      "nodeId": "6581:16099",
+      "componentKey": "570d63e5c302ff184e0d821fd930b9676c76dcc1",
+      "size": {
+        "w": 448,
+        "h": 51
+      },
+      "scalable": false,
+      "use_scenes": [
+        "宽幅部队信息横条（细版）"
+      ],
+      "notes": "匿名bg组件，细版固定图片；与bg_army_info_wide成对"
+    },
+    {
+      "name": "bg_slgmap_camp_bg",
+      "nodeId": "6997:49488",
+      "componentKey": "8c8c667da2dbbcb1dd005583f3d03a7b7f26d087",
+      "size": {
+        "w": 72,
+        "h": 130
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图营地/驻军竖向面板（高版）"
+      ],
+      "notes": "高版与短版成对"
+    },
+    {
+      "name": "bg_slgmap_camp_bg_短",
+      "nodeId": "7039:49507",
+      "componentKey": "0b745d4dbe0f6095012ab05b0a5740a1a0cbc4cd",
+      "size": {
+        "w": 73,
+        "h": 65
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图营地/驻军竖向面板（短版）"
+      ],
+      "notes": "短版与高版成对"
+    },
+    {
+      "name": "bg_hud_title_06_color",
+      "nodeId": "7039:52664",
+      "componentKey": "c36dd656f085c33e779a6bd9ebc6f5228be77580",
+      "size": {
+        "w": 62,
+        "h": 54
+      },
+      "scalable": true,
+      "scale_method": "三段九宫格",
+      "use_scenes": [
+        "HUD彩色标题短条"
+      ],
+      "notes": "有彩色渐变overlay，宽度可拉伸"
+    },
+    {
+      "name": "bg_ranklist_ranking_01",
+      "nodeId": "6348:11420",
+      "componentKey": "566576c87d57910dd7c880864e2c96cd2dc2b7a6",
+      "rank": 1,
+      "size": {
+        "w": 644,
+        "h": 112
+      },
+      "scalable": false,
+      "use_scenes": [
+        "排行榜第1名整行背景（金色）"
+      ],
+      "notes": "固定图片；与02/03尺寸相同颜色/纹理不同；严格按名次使用"
+    },
+    {
+      "name": "bg_ranklist_ranking_02",
+      "nodeId": "6348:11419",
+      "componentKey": "f1780cec6a79d830fd56ad5f4568915d2db0ce2b",
+      "rank": 2,
+      "size": {
+        "w": 644,
+        "h": 112
+      },
+      "scalable": false,
+      "use_scenes": [
+        "排行榜第2名整行背景（银色）"
+      ],
+      "notes": "固定图片；严格按名次使用"
+    },
+    {
+      "name": "bg_ranklist_ranking_03",
+      "nodeId": "6348:11418",
+      "componentKey": "bf9e5fabbf2a88bd35c98f1c0332bf3a890c4122",
+      "rank": 3,
+      "size": {
+        "w": 644,
+        "h": 112
+      },
+      "scalable": false,
+      "use_scenes": [
+        "排行榜第3名整行背景（铜色）"
+      ],
+      "notes": "固定图片；严格按名次使用"
+    },
+    {
+      "name": "bg_ranklist_ranking_04",
+      "nodeId": "6334:9019",
+      "componentKey": "92c5b99f404212ade2b62e8c77040418bc675e32",
+      "size": {
+        "w": 60,
+        "h": 60
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "排行榜第4名+行背景（可拉伸）"
+      ],
+      "notes": "九宫格可拉伸；与ranking_05外观略异，均用于4名+"
+    },
+    {
+      "name": "bg_ranklist_ranking_05",
+      "nodeId": "6334:9461",
+      "componentKey": "3790c7594bb06f2fcd658a271fd99a9ca287f0fc",
+      "size": {
+        "w": 60,
+        "h": 60
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "排行榜第5名+行背景"
+      ],
+      "notes": "与ranking_04同尺寸，外观略有不同；具体区分语义待确认"
+    },
+    {
+      "name": "bg_row_grey",
+      "figma_component": "bg灰",
+      "nodeId": "7081:65297",
+      "componentKey": "ab12e01729105a3730664f53f7ed48fbb95ffa55",
+      "size": {
+        "w": 456,
+        "h": 64
+      },
+      "scalable": false,
+      "opacity": 0.3,
+      "use_scenes": [
+        "列表灰色条目行背景"
+      ],
+      "notes": "固定图片，整体30%不透明度叠加；用于非彩色阵营的通用行背景"
+    },
+    {
+      "name": "pic_bag_select",
+      "nodeId": "6423:18459",
+      "componentKey": "ea4d9eccd685cc48fe0b028297c8f2666067af09",
+      "size": {
+        "w": 689,
+        "h": 141
+      },
+      "scalable": true,
+      "scale_method": "三段九宫格",
+      "use_scenes": [
+        "背包主tab选中背景"
+      ],
+      "notes": "超宽横幅，宽度可拉伸"
+    },
+    {
+      "name": "pic_bag_EquipmentCell_01",
+      "nodeId": "6423:18804",
+      "componentKey": "1b061947bd372d7611f8a81157d3c462c9024ced",
+      "size": {
+        "w": 184,
+        "h": 141
+      },
+      "scalable": true,
+      "scale_method": "三段九宫格",
+      "use_scenes": [
+        "装备格/物品格选中背景"
+      ],
+      "notes": "与pic_bag_select同系列但更窄"
+    },
+    {
+      "name": "pic_login_bg01",
+      "nodeId": "4988:9398",
+      "componentKey": "544a9e0d5c1f86ec62d86ed6fa7cd5a46c0b8176",
+      "state": "normal",
+      "size": {
+        "w": 122,
+        "h": 101
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "面板/列表项常态底板"
+      ],
+      "notes": "常态底板；与pic_login_bg02成对使用"
+    },
+    {
+      "name": "pic_login_bg02",
+      "nodeId": "4988:9388",
+      "componentKey": "a71fb85cb0391c97c93b60617f9276ab3749952a",
+      "state": "selected",
+      "size": {
+        "w": 122,
+        "h": 101
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "面板/列表项选中态底板"
+      ],
+      "notes": "选中态底板，比01视觉更突出；与pic_login_bg01成对使用"
+    }
+  ],
+  "faction_color_systems": [
+    {
+      "name": "slg_army_status_band",
+      "description": "阵营色水平宽色条（部队状态指示）",
+      "default_size": {
+        "w": 197,
+        "h": 56
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图地表部队阵营色条",
+        "部队状态HUD"
+      ],
+      "color_grade_rule": "X1=深/主色调，X2=中，X3=浅",
+      "componentKey": null,
+      "variants": [
+        {
+          "color": "翠绿",
+          "nodeId": "7039:60338",
+          "componentKey": "fe10c3331290db4862f393e8628196602fecf2a7"
+        },
+        {
+          "color": "1",
+          "nodeId": "7039:60339",
+          "componentKey": "76d40e02ed080228d918d7e46302ae5119b7ffd5"
+        },
+        {
+          "color": "2",
+          "nodeId": "7039:60341",
+          "componentKey": "9a37a44d32ce22522d5cd0fd5c7effe08197ed80"
+        },
+        {
+          "color": "橙1",
+          "nodeId": "7039:60337",
+          "componentKey": "20d9c20dc6033ce859c1ce5c52175c7830d2b75a"
+        },
+        {
+          "color": "橙2",
+          "nodeId": "7039:60336",
+          "componentKey": "3ec15d1831510af9125c5a14ba4090bfe4a729aa"
+        },
+        {
+          "color": "橙3",
+          "nodeId": "7039:60334",
+          "componentKey": "e82cf90f40731881a1a55b8065c332a3c7180ddb"
+        },
+        {
+          "color": "粉1",
+          "nodeId": "7039:60332",
+          "componentKey": "02983785ff663c736144b502f7f3e8a5f0ee1dc2"
+        },
+        {
+          "color": "粉2",
+          "nodeId": "7039:60330",
+          "componentKey": "7130a749b7d64ce01a24eaad5bbbf917241c0baa"
+        },
+        {
+          "color": "粉3",
+          "nodeId": "7039:60329",
+          "componentKey": "689ceab9c6aab4f7fbb10d358fd6094aea81bedd"
+        },
+        {
+          "color": "紫1",
+          "nodeId": "7039:60328",
+          "componentKey": "90f2956b7fdf21594b027caae535a3d081cfb6a1"
+        },
+        {
+          "color": "紫2",
+          "nodeId": "7039:60327",
+          "componentKey": "435ef2ed6a6c49b86bdf355c540d597d429979b2"
+        },
+        {
+          "color": "紫3",
+          "nodeId": "7039:60326",
+          "componentKey": "055d4251c384f5f551a8f577abc58a850604f721"
+        },
+        {
+          "color": "红1",
+          "nodeId": "7039:60324",
+          "componentKey": "d469c68c8f87f633025968d2426ffd426365d278"
+        },
+        {
+          "color": "红2",
+          "nodeId": "7039:60322",
+          "componentKey": "046386008526c45d37ea113329e6502d431e5a61"
+        },
+        {
+          "color": "红3",
+          "nodeId": "7039:60325",
+          "componentKey": "4e900a9ed1e54213f9c45476f2d02168b397f2a8"
+        },
+        {
+          "color": "蓝1",
+          "nodeId": "7039:60340",
+          "componentKey": "48f96f2d47c8b1a9e7704bd38ad863222a329f27"
+        },
+        {
+          "color": "蓝2",
+          "nodeId": "7039:60321",
+          "componentKey": "2f16d76a8ddeef0b953dd144d137e265b30c8f2d"
+        },
+        {
+          "color": "蓝3",
+          "nodeId": "7039:60323",
+          "componentKey": "12aebf384feed28972c2c7533477a3d7e202c658"
+        },
+        {
+          "color": "黄1",
+          "nodeId": "7039:60335",
+          "componentKey": "a19a32fe0b5171b342b3df74eb15e606e4590e50"
+        },
+        {
+          "color": "黄2",
+          "nodeId": "7039:60333",
+          "componentKey": "f801a36f8d67bf4eae1cb95afe8175ed5e0f59b5"
+        },
+        {
+          "color": "黄3",
+          "nodeId": "7039:60331",
+          "componentKey": "5e0e4b83e08a1d6ec74852903e384a3ae854147a"
+        }
+      ]
+    },
+    {
+      "name": "slg_location_icon_bg",
+      "description": "SLG地图地点/营帐图标底板（含阵营色）",
+      "use_scenes": [
+        "SLG地图郡县/关隘/营帐图标底板"
+      ],
+      "color_grade_rule": "X1=深，X2=中，X3=浅；中立=无阵营",
+      "notes": "翠绿变体尺寸略小(42×40)，其余均48×44",
+      "componentKey": null,
+      "variants": [
+        {
+          "color": "翠绿",
+          "nodeId": "7039:52818",
+          "componentKey": "6d0e8f0080f88a77328381c6dcfdc9477420eaff",
+          "size": {
+            "w": 42,
+            "h": 40
+          }
+        },
+        {
+          "color": "中立",
+          "nodeId": "7039:52822",
+          "componentKey": "d7a13d12eac4567faf71ac47d49be75e2c1228e0",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "绿1",
+          "nodeId": "7039:52826",
+          "componentKey": "718ecd7bd272d208a9ccfe854776e4ef0d8ed75d",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "绿2",
+          "nodeId": "7039:52824",
+          "componentKey": "496cd257584a23f100c35399a423faf9e72b1d58",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "绿3",
+          "nodeId": "7039:52821",
+          "componentKey": "b91b29d7b05d46f01f8b0ac15c958c2da175d214",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "蓝1",
+          "nodeId": "7039:52809",
+          "componentKey": "1b1e67b75aec36c502dcc408787112f0d7ee02aa",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "蓝2",
+          "nodeId": "7039:52815",
+          "componentKey": "e6ff19f5af83a612c7bd63416c4548c2312f7741",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "蓝3",
+          "nodeId": "7039:52812",
+          "componentKey": "3ae140623e3166c0d822a207fa1b9d44618b07cb",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "橙1",
+          "nodeId": "7039:52819",
+          "componentKey": "bd6dc8cb55f20b0ad4423b61678132086e3d4919",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "橙2",
+          "nodeId": "7039:52816",
+          "componentKey": "8f39fc0eb55fded7cef86b324217d0e49f1f23d5",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "橙3",
+          "nodeId": "7039:52817",
+          "componentKey": "90a0157fdffc558fe93714cbd726a4c496ae3f80",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "红1",
+          "nodeId": "7039:52814",
+          "componentKey": "ecb6b2a719b0412af3872b706eb0bb5184337fa6",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "红2",
+          "nodeId": "7039:52810",
+          "componentKey": "e4d08555f4934ed6bf455bfad8074947eadf27ee",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "红3",
+          "nodeId": "7039:52808",
+          "componentKey": "2c10e3098ad6980e53d29732515ee32d037a9d57",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "粉1",
+          "nodeId": "7039:52825",
+          "componentKey": "5613d1442d800229f6641dca886eca8462b7f49f",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "粉2",
+          "nodeId": "7039:52823",
+          "componentKey": "ce34720fd6b5171702cd3276d91da1f723f82330",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "粉3",
+          "nodeId": "7039:52820",
+          "componentKey": "d4ce4785ff61bce8107720258f16cff1703fd529",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "紫1",
+          "nodeId": "7039:52807",
+          "componentKey": "fc7104194751dad6192002b73a322389c0c2a106",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "紫2",
+          "nodeId": "7039:52813",
+          "componentKey": "da3da29326814cd475863ad4a9be431e2b02709b",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "紫3",
+          "nodeId": "7039:52806",
+          "componentKey": "068fbe56bd58643fccb6cba6246282c723c5e5e7",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "黄绿1",
+          "nodeId": "7039:52805",
+          "componentKey": "5b110fd37119b2a97b158b910c886765bcaecf32",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "黄绿2",
+          "nodeId": "7039:52811",
+          "componentKey": "186abcd7c1791dadfa9b060cc879ec300cfb46fb",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        },
+        {
+          "color": "黄绿3",
+          "nodeId": "7039:52804",
+          "componentKey": "dca984a3e8bfdacfe8387ddb03c288dd7e0af289",
+          "size": {
+            "w": 48,
+            "h": 44
+          }
+        }
+      ]
+    },
+    {
+      "name": "slg_city_label_faction",
+      "description": "SLG城市阵营色标签背景（含营帐/HUD标题变体）",
+      "use_scenes": [
+        "SLG地图城市阵营色标签",
+        "营帐/驻扎图标底板"
+      ],
+      "color_grade_rule": "X1=深，X2=中，X3=浅；中立=无阵营；未占领=特殊状态",
+      "notes": "营帐/营帐01为42×42固定方形；未占领175×54最宽；bg_hud_title_06_color为三段九宫格；其余146~147×54",
+      "componentKey": null,
+      "variants": [
+        {
+          "color": "bg_hud_title_06_color",
+          "nodeId": "7039:52664",
+          "componentKey": "c36dd656f085c33e779a6bd9ebc6f5228be77580",
+          "size": {
+            "w": 62,
+            "h": 54
+          },
+          "scalable": true,
+          "scale_method": "三段九宫格"
+        },
+        {
+          "color": "营帐",
+          "nodeId": "7087:73771",
+          "componentKey": "8980af5168fa5cbc46db9877f78fe4a18c559ab7",
+          "size": {
+            "w": 42,
+            "h": 42
+          }
+        },
+        {
+          "color": "营帐01",
+          "nodeId": "7087:73790",
+          "componentKey": "a8cc5ddbf31f939aef0249f5bfe17d5a2020de66",
+          "size": {
+            "w": 42,
+            "h": 42
+          }
+        },
+        {
+          "color": "中立 1",
+          "nodeId": "7039:52700",
+          "componentKey": "46addb55a3dc869d617edaf7423bf0dcd64462a1",
+          "size": {
+            "w": 147,
+            "h": 54
+          }
+        },
+        {
+          "color": "未占领",
+          "nodeId": "7039:52712",
+          "componentKey": "14028344d36c52d829b9cf34b5af4ff0d6550c2a",
+          "size": {
+            "w": 175,
+            "h": 54
+          }
+        },
+        {
+          "color": "橙1 1",
+          "nodeId": "7039:52716",
+          "componentKey": "6d352e25f8caf0403cedd1d41e5ea08b72c4573d",
+          "size": {
+            "w": 147,
+            "h": 54
+          }
+        },
+        {
+          "color": "橙2 1",
+          "nodeId": "7039:52699",
+          "componentKey": "85af3df3b929bda8e787f8ae6f0aa2c5f63f915e",
+          "size": {
+            "w": 147,
+            "h": 54
+          }
+        },
+        {
+          "color": "橙3 1",
+          "nodeId": "7039:52706",
+          "componentKey": "2b772e2751ffa4791f14339e62d427e9bb86becf",
+          "size": {
+            "w": 146,
+            "h": 54
+          }
+        },
+        {
+          "color": "粉1",
+          "nodeId": "7039:52715",
+          "componentKey": "8e8adb47d70ce48315a78146cdd6c932ca12d367",
+          "size": {
+            "w": 146,
+            "h": 54
+          }
+        },
+        {
+          "color": "粉2",
+          "nodeId": "7039:52717",
+          "componentKey": "9112a87fa76dc60ca7ada0b4a8b34557628f4664",
+          "size": {
+            "w": 146,
+            "h": 54
+          }
+        },
+        {
+          "color": "粉3",
+          "nodeId": "7039:52720",
+          "componentKey": "f41899c6c034c3b3f543e13793e4c1b1f8152a83",
+          "size": {
+            "w": 146,
+            "h": 54
+          }
+        },
+        {
+          "color": "紫1",
+          "nodeId": "7039:52703",
+          "componentKey": "6a37531f34b88189aaa93cefb1150ca886bc3c82",
+          "size": {
+            "w": 147,
+            "h": 54
+          }
+        },
+        {
+          "color": "紫2",
+          "nodeId": "7039:52704",
+          "componentKey": "876dc5f82f3777f3687f71413082c41f3c6c39eb",
+          "size": {
+            "w": 146,
+            "h": 54
+          }
+        },
+        {
+          "color": "紫3",
+          "nodeId": "7039:52705",
+          "componentKey": "8e83a4a950df7e143683b08322ae19d892107394",
+          "size": {
+            "w": 146,
+            "h": 54
+          }
+        },
+        {
+          "color": "红1",
+          "nodeId": "7039:52707",
+          "componentKey": "20388d1e3e33131980702f050a3ddc26d53ccfd2",
+          "size": {
+            "w": 147,
+            "h": 54
+          }
+        },
+        {
+          "color": "红2",
+          "nodeId": "7039:52708",
+          "componentKey": "6d7e9de411737b43f4e19d58902408be3315396f",
+          "size": {
+            "w": 147,
+            "h": 54
+          }
+        },
+        {
+          "color": "红3",
+          "nodeId": "7039:52709",
+          "componentKey": "8c7a3c3827d7b7c06bb68134a8383df1f6cf3296",
+          "size": {
+            "w": 146,
+            "h": 54
+          }
+        },
+        {
+          "color": "绿1",
+          "nodeId": "7039:52713",
+          "componentKey": "67d2da979af1df734e6fa99418bbaf6b4073078d",
+          "size": {
+            "w": 147,
+            "h": 54
+          }
+        },
+        {
+          "color": "绿2",
+          "nodeId": "7039:52719",
+          "componentKey": "02938791334615aa2d595dbe451936c1ff355c4a",
+          "size": {
+            "w": 147,
+            "h": 54
+          }
+        },
+        {
+          "color": "绿3",
+          "nodeId": "7039:52714",
+          "componentKey": "3cb9426830ac4910508c6e762f0ebd905ad79f63",
+          "size": {
+            "w": 147,
+            "h": 54
+          }
+        },
+        {
+          "color": "黄绿1",
+          "nodeId": "7039:52721",
+          "componentKey": "b5c979cfcfbaa644f65d4836432b538ea630bb22",
+          "size": {
+            "w": 146,
+            "h": 54
+          }
+        },
+        {
+          "color": "黄绿2",
+          "nodeId": "7039:52701",
+          "componentKey": "010a0a248b81c9b1b4ac7c3dcdd08ea0a51efc15",
+          "size": {
+            "w": 146,
+            "h": 54
+          }
+        },
+        {
+          "color": "黄绿3",
+          "nodeId": "7039:52702",
+          "componentKey": "25c729a095fe96a812a57dd33127571fbcbbccfb",
+          "size": {
+            "w": 146,
+            "h": 54
+          }
+        },
+        {
+          "color": "蓝1",
+          "nodeId": "7039:52710",
+          "componentKey": "38b87ce08be3cdc7ab5be9abe40a954d97fcc082",
+          "size": {
+            "w": 147,
+            "h": 54
+          }
+        },
+        {
+          "color": "蓝2",
+          "nodeId": "7039:52718",
+          "componentKey": "e3b406d9ecf87440ad272186376d3f67744da635",
+          "size": {
+            "w": 147,
+            "h": 54
+          }
+        },
+        {
+          "color": "蓝3",
+          "nodeId": "7039:52711",
+          "componentKey": "eb12a96d7479eb6fd93e1d96788d3197d08350f6",
+          "size": {
+            "w": 147,
+            "h": 54
+          }
+        }
+      ]
+    },
+    {
+      "name": "slg_small_circle_bg",
+      "description": "SLG小型圆形底板（阵营色，37×37）",
+      "default_size": {
+        "w": 37,
+        "h": 37
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图小型地点/图标圆形底板"
+      ],
+      "color_grade_rule": "X1=深，X2=中，X3=浅；中立=无阵营",
+      "componentKey": null,
+      "variants": [
+        {
+          "color": "中立",
+          "nodeId": "7039:56723",
+          "componentKey": "028a901d961e0aa53e3b3dc843c60d3e71630b17"
+        },
+        {
+          "color": "蓝1",
+          "nodeId": "7039:56706",
+          "componentKey": "4d8e5fc9976e75ee34cbeef2a6fda3b8f54131c7"
+        },
+        {
+          "color": "蓝2",
+          "nodeId": "7039:56724",
+          "componentKey": "73f0870f5d7ce87fe90d3948b1fae569f01219d6"
+        },
+        {
+          "color": "蓝3",
+          "nodeId": "7039:56707",
+          "componentKey": "529f68278f248fbe649027e0790660169fa53d5e"
+        },
+        {
+          "color": "橙1",
+          "nodeId": "7039:56716",
+          "componentKey": "ba18e0381b0493e4eefa090938c453fedd6a4149"
+        },
+        {
+          "color": "橙2",
+          "nodeId": "7039:56722",
+          "componentKey": "5e59f4eb17ea2416e7a9094b316edb93d5e36807"
+        },
+        {
+          "color": "橙3",
+          "nodeId": "7039:56721",
+          "componentKey": "cb0f9fa92e54648d958632af133899541711c5ba"
+        },
+        {
+          "color": "红1",
+          "nodeId": "7039:56708",
+          "componentKey": "ed84b33206d068e9f5f2f6e4c8f25d39b2d576dd"
+        },
+        {
+          "color": "红2",
+          "nodeId": "7039:56709",
+          "componentKey": "a6563db92c50b2e4fada8fc8deca34f234d629de"
+        },
+        {
+          "color": "红3",
+          "nodeId": "7039:56710",
+          "componentKey": "dc4dee6c821b94451826e82656b19a6a18dbddf1"
+        },
+        {
+          "color": "粉1",
+          "nodeId": "7039:56720",
+          "componentKey": "6fed663bfc9c83a3ed6688882c80d51980499473"
+        },
+        {
+          "color": "粉2",
+          "nodeId": "7039:56714",
+          "componentKey": "575572998e668eba520e1941aaf4034854a42422"
+        },
+        {
+          "color": "粉3",
+          "nodeId": "7039:56719",
+          "componentKey": "132703d7d6e5492b4b6b00451b48333e2b10fef0"
+        },
+        {
+          "color": "紫1",
+          "nodeId": "7039:56711",
+          "componentKey": "0207f4c48ac1979b95602bf05fdee666398e9320"
+        },
+        {
+          "color": "紫2",
+          "nodeId": "7039:56712",
+          "componentKey": "49f6974b70ae4b039e411936149b130bcb6e44ec"
+        },
+        {
+          "color": "紫3",
+          "nodeId": "7039:56713",
+          "componentKey": "6aa2259a11769d75abdaecec9e4ab6a392013ba5"
+        },
+        {
+          "color": "黄绿1",
+          "nodeId": "7039:56717",
+          "componentKey": "4adea80d21a2e0dc323c0f612eead04d1098a67d"
+        },
+        {
+          "color": "黄绿2",
+          "nodeId": "7039:56715",
+          "componentKey": "a623f043ff650403dbe78e32cd60479c56f581e4"
+        },
+        {
+          "color": "黄绿3",
+          "nodeId": "7039:56718",
+          "componentKey": "cd37eb434c417159e09f9f2158b451e885c49f9d"
+        }
+      ]
+    },
+    {
+      "name": "slg_medium_square_bg",
+      "description": "SLG中型方形底板（阵营色，41×42）",
+      "default_size": {
+        "w": 41,
+        "h": 42
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图中型地点/图标方形底板"
+      ],
+      "color_grade_rule": "X1=深，X2=中，X3=浅；中立=无阵营；中立个体=独立个体单位",
+      "notes": "比slg_small_circle_bg更大更方；「中立个体」区别于「中立」——前者代表独立个体，后者代表无阵营地点",
+      "componentKey": null,
+      "variants": [
+        {
+          "color": "中立个体",
+          "nodeId": "7039:57681",
+          "componentKey": "90e0b3a7ad1580c5d1b7b0c821f5cb8118e3df35"
+        },
+        {
+          "color": "中立",
+          "nodeId": "7039:57680",
+          "componentKey": "cce5d8230642712a45785b1ce9eea35372c6e5bd"
+        },
+        {
+          "color": "蓝1",
+          "nodeId": "7039:57678",
+          "componentKey": "e11b14f747ad297399e9fda8c3f74396bdf25d00"
+        },
+        {
+          "color": "蓝2",
+          "nodeId": "7039:57679",
+          "componentKey": "e6005463532d1ca7b55262b8fd2ae9b6ce665f9b"
+        },
+        {
+          "color": "蓝3",
+          "nodeId": "7039:57697",
+          "componentKey": "449a823296ce0295fff03f78cff903003798da11"
+        },
+        {
+          "color": "橙1",
+          "nodeId": "7039:57686",
+          "componentKey": "44a03a120b8e255b34e364eed8348f28a29cb02f"
+        },
+        {
+          "color": "橙2",
+          "nodeId": "7039:57682",
+          "componentKey": "e6534252386439f1c50a3d57b78a58f1374d9fea"
+        },
+        {
+          "color": "橙3",
+          "nodeId": "7039:57683",
+          "componentKey": "0752681b689527fd724686e981c3931ad31a0eb6"
+        },
+        {
+          "color": "红1",
+          "nodeId": "7039:57696",
+          "componentKey": "f75d2e36575c798982b565553267ebf17285dd00"
+        },
+        {
+          "color": "红2",
+          "nodeId": "7039:57695",
+          "componentKey": "6c0c0ba50c93332e4d7760fed534a15c758d1fdd"
+        },
+        {
+          "color": "红3",
+          "nodeId": "7039:57693",
+          "componentKey": "a1d632eb6040dd7b74b2a8dc13889c59c594af93"
+        },
+        {
+          "color": "粉1",
+          "nodeId": "7039:57684",
+          "componentKey": "742ad57e9fa61178d1d99eaac53bc4a75630fe22"
+        },
+        {
+          "color": "粉2",
+          "nodeId": "7039:57685",
+          "componentKey": "5d06bae396ddfd536114a5f9c7cf51cb957eda3c"
+        },
+        {
+          "color": "粉3",
+          "nodeId": "7039:57688",
+          "componentKey": "fa87f7873dfd2fa421b69c51aa51d21253629137"
+        },
+        {
+          "color": "黄1",
+          "nodeId": "7039:57690",
+          "componentKey": "61cd4a0f763285d7368fece18bc15e803a3756ff"
+        },
+        {
+          "color": "黄2",
+          "nodeId": "7039:57692",
+          "componentKey": "10edf49bebd2f2b4dbe45b4c989a812d8aa32c47"
+        },
+        {
+          "color": "黄3",
+          "nodeId": "7039:57694",
+          "componentKey": "0fe86933de40c764a05dcc2fd91f86f7fa3a2954"
+        },
+        {
+          "color": "紫1",
+          "nodeId": "7039:57687",
+          "componentKey": "9f2cac597a00e3b0abd572c13083260ef70f4ddc"
+        },
+        {
+          "color": "紫2",
+          "nodeId": "7039:57689",
+          "componentKey": "0b10a0a97ce124b9acc6b91e1112bccd97d59d31"
+        },
+        {
+          "color": "紫3",
+          "nodeId": "7039:57691",
+          "componentKey": "1df9851d2b61f80d12b6737620dd63c688c2ab52"
+        }
+      ]
+    },
+    {
+      "name": "slg_nameplate_gradient_overlay",
+      "description": "地表部队铭牌色彩叠层（纯CSS渐变，非图片资源）",
+      "default_size": {
+        "w": 133,
+        "h": 76
+      },
+      "scalable": false,
+      "asset_type": "css_gradient",
+      "use_scenes": [
+        "地表部队铭牌底色彩叠层"
+      ],
+      "notes": "非图片资源，纯CSS渐变；方向均为-60.26deg，从80%不透明到透明",
+      "variants": [
+        {
+          "color": "绿",
+          "nodeId": "6694:14555",
+          "css": "linear-gradient(-60.26deg, rgba(43,104,43,0.8) 0%, rgba(43,104,43,0) 100%)"
+        },
+        {
+          "color": "灰",
+          "nodeId": "6694:14554",
+          "css": "linear-gradient(-60.26deg, rgba(92,92,92,0.8) 0%, rgba(92,92,92,0) 100%)"
+        },
+        {
+          "color": "橙",
+          "nodeId": "6694:14553",
+          "css": "linear-gradient(-60.26deg, rgba(125,79,29,0.8) 0%, rgba(125,79,29,0) 100%)"
+        },
+        {
+          "color": "蓝",
+          "nodeId": "6694:14552",
+          "css": "linear-gradient(-60.26deg, rgba(37,102,140,0.8) 0%, rgba(37,102,140,0) 100%)"
+        },
+        {
+          "color": "红",
+          "nodeId": "6694:14556",
+          "css": "linear-gradient(-60.26deg, rgba(144,64,64,0.8) 0%, rgba(144,64,64,0) 100%)"
+        }
+      ]
+    },
+    {
+      "name": "ranking_row_color_band",
+      "description": "彩色条目行背景（排行榜/玩家列表阵营色）",
+      "default_size": {
+        "w": 377,
+        "h": 64
+      },
+      "scalable": false,
+      "use_scenes": [
+        "排行榜/玩家列表彩色行背景"
+      ],
+      "color_grade_rule": "X1=深，X2=中，X3=浅",
+      "notes": "无绿/黄绿/翠绿变体，与slg_army_status_band不同体系；用于区分玩家/阵营类型",
+      "componentKey": null,
+      "variants": [
+        {
+          "color": "粉1",
+          "nodeId": "7039:64579",
+          "componentKey": "a558c1445a7d471dd76e374c471c51ceb076a5ee"
+        },
+        {
+          "color": "粉2",
+          "nodeId": "7039:64585",
+          "componentKey": "bb9940407431f8356fe37dc217be4137f969b6ea"
+        },
+        {
+          "color": "粉3",
+          "nodeId": "7039:64582",
+          "componentKey": "2a5db23c8311fe33b22d9d9ad7f70bee35553647"
+        },
+        {
+          "color": "橙1",
+          "nodeId": "7039:64583",
+          "componentKey": "3d6851a145986c44b967bc0df4e29dd3db013c7f"
+        },
+        {
+          "color": "橙2",
+          "nodeId": "7039:64581",
+          "componentKey": "27bed580dee80ae2a116f4fa9c7d979ab631ee20"
+        },
+        {
+          "color": "橙3",
+          "nodeId": "7039:64580",
+          "componentKey": "b1ca6bb15cca89c5c31f8a73c634b8d486468e91"
+        },
+        {
+          "color": "紫1",
+          "nodeId": "7039:64570",
+          "componentKey": "50f2ff0856e30e8c00f8af532b80d78cacb505da"
+        },
+        {
+          "color": "紫2",
+          "nodeId": "7039:64569",
+          "componentKey": "0a3c0dbdc37aaf08dbb81ba591704b1ed75023cc"
+        },
+        {
+          "color": "紫3",
+          "nodeId": "7039:64586",
+          "componentKey": "64e64f2948026feef27cb4586f2a7e0721d45fb3"
+        },
+        {
+          "color": "红1",
+          "nodeId": "7039:64578",
+          "componentKey": "b7be9d9c87e85014e11febefb1fdf340a97cc9c2"
+        },
+        {
+          "color": "红2",
+          "nodeId": "7039:64577",
+          "componentKey": "bade8bf85b4917365417b109c565f0663250a3d5"
+        },
+        {
+          "color": "红3",
+          "nodeId": "7039:64576",
+          "componentKey": "c6612247488147bfe706c0cf821c95018b4d5288"
+        },
+        {
+          "color": "蓝1",
+          "nodeId": "7039:64573",
+          "componentKey": "d2f7b978ae4a2d0159c25406d67a9cf2c8dcf90c"
+        },
+        {
+          "color": "蓝2",
+          "nodeId": "7039:64572",
+          "componentKey": "e6939a228e8e30ca6b72614cfcfd0f5139f59bc5"
+        },
+        {
+          "color": "蓝3",
+          "nodeId": "7039:64571",
+          "componentKey": "1fb5e09ac124934681b92087f3dae770bec94bd5"
+        },
+        {
+          "color": "黄1",
+          "nodeId": "7039:64584",
+          "componentKey": "b761513bea77b83a3c2766f59c0c3df4ae3097e1"
+        },
+        {
+          "color": "黄2",
+          "nodeId": "7039:64575",
+          "componentKey": "7fda0cc484fe459f6f1337170a02082d61455cba"
+        },
+        {
+          "color": "黄3",
+          "nodeId": "7039:64574",
+          "componentKey": "e3a608c1162276d1622a773bedfc2cfd6bab9256"
+        }
+      ]
+    }
+  ],
+  "interactive_elements": [
+    {
+      "name": "resource_bar_currency",
+      "figma_component": "货币栏",
+      "nodeId": "2014:2582",
+      "componentKey": "5ad3f706a249201b7473eabf43c83baa91a5a947",
+      "size": {
+        "w": 217,
+        "h": 50
+      },
+      "scalable": false,
+      "use_scenes": [
+        "HUD资源栏",
+        "顶部货币展示条"
+      ],
+      "notes": "完整资源栏复合组件；由资源背景、数量文本、资源图标、可选加号入口组成"
+    },
+    {
+      "name": "redpoint_status_set",
+      "figma_component": "红点",
+      "componentKey": null,
+      "scalable": false,
+      "use_scenes": [
+        "列表项状态提醒",
+        "功能入口未处理提示"
+      ],
+      "notes": "同一套红点提醒系统，按信息量选择样式；数字态用于数量提醒，图标态用于状态提醒",
+      "variants": [
+        {
+          "type": "normal",
+          "nodeId": "6026:5080",
+          "componentKey": "552e0bb42a509757f5b50a7f741c6e34e106841a",
+          "size": {
+            "w": 22,
+            "h": 23
+          }
+        },
+        {
+          "type": "mute",
+          "nodeId": "6566:1251",
+          "componentKey": "345212b85f329db4b7ddd821e614da7476444d80",
+          "size": {
+            "w": 22,
+            "h": 23
+          }
+        },
+        {
+          "type": "number",
+          "nodeId": "6566:1863",
+          "componentKey": "9531d37e6c1683bb5a092c67f66e112b45444657",
+          "size": {
+            "w": 76,
+            "h": 41
+          }
+        }
+      ]
+    },
+    {
+      "name": "status_badge_set",
+      "figma_component": "标志",
+      "componentKey": null,
+      "scalable": false,
+      "use_scenes": [
+        "功能入口角标",
+        "物品/列表状态标识"
+      ],
+      "notes": "竖向状态角标；语义直接由文案决定，新/满/荐/免费不可混用",
+      "variants": [
+        {
+          "label": "新",
+          "nodeId": "2014:2596",
+          "componentKey": "64a4767e6b62ed4fc1b4a4ee9691027db7a42442",
+          "size": {
+            "w": 47,
+            "h": 75
+          }
+        },
+        {
+          "label": "满",
+          "nodeId": "2014:2605",
+          "componentKey": "ec9d5ba0c644cabb2eacbcfc1829d682a1e868b7",
+          "size": {
+            "w": 47,
+            "h": 75
+          }
+        },
+        {
+          "label": "荐",
+          "nodeId": "2014:2607",
+          "componentKey": "d67f537b8ca8169b0047ec73cbefa2aa9ec41bd1",
+          "size": {
+            "w": 47,
+            "h": 75
+          }
+        },
+        {
+          "label": "免费",
+          "nodeId": "2014:2609",
+          "componentKey": "f60d389214fe8d7ec7f4c0fe8a09faa48f316a61",
+          "size": {
+            "w": 47,
+            "h": 95
+          }
+        }
+      ]
+    },
+    {
+      "name": "btn_c_gouxuan_bg_black",
+      "nodeId": "4832:2425",
+      "componentKey": "fd324e69d2a09aa87bf1b0ff439465e860635adf",
+      "size": {
+        "w": 16,
+        "h": 16
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "勾选框深色底板"
+      ],
+      "notes": "勾选框底板部分；配合btn_c_gouxuan勾号图标叠加使用"
+    },
+    {
+      "name": "btn_c_gouxuan",
+      "nodeId": "4832:2448",
+      "componentKey": "9fd852cbdf35e15146cf64c4c938c65641c80e66",
+      "size": {
+        "w": 36,
+        "h": 36
+      },
+      "scalable": false,
+      "use_scenes": [
+        "勾选框勾号图标"
+      ],
+      "notes": "勾选状态下的勾号图标；与btn_c_gouxuan_bg_black叠加"
+    },
+    {
+      "name": "gouxuan_composite",
+      "figma_component": "勾选",
+      "nodeId": "6521:15459",
+      "componentKey": "4b754764a26cc987eb86fd380226d99855a9c3c7",
+      "size": {
+        "w": 40,
+        "h": 40
+      },
+      "scalable": false,
+      "use_scenes": [
+        "完整勾选框（底板+勾号合体）"
+      ],
+      "notes": "底板+勾号的复合组件；有选中/未选中两态"
+    },
+    {
+      "name": "checkbox_match_pair",
+      "figma_component": "是否符合",
+      "componentKey": null,
+      "scalable": false,
+      "use_scenes": [
+        "条件满足状态对照",
+        "结果正误标记"
+      ],
+      "notes": "小尺寸二态状态图标；“符合/不符”表达的是结果判断，不应用作可交互勾选框",
+      "variants": [
+        {
+          "state": "不符",
+          "nodeId": "4832:2129",
+          "componentKey": "193d74582ae9ecdea56c47dbfea980112c1e789c",
+          "size": {
+            "w": 34,
+            "h": 34
+          }
+        },
+        {
+          "state": "符合",
+          "nodeId": "4832:2135",
+          "componentKey": "23ea95d2519cf47c340292b1e72c4c2bb84f562a",
+          "size": {
+            "w": 34,
+            "h": 34
+          }
+        }
+      ]
+    },
+    {
+      "name": "pic_c_handle_01",
+      "nodeId": "4822:2001",
+      "componentKey": "c6a9838619b7905635e6ed5d5055c288d38eab66",
+      "size": {
+        "w": 37,
+        "h": 37
+      },
+      "scalable": false,
+      "use_scenes": [
+        "滑条拖拽手柄"
+      ],
+      "notes": "圆形拖拽按钮，配合track/progress使用"
+    },
+    {
+      "name": "pic_c_handle_bg",
+      "nodeId": "4822:2010",
+      "componentKey": "efa398d2a3f348f79fdd5e0557f6a89d3356220a",
+      "size": {
+        "w": 8,
+        "h": 14
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "滑条轨道背景（空轨）"
+      ],
+      "notes": "竖向九宫格，高度方向拉伸适配不同滑条长度"
+    },
+    {
+      "name": "pic_c_handle_progress",
+      "nodeId": "4822:2023",
+      "componentKey": "49149157eaf647c4b376c7a53a2e2cfab9d207fc",
+      "size": {
+        "w": 8,
+        "h": 10
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "滑条已填充进度"
+      ],
+      "notes": "比pic_c_handle_bg更短；表示已填充/已完成部分；叠加在track上"
+    },
+    {
+      "name": "pic_c_choose01",
+      "nodeId": "4883:3176",
+      "componentKey": "80abf4eab768a6e5a09baf07e854e9bf098e74e6",
+      "size": {
+        "w": 34,
+        "h": 34
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "小型选中框"
+      ],
+      "notes": "选中态高亮框，较小版本；比pic_c_choose(64px)更小"
+    },
+    {
+      "name": "bg_c_boxblock_select",
+      "figma_component": "Component 472/bg_c_boxblock_select",
+      "nodeId": "4988:9779",
+      "componentKey": "1a5e0fcd56915b22705513681016fc5bef438668",
+      "size": {
+        "w": 44,
+        "h": 44
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "选中态boxblock底板"
+      ],
+      "notes": "比pic_c_choose01更大更突出；用于更显眼的选中状态"
+    },
+    {
+      "name": "pic_c_choose",
+      "nodeId": "6399:14260",
+      "componentKey": "aab0749cf1f119d2cbd9cbc9f3825cfc2a05df8a",
+      "size": {
+        "w": 64,
+        "h": 64
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "大型选中框"
+      ],
+      "notes": "最大版本选中框；典型用于物品/道具格子选中态"
+    },
+    {
+      "name": "pic_main_army_select",
+      "nodeId": "6581:20247",
+      "componentKey": "b1d002bd9b6423d674a7701b6ffb61362e8ae6f2",
+      "size": {
+        "w": 128,
+        "h": 20
+      },
+      "scalable": true,
+      "scale_method": "三段九宫格",
+      "use_scenes": [
+        "主力军队选中指示条"
+      ],
+      "notes": "极细横条，宽度可拉伸；用于军队列表选中行指示"
+    },
+    {
+      "name": "toggle_oneclick_split",
+      "figma_component": "一键分解",
+      "componentKey": null,
+      "scalable": false,
+      "use_scenes": [
+        "二元开关",
+        "配置项启用/关闭"
+      ],
+      "notes": "文字型开关，直接呈现开/关两态；适合低信息密度的单项配置，不适合承载多选逻辑",
+      "variants": [
+        {
+          "state": "关",
+          "nodeId": "6488:11747",
+          "componentKey": "a00f6240875fa4d89a35a516e96f25de1bbdc218",
+          "size": {
+            "w": 284,
+            "h": 38
+          }
+        },
+        {
+          "state": "开",
+          "nodeId": "6488:11748",
+          "componentKey": "ff991a063e8cff80cf85bcd2910895ab4bf55477",
+          "size": {
+            "w": 284,
+            "h": 38
+          }
+        }
+      ]
+    },
+    {
+      "name": "filter_tag_button_set",
+      "figma_component": "按钮",
+      "componentKey": null,
+      "scalable": false,
+      "use_scenes": [
+        "职业筛选",
+        "类别标签筛选"
+      ],
+      "notes": "图形化筛选标签按钮；标签文本由变体语义决定，应用于有限枚举筛选而非任意输入",
+      "variants": [
+        {
+          "label": "奇谋",
+          "nodeId": "6354:13853",
+          "componentKey": "83e93bb4a17724a3e1db90e0fbeeabb4abc9025a",
+          "size": {
+            "w": 193,
+            "h": 184
+          }
+        },
+        {
+          "label": "全职业",
+          "nodeId": "6363:13867",
+          "componentKey": "dcb8257046e2036b484b3f52160c45cf055f1476",
+          "size": {
+            "w": 193,
+            "h": 184
+          }
+        }
+      ]
+    },
+    {
+      "name": "filter_select_compact",
+      "figma_component": "筛选",
+      "nodeId": "6363:13928",
+      "componentKey": "4f0707bd72218a7282cd748f263833e83771f2d3",
+      "size": {
+        "w": 282,
+        "h": 58
+      },
+      "scalable": false,
+      "use_scenes": [
+        "单行筛选选择器",
+        "紧凑型下拉触发器"
+      ],
+      "notes": "单行收起态筛选器；适合在工具栏或列表顶部占位较小的筛选入口"
+    },
+    {
+      "name": "filter_select_expandable",
+      "figma_component": "筛选",
+      "componentKey": null,
+      "scalable": false,
+      "use_scenes": [
+        "展开式筛选列表",
+        "单组选项下拉面板"
+      ],
+      "notes": "同一组件的收起/展开两态；展开态包含选项列表，适合单列离散选项",
+      "variants": [
+        {
+          "state": "收起",
+          "nodeId": "6374:19062",
+          "componentKey": "71c9c964c2751f35ece3137a281aa81b4cdf8785",
+          "size": {
+            "w": 307,
+            "h": 59
+          }
+        },
+        {
+          "state": "展开",
+          "nodeId": "6374:19794",
+          "componentKey": "838a8353efa4122869a6ef4c85fa95fbf3f85ad4",
+          "size": {
+            "w": 307,
+            "h": 328
+          }
+        }
+      ]
+    },
+    {
+      "name": "dropdown_tab_pair",
+      "figma_component": "tab",
+      "componentKey": null,
+      "scalable": false,
+      "use_scenes": [
+        "顶部分类切换",
+        "可展开的筛选标签"
+      ],
+      "notes": "横向tab式收起/展开切换；比普通筛选器更强调当前分类上下文",
+      "variants": [
+        {
+          "state": "展开",
+          "nodeId": "6074:9406",
+          "componentKey": "3193672e6d8c13b7c3bdd45394af9973d292e1bf",
+          "size": {
+            "w": 384,
+            "h": 52
+          }
+        },
+        {
+          "state": "收起",
+          "nodeId": "6126:9361",
+          "componentKey": "3e6d61cb1d53275188bf52b7df019847c52ac76f",
+          "size": {
+            "w": 384,
+            "h": 52
+          }
+        }
+      ]
+    },
+    {
+      "name": "search_dropdown_pair",
+      "figma_component": "搜索",
+      "componentKey": null,
+      "scalable": false,
+      "use_scenes": [
+        "搜索型下拉选择器",
+        "可检索列表选择"
+      ],
+      "notes": "收起态为单行搜索入口，展开态为搜索框+列表组合；适合长列表检索，不适合少量固定选项",
+      "variants": [
+        {
+          "state": "收起",
+          "nodeId": "7104:21960",
+          "componentKey": "9f701d989936ce8360bb042a6118c21d89fcb813",
+          "size": {
+            "w": 282,
+            "h": 50
+          }
+        },
+        {
+          "state": "展开",
+          "nodeId": "7104:21992",
+          "componentKey": "808a9e3f89a3d26384499c9f4bd37611560c8c3a",
+          "size": {
+            "w": 282,
+            "h": 418
+          }
+        }
+      ]
+    },
+    {
+      "name": "input_field_state_set",
+      "figma_component": "输入框",
+      "componentKey": null,
+      "scalable": false,
+      "use_scenes": [
+        "搜索输入框",
+        "普通文本输入框",
+        "限字数输入框"
+      ],
+      "notes": "输入框状态组件；搜索态自带搜索图标，输入中态自带字数反馈，Default态用于普通占位输入",
+      "variants": [
+        {
+          "state": "搜索",
+          "nodeId": "6026:5008",
+          "componentKey": "cd31294bc4c5078d2f9e29d41561ebf1235e1d3f",
+          "size": {
+            "w": 386,
+            "h": 58
+          }
+        },
+        {
+          "state": "Default",
+          "nodeId": "6026:5016",
+          "componentKey": "8802a9181281c906733a821caed7e5c3bba6aa2f",
+          "size": {
+            "w": 615,
+            "h": 58
+          }
+        },
+        {
+          "state": "输入中",
+          "nodeId": "6150:8158",
+          "componentKey": "90781ec36e34e9bc8ed1594d05f1967eb573d21d",
+          "size": {
+            "w": 615,
+            "h": 58
+          }
+        }
+      ]
+    }
+  ],
+  "button_icons": [
+    {
+      "name": "btn_c_close_01",
+      "use_scenes": [
+        "弹窗/面板关闭按钮X图标"
+      ],
+      "notes": "Default=标准36×36；染色=带彩色渐变变体，略窄33×36",
+      "componentKey": null,
+      "variants": [
+        {
+          "state": "Default",
+          "nodeId": "6502:12412",
+          "componentKey": "cc7c807b3b09cda4733b90f5dac547e4d530b0d9",
+          "size": {
+            "w": 36,
+            "h": 36
+          }
+        },
+        {
+          "state": "染色",
+          "nodeId": "6502:12431",
+          "componentKey": "298c2b952d0dc6e96e74259dfa7ed117862dcdfe",
+          "size": {
+            "w": 33,
+            "h": 36
+          }
+        }
+      ]
+    },
+    {
+      "name": "btn_c_close_02",
+      "nodeId": "4854:1800",
+      "componentKey": "ec10d575ad6d882085524ed276072accd68e135f",
+      "state": "浅",
+      "size": {
+        "w": 50,
+        "h": 50
+      },
+      "use_scenes": [
+        "浅色背景下的大号关闭按钮"
+      ],
+      "notes": "50×50完整按钮图标（含背景+X）；浅色版；与btn_c_close_03成对"
+    },
+    {
+      "name": "btn_c_close_03",
+      "nodeId": "4786:907",
+      "componentKey": "d020d8614f45d1da9c6b53391ef6e45b4fb61cc3",
+      "state": "深",
+      "size": {
+        "w": 50,
+        "h": 50
+      },
+      "use_scenes": [
+        "深色背景下的大号关闭按钮"
+      ],
+      "notes": "50×50完整按钮图标；深色版；与btn_c_close_02成对"
+    },
+    {
+      "name": "pic_c_jiantou",
+      "nodeId": "4860:2012",
+      "componentKey": "491bf0c1a889a0b23167911afc46bfa1e80b29e1",
+      "size": {
+        "w": 31,
+        "h": 24
+      },
+      "use_scenes": [
+        "基础右向箭头",
+        "列表/菜单展开指示"
+      ],
+      "notes": "最常用的单向箭头"
+    },
+    {
+      "name": "pic_c_jiantou_04",
+      "use_scenes": [
+        "小横向箭头（二级展开/翻页）"
+      ],
+      "notes": "两个子变体尺寸相差1px",
+      "componentKey": null,
+      "variants": [
+        {
+          "variant": "arrow2",
+          "nodeId": "6890:17267",
+          "componentKey": "db2bf874cdd070b60f84c7f9496398ce927a8d8f",
+          "size": {
+            "w": 33,
+            "h": 18
+          }
+        },
+        {
+          "variant": "arrow3",
+          "nodeId": "6893:17304",
+          "componentKey": "f8eb7b8eeb66876b898837a1a79e704eba3a964d",
+          "size": {
+            "w": 34,
+            "h": 18
+          }
+        }
+      ]
+    },
+    {
+      "name": "pic_c_jiantou_05",
+      "use_scenes": [
+        "列表/下拉展开折叠箭头（向上/向下 × 浅色/深色）"
+      ],
+      "notes": "4个变体覆盖2色×2方向；深色版高度比浅色版略小1px",
+      "componentKey": null,
+      "variants": [
+        {
+          "color": "浅",
+          "direction": "向下",
+          "nodeId": "6334:8989",
+          "componentKey": "ae843d37fdcda9710def0c571f79e4fefc8fe34a",
+          "size": {
+            "w": 40,
+            "h": 20
+          }
+        },
+        {
+          "color": "浅",
+          "direction": "向上",
+          "nodeId": "7087:75561",
+          "componentKey": "27269ee7653b01f4166b565d28dcf1f987b18502",
+          "size": {
+            "w": 40,
+            "h": 20
+          }
+        },
+        {
+          "color": "深",
+          "direction": "向下",
+          "nodeId": "6348:11299",
+          "componentKey": "bcae791006c24c5abfe56a586d087f2705f3127f",
+          "size": {
+            "w": 40,
+            "h": 19
+          }
+        },
+        {
+          "color": "深",
+          "direction": "向上",
+          "nodeId": "6581:19297",
+          "componentKey": "62d2c71e1f7ea3c762b55933089e5f0072848e6d",
+          "size": {
+            "w": 40,
+            "h": 19
+          }
+        }
+      ]
+    },
+    {
+      "name": "pic_c_jiantou_08",
+      "use_scenes": [
+        "小竖向箭头（侧边栏展开/收起）"
+      ],
+      "notes": "两色变体：Default=浅色，深=深色",
+      "componentKey": null,
+      "variants": [
+        {
+          "state": "Default",
+          "nodeId": "6946:21493",
+          "componentKey": "7245a2085342d18d67c4e5819842486f8721546a",
+          "size": {
+            "w": 16,
+            "h": 31
+          }
+        },
+        {
+          "state": "深",
+          "nodeId": "4798:1006",
+          "componentKey": "27e55a77360d352c52c497838665ec278f535a76",
+          "size": {
+            "w": 16,
+            "h": 31
+          }
+        }
+      ]
+    },
+    {
+      "name": "pic_c_jiantou_09",
+      "nodeId": "4882:1644",
+      "componentKey": "0b4cb5fd1c5c10e39776babcb917fa7094555b80",
+      "size": {
+        "w": 34,
+        "h": 37
+      },
+      "use_scenes": [
+        "中型装饰性箭头（弹窗/面板翻页）"
+      ],
+      "notes": "带有花纹装饰的较大箭头"
+    },
+    {
+      "name": "pic_c_jiantou_10",
+      "nodeId": "4908:3639",
+      "componentKey": "38de3c46dc6050a6e023816a8d66ceba8a583ea1",
+      "size": {
+        "w": 32,
+        "h": 28
+      },
+      "use_scenes": [
+        "中型箭头（次级操作方向指示）"
+      ]
+    },
+    {
+      "name": "pic_c_jiantou_11",
+      "nodeId": "4923:4970",
+      "componentKey": "2d3e264728165b58e430c8675c565d8aa2d636de",
+      "size": {
+        "w": 22,
+        "h": 24
+      },
+      "use_scenes": [
+        "小型箭头（分页/步进按钮）"
+      ]
+    },
+    {
+      "name": "icon_map_city_types",
+      "description": "SLG地图城市/关隘/渡口图标（8种类型 × default/染色 两态）",
+      "use_scenes": [
+        "SLG地图地点图标"
+      ],
+      "notes": "default=完整固定贴图；染色=可叠加阵营色overlay的半透明版本；城市类48×36，关隘/渡口类32×24",
+      "componentKey": null,
+      "types": [
+        {
+          "type": "icon_map_city_xian",
+          "label": "县",
+          "nodeId_default": "6964:44000",
+          "componentKey_default": "72bcfb2ad55fda320e5e57c29f73088b11c4bfc4",
+          "nodeId_染色": "6964:43997",
+          "componentKey_染色": "fb77a58824fa995ba3402796a28c399ceb07d9af",
+          "size": {
+            "w": 48,
+            "h": 36
+          }
+        },
+        {
+          "type": "icon_map_city_zhou",
+          "label": "州",
+          "nodeId_default": "6964:44008",
+          "componentKey_default": "89e2beab358c83fb1faedc0115b9bc2db9671091",
+          "nodeId_染色": "6964:43998",
+          "componentKey_染色": "f55153a7320f9cce785fcab0a6ae95a51842164c",
+          "size": {
+            "w": 48,
+            "h": 36
+          }
+        },
+        {
+          "type": "icon_map_city_base",
+          "label": "基地",
+          "nodeId_default": "6964:44011",
+          "componentKey_default": "6b6c09535b2fa48496777150438a73e54e308eda",
+          "nodeId_染色": "6964:44010",
+          "componentKey_染色": "33c425e742b34a5ccf929fc93b48a9c0157f69ea",
+          "size": {
+            "w": 48,
+            "h": 36
+          }
+        },
+        {
+          "type": "icon_map_city_baye",
+          "label": "霸业",
+          "nodeId_default": "6964:44009",
+          "componentKey_default": "1362720b0a4d1ad4f1a819b844eb48cf7bbb4d48",
+          "nodeId_染色": "6964:44005",
+          "componentKey_染色": "d15efed475e861f00189fe42d2f213d3561f3d69",
+          "size": {
+            "w": 48,
+            "h": 36
+          }
+        },
+        {
+          "type": "icon_map_city_zhucheng",
+          "label": "主城",
+          "nodeId_default": "6964:44001",
+          "componentKey_default": "c27997b902fd780d992c75c76a9c4a8f4fd76121",
+          "nodeId_染色": "6964:44004",
+          "componentKey_染色": "d94f3a33ea2ef9cac32f975b4e67c1f806aef4dc",
+          "size": {
+            "w": 48,
+            "h": 36
+          }
+        },
+        {
+          "type": "icon_map_city_jun",
+          "label": "郡",
+          "nodeId_default": "6964:44007",
+          "componentKey_default": "e6eb5e2f7a141d40f174873edadbf028d97e6d93",
+          "nodeId_染色": "6964:44006",
+          "componentKey_染色": "aacb159a97eb923fa808046f4388573532c77c23",
+          "size": {
+            "w": 48,
+            "h": 36
+          }
+        },
+        {
+          "type": "icon_map_ferry",
+          "label": "渡口",
+          "nodeId_default": "6964:44012",
+          "componentKey_default": "abc056d158be49082bc02d125ca57255a6106345",
+          "nodeId_染色": "6964:43999",
+          "componentKey_染色": "7909573220ee55182994e97fe595daeb1a64c0a9",
+          "size": {
+            "w": 32,
+            "h": 24
+          }
+        },
+        {
+          "type": "icon_map_pass",
+          "label": "关隘",
+          "nodeId_default": "6964:44002",
+          "componentKey_default": "53cf394fd2b05018cf12e93aca1c78340658bd09",
+          "nodeId_染色": "6964:44003",
+          "componentKey_染色": "670a3f179ac7aeba5f2500d6c3747c9f4f9b521b",
+          "size": {
+            "w": 32,
+            "h": 24
+          }
+        }
+      ]
+    },
+    {
+      "name": "icon_map_city_types_b",
+      "description": "SLG地图城市/关隘/渡口图标第二套（剪影风格）",
+      "use_scenes": [
+        "SLG地图地点图标"
+      ],
+      "notes": "与icon_map_city_types同类型结构，建筑剪影风格；城市类48×36，关隘/渡口类32×24",
+      "componentKey": null,
+      "types": [
+        {
+          "type": "icon_map_city_xian",
+          "label": "县",
+          "nodeId_default": "7108:34865",
+          "componentKey_default": "abb4949b750191e0bc10aecc680d0e87555e24e2",
+          "nodeId_染色": "7108:34881",
+          "componentKey_染色": "9b9c61711fdc71d6f8f457436c28ef7160023262",
+          "size": {
+            "w": 48,
+            "h": 36
+          }
+        },
+        {
+          "type": "icon_map_city_zhou",
+          "label": "州",
+          "nodeId_default": "7108:34867",
+          "componentKey_default": "c4d29abd3f6105d36b0f84a5146c77c727722182",
+          "nodeId_染色": "7108:34883",
+          "componentKey_染色": "6136b6519b75d1886e75c8266c1cea7c36fc0716",
+          "size": {
+            "w": 48,
+            "h": 36
+          }
+        },
+        {
+          "type": "icon_map_city_base",
+          "label": "基地",
+          "nodeId_default": "7108:34869",
+          "componentKey_default": "2a5cb53a8aeaa65e7ebc72fe30423e6f3157ef89",
+          "nodeId_染色": "7108:34885",
+          "componentKey_染色": "c7a84219f54288262423b55813dc6483f9622a65",
+          "size": {
+            "w": 48,
+            "h": 36
+          }
+        },
+        {
+          "type": "icon_map_city_baye",
+          "label": "霸业",
+          "nodeId_default": "7108:34871",
+          "componentKey_default": "967aa6ee40fc526fdeec38073b4c1ac949b41565",
+          "nodeId_染色": "7108:34887",
+          "componentKey_染色": "356c6557becde9273dc573c22006b2aee10a33cd",
+          "size": {
+            "w": 48,
+            "h": 36
+          }
+        },
+        {
+          "type": "icon_map_city_zhucheng",
+          "label": "主城",
+          "nodeId_default": "7108:34873",
+          "componentKey_default": "5b06eb5bdaa85c0f9787c3a51fdd0f17d26c17d2",
+          "nodeId_染色": "7108:34889",
+          "componentKey_染色": "ace9ec67713e70178670b0c193084b80735ecb71",
+          "size": {
+            "w": 48,
+            "h": 36
+          }
+        },
+        {
+          "type": "icon_map_city_jun",
+          "label": "郡",
+          "nodeId_default": "7108:34875",
+          "componentKey_default": "3630449ee1b69dcb4d957c290093ede2429c9a7d",
+          "nodeId_染色": "7108:34891",
+          "componentKey_染色": "e3df94d3b74a36a9e9919db4cacb8d503b9d39a8",
+          "size": {
+            "w": 48,
+            "h": 36
+          }
+        },
+        {
+          "type": "icon_map_ferry",
+          "label": "渡口",
+          "nodeId_default": "7108:34877",
+          "componentKey_default": "9e0a82b75265f6533541801aec50e1440c2cef88",
+          "nodeId_染色": "7108:34893",
+          "componentKey_染色": "84dd2ea1978254ce1994ce67b07e257930090100",
+          "size": {
+            "w": 32,
+            "h": 24
+          }
+        },
+        {
+          "type": "icon_map_pass",
+          "label": "关隘",
+          "nodeId_default": "7108:34879",
+          "componentKey_default": "5a8eb5928437ba560a1e7edf4dce1633ab6800f9",
+          "nodeId_染色": "7108:34895",
+          "componentKey_染色": "d88f2cdadee40d4f56c5751fa50782eb8337776f",
+          "size": {
+            "w": 32,
+            "h": 24
+          }
+        }
+      ]
+    },
+    {
+      "name": "icon_slgmap_location_badge",
+      "description": "SLG地图地点完整徽章图标（方形/圆形两态，含底板+内容）",
+      "use_scenes": [
+        "SLG地图地点标记"
+      ],
+      "componentKey": null,
+      "variants": [
+        {
+          "shape": "方",
+          "nodeId": "6994:44664",
+          "componentKey": "da1d567f225b9ed9cadd07101ab42ee3d0bf9ed8",
+          "size": {
+            "w": 48,
+            "h": 47
+          }
+        },
+        {
+          "shape": "圆",
+          "nodeId": "7039:57260",
+          "componentKey": "e34dbc8910c50142a4a5246075c96e5ff8dac01d",
+          "size": {
+            "w": 48,
+            "h": 47
+          }
+        }
+      ]
+    },
+    {
+      "name": "icon_slgmap_position",
+      "use_scenes": [
+        "SLG地图坐标定位图标（图钉形）"
+      ],
+      "notes": "Default=蓝色；黄色=高亮/选中态",
+      "componentKey": null,
+      "variants": [
+        {
+          "color": "Default",
+          "nodeId": "6877:16613",
+          "componentKey": "d57fbf92cdec192535d512483b8705aa44ceba5a",
+          "size": {
+            "w": 26,
+            "h": 36
+          }
+        },
+        {
+          "color": "黄色",
+          "nodeId": "6877:16615",
+          "componentKey": "c4ae1c9777ff80de31f3d9f5cb4a4cefbbb21529",
+          "size": {
+            "w": 25,
+            "h": 34
+          }
+        }
+      ]
+    },
+    {
+      "name": "btn_c_icon_chakan",
+      "nodeId": "6964:42582",
+      "componentKey": "aff25703f57913b286e86d82a1175060e76c5cd7",
+      "size": {
+        "w": 48,
+        "h": 48
+      },
+      "use_scenes": [
+        "「查看」操作图标按钮"
+      ],
+      "notes": "固定图片，圆形图标按钮"
+    },
+    {
+      "name": "arrow_army",
+      "figma_component": "箭头",
+      "nodeId": "6964:42564",
+      "componentKey": "95f86424da2413660a7a8847cd93c6a5e3674b82",
+      "size": {
+        "w": 26,
+        "h": 45
+      },
+      "use_scenes": [
+        "部队行军方向指示竖箭头"
+      ],
+      "notes": "竖向长箭头，用于地图部队移动方向标注"
+    },
+    {
+      "name": "btn_c_icon_shoucang_select",
+      "nodeId": "7082:73542",
+      "componentKey": "688172b14cd7d5f0be27efe1be401456ad025628",
+      "size": {
+        "w": 52,
+        "h": 52
+      },
+      "use_scenes": [
+        "收藏/书签图标（选中态）"
+      ],
+      "notes": "选中态；与圆形底板 pic_c_circle_bg_r68_01 组合使用"
+    },
+    {
+      "name": "btn_shoucang_circle",
+      "figma_component": "按钮",
+      "nodeId": "7082:73549",
+      "componentKey": "e8bd56697f816fc34b1200bfc3042feac4a2399e",
+      "size": {
+        "w": 68,
+        "h": 68
+      },
+      "composite": true,
+      "sub_components": [
+        "pic_c_circle_bg_r68_01 (7082:73544)",
+        "btn_c_icon_shoucang_select (7082:73542)"
+      ],
+      "use_scenes": [
+        "SLG地图城市弹窗收藏圆形按钮"
+      ],
+      "notes": "复合组件；圆形背景底板+书签图标叠加"
+    },
+    {
+      "name": "icon_map_flag",
+      "figma_component": "旗帜",
+      "use_scenes": [
+        "地图玩家/阵营旗帜图标"
+      ],
+      "notes": "绿=有阵营占领；白=中立/无阵营；米色=特殊状态；颜色语义待确认",
+      "componentKey": null,
+      "variants": [
+        {
+          "color": "绿",
+          "nodeId": "2014:2612",
+          "componentKey": "295add1a97440958ab3fa5220cb5282f0205c7c7",
+          "size": {
+            "w": 34,
+            "h": 37
+          }
+        },
+        {
+          "color": "白",
+          "nodeId": "2014:2614",
+          "componentKey": "3939ac4b65f18e2ad73bd794d07362cd058062ee",
+          "size": {
+            "w": 34,
+            "h": 37
+          }
+        },
+        {
+          "color": "米色",
+          "nodeId": "2027:2805",
+          "componentKey": "11e2bd48b6d9512dd0bff3bc2340a2f7cef7a19a",
+          "size": {
+            "w": 34,
+            "h": 37
+          }
+        }
+      ]
+    },
+    {
+      "name": "icon_map_tower",
+      "figma_component": "icon",
+      "nodeId": "7189:18007",
+      "componentKey": "d06738f524b7ebfa3788d3106d3fac3d27f1f3e7",
+      "size": {
+        "w": 49,
+        "h": 77
+      },
+      "use_scenes": [
+        "SLG地图建筑塔楼图标"
+      ],
+      "notes": "固定图片，竖长型建筑图标"
+    },
+    {
+      "name": "icon_player_avatar_bubble",
+      "figma_component": "icon",
+      "nodeId": "7087:77568",
+      "componentKey": "5b0e1a23cfb813a02e1fd98434895bcd04e05897",
+      "size": {
+        "w": 64,
+        "h": 64
+      },
+      "composite": true,
+      "sub_components": [
+        "icon_map_avatar_bg (7082:72815)",
+        "player avatar image"
+      ],
+      "use_scenes": [
+        "SLG地图玩家头像气泡"
+      ],
+      "notes": "圆形头像框+玩家头像贴图的完整气泡"
+    },
+    {
+      "name": "icon_city_level_badge",
+      "figma_component": "icon",
+      "nodeId": "6964:42633",
+      "componentKey": "ff3caaa94d1fa0babcb5d57023b90e5f78b666d3",
+      "size": {
+        "w": 44,
+        "h": 44
+      },
+      "composite": true,
+      "sub_components": [
+        "bg_map_icon_circle (6964:42624)",
+        "阵营色染色overlay",
+        "等级数字"
+      ],
+      "use_scenes": [
+        "SLG地图城市等级标识徽章"
+      ],
+      "notes": "圆形背景+阵营色+等级数字组合，显示城市等级（如「20」）"
+    },
+    {
+      "name": "icon_unit_flat",
+      "figma_component": "icon",
+      "nodeId": "6995:45867",
+      "componentKey": "382e5a1274d30fc9300de9cd30dfd774a86959d0",
+      "size": {
+        "w": 50,
+        "h": 33
+      },
+      "scalable": false,
+      "use_scenes": [
+        "军事单位/建筑扁平图标"
+      ],
+      "notes": "扁平横向图标，单独使用或作为icon_unit_badge子组件"
+    },
+    {
+      "name": "icon_unit_badge",
+      "figma_component": "icon",
+      "nodeId": "6995:45873",
+      "componentKey": "292be6564a6808303726c34fdec63427f37061d4",
+      "size": {
+        "w": 50,
+        "h": 42
+      },
+      "composite": true,
+      "sub_components": [
+        "bg_unit_badge_circle (6995:45868)",
+        "icon_unit_flat (6995:45867)"
+      ],
+      "use_scenes": [
+        "军事单位徽章（带底板的单位图标）"
+      ],
+      "notes": "圆形底板+扁平图标的组合"
+    },
+    {
+      "name": "icon_map_team",
+      "nodeId": "7039:57699",
+      "componentKey": "5023250cd97ad8f407b6daa8dd71d25d4238adcf",
+      "size": {
+        "w": 32,
+        "h": 32
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图组队/同盟标识图标"
+      ]
+    },
+    {
+      "name": "icon_location_marker",
+      "figma_component": "标点",
+      "nodeId": "7082:73567",
+      "componentKey": "a61d6d124e33fece75ca57119239cc8a8e35b388",
+      "size": {
+        "w": 59,
+        "h": 78
+      },
+      "scalable": false,
+      "use_scenes": [
+        "地图位置标记（气泡形图钉）"
+      ],
+      "notes": "大型竖向气泡形图钉，用于标注地图特定位置"
+    },
+    {
+      "name": "btn_c_icon_share",
+      "nodeId": "7082:73541",
+      "componentKey": "85bde0f05dbac99aef0598d715672dadb10eb565",
+      "size": {
+        "w": 52,
+        "h": 52
+      },
+      "scalable": false,
+      "use_scenes": [
+        "分享按钮图标"
+      ],
+      "notes": "52×52容器内含40×40实际图标"
+    },
+    {
+      "name": "icon_shapan_shoucang",
+      "nodeId": "7108:22333",
+      "componentKey": "25ae0fe0077e4ef424f250c6e7aaf6885b340d61",
+      "size": {
+        "w": 52,
+        "h": 52
+      },
+      "scalable": false,
+      "use_scenes": [
+        "沙盘专用收藏图标"
+      ],
+      "notes": "区别于通用收藏 btn_c_icon_shoucang_select"
+    },
+    {
+      "name": "icon_map_city_numbered",
+      "description": "SLG地图城市建筑编号图标（00~22，共23种）",
+      "default_size": {
+        "w": 64,
+        "h": 64
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图城市建筑/设施图标"
+      ],
+      "notes": "按编号区分的64×64图标，与按类型命名的icon_map_city_types(48×36)不同体系",
+      "componentKey": null,
+      "variants": [
+        {
+          "number": "00",
+          "nodeId": "6964:43602",
+          "componentKey": "51ae7425562835e31b25f2e6c2fb967567ca8d49"
+        },
+        {
+          "number": "01",
+          "nodeId": "6964:43600",
+          "componentKey": "8844c07a42ad38a94e31d67ce6981851c56b3043"
+        },
+        {
+          "number": "02",
+          "nodeId": "6964:43598",
+          "componentKey": "b8ee0293034c793cecd0175391914e515dbfbaaa"
+        },
+        {
+          "number": "03",
+          "nodeId": "6964:43596",
+          "componentKey": "16ebbe7d051e5fda638c9f48540dcb53cb925319"
+        },
+        {
+          "number": "04",
+          "nodeId": "6964:43594",
+          "componentKey": "037593d7d4c4fd1d9b979bde7571f5b5429e5bcb"
+        },
+        {
+          "number": "05",
+          "nodeId": "6964:43591",
+          "componentKey": "f725166d3c8a9a69622b564f418cc7dfa515b6fa"
+        },
+        {
+          "number": "06",
+          "nodeId": "6964:43589",
+          "componentKey": "a4aade592cea3650f3f15441bc3ad901986304b9"
+        },
+        {
+          "number": "07",
+          "nodeId": "6964:43587",
+          "componentKey": "0ab6199c62b67d3160f6eef00fe09a8e316ebf37"
+        },
+        {
+          "number": "08",
+          "nodeId": "6964:43586",
+          "componentKey": "bbd4e28f906fad9a90f0a024baaa47c9cb34751d"
+        },
+        {
+          "number": "09",
+          "nodeId": "6964:43592",
+          "componentKey": "6b4f55186e0b5a5dbac39ded1c1426bab7c32df2"
+        },
+        {
+          "number": "10",
+          "nodeId": "6964:43585",
+          "componentKey": "ad2e0418dbca4cc56e132f5b955fab053253bad5"
+        },
+        {
+          "number": "11",
+          "nodeId": "6964:43599",
+          "componentKey": "c53ac96c7a0f253b015909f9a9ee802704eb5e81"
+        },
+        {
+          "number": "12",
+          "nodeId": "6964:43597",
+          "componentKey": "e9ac3a97e75f4a294fda3e84734daa3f7c7918a9"
+        },
+        {
+          "number": "13",
+          "nodeId": "6964:43584",
+          "componentKey": "fd670a6eb2452f2c1d0ba49a5fb869489ba8b889"
+        },
+        {
+          "number": "14",
+          "nodeId": "6964:43583",
+          "componentKey": "549a1ba63570a95449c4e5f33f28b3775cf4116d"
+        },
+        {
+          "number": "15",
+          "nodeId": "6964:43590",
+          "componentKey": "85f58663b86d7a03df800f0ec01359e0db40b8a8"
+        },
+        {
+          "number": "16",
+          "nodeId": "6964:43588",
+          "componentKey": "6f1d4539370e16975d901b05e31ba5c9c3cd4e7a"
+        },
+        {
+          "number": "17",
+          "nodeId": "6964:43582",
+          "componentKey": "05182ada2f8daa63a4e6d959b76fefe49bda4eed"
+        },
+        {
+          "number": "18",
+          "nodeId": "6964:43601",
+          "componentKey": "a3e7a79a27e8b648d6d5ec92d5fbcb278b144b98"
+        },
+        {
+          "number": "19",
+          "nodeId": "6964:43581",
+          "componentKey": "a346faff48843a71edbd365cc8605e030a7dd614"
+        },
+        {
+          "number": "20",
+          "nodeId": "6964:43580",
+          "componentKey": "41a36a3aa0c3ab89e1f83c724c13686cc753f693"
+        },
+        {
+          "number": "21",
+          "nodeId": "6964:43595",
+          "componentKey": "dabea91f5be56ed456122ec8aa5a699169fc9507"
+        },
+        {
+          "number": "22",
+          "nodeId": "6964:43593",
+          "componentKey": "51d23645ebaa4ad78c52eba81dac8f667a965e36"
+        }
+      ]
+    },
+    {
+      "name": "icon_slgmap_camp_types",
+      "description": "SLG地图营地类型图标（4种）",
+      "default_size": {
+        "w": 28,
+        "h": 42
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图营地/驻军类型标识"
+      ],
+      "notes": "fan=藩属/nei=内镇/zhong=中原/zhu=主力，按驻军属性选用",
+      "componentKey": null,
+      "variants": [
+        {
+          "type": "fan",
+          "label": "藩属",
+          "nodeId": "7108:34852",
+          "componentKey": "95cd8cfe1434e683e462d36c6e7e2dd41e7ade8d"
+        },
+        {
+          "type": "nei",
+          "label": "内镇",
+          "nodeId": "7108:34854",
+          "componentKey": "cf6008f2f5a1d65dd4383293341babee6c6a901f"
+        },
+        {
+          "type": "zhong",
+          "label": "中原",
+          "nodeId": "7108:34856",
+          "componentKey": "a4d4cbbef8c042f4c3d94d8f31880f45f7549788"
+        },
+        {
+          "type": "zhu",
+          "label": "主力",
+          "nodeId": "7108:34858",
+          "componentKey": "cc2791aa3aeb2bbff08b2b8c3d5ef8179eed7522"
+        }
+      ]
+    },
+    {
+      "name": "icon_location_content_types",
+      "description": "地点内容图标（4种，42×42px容器）",
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图特殊地点内容图标"
+      ],
+      "notes": "渡口/霸业城/郡府/关卡各有专属小图标，置于地点背景容器内",
+      "componentKey": null,
+      "variants": [
+        {
+          "type": "ferry",
+          "label": "渡口",
+          "nodeId": "7108:34902",
+          "componentKey": "a8044c94733849e4da78922e12d797ea7531d5e0",
+          "size": {
+            "w": 42,
+            "h": 42
+          }
+        },
+        {
+          "type": "baye",
+          "label": "霸业城",
+          "nodeId": "7108:34904",
+          "componentKey": "bfc70dc2ae7272126bde7f4417bffe899cdbb930",
+          "size": {
+            "w": 42,
+            "h": 42
+          }
+        },
+        {
+          "type": "junfu",
+          "label": "郡府",
+          "nodeId": "7108:34906",
+          "componentKey": "aec523641c160363aa15b4c7bac1fbb6a30411f7",
+          "size": {
+            "w": 42,
+            "h": 42
+          }
+        },
+        {
+          "type": "pass",
+          "label": "关卡",
+          "nodeId": "7108:34908",
+          "componentKey": "3594e1b31d87e2be8dc42f0d8e76f176825dac18",
+          "size": {
+            "w": 42,
+            "h": 42
+          }
+        }
+      ]
+    },
+    {
+      "name": "icon_yingzhang",
+      "use_scenes": [
+        "印章/封印类装饰图标"
+      ],
+      "notes": "两种样式，具体语义差异待确认",
+      "componentKey": null,
+      "variants": [
+        {
+          "style": "icon_yingzhang",
+          "nodeId": "7087:73775",
+          "componentKey": "901558bf756e808ad6c876796026c1e75a551588",
+          "size": {
+            "w": 28,
+            "h": 27
+          }
+        },
+        {
+          "style": "icon_yingzhang01",
+          "nodeId": "7087:73786",
+          "componentKey": "2e9bce7e682cb82731771e5b5735ded665de59c3",
+          "size": {
+            "w": 28,
+            "h": 27
+          }
+        }
+      ]
+    },
+    {
+      "name": "icon_c_lock",
+      "use_scenes": [
+        "功能锁定/限制状态图标"
+      ],
+      "notes": "两种尺寸变体；标准版56×26，棕色版30×13",
+      "componentKey": null,
+      "variants": [
+        {
+          "style": "icon_c_lock_01",
+          "nodeId": "7108:34829",
+          "componentKey": "156461a586827cab35d214a516e5e75f48f5f98c",
+          "size": {
+            "w": 56,
+            "h": 26
+          }
+        },
+        {
+          "style": "棕色",
+          "nodeId": "7108:34831",
+          "componentKey": "f37feb62094ede0f7792487cab38634f59642fa4",
+          "size": {
+            "w": 30,
+            "h": 13
+          }
+        }
+      ]
+    },
+    {
+      "name": "icon_map_zhucheng_1_series",
+      "description": "主城系列图标（5种变体，各有独立语义）",
+      "use_scenes": [
+        "SLG地图主城图标及覆盖层"
+      ],
+      "notes": "不同尺寸对应不同功能的主城相关图标",
+      "componentKey": null,
+      "variants": [
+        {
+          "type": "yingzhang",
+          "label": "印章覆盖层",
+          "nodeId": "7108:34803",
+          "componentKey": "0020eb3b8b27ec4c45cb0e7093633c690749cb6e",
+          "size": {
+            "w": 19,
+            "h": 17
+          }
+        },
+        {
+          "type": "lv5",
+          "label": "5级图标",
+          "nodeId": "7108:34805",
+          "componentKey": "9e736ef4153c61683afd90713036698d03c9fb59",
+          "size": {
+            "w": 30,
+            "h": 30
+          }
+        },
+        {
+          "type": "lv1",
+          "label": "1级基础",
+          "nodeId": "7108:34807",
+          "componentKey": "9ea505baf42deb1bcd8aadf5c961e534fae40ea6",
+          "size": {
+            "w": 40,
+            "h": 40
+          }
+        },
+        {
+          "type": "collect",
+          "label": "含收藏状态",
+          "nodeId": "7108:34809",
+          "componentKey": "4e82cb9997fafa12e886323084e04cba03b3cc33",
+          "size": {
+            "w": 27,
+            "h": 27
+          }
+        },
+        {
+          "type": "dikuai",
+          "label": "含地块标识",
+          "nodeId": "7108:34811",
+          "componentKey": "661b6e8e27ed670c5a797faf52e4f8d4e78da58e",
+          "size": {
+            "w": 17,
+            "h": 17
+          }
+        }
+      ]
+    },
+    {
+      "name": "icon_action_content",
+      "description": "SLG地图行动内容图标（攻城/行军/策牌，46×46px）",
+      "default_size": {
+        "w": 46,
+        "h": 46
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图行动选择浮层中的内容图标"
+      ],
+      "notes": "与Bg7底板组合构成完整行动按钮",
+      "componentKey": null,
+      "variants": [
+        {
+          "type": "gongcheng",
+          "label": "攻城",
+          "nodeId": "6572:15205",
+          "componentKey": null
+        },
+        {
+          "type": "xinjun",
+          "label": "行军",
+          "nodeId": "6572:15204",
+          "componentKey": null
+        },
+        {
+          "type": "cepai",
+          "label": "策牌",
+          "nodeId": "6572:15206",
+          "componentKey": null
+        }
+      ]
+    },
+    {
+      "name": "icon_action_btn",
+      "description": "SLG完整行动按钮（Bg7底板+内容图标+文字，91×91px）",
+      "default_size": {
+        "w": 91,
+        "h": 91
+      },
+      "scalable": false,
+      "use_scenes": [
+        "SLG地图行军/攻占/策牌行动按钮"
+      ],
+      "notes": "Default=策牌(浅色底)；深=行军(深色底)；红=攻占(红底)",
+      "componentKey": null,
+      "variants": [
+        {
+          "state": "Default",
+          "label": "策牌",
+          "nodeId": "6581:15562",
+          "componentKey": "1327a61d370f565b5738b4b1156590d0cabafba7"
+        },
+        {
+          "state": "深",
+          "label": "行军",
+          "nodeId": "6581:15563",
+          "componentKey": "82f4a26c65a04e134b5d179c3653c3451ddc6971"
+        },
+        {
+          "state": "红",
+          "label": "攻占",
+          "nodeId": "6581:15564",
+          "componentKey": "8eb1d0874e66abc7b488d605f08b512c59c9e2e1"
+        }
+      ]
+    },
+    {
+      "name": "hud_btn_leftbottom_bg",
+      "nodeId": "4078:564",
+      "componentKey": null,
+      "size": {
+        "w": 83,
+        "h": 83
+      },
+      "scalable": false,
+      "use_scenes": [
+        "HUD左下功能图标按钮共用背景"
+      ],
+      "notes": "战报/好友/信件/讨贼均使用此背景"
+    },
+    {
+      "name": "hud_btn_leftbottom",
+      "description": "HUD左下功能图标按钮（83×83px，4种）",
+      "default_size": {
+        "w": 83,
+        "h": 83
+      },
+      "scalable": false,
+      "use_scenes": [
+        "HUD左下角功能快捷入口"
+      ],
+      "notes": "共用背景 hud_btn_leftbottom_bg (4078:564)",
+      "componentKey": null,
+      "variants": [
+        {
+          "type": "zhanbao",
+          "label": "战报",
+          "nodeId": "4078:567",
+          "componentKey": "231f4c08aa49ea2d65ad110c04d20c02d710be9a"
+        },
+        {
+          "type": "haoyou",
+          "label": "好友",
+          "nodeId": "4078:573",
+          "componentKey": "9e9b08583062ee9b624eae1dd72fa68c3052165b"
+        },
+        {
+          "type": "xinjian",
+          "label": "信件",
+          "nodeId": "4078:584",
+          "componentKey": "8d3c656100bfa0892b983a078fc3e43c16680714"
+        },
+        {
+          "type": "taozei",
+          "label": "讨贼",
+          "nodeId": "4081:597",
+          "componentKey": "e1d6b62bbc8891e4f93fe40aad169fa62bd61dd6"
+        }
+      ]
+    },
+    {
+      "name": "hud_btn_inspect_bg",
+      "nodeId": "4044:1203",
+      "componentKey": null,
+      "size": {
+        "w": 76,
+        "h": 76
+      },
+      "scalable": false,
+      "use_scenes": [
+        "HUD查看/查找图标按钮共用背景"
+      ]
+    },
+    {
+      "name": "hud_btn_inspect",
+      "description": "HUD查看/查找图标按钮（76×76px）",
+      "default_size": {
+        "w": 76,
+        "h": 76
+      },
+      "scalable": false,
+      "use_scenes": [
+        "HUD城市查看/玩家查找功能按钮"
+      ],
+      "componentKey": null,
+      "variants": [
+        {
+          "type": "chakan",
+          "label": "查看",
+          "nodeId": "4044:1217",
+          "componentKey": "097eb7b5f15d0a1b8a0203656b1b657190aceb40"
+        },
+        {
+          "type": "chazhao",
+          "label": "查找",
+          "nodeId": "4044:1222",
+          "componentKey": "863d2ebe6fc31e3fc0e6b104985ef1f9b679d0f9"
+        }
+      ]
+    },
+    {
+      "name": "hud_resource_top_right",
+      "nodeId": "4089:926",
+      "componentKey": "26b5c39389f58f9e2c6d1760608654e6546b1715",
+      "size": {
+        "w": 76,
+        "h": 76
+      },
+      "composite": true,
+      "use_scenes": [
+        "HUD右上角资源图标按钮"
+      ],
+      "notes": "圆形资源bg+资源icon的组合"
+    },
+    {
+      "name": "hud_btn_wujiang",
+      "nodeId": "6567:12228",
+      "componentKey": "df3abf891175d66e403bb01f94eaecdbe772c8a5",
+      "size": {
+        "w": 98,
+        "h": 121
+      },
+      "composite": true,
+      "use_scenes": [
+        "HUD右下角武将按钮（含大图标+tab文字标签）"
+      ]
+    },
+    {
+      "name": "hud_expand_collapse",
+      "description": "HUD收起/展开控制按钮（78×78px）",
+      "default_size": {
+        "w": 78,
+        "h": 78
+      },
+      "scalable": false,
+      "use_scenes": [
+        "HUD面板收起展开控制"
+      ],
+      "componentKey": null,
+      "variants": [
+        {
+          "state": "收起",
+          "nodeId": "4083:625",
+          "componentKey": "f5a94d92e66dd5a0dae65249a81a42c3cfdd5cea"
+        },
+        {
+          "state": "展开",
+          "nodeId": "4083:627",
+          "componentKey": "d457846b6017de6e13f510f60be63ad8884aaf89"
+        }
+      ]
+    },
+    {
+      "name": "hud_btn_zhanbaoshoucang",
+      "description": "战报/收藏浮层按钮（69×68px复合）",
+      "use_scenes": [
+        "地图侧边战报/收藏快捷按钮"
+      ],
+      "notes": "使用Bg6(6581:16073)底板",
+      "componentKey": null,
+      "variants": [
+        {
+          "type": "shoucang",
+          "label": "收藏",
+          "nodeId": "6581:16079",
+          "componentKey": "c18609e2ff25b5a4c550c0b6f07632317ec24dcb"
+        },
+        {
+          "type": "zhanbao",
+          "label": "战报",
+          "nodeId": "6581:16085",
+          "componentKey": "9f7622b5c60e75100f5ca847e5f18ce3598ed2ef"
+        }
+      ]
+    },
+    {
+      "name": "btn_c_fanhui",
+      "nodeId": "6544:27475",
+      "componentKey": null,
+      "size": {
+        "w": 86,
+        "h": 48
+      },
+      "scalable": false,
+      "use_scenes": [
+        "返回按钮"
+      ],
+      "notes": "固定图片横向按钮"
+    },
+    {
+      "name": "btn_c_details",
+      "nodeId": "6325:10641",
+      "componentKey": "2f8400a9bf09a78db1b2bfce017dc2276bc251a3",
+      "size": {
+        "w": 54,
+        "h": 54
+      },
+      "scalable": false,
+      "use_scenes": [
+        "详情按钮（圆形）"
+      ]
+    },
+    {
+      "name": "btn_c_more",
+      "nodeId": "4982:5536",
+      "componentKey": "f01a02a32b9716b2dd898a8aa5335289a95e0adc",
+      "size": {
+        "w": 32,
+        "h": 32
+      },
+      "scalable": false,
+      "use_scenes": [
+        "更多（...）按钮"
+      ]
+    },
+    {
+      "name": "pagination_dot",
+      "description": "分页指示点（33×7px，选中/未选中两态）",
+      "default_size": {
+        "w": 33,
+        "h": 7
+      },
+      "scalable": false,
+      "use_scenes": [
+        "内容分页/轮播当前位置指示器"
+      ],
+      "componentKey": null,
+      "variants": [
+        {
+          "state": "选中",
+          "nodeId": "4081:605",
+          "componentKey": "a9045baafe8077295f3794a53de6c77fdcbdf82f"
+        },
+        {
+          "state": "未选中",
+          "nodeId": "4081:607",
+          "componentKey": "0b6405e77861549f194e6fdd8eaed90cf5313cfe"
+        }
+      ]
+    },
+    {
+      "name": "pic_chat_arrow_01",
+      "nodeId": "7189:18050",
+      "componentKey": "52a422eebd3011d2c722f72e28c42f4c2dd71874",
+      "size": {
+        "w": 74,
+        "h": 198
+      },
+      "composite": true,
+      "sub_components": [
+        "bg (7189:18008)",
+        "icon_map_tower (7189:18007)"
+      ],
+      "use_scenes": [
+        "聊天侧边大箭头按钮（带图标的竖向箭头）"
+      ]
+    },
+    {
+      "name": "btn_panel_nav_arrow",
+      "description": "面板侧边导航大箭头（93×93px，左/右）",
+      "default_size": {
+        "w": 93,
+        "h": 93
+      },
+      "scalable": false,
+      "use_scenes": [
+        "面板/弹窗左右翻页大箭头"
+      ],
+      "componentKey": null,
+      "variants": [
+        {
+          "direction": "左",
+          "nodeId": "2014:2432",
+          "componentKey": "48039098dac2f5431179c775fe2d0b579cda5aa7"
+        },
+        {
+          "direction": "右",
+          "nodeId": "2040:3720",
+          "componentKey": "db8462bcd8e7191a35a5d9f054a6999f5c846bc6"
+        }
+      ]
+    },
+    {
+      "name": "icon_chat_emoji",
+      "description": "聊天表情图标（花/蛋，38×40px）",
+      "default_size": {
+        "w": 38,
+        "h": 40
+      },
+      "scalable": false,
+      "use_scenes": [
+        "聊天消息操作浮窗内表情/贴图图标"
+      ],
+      "componentKey": null,
+      "variants": [
+        {
+          "type": "flower",
+          "label": "花",
+          "nodeId": "6212:20701",
+          "componentKey": null
+        },
+        {
+          "type": "egg",
+          "label": "蛋",
+          "nodeId": "6212:20702",
+          "componentKey": null
+        }
+      ]
+    },
+    {
+      "name": "icon_chat_action",
+      "description": "聊天消息操作图标（拷贝/回复 × 深/浅，38×40px）",
+      "default_size": {
+        "w": 38,
+        "h": 40
+      },
+      "scalable": false,
+      "use_scenes": [
+        "聊天消息操作浮窗内功能图标"
+      ],
+      "notes": "深色版=用于浅色气泡背景；浅色版=用于深色气泡背景",
+      "componentKey": null,
+      "variants": [
+        {
+          "type": "copy",
+          "color": "深",
+          "nodeId": "6212:21298",
+          "componentKey": null
+        },
+        {
+          "type": "copy",
+          "color": "浅",
+          "nodeId": "6212:21301",
+          "componentKey": null
+        },
+        {
+          "type": "reply",
+          "color": "深",
+          "nodeId": "6212:21302",
+          "componentKey": null
+        },
+        {
+          "type": "reply",
+          "color": "浅",
+          "nodeId": "6212:21303",
+          "componentKey": null
+        }
+      ]
+    },
+    {
+      "name": "chat_action_popup",
+      "description": "聊天消息操作浮窗（拷贝+回复+花+蛋，浅/深两版）",
+      "scalable": false,
+      "use_scenes": [
+        "长按聊天消息弹出的操作菜单"
+      ],
+      "notes": "使用 bg_chat_reply_tips 底板；浅版=浅色气泡，深版=深色气泡",
+      "componentKey": null,
+      "variants": [
+        {
+          "theme": "浅",
+          "nodeId": "6212:21409",
+          "componentKey": "125b538b069b0bec7d03cd8752e1707d1d05ab97"
+        },
+        {
+          "theme": "深",
+          "nodeId": "6212:21408",
+          "componentKey": "4771910ad981a70a5c7a79b435e96549b6118375"
+        }
+      ]
+    },
+    {
+      "name": "pic_chat_delete",
+      "nodeId": "6142:10030",
+      "componentKey": "c5c6f6658505899b61578e1c6764843c958f2e7e",
+      "size": {
+        "w": 53,
+        "h": 41
+      },
+      "scalable": false,
+      "use_scenes": [
+        "聊天消息删除图标"
+      ]
+    },
+    {
+      "name": "icon_chat_qiehuan",
+      "nodeId": "6156:9019",
+      "componentKey": null,
+      "size": {
+        "w": 42,
+        "h": 29
+      },
+      "scalable": false,
+      "use_scenes": [
+        "聊天频道/模式切换图标"
+      ]
+    },
+    {
+      "name": "icon_chat_small",
+      "nodeId": "6156:9018",
+      "componentKey": null,
+      "size": {
+        "w": 54,
+        "h": 10
+      },
+      "scalable": false,
+      "use_scenes": [
+        "聊天窗口最小化图标"
+      ],
+      "notes": "极扁横条图标"
+    },
+    {
+      "name": "btn_c_icon_copy",
+      "nodeId": "4813:1624",
+      "componentKey": null,
+      "size": {
+        "w": 30,
+        "h": 30
+      },
+      "scalable": false,
+      "use_scenes": [
+        "文本复制图标（配合 bg_c_boxblock_07 底板）"
+      ]
+    },
+    {
+      "name": "icon_filter",
+      "nodeId": "5813:5229",
+      "componentKey": "afd33aaccd9a7279a115b5950a261012f58c164f",
+      "size": {
+        "w": 43,
+        "h": 45
+      },
+      "scalable": false,
+      "use_scenes": [
+        "筛选/过滤图标"
+      ]
+    },
+    {
+      "name": "btn_filter_circle",
+      "nodeId": "5813:5234",
+      "componentKey": "fda681f98fa04c8b6064058ce5ed2dbb2ad871b9",
+      "size": {
+        "w": 74,
+        "h": 74
+      },
+      "composite": true,
+      "use_scenes": [
+        "圆形筛选按钮（背景底板+筛选图标）"
+      ]
+    },
+    {
+      "name": "btn_bag_quantity",
+      "description": "背包数量增减按钮（58×58px，4态）",
+      "default_size": {
+        "w": 58,
+        "h": 58
+      },
+      "scalable": false,
+      "use_scenes": [
+        "背包物品数量调整按钮"
+      ],
+      "notes": "减/加各有标准态和禁用态",
+      "componentKey": null,
+      "variants": [
+        {
+          "type": "minus",
+          "state": "标准",
+          "nodeId": "4822:1932",
+          "componentKey": "33157293a7a4ee44184dc1e733bdcc5ae4830799"
+        },
+        {
+          "type": "minus_disabled",
+          "state": "禁用",
+          "nodeId": "4822:1934",
+          "componentKey": "0f337a48f408a9c9e3883c51d95c93804bcb6b9e"
+        },
+        {
+          "type": "plus",
+          "state": "标准",
+          "nodeId": "4822:1936",
+          "componentKey": "7ce5b9701e39f2879d8e3fa9e98ef68a8ce0f3bf"
+        },
+        {
+          "type": "plus_disabled",
+          "state": "禁用",
+          "nodeId": "4822:1938",
+          "componentKey": "b97a47ad200dab91d7b755cde4d5762772949d16"
+        }
+      ]
+    },
+    {
+      "name": "icon_game_logo_seal",
+      "description": "游戏标题/印章图案（85×43px，3种样式）",
+      "default_size": {
+        "w": 85,
+        "h": 43
+      },
+      "scalable": false,
+      "use_scenes": [
+        "登录界面/标题区域印章图案"
+      ],
+      "componentKey": null,
+      "variants": [
+        {
+          "style": "白",
+          "nodeId": "2014:2570",
+          "componentKey": "162a5e9fdb2300f24cfcaa318b7a02831cdb1daf"
+        },
+        {
+          "style": "黑",
+          "nodeId": "2014:2572",
+          "componentKey": "7e0f2f4198d566c01bce541f5e565135fc7062d4"
+        },
+        {
+          "style": "新版",
+          "nodeId": "4344:450",
+          "componentKey": "bb531ec8734e3113ca841a3a9a56d714a3168e07"
+        }
+      ]
+    },
+    {
+      "name": "btn_graphic_other",
+      "figma_component": "图形按钮-其他",
+      "description": "图形按钮（复制/左/右，58×58px）",
+      "componentKey": null,
+      "default_size": {
+        "w": 58,
+        "h": 58
+      },
+      "scalable": false,
+      "variants": [
+        {
+          "type": "fuzhi",
+          "label": "复制",
+          "nodeId": "4817:1654",
+          "componentKey": "580f3b99585b1b179ee82406ae0b998bdaec387c"
+        },
+        {
+          "type": "left",
+          "label": "左",
+          "nodeId": "4817:1661",
+          "componentKey": "833caaad9f5fbce6f664fa40655971d69e2753c4"
+        },
+        {
+          "type": "right",
+          "label": "右",
+          "nodeId": "4817:1675",
+          "componentKey": "d8f12eff55ab455f12b19dad3c2cb4a9584073d6"
+        }
+      ]
+    },
+    {
+      "name": "icon_clear",
+      "nodeId": "5813:5228",
+      "componentKey": "b45bc5cacf0c485daf40c5b201e5792eb2d1ca61",
+      "size": {
+        "w": 43,
+        "h": 45
+      },
+      "scalable": false,
+      "use_scenes": [
+        "清除/重置筛选条件图标"
+      ]
+    },
+    {
+      "name": "btn_social_action",
+      "figma_component": "按钮",
+      "description": "社交操作文字按钮（添加/申请/新建/邀请）",
+      "componentKey": null,
+      "scalable": false,
+      "variants": [
+        {
+          "type": "add",
+          "label": "添加",
+          "nodeId": "6126:8645",
+          "componentKey": "2975932de8b5d63541f73ff291345f2fa42fa07e",
+          "size": {
+            "w": 107,
+            "h": 46
+          }
+        },
+        {
+          "type": "apply",
+          "label": "申请",
+          "nodeId": "6126:8646",
+          "componentKey": "16a6cfe0f9f8b8e2bf4c8920ad7156b2341bf9bd",
+          "size": {
+            "w": 106,
+            "h": 46
+          }
+        },
+        {
+          "type": "create",
+          "label": "新建",
+          "nodeId": "6150:8798",
+          "componentKey": "77f3127deb1d6812d74706a3cdab441a6d39326f",
+          "size": {
+            "w": 110,
+            "h": 46
+          }
+        },
+        {
+          "type": "invite",
+          "label": "邀请",
+          "nodeId": "6156:8804",
+          "componentKey": "89e37e345927010a089dc1315d4e446a096bfb60",
+          "size": {
+            "w": 106,
+            "h": 46
+          }
+        }
+      ]
+    },
+    {
+      "name": "btn_chat_control",
+      "figma_component": "按钮",
+      "description": "聊天窗口控制图标按钮（最小化/切换/关闭，54×54px）",
+      "componentKey": null,
+      "default_size": {
+        "w": 54,
+        "h": 54
+      },
+      "scalable": false,
+      "variants": [
+        {
+          "type": "minimize",
+          "label": "最小化",
+          "nodeId": "6156:9025",
+          "componentKey": "2a790627787b89bb80fc97b90ba577790a8d6964"
+        },
+        {
+          "type": "switch",
+          "label": "切换",
+          "nodeId": "6156:9024",
+          "componentKey": "0c7aa9df509c8fdca03c146d925c57e25a8eba0c"
+        },
+        {
+          "type": "close",
+          "label": "关闭",
+          "nodeId": "6156:9023",
+          "componentKey": "4aff2772b72da47137d5121aea1c968b02df2911"
+        }
+      ]
+    },
+    {
+      "name": "icon_resource_top_special",
+      "figma_component": "上方资源图标",
+      "nodeId": "4089:1044",
+      "componentKey": "53d2b725daa096e69f2adfb6849b5f1c69bcb019",
+      "size": {
+        "w": 50,
+        "h": 51
+      },
+      "scalable": false,
+      "use_scenes": [
+        "HUD顶部资源图标（小型）"
+      ]
+    },
+    {
+      "name": "btn_c_close_red",
+      "figma_component": "icon",
+      "nodeId": "6502:12418",
+      "componentKey": "ac282f7816f1f45ac3a7417c741ce4bb809907e8",
+      "size": {
+        "w": 58,
+        "h": 58
+      },
+      "scalable": false,
+      "use_scenes": [
+        "关闭/移除按钮（红色强调）"
+      ]
+    },
+    {
+      "name": "btn_jianzao",
+      "figma_component": "按钮",
+      "nodeId": "6581:15605",
+      "componentKey": "96c8dcb5cade21c911ae4c9930672d4e4250d17e",
+      "size": {
+        "w": 229,
+        "h": 66
+      },
+      "scalable": false,
+      "use_scenes": [
+        "建造功能操作按钮"
+      ]
+    },
+    {
+      "name": "btn_panel_side_collapse",
+      "figma_component": "按钮",
+      "nodeId": "6964:42571",
+      "componentKey": "ecc7b64ab4ea8e686488f4a65efdc3a92c4870bd",
+      "size": {
+        "w": 47,
+        "h": 147
+      },
+      "scalable": false,
+      "use_scenes": [
+        "侧边面板收起箭头按钮"
+      ]
+    }
+  ],
+  "molecular_components": [
+    {
+      "name": "一级tab",
+      "nodeId": "4883:4889",
+      "componentKey": "2c26c1fd530e3a3a8e08a5bd1132abe9bd19c699",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 322,
+        "h": 236
+      },
+      "variants": [
+        {
+          "state": "选中",
+          "nodeId": "4883:4887",
+          "componentKey": "ca1a5a33438b7faa4d3853b73b544255755664d7"
+        },
+        {
+          "state": "未选中",
+          "nodeId": "4883:4888",
+          "componentKey": "bfb14d05a6509e1b9ac0d7ec930c7ff3fa4a7b46"
+        }
+      ],
+      "built_from": ["tab_c_select_02", "tab_c_normal"],
+      "use_scenes": ["弹窗顶部主tab", "全屏界面顶部主tab"],
+      "instantiation_rule": "标准主tab场景优先实例化该分子组件，不建议回退到 tab_c_select_02 / tab_c_normal 手工拼装。"
+    },
+    {
+      "name": "二级tab",
+      "nodeId": "4919:4384",
+      "componentKey": "e665929ec5d5a3849ebc5a8ed2842f8120ad3ad0",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 251,
+        "h": 164
+      },
+      "variants": [
+        {
+          "state": "选中",
+          "nodeId": "4919:4383",
+          "componentKey": "568c85d1290f3ee1af47171fe5080082e4540463"
+        },
+        {
+          "state": "未选中",
+          "nodeId": "4919:4385",
+          "componentKey": "f84b27e4873d9c875ecd6215af35582554208e59"
+        }
+      ],
+      "built_from": ["bg_c_boxblock_16"],
+      "use_scenes": ["局部双态文字tab"],
+      "instantiation_rule": "当目标是标准二级双态切换时优先实例化该分子组件，而不是单独使用 boxblock 底板。"
+    },
+    {
+      "name": "二级tab模块",
+      "nodeId": "4919:4411",
+      "componentKey": null,
+      "layer": "molecule",
+      "category": "tab_module",
+      "size": {
+        "w": 426,
+        "h": 58
+      },
+      "built_from": ["bg_c_boxblock_14", "二级tab"],
+      "use_scenes": ["局部筛选tab模块", "双项并列切换模块"],
+      "instantiation_rule": "该条目是组合模块而非单一 Figma 组件集；若场景匹配，应优先复用整个模块结构。"
+    },
+    {
+      "name": "聊天侧栏tab",
+      "nodeId": "6022:4986",
+      "componentKey": "b9e31d2aa03bf72a83750787210289018b026e65",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 308,
+        "h": 196
+      },
+      "variants": [
+        {
+          "state": "好友",
+          "nodeId": "5982:5491",
+          "componentKey": "c1b9ba8211f5e297f52f0646a827e364d04fef0e"
+        },
+        {
+          "state": "频道",
+          "nodeId": "6022:4987",
+          "componentKey": "cd8308eff40224a2a963375660ee749d369b8d29"
+        }
+      ],
+      "built_from": ["tab_chat_select_01", "tab_chat_normal_01"],
+      "use_scenes": ["聊天侧栏tab"],
+      "instantiation_rule": "聊天频道/好友切换优先实例化该分子组件。"
+    },
+    {
+      "name": "聊天系统tab",
+      "nodeId": "6086:5574",
+      "componentKey": "36e69261ce4431f92c01716ef7925445c833e4ab",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 399,
+        "h": 297
+      },
+      "variants": [
+        {
+          "state": "default",
+          "nodeId": "6086:5573",
+          "componentKey": "7d457cdceee7d4baae178e80d21b6c493165a058"
+        },
+        {
+          "state": "pressed",
+          "nodeId": "6086:5572",
+          "componentKey": "4100fb336a448244f17cbf0f70a139fe6f608192"
+        }
+      ],
+      "use_scenes": ["聊天系统tab", "聊天顶部强调态tab"],
+      "instantiation_rule": "目标是聊天系统完整 tab 时优先实例化该分子组件。"
+    },
+    {
+      "name": "竖向二级tab",
+      "nodeId": "6334:11038",
+      "componentKey": "8cc704c16249631ad5b94999fe05d9d50edc4dfe",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 314,
+        "h": 208
+      },
+      "variants": [
+        {
+          "state": "选中",
+          "nodeId": "6334:11037",
+          "componentKey": "7e7b0d456b0679130ddfbc6e108f8fdcda966004"
+        },
+        {
+          "state": "未选中",
+          "nodeId": "6334:11036",
+          "componentKey": "b6f5cd5390e5d1e8a9c7e22887cb69aefb116c52"
+        }
+      ],
+      "built_from": ["btn_c_tab_select", "btn_c_tab_deselect"],
+      "use_scenes": ["纵向二级tab", "菱形图标型tab"],
+      "instantiation_rule": "图标+文字的竖向二级tab应优先实例化该分子组件。"
+    },
+    {
+      "name": "背包主tab",
+      "nodeId": "6395:13544",
+      "componentKey": "eeac30174ff5aa2f09d279583a45fcf1139ba32e",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 540,
+        "h": 258
+      },
+      "variants": [
+        {
+          "state": "选中",
+          "nodeId": "6395:13533",
+          "componentKey": "61b75cdcd9b9baae09173fccd29be7cd88bf248a"
+        },
+        {
+          "state": "default",
+          "nodeId": "6395:13534",
+          "componentKey": "ab06c64df4176a6437a52df934d3624bc1fa7dec"
+        }
+      ],
+      "built_from": ["tab_armyadviser_select"],
+      "use_scenes": ["全屏背包主tab", "装备/军师等全屏顶部主tab"],
+      "instantiation_rule": "全屏宽幅背包类主tab优先实例化该分子组件。"
+    },
+    {
+      "name": "背包装备tab",
+      "nodeId": "6405:17043",
+      "componentKey": "d8586cf61121f3271ae7add38a50d63a61a19ec1",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 525,
+        "h": 106
+      },
+      "variants": [
+        {
+          "state": "选中",
+          "nodeId": "6405:17023",
+          "componentKey": "2f9f4388bfa0ab2686cb51876903a2000af4c332"
+        },
+        {
+          "state": "default",
+          "nodeId": "6405:17022",
+          "componentKey": "bec81152117b735df00ffea83bc284690ada6899"
+        }
+      ],
+      "built_from": ["tab_c_select_05", "tab_c_normal_05"],
+      "use_scenes": ["HUD图标型tab", "背包装备切换tab"],
+      "instantiation_rule": "若目标是标准图标型双态tab，优先实例化该分子组件。"
+    },
+    {
+      "name": "武将界面tab",
+      "nodeId": "6459:12312",
+      "componentKey": "c407585964922c153a7c696a249f72abf52a14b3",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 87,
+        "h": 390
+      },
+      "variants": [
+        {
+          "state": "未选中",
+          "nodeId": "6459:12305",
+          "componentKey": "005cd98a0e546988ec7350814a1881f11d7e7841"
+        },
+        {
+          "state": "选中",
+          "nodeId": "6459:12313",
+          "componentKey": "358b02ab6b642b6e593a20ad78f4eb7c9acdb46e"
+        }
+      ],
+      "use_scenes": ["武将界面纵向局部tab"],
+      "instantiation_rule": "武将界面的纵向工具tab应优先实例化该分子组件。"
+    },
+    {
+      "name": "HUD详情tab",
+      "nodeId": "6517:15380",
+      "componentKey": "3ad6ef15e3b8574ff15a5c5d94056677ee3dd852",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 652,
+        "h": 164
+      },
+      "variants": [
+        {
+          "state": "选中",
+          "nodeId": "6517:15378",
+          "componentKey": "92263b329c26f84bf67dd47aee56336dfb1bf7a7"
+        },
+        {
+          "state": "default",
+          "nodeId": "6517:15379",
+          "componentKey": "a18ba16b6e7927a99731362dac73c6952af34f7a"
+        },
+        {
+          "state": "Variant3",
+          "nodeId": "6521:15419",
+          "componentKey": "f34a8e087d218b7f751f549666834b283b834023"
+        },
+        {
+          "state": "Variant4",
+          "nodeId": "6521:15425",
+          "componentKey": "f046df34abc8d2faf7f3f76f478748442ff46d32"
+        }
+      ],
+      "built_from": ["Bg8"],
+      "use_scenes": ["HUD详情栏一级tab"],
+      "instantiation_rule": "HUD 详情栏图标型主tab优先实例化该分子组件。"
+    },
+    {
+      "name": "联系人",
+      "nodeId": "6551:30372",
+      "componentKey": "8d0081d83645dfa7fb2197c53cf45eac1d829d23",
+      "layer": "molecule",
+      "category": "chat_item",
+      "size": {
+        "w": 901,
+        "h": 302
+      },
+      "variants": [
+        {
+          "state": "单人-不置顶",
+          "nodeId": "6551:30370",
+          "componentKey": "1df2ee28c4b6fd9520b3803930859b568596a73e"
+        },
+        {
+          "state": "单人-置顶",
+          "nodeId": "6551:30371",
+          "componentKey": "cadab1b09575dd49836598fca26024d44e7650a8"
+        },
+        {
+          "state": "群-不置顶",
+          "nodeId": "6551:30369",
+          "componentKey": "fc9fb078400f811f98df4b548cd0c89d8dbbd87f"
+        },
+        {
+          "state": "群-置顶",
+          "nodeId": "6551:30368",
+          "componentKey": "6bfa58729f6f4557f581b1d70dae61537e0dbc0c"
+        }
+      ],
+      "use_scenes": ["聊天联系人列表项"],
+      "instantiation_rule": "联系人列表项应作为完整分子组件实例化，不应回退为背景、头像、红点等原子拼装。"
+    },
+    {
+      "name": "局部带图标tab",
+      "nodeId": "6897:17414",
+      "componentKey": "13e8839cd1c3a2913411767f5bc1d6e5dd93b88e",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 420,
+        "h": 196
+      },
+      "variants": [
+        {
+          "state": "未选",
+          "nodeId": "6897:17412",
+          "componentKey": "1cc1ec1574ffbf14ae3162649bf85228c984839b"
+        },
+        {
+          "state": "选中",
+          "nodeId": "6897:17413",
+          "componentKey": "8b6dc22ff6129108877950e718a05ebb799b04a6"
+        }
+      ],
+      "built_from": ["tab_slgmap_bg02", "tab_slgmap_bg03"],
+      "use_scenes": ["带图标局部tab", "SLG地图局部筛选tab"],
+      "instantiation_rule": "图标+标题的局部tab优先实例化该分子组件。"
+    },
+    {
+      "name": "局部纯文字tab",
+      "nodeId": "7082:68528",
+      "componentKey": "58693675dd1d7c8faf53858145c81d874eed339c",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 420,
+        "h": 98
+      },
+      "variants": [
+        {
+          "state": "选中",
+          "nodeId": "7082:68527",
+          "componentKey": "a95dc045d40ad7599f70073d5ef9289115d6a3a0"
+        },
+        {
+          "state": "未选",
+          "nodeId": "7082:68526",
+          "componentKey": "766d5e8d4f3883e90867c572f819bfae53ddf145"
+        }
+      ],
+      "built_from": ["bg_c_boxblock_14"],
+      "use_scenes": ["局部纯文字tab"],
+      "instantiation_rule": "局部双态文字tab优先实例化该分子组件。"
+    },
+    {
+      "name": "聊天频道Tab",
+      "nodeId": "6964:42964",
+      "componentKey": "9cebacf1758b60918cfa1a41a43c2cb41cbae68a",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 350,
+        "h": 220
+      },
+      "variants": [
+        {
+          "state": "Default",
+          "nodeId": "6964:42892",
+          "componentKey": "161d6736ecc62e85dbb0a1e7fae1ea4e7f6e4def"
+        },
+        {
+          "state": "选中",
+          "nodeId": "6964:42963",
+          "componentKey": "71a016741f26f5329f5a03a819764c5b988f6e24"
+        }
+      ],
+      "use_scenes": ["聊天频道tab"],
+      "instantiation_rule": "聊天频道切换应优先实例化该分子组件。"
+    },
+    {
+      "name": "可展开tab",
+      "nodeId": "6897:17512",
+      "componentKey": "7fdda6e66bc0b7e2f681422b779bb27c690e22cc",
+      "layer": "molecule",
+      "category": "tab",
+      "size": {
+        "w": 595,
+        "h": 527
+      },
+      "variants": [
+        {
+          "state": "收起",
+          "nodeId": "6890:17272",
+          "componentKey": "e18b2af469ca0d41037bf020c1e906f6789bf1fb"
+        },
+        {
+          "state": "展开",
+          "nodeId": "6897:17511",
+          "componentKey": "769df7e9c17fc46cfd6026223ce42614c1304ce2"
+        }
+      ],
+      "built_from": ["tab_slgmap_bg00", "tab_slgmap_bg01", "tab_slgmap_bg02", "tab_slgmap_bg03"],
+      "use_scenes": ["可展开分类tab", "SLG地图筛选展开tab"],
+      "instantiation_rule": "如果目标是带展开/收起行为的标准分类tab，应优先实例化该分子组件。"
+    },
+    {
+      "name": "黑名单",
+      "nodeId": "6142:11250",
+      "componentKey": "d9ed69792dfeb163d7db6248f25944bc82b1d386",
+      "layer": "molecule",
+      "category": "chat_item",
+      "size": {
+        "w": 384,
+        "h": 110
+      },
+      "use_scenes": ["聊天黑名单列表项"],
+      "instantiation_rule": "黑名单条目是完整列表项分子组件，不应拆回背景、删除图标、文案等原子。"
+    },
+    {
+      "name": "chat_action_popup",
+      "componentKey": null,
+      "layer": "molecule",
+      "category": "chat_popup",
+      "description": "聊天消息操作浮窗（拷贝+回复+花+蛋，浅/深两版）",
+      "scalable": false,
+      "use_scenes": ["长按聊天消息弹出的操作菜单"],
+      "built_from": ["bg_chat_reply_tips", "bg_chat_reply_tips_black", "icon_chat_action", "icon_chat_emoji"],
+      "variants": [
+        {
+          "theme": "浅",
+          "nodeId": "6212:21409",
+          "componentKey": "125b538b069b0bec7d03cd8752e1707d1d05ab97"
+        },
+        {
+          "theme": "深",
+          "nodeId": "6212:21408",
+          "componentKey": "4771910ad981a70a5c7a79b435e96549b6118375"
+        }
+      ],
+      "instantiation_rule": "聊天消息长按后的操作浮层应优先实例化该分子组件，而不是单独拼装底板和图标。"
+    },
+    {
+      "name": "btn_social_action",
+      "componentKey": null,
+      "layer": "molecule",
+      "category": "button_group",
+      "description": "社交操作文字按钮（添加/申请/新建/邀请）",
+      "scalable": false,
+      "variants": [
+        {
+          "type": "add",
+          "label": "添加",
+          "nodeId": "6126:8645",
+          "componentKey": "2975932de8b5d63541f73ff291345f2fa42fa07e",
+          "size": {
+            "w": 107,
+            "h": 46
+          }
+        },
+        {
+          "type": "apply",
+          "label": "申请",
+          "nodeId": "6126:8646",
+          "componentKey": "16a6cfe0f9f8b8e2bf4c8920ad7156b2341bf9bd",
+          "size": {
+            "w": 106,
+            "h": 46
+          }
+        },
+        {
+          "type": "create",
+          "label": "新建",
+          "nodeId": "6150:8798",
+          "componentKey": "77f3127deb1d6812d74706a3cdab441a6d39326f",
+          "size": {
+            "w": 110,
+            "h": 46
+          }
+        },
+        {
+          "type": "invite",
+          "label": "邀请",
+          "nodeId": "6156:8804",
+          "componentKey": "89e37e345927010a089dc1315d4e446a096bfb60",
+          "size": {
+            "w": 106,
+            "h": 46
+          }
+        }
+      ],
+      "use_scenes": ["社交操作入口", "好友/群组相关操作按钮"],
+      "instantiation_rule": "若场景是标准社交操作按钮，应直接实例化对应文案变体，而不是从通用按钮底板重新拼。"
+    },
+    {
+      "name": "btn_chat_control",
+      "componentKey": null,
+      "layer": "molecule",
+      "category": "button_group",
+      "description": "聊天窗口控制图标按钮（最小化/切换/关闭，54×54px）",
+      "default_size": {
+        "w": 54,
+        "h": 54
+      },
+      "scalable": false,
+      "variants": [
+        {
+          "type": "minimize",
+          "label": "最小化",
+          "nodeId": "6156:9025",
+          "componentKey": "2a790627787b89bb80fc97b90ba577790a8d6964"
+        },
+        {
+          "type": "switch",
+          "label": "切换",
+          "nodeId": "6156:9024",
+          "componentKey": "0c7aa9df509c8fdca03c146d925c57e25a8eba0c"
+        },
+        {
+          "type": "close",
+          "label": "关闭",
+          "nodeId": "6156:9023",
+          "componentKey": "4aff2772b72da47137d5121aea1c968b02df2911"
+        }
+      ],
+      "use_scenes": ["聊天窗口控制按钮"],
+      "instantiation_rule": "聊天窗口控制区应直接实例化这组专用分子按钮，而不是混用通用图标按钮。"
+    },
+    {
+      "name": "btn_cost_addon",
+      "nodeId": "5480:6535",
+      "componentKey": "7b5ffed50ea254f60ca3da90db750b381b0d999b",
+      "layer": "molecule",
+      "category": "button",
+      "figma_component": "按钮+消耗",
+      "size": {
+        "w": 340,
+        "h": 133
+      },
+      "scalable": false,
+      "use_scenes": ["一级按钮含资源消耗展示"],
+      "instantiation_rule": "当按钮需要同时承载主操作与消耗信息时，应优先实例化该组合按钮。"
+    },
+    {
+      "name": "btn_context_special",
+      "componentKey": null,
+      "layer": "molecule",
+      "category": "button_group",
+      "figma_component": "按钮",
+      "description": "特殊场景功能按钮（军师助手/配将台/窗口化/窗口化中）",
+      "default_size": {
+        "w": 257,
+        "h": 61
+      },
+      "scalable": false,
+      "variants": [
+        {
+          "type": "军师助手",
+          "nodeId": "6086:6111",
+          "componentKey": "06454c35c72a84041a6f87d8c16c167e04b7c379"
+        },
+        {
+          "type": "配将台",
+          "nodeId": "6086:6110",
+          "componentKey": "a08c67ac235d3806cd244b58325134093ac430d8"
+        },
+        {
+          "type": "窗口化",
+          "nodeId": "6156:8862",
+          "componentKey": "5b680486d3f781bc682a2c4de616c97ff1b15bc8"
+        },
+        {
+          "type": "窗口化中",
+          "nodeId": "6156:8932",
+          "componentKey": "8fac0612c08938583e398f8dc361a97dba458468"
+        }
+      ],
+      "use_scenes": ["聊天或特殊上下文功能入口"],
+      "instantiation_rule": "这些是已封装好的特殊语义按钮，优先实例化对应变体，不建议退回到二级按钮底板拼接。"
+    },
+    {
+      "name": "btn_jianzao",
+      "nodeId": "6581:15605",
+      "componentKey": "96c8dcb5cade21c911ae4c9930672d4e4250d17e",
+      "layer": "molecule",
+      "category": "button",
+      "figma_component": "按钮",
+      "size": {
+        "w": 229,
+        "h": 66
+      },
+      "scalable": false,
+      "use_scenes": ["建造功能操作按钮"],
+      "instantiation_rule": "建造场景优先实例化该业务语义按钮，而不是回退为通用底板+文本。"
+    },
+    {
+      "name": "btn_panel_side_collapse",
+      "nodeId": "6964:42571",
+      "componentKey": "ecc7b64ab4ea8e686488f4a65efdc3a92c4870bd",
+      "layer": "molecule",
+      "category": "panel_control",
+      "figma_component": "按钮",
+      "size": {
+        "w": 47,
+        "h": 147
+      },
+      "scalable": false,
+      "use_scenes": ["侧边面板收起箭头按钮"],
+      "instantiation_rule": "侧边面板收起控制优先实例化该专用组合按钮。"
+    },
+    {
+      "name": "120*120武将头像",
+      "nodeId": "2037:3473",
+      "componentKey": "ba816306e5ba828370ddd213ad97c8166212a2eb",
+      "layer": "molecule",
+      "category": "avatar_card",
+      "size": {
+        "w": 120,
+        "h": 120
+      },
+      "variants": [
+        {
+          "state": "金",
+          "nodeId": "2037:3472",
+          "componentKey": "b7ee55e66e0451e48240057ca2ceff81e50b32ed"
+        },
+        {
+          "state": "蓝",
+          "nodeId": "2037:3474",
+          "componentKey": "bd26a9e808a949ca3ed7e11743cafd742b29cc9f"
+        },
+        {
+          "state": "紫",
+          "nodeId": "2037:3482",
+          "componentKey": "d9a393c0e446989f57f5cff12cb5862ffeda7f3c"
+        }
+      ],
+      "use_scenes": ["地表建筑HUD守军信息", "部队交换", "紧凑武将头像入口"],
+      "instantiation_rule": "需要完整的武将头像信息组合时，应优先实例化该组件，而不是拆用头像底框、姓名条和品质条。"
+    },
+    {
+      "name": "武将列表",
+      "nodeId": "2040:3643",
+      "componentKey": "dce0d186fc56c45e056adbe4909ca7b3a5a27f98",
+      "layer": "molecule",
+      "category": "hero_card",
+      "size": {
+        "w": 211,
+        "h": 300
+      },
+      "variants": [
+        {
+          "state": "金",
+          "nodeId": "2040:3642",
+          "componentKey": "9c4edd40b3612fbb7a9957337b72700b2a87cac0"
+        },
+        {
+          "state": "紫",
+          "nodeId": "2040:3644",
+          "componentKey": "dabe99dcfdb4709f7e24d24173a05f1307652809"
+        },
+        {
+          "state": "蓝",
+          "nodeId": "2040:3671",
+          "componentKey": "888c3f6638e9b396fce45caba7b498004a5b8cf3"
+        },
+        {
+          "state": "牌背",
+          "nodeId": "2040:3693",
+          "componentKey": "c316bd54e16f5b50b85474dcfbdc7c686429924c"
+        },
+        {
+          "state": "空",
+          "nodeId": "4986:8498",
+          "componentKey": "e9bb54695488c6d707775804bb713e3cfb29a8c9"
+        }
+      ],
+      "built_from": ["阵营（武将牌）", "勾玉 52*65"],
+      "use_scenes": ["武将系统列表", "武将上阵列表", "武将升阶弹窗"],
+      "instantiation_rule": "中尺寸武将列表卡应优先实例化该组件；牌背和空态具有强语义，不可用普通品质卡替代。"
+    },
+    {
+      "name": "武将卡牌",
+      "nodeId": "2040:3548",
+      "componentKey": "ada73ec18fc6d55bb09849dd5a3de34adca8aa52",
+      "layer": "molecule",
+      "category": "hero_card",
+      "size": {
+        "w": 436,
+        "h": 620
+      },
+      "variants": [
+        {
+          "state": "金",
+          "nodeId": "2040:3547",
+          "componentKey": "e0593e99d963da8f8ccb03b11abbb85c382d08e2"
+        },
+        {
+          "state": "紫",
+          "nodeId": "2040:3568",
+          "componentKey": "c21d7a7eba07b094fd86a6aab01818504ca0c1e3"
+        },
+        {
+          "state": "蓝",
+          "nodeId": "2040:3549",
+          "componentKey": "d088c24eedf5be90ad549ad25345f3c3314c5e48"
+        },
+        {
+          "state": "牌背",
+          "nodeId": "2040:3587",
+          "componentKey": "8be29d271a14e2e60f97e28bc81d932e87bdde62"
+        }
+      ],
+      "built_from": ["阵营（武将牌）", "勾玉 52*65"],
+      "use_scenes": ["部队编辑", "重点武将展示", "单卡详情入口"],
+      "instantiation_rule": "大尺寸武将卡展示应优先实例化该组件，不应把它缩小后替代武将列表卡。"
+    },
+    {
+      "name": "战法",
+      "nodeId": "4586:520",
+      "componentKey": "f1bb924a4928e248691eec228bbeeb5a01530162",
+      "layer": "molecule",
+      "category": "skill_card",
+      "size": {
+        "w": 348,
+        "h": 482
+      },
+      "built_from": ["战法图片", "勾玉 40*50"],
+      "use_scenes": ["战法详情", "战法展示卡片", "技能预览"],
+      "instantiation_rule": "战法展示应整体实例化该组件，不要回退为底板、战法图片、勾玉和文本单独拼装。"
+    },
+    {
+      "name": "hud头像",
+      "nodeId": "4044:874",
+      "componentKey": "eaec1863de6fa08ce767e631632057393f313984",
+      "layer": "molecule",
+      "category": "avatar",
+      "size": {
+        "w": 154,
+        "h": 152
+      },
+      "built_from": ["玩家头像"],
+      "use_scenes": ["HUD角色信息", "守军信息展示", "玩家信息展示"],
+      "instantiation_rule": "需要带HUD专用框体的头像入口时应优先实例化该组件，不与普通群头像或地图头像底框混用。"
+    },
+    {
+      "name": "群头像",
+      "nodeId": "6044:6818",
+      "componentKey": "33f786c7ebc522704d2af8267d093d6299ed372a",
+      "layer": "molecule",
+      "category": "avatar",
+      "size": {
+        "w": 91,
+        "h": 91
+      },
+      "use_scenes": ["群组头像", "多人会话入口", "集合对象标识"],
+      "instantiation_rule": "该组件用于群体对象标识；单个玩家或单个武将头像不应误用该组件。"
+    },
+    {
+      "name": "道具格",
+      "nodeId": "6405:14820",
+      "componentKey": "9564eb243dfa5cb92cfb82891b25449e00f4df85",
+      "layer": "molecule",
+      "category": "item_slot",
+      "size": {
+        "w": 154,
+        "h": 154
+      },
+      "built_from": ["标签", "限时"],
+      "use_scenes": ["背包道具", "可消耗物", "材料槽位"],
+      "instantiation_rule": "标准道具槽位应优先实例化该组件，不回退为品质框、icon、标签和数量文本手工拼装。"
+    },
+    {
+      "name": "武将信息",
+      "nodeId": "4345:788",
+      "componentKey": "a44666b29d597ae5e9d4a87ff1adcfb9d6c353a7",
+      "layer": "molecule",
+      "category": "hero_info",
+      "size": {
+        "w": 122,
+        "h": 370
+      },
+      "variants": [
+        {
+          "state": "金",
+          "nodeId": "2027:2758",
+          "componentKey": "b8c1fdcf4d9bb4ac47e20e27c3d72b48f7e85fad"
+        },
+        {
+          "state": "紫",
+          "nodeId": "4345:789",
+          "componentKey": "a4d68923efb4348c1972c8c621e3d095cdcc21b2"
+        },
+        {
+          "state": "蓝",
+          "nodeId": "4345:806",
+          "componentKey": "c9a7b66cf94669ef41f69069a0988d089be312d1"
+        }
+      ],
+      "use_scenes": ["武将侧栏信息", "窄列展示", "摘要态武将信息条"],
+      "instantiation_rule": "这是武将信息条分子组件；若目标是完整卡面，仍应优先使用武将列表或武将卡牌。"
+    },
+    {
+      "name": "身份",
+      "nodeId": "4962:8189",
+      "componentKey": "3ec392eff397d426807749b17425c638c036ca00",
+      "layer": "molecule",
+      "category": "identity_tag",
+      "size": {
+        "w": 203,
+        "h": 92
+      },
+      "variants": [
+        {
+          "state": "反贼",
+          "nodeId": "4962:8188",
+          "componentKey": "54dde0855b39375adcd9054800044ad83b8fdba5"
+        },
+        {
+          "state": "主公",
+          "nodeId": "4962:8187",
+          "componentKey": "9af7d81d4a0cda5bffc7343409447b4f202130a7"
+        },
+        {
+          "state": "忠臣",
+          "nodeId": "4962:8186",
+          "componentKey": "caa296c023d282e1ba313485c0d0c2792c555d80"
+        }
+      ],
+      "use_scenes": ["身份标识", "阵营说明", "角色头衔"],
+      "instantiation_rule": "身份条应按语义严格选型，不应因为颜色或尺寸接近而互换。"
+    },
+    {
+      "name": "特技",
+      "nodeId": "4346:1014",
+      "componentKey": "e917e46b8a6052fc5777485d2b17c426c7df4f9f",
+      "layer": "molecule",
+      "category": "skill_tag",
+      "size": {
+        "w": 95,
+        "h": 42
+      },
+      "variants": [
+        {
+          "state": "红",
+          "nodeId": "4346:1013",
+          "componentKey": "017e0e41e4601259ffe04ac4394614c23b7fb831"
+        },
+        {
+          "state": "金",
+          "nodeId": "4346:1015",
+          "componentKey": "489c98af20da3115e81c4f3e1910b145a05e012b"
+        },
+        {
+          "state": "紫",
+          "nodeId": "4346:1017",
+          "componentKey": "fece6933ab2147361c523364f2ccc15a1db93cb9"
+        }
+      ],
+      "use_scenes": ["技能稀有度", "特性分类", "卡面补充标签"],
+      "instantiation_rule": "特技标签用于强语义标签；颜色态应对应业务语义，不建议只按装饰色替换。"
+    },
+    {
+      "name": "词条",
+      "nodeId": "4990:11703",
+      "componentKey": "092ecb49d71862cf9ecca66f7710b7024fc5cf5e",
+      "layer": "molecule",
+      "category": "state_tag",
+      "size": {
+        "w": 165,
+        "h": 43
+      },
+      "built_from": ["词条品质"],
+      "use_scenes": ["状态说明", "词条标签", "卡面补充标签"],
+      "instantiation_rule": "词条标签属于强语义状态件，应优先整体实例化。"
+    },
+    {
+      "name": "已学习",
+      "nodeId": "2014:2650",
+      "componentKey": "627fdf327bf90283b7f37fc3ffb7cf7cebeae1ac",
+      "layer": "molecule",
+      "category": "state_tag",
+      "size": {
+        "w": 112,
+        "h": 47
+      },
+      "use_scenes": ["已学习状态", "已解锁状态", "已掌握状态"],
+      "instantiation_rule": "已学习是固定语义状态标签，应直接实例化，不回退到底图和文字重新组合。"
+    },
+    {
+      "name": "限时",
+      "nodeId": "6405:14665",
+      "componentKey": "2dcfe9247fd4e772305a56aac836d2cb8899fff1",
+      "layer": "molecule",
+      "category": "state_tag",
+      "size": {
+        "w": 243,
+        "h": 48
+      },
+      "use_scenes": ["限时道具", "倒计时状态", "临时活动标识"],
+      "instantiation_rule": "限时标签包含时间语义和图标语义，应优先整体实例化。"
+    },
+    {
+      "name": "自选标签",
+      "nodeId": "6451:23674",
+      "componentKey": "f2ffcab96d2abfd4509144faf885d31915f048e8",
+      "layer": "molecule",
+      "category": "state_tag",
+      "size": {
+        "w": 32,
+        "h": 66
+      },
+      "use_scenes": ["自选道具", "自选奖励", "竖向附加标签"],
+      "instantiation_rule": "自选标签应作为竖向语义挂件直接实例化，不回退到底板和文案拆拼。"
+    },
+    {
+      "name": "icon-ranking",
+      "nodeId": "6348:11604",
+      "componentKey": "eb02f5d4bfd3fe4b271014057680cb90f8394c15",
+      "layer": "molecule",
+      "category": "ranking_badge",
+      "size": {
+        "w": 56,
+        "h": 92
+      },
+      "variants": [
+        {
+          "state": "ranking 01",
+          "nodeId": "6348:11569",
+          "componentKey": "b2c17c359f4a0abfcd92958dbcbf948ff74ee783"
+        },
+        {
+          "state": "ranking 02",
+          "nodeId": "6348:11570",
+          "componentKey": "42f75e9dd7e5e7e60e5c6d3d4f3fee76c2a355f4"
+        },
+        {
+          "state": "ranking 03",
+          "nodeId": "6348:11571",
+          "componentKey": "fea133bfd55b45276085e5782f368d0fa9ef7663"
+        }
+      ],
+      "use_scenes": ["排行榜前三名展示"],
+      "instantiation_rule": "ranking 01 / 02 / 03 必须严格对应第1 / 第2 / 第3名，不可互换。"
+    },
+    {
+      "name": "霸业",
+      "nodeId": "6860:14669",
+      "componentKey": "eb88b1e0c4e2069bfc0665de5f244869323962c6",
+      "layer": "molecule",
+      "category": "map_title",
+      "size": {
+        "w": 156,
+        "h": 100
+      },
+      "variants": [
+        {
+          "state": "icon_slgmap_baye",
+          "nodeId": "6860:14668",
+          "componentKey": "f4873d3bd1b2d8029bc8fb39e8be63abfd5df578"
+        },
+        {
+          "state": "icon_slgmap_baye01",
+          "nodeId": "6860:14667",
+          "componentKey": "f7cf9c7d15bca8d5c33f290f7eb3917b4ef90717"
+        }
+      ],
+      "use_scenes": ["SLG地图霸业入口", "地图主题标识"],
+      "instantiation_rule": "霸业组件应作为地图语义件整体实例化，不回退到单图标与普通标题底板拼装。"
+    },
+    {
+      "name": "pic_slgmap_season_title_01",
+      "nodeId": "6860:14683",
+      "componentKey": "afb682d0c32ddda2dcefcf187929154d54027cb2",
+      "layer": "molecule",
+      "category": "map_title",
+      "size": {
+        "w": 340,
+        "h": 80
+      },
+      "use_scenes": ["SLG赛季标题", "地图主题标题", "赛季入口横幅"],
+      "instantiation_rule": "赛季标题横幅应优先直接实例化该组件，而不是拆回普通标题底板和单独装饰图。"
+    },
+    {
+      "name": "勾选",
+      "nodeId": "6877:16542",
+      "componentKey": "746aff6bc4e32884f8ebcb8d615df8cf5b421dd0",
+      "layer": "molecule",
+      "category": "checkbox_row",
+      "size": {
+        "w": 309,
+        "h": 70
+      },
+      "built_from": ["勾选"],
+      "use_scenes": ["开关项", "筛选勾选项", "设置项勾选"],
+      "instantiation_rule": "勾选行应优先整体实例化，不回退到单个勾框 icon 和文本手工拼装。"
+    },
+    {
+      "name": "沙盘底条标签",
+      "nodeId": "6581:16014",
+      "componentKey": "d9b7525c0762027f9cb5fae2d83a321541bb2b4a",
+      "layer": "molecule",
+      "category": "map_title",
+      "size": {
+        "w": 463,
+        "h": 64
+      },
+      "use_scenes": ["沙盘地块名称", "资源点标题", "地图对象标题"],
+      "instantiation_rule": "这是地图对象标题分子组件，不应与普通状态横条混用。"
+    },
+    {
+      "name": "趋势战况标签",
+      "nodeId": "6526:19589",
+      "componentKey": "01a56119f64837320c64f6905d8c5b03beb7427f",
+      "layer": "molecule",
+      "category": "status_bar",
+      "size": {
+        "w": 437,
+        "h": 63
+      },
+      "use_scenes": ["敌军趋势", "战况提示", "目标强度横条"],
+      "instantiation_rule": "趋势/战况标签应作为语义件整体实例化，不建议拆成标题、数量和底板分别拼装。"
+    },
+    {
+      "name": "体力",
+      "nodeId": "6544:27546",
+      "componentKey": "074dff9a174011c8d890f3f78a21a7684b0a5082",
+      "layer": "molecule",
+      "category": "resource_tag",
+      "size": {
+        "w": 179,
+        "h": 45
+      },
+      "use_scenes": ["资源消耗", "体力显示", "轻量数值提示"],
+      "instantiation_rule": "资源值标签应整体实例化，不回退为 icon 与两段文本手工组合。"
+    }
+  ],
+  "button_backgrounds": [
+    {
+      "name": "btn_large_special",
+      "description": "大尺寸特殊按钮底板（层级0，最高优先级）",
+      "tier": 0,
+      "default_size": {
+        "w": 379,
+        "h": 98
+      },
+      "scalable": false,
+      "use_rule": "仅在需要较强美术表现且操作意图单一的界面使用（如登录/出征）；单屏最多1个；严禁用于列表/弹窗/高频操作区",
+      "componentKey": null,
+      "variants": [
+        {
+          "state": "强调",
+          "nodeId": "1942:3102",
+          "componentKey": "023ad202964262ab6f39059b23127ec3eaf0c61c",
+          "color_tone": "金色"
+        },
+        {
+          "state": "次强调",
+          "nodeId": "1942:3104",
+          "componentKey": "b285e2a8da39934eda4251d05395561d5fa567ea",
+          "color_tone": "银色"
+        },
+        {
+          "state": "红色强调",
+          "nodeId": "1942:3119",
+          "componentKey": "9f75cb126a98933f523543c3ee0f2ffd60c6abc0",
+          "color_tone": "红色"
+        },
+        {
+          "state": "置灰",
+          "nodeId": "1942:3110",
+          "componentKey": "a56cbf99330156790d975b7276e0878f8239eb72",
+          "color_tone": "灰色"
+        }
+      ]
+    },
+    {
+      "name": "btn_large_special_zhengtianxia",
+      "nodeId": "1942:3095",
+      "componentKey": "1458626de820e951dfacbb101d87e77fb6ed8f60",
+      "tier": 0,
+      "size": {
+        "w": 494,
+        "h": 110
+      },
+      "scalable": false,
+      "use_scenes": [
+        "「征战天下」专属超大按钮"
+      ],
+      "notes": "比 btn_large_special 更宽更高，含专属纹样设计"
+    },
+    {
+      "name": "btn_c_lv1_normal_1",
+      "nodeId": "4786:929",
+      "componentKey": null,
+      "tier": 1,
+      "size": {
+        "w": 340,
+        "h": 88
+      },
+      "scalable": false,
+      "use_rule": "一级按钮标准底板；用于全屏/弹窗核心操作、游戏推进流程、获得收益；每屏1~2个"
+    },
+    {
+      "name": "btn_c_lv1_normal_2",
+      "nodeId": "4786:926",
+      "componentKey": "51c7f99946fae7350e14806ad9f373e8125bef5a",
+      "tier": 1,
+      "size": {
+        "w": 340,
+        "h": 88
+      },
+      "scalable": false,
+      "use_rule": "一级按钮变体底板；与 btn_c_lv1_normal_1 成对使用"
+    },
+    {
+      "name": "btn_lv1_short",
+      "figma_component": "按钮/短",
+      "nodeId": "6544:27512",
+      "componentKey": "34ff33c562ff41a071210688c460ce39503e3431",
+      "tier": 1,
+      "size": {
+        "w": 249,
+        "h": 91
+      },
+      "scalable": false,
+      "use_scenes": [
+        "一级按钮短版（如「一键补兵」）"
+      ],
+      "notes": "固定图片，比标准一级按钮更窄"
+    },
+    {
+      "name": "btn_lv2_standard",
+      "description": "二级按钮底板（层级2，258×61px，4态变体）",
+      "tier": 2,
+      "default_size": {
+        "w": 258,
+        "h": 61
+      },
+      "scalable": false,
+      "use_rule": "次于一级按钮的次要操作；允许三段九宫格拉伸宽度",
+      "componentKey": null,
+      "variants": [
+        {
+          "state": "强调",
+          "nodeId": "1933:20",
+          "componentKey": "8506535b813049d19cee06b6fff1b0620e9eb222"
+        },
+        {
+          "state": "次强调",
+          "nodeId": "1933:22",
+          "componentKey": "cc196dab0fefe2957a3a3e3bcf054ddd86582331"
+        },
+        {
+          "state": "强调-黑",
+          "nodeId": "1942:3148",
+          "componentKey": "3adbb1a3891daa39d88ed38dde0fa5ea130ef2c9"
+        },
+        {
+          "state": "次强调-黑",
+          "nodeId": "1942:3151",
+          "componentKey": "58e792071c91a4a082fb69899ff95a0115f0605d"
+        }
+      ]
+    },
+    {
+      "name": "btn_lv2_addon",
+      "figma_component": "二级按钮/按钮",
+      "nodeId": "6091:6925",
+      "componentKey": "3cd10c42610236e2b5834e2ca934c914ee523a1d",
+      "tier": 2,
+      "size": {
+        "w": 213,
+        "h": 61
+      },
+      "scalable": false,
+      "notes": "独立于四态之外的二级按钮变体（如「添加好友」）"
+    },
+    {
+      "name": "btn_lv1_standard",
+      "figma_component": "一级按钮",
+      "description": "一级按钮标准三态（强调/次强调/灰态）",
+      "tier": 1,
+      "default_size": {
+        "w": 340,
+        "h": 88
+      },
+      "scalable": false,
+      "componentKey": null,
+      "variants": [
+        {
+          "state": "强调",
+          "nodeId": "5480:6450",
+          "componentKey": "8605e9a6357b08a5c20ac236351918f499a3f11a"
+        },
+        {
+          "state": "次强调",
+          "nodeId": "5480:6462",
+          "componentKey": "be742704c6a8cdb244eb1819816c65dfca6ac973"
+        },
+        {
+          "state": "灰态",
+          "nodeId": "5572:5385",
+          "componentKey": "601b7330d0c5ecd5b40dcd7b7e290a969ad09934"
+        }
+      ]
+    },
+    {
+      "name": "btn_cost_addon",
+      "figma_component": "按钮+消耗",
+      "nodeId": "5480:6535",
+      "componentKey": "7b5ffed50ea254f60ca3da90db750b381b0d999b",
+      "tier": 1,
+      "size": {
+        "w": 340,
+        "h": 133
+      },
+      "scalable": false,
+      "use_scenes": [
+        "一级按钮含资源消耗展示"
+      ]
+    },
+    {
+      "name": "btn_context_special",
+      "figma_component": "按钮",
+      "description": "特殊场景功能按钮（军师助手/配将台/窗口化/窗口化中）",
+      "tier": 2,
+      "default_size": {
+        "w": 257,
+        "h": 61
+      },
+      "scalable": false,
+      "componentKey": null,
+      "variants": [
+        {
+          "type": "军师助手",
+          "nodeId": "6086:6111",
+          "componentKey": "06454c35c72a84041a6f87d8c16c167e04b7c379"
+        },
+        {
+          "type": "配将台",
+          "nodeId": "6086:6110",
+          "componentKey": "a08c67ac235d3806cd244b58325134093ac430d8"
+        },
+        {
+          "type": "窗口化",
+          "nodeId": "6156:8862",
+          "componentKey": "5b680486d3f781bc682a2c4de616c97ff1b15bc8"
+        },
+        {
+          "type": "窗口化中",
+          "nodeId": "6156:8932",
+          "componentKey": "8fac0612c08938583e398f8dc361a97dba458468"
+        }
+      ]
+    },
+    {
+      "name": "btn_lv2_standard_short",
+      "figma_component": "二级按钮-短",
+      "description": "二级按钮短版（强调/强调-黑两态）",
+      "tier": 2,
+      "default_size": {
+        "w": 213,
+        "h": 61
+      },
+      "scalable": false,
+      "componentKey": null,
+      "variants": [
+        {
+          "state": "强调",
+          "nodeId": "1942:3163",
+          "componentKey": "146b90ddc5c37a385fc1f55d22228eea9111eeee"
+        },
+        {
+          "state": "强调-黑",
+          "nodeId": "1942:3165",
+          "componentKey": "475d9adc9191340512fbdf690e86ebece6f94868"
+        }
+      ]
+    },
+    {
+      "name": "btn_graphic_minmax",
+      "figma_component": "图形按钮-最大最小",
+      "tier": 3,
+      "default_size": {
+        "w": 140,
+        "h": 58
+      },
+      "scalable": false,
+      "componentKey": null,
+      "variants": [
+        {
+          "state": "Default",
+          "nodeId": "4832:2665",
+          "componentKey": "01f5aaa42b32dffd0911f731f0bfe8ed80a7bd39"
+        },
+        {
+          "state": "禁用",
+          "nodeId": "5554:5245",
+          "componentKey": "6e8a92e6ee578bbf9bf742ab4f2b685ea6bfde22"
+        }
+      ]
+    },
+    {
+      "name": "btn_lv2_function",
+      "figma_component": "按钮/按钮",
+      "nodeId": "6156:9278",
+      "componentKey": "d642cdd72274c76d37c740cc27a554842121456f",
+      "tier": 2,
+      "size": {
+        "w": 188,
+        "h": 58
+      },
+      "scalable": false
+    },
+    {
+      "name": "bg_c_boxblock_07",
+      "figma_component": "Component 470/bg_c_boxblock_07",
+      "nodeId": "4832:2631",
+      "componentKey": null,
+      "tier": 3,
+      "size": {
+        "w": 58,
+        "h": 58
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "功能性按钮底板（标准态）"
+      ],
+      "notes": "26.1px角九宫格；宽度可拉伸适配不同文本长度"
+    },
+    {
+      "name": "bg_c_boxblock_07_灰",
+      "figma_component": "bg_c_boxblock_07 灰",
+      "nodeId": "5558:5285",
+      "componentKey": null,
+      "tier": 3,
+      "size": {
+        "w": 58,
+        "h": 58
+      },
+      "scalable": true,
+      "scale_method": "九宫格",
+      "use_scenes": [
+        "功能性按钮底板（禁用态）"
+      ],
+      "notes": "20.3px角九宫格；灰色禁用态；与 bg_c_boxblock_07 成对"
+    },
+    {
+      "name": "pic_chat_ai_bg",
+      "nodeId": "6086:6103",
+      "componentKey": null,
+      "tier": 3,
+      "size": {
+        "w": 257,
+        "h": 61
+      },
+      "scalable": false,
+      "use_scenes": [
+        "聊天面板「军师助手」功能性tab按钮"
+      ],
+      "notes": "深色调，区别于其他chat窗口bg"
+    },
+    {
+      "name": "pic_chat_window_bg",
+      "nodeId": "6086:6128",
+      "componentKey": null,
+      "tier": 3,
+      "size": {
+        "w": 257,
+        "h": 61
+      },
+      "scalable": false,
+      "use_scenes": [
+        "聊天面板「配将台/窗口化」tab按钮（未激活态）"
+      ]
+    },
+    {
+      "name": "pic_chat_window_bg_01",
+      "nodeId": "6156:8941",
+      "componentKey": null,
+      "tier": 3,
+      "size": {
+        "w": 257,
+        "h": 61
+      },
+      "scalable": false,
+      "use_scenes": [
+        "聊天面板「窗口化中」tab按钮（激活态）"
+      ],
+      "notes": "与 pic_chat_window_bg 成对，激活/未激活两态"
+    },
+    {
+      "name": "Bg8",
+      "nodeId": {
+        "default": "6517:15348",
+        "选中": "6517:15347"
+      },
+      "componentKey": {
+        "default": "31fc9ecbd2f0e0eec21d9f94bbb30eaee64b3ecb",
+        "选中": "9374f784199eb4e1b57221cd1249a9fde057326f"
+      },
+      "figma_component": "bg",
+      "size": { "w": 135, "h": 124 },
+      "scalable": false,
+      "variants": ["default", "选中"],
+      "use_scenes": ["HUD描述面板背景"],
+      "notes": "两态变体，尺寸相同 135×124；来自 COMPONENT_SET「bg」/ Hud Description Column"
+    },
+    {
+      "name": "Bg9",
+      "nodeId": {
+        "方": "6994:44637",
+        "圆": "6994:44640"
+      },
+      "componentKey": {
+        "方": "4d91551fe78f14b62722d9f6bfa834e05c9e27c8",
+        "圆": "5c4e9573735066d5a76e2e08cc55c3bb334bdfc7"
+      },
+      "figma_component": "bg",
+      "variants": ["方", "圆"],
+      "size": {
+        "方": { "w": 46, "h": 47 },
+        "圆": { "w": 42, "h": 42 }
+      },
+      "scalable": false,
+      "use_scenes": [],
+      "notes": "方/圆两态变体，尺寸略有差异；来自 COMPONENT_SET「bg」/ Container"
+    }
+  ]
+}

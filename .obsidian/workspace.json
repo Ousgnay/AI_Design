@@ -1,0 +1,250 @@
+{
+  "main": {
+    "id": "c1bebfd1cba7a4d5",
+    "type": "split",
+    "children": [
+      {
+        "id": "c1f327f56a0e18bf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "831148f33574e911",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "复盘架构.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "复盘架构"
+            }
+          },
+          {
+            "id": "ce955b8e10254949",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "问题反馈与优化建议.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "问题反馈与优化建议"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "dd124743914e7644",
+    "type": "split",
+    "children": [
+      {
+        "id": "622a6d04dce094b7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c7846b3de757f7a8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "f441da5c2a77629a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "ffdb2892eec6b474",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "61e1790d25c77c45",
+    "type": "split",
+    "children": [
+      {
+        "id": "0a3a51d6863edb03",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "93dd9685806fca10",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "figma-design-spec/rules/common/layout-base.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "layout-base 的反向链接列表"
+            }
+          },
+          {
+            "id": "5f8e31b58aa23c6e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "figma-design-spec/rules/common/layout-base.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "layout-base 的出链列表"
+            }
+          },
+          {
+            "id": "7f43190579566fac",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "bdda0f95c7f533b7",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "d62a5909189d8a4c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "figma-design-spec/rules/common/layout-base.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "layout-base 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "ce955b8e10254949",
+  "lastOpenFiles": [
+    "AI-workflow-discussion-log.md.tmp.40252.1779072597728",
+    "AI-workflow-discussion-log.md.tmp.40252.1779072588566",
+    "_add_componentkey.py",
+    "_add_componentkey.py.tmp.40252.1779072552995",
+    "AI-workflow-discussion-log.md.tmp.6428.834174bf7c5c",
+    "AI-workflow-discussion-log.md.tmp.6428.3d1b4cf800a1",
+    "decision-source/knowledge/common/component-spec.json.tmp.6428.391781f38168",
+    "decision-source/knowledge/common/component-spec.json.tmp.6428.ad49859136ed",
+    "复盘架构.md",
+    "问题反馈与优化建议.md",
+    "doc-ia",
+    "doc",
+    "新建文件夹",
+    "doc_gamedesign/界面生成指导规范.md",
+    "归龙令武将月卡-IA.md",
+    "doc_gamedesign/Xgame_归龙令武将月卡_策划案.md",
+    "doc_gamedesign/三国杀OL_归龙令武将月卡_策划案.md",
+    "AI-workflow-discussion-log.md",
+    "工作截图/竞品UX分析报告_1778830710158.png",
+    "工作截图/error.png",
+    "工作截图/photo_2026-05-15_14-41-49.jpg",
+    "decision-source/knowledge/common/component-decision.md",
+    "figma-design-spec/rules/common/layout-base.md",
+    "ia-decision-improvement-plan.md",
+    "工作截图/Snipaste_2026-05-13_21-08-10.png",
+    "工作截图/Snipaste_2026-05-13_21-05-38.png",
+    "工作截图/Snipaste_2026-05-13_21-03-21.png",
+    "doc-reduction-plan.md",
+    "工作截图/Snipaste_2026-05-13_20-44-45.png",
+    "工作截图/Snipaste_2026-05-13_20-16-23.png",
+    "工作截图/Snipaste_2026-05-13_14-40-18.png",
+    "tasks/招财进宝活动/task-招财进宝活动.md",
+    "doc_gamedesign/招财进宝活动策划案.md",
+    "doc_gamedesign/招财进宝活动.png",
+    "figma-design-spec/rules/common/component-decision-guide.md",
+    "figma-design-spec/rules/common/components-common.md",
+    "figma-design-spec/rules/common/component-evolution.md",
+    "figma-design-spec/rules/common/DECISIONS-D27-D30.md",
+    "figma-design-spec/rules/common/CHANGELOG.md",
+    "doc_gamedesign/购买弹窗需求.md",
+    "figma-design-builder-demo-购买弹窗.md",
+    "figma-design-spec/LIBRARY-FIX-MANUAL.md",
+    "doc_gamedesign/standby-phase-strategy.md",
+    "doc_gamedesign/终身卡规划.md",
+    "doc_gamedesign/终身卡策划案.md",
+    "figma-design-spec/STEP1-COMPLETION-SUMMARY.md"
+  ]
+}

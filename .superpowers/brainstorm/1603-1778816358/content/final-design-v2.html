@@ -1,0 +1,152 @@
+<h2>XGame AI 设计工作流 — 完整架构设计 v2</h2>
+<p class="subtitle">更新：架构决策日志补充变更历史章节</p>
+
+<!-- 第一段：目录结构 -->
+<div class="section">
+  <h3>① 目录结构</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div style="background:#1e1e2e;border-radius:8px;padding:14px;font-family:monospace;font-size:12px;line-height:2">
+      <div style="color:#f9e2af;font-family:sans-serif;font-size:11px;margin-bottom:8px">项目根目录</div>
+      <div style="color:#fab387">decision-source/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 项目知识库</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;knowledge/common/</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;knowledge/specific/</div>
+      <div style="color:#cba6f7">&nbsp;&nbsp;learnings/pending/</div>
+      <div style="color:#cba6f7">&nbsp;&nbsp;learnings/approved/</div>
+      <div style="color:#a6e3a1;margin-top:4px">AI-workflow-discussion-log.md</div>
+      <div style="color:#6c7086">CLAUDE.md</div>
+      <div style="color:#6c7086">复盘架构.md &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 用户维护的架构草稿</div>
+    </div>
+    <div style="background:#1e1e2e;border-radius:8px;padding:14px;font-family:monospace;font-size:12px;line-height:2">
+      <div style="color:#f9e2af;font-family:sans-serif;font-size:11px;margin-bottom:8px">.claude/skills/</div>
+      <div style="color:#a6e3a1">ux-collect/ &nbsp;&nbsp;&nbsp;← Phase 1</div>
+      <div style="color:#89b4fa">ia-generate/ &nbsp;&nbsp;← Phase 1</div>
+      <div style="color:#cba6f7">self-improving/ &nbsp;← Phase 2</div>
+      <div style="color:#f9e2af">workflow-auditor/ &nbsp;← Phase 2</div>
+      <div style="color:#f9e2af">unity-csharp-spec/ &nbsp;← Phase 2</div>
+    </div>
+  </div>
+</div>
+
+<!-- 第二段：Skill 权限矩阵 -->
+<div class="section">
+  <h3>② Skill 权限矩阵</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:12px">
+    <thead>
+      <tr style="color:#888;border-bottom:1px solid #313244">
+        <th style="text-align:left;padding:8px">Skill</th>
+        <th style="text-align:center;padding:8px">knowledge/</th>
+        <th style="text-align:center;padding:8px">learnings/</th>
+        <th style="text-align:left;padding:8px">用户触发方式</th>
+        <th style="text-align:center;padding:8px">Phase</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #1e1e2e">
+        <td style="padding:8px;color:#a6e3a1">ux-collect</td>
+        <td style="text-align:center;padding:8px">✍️ 读写</td>
+        <td style="text-align:center;padding:8px;color:#6c7086">—</td>
+        <td style="padding:8px;color:#888">提供 Figma URL → 采集规则</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">1</td>
+      </tr>
+      <tr style="border-bottom:1px solid #1e1e2e">
+        <td style="padding:8px;color:#89b4fa">ia-generate</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">👁 只读</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">👁 只读</td>
+        <td style="padding:8px;color:#888">输入策划MD → 产出 IA 文档.md</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">1</td>
+      </tr>
+      <tr style="border-bottom:1px solid #1e1e2e">
+        <td style="padding:8px;color:#cba6f7">self-improving</td>
+        <td style="text-align:center;padding:8px">✍️ 读写</td>
+        <td style="text-align:center;padding:8px">✍️ 读写</td>
+        <td style="padding:8px;color:#888">输入反馈 → 归纳 bad case → 更新决策源</td>
+        <td style="text-align:center;padding:8px;color:#89b4fa">2</td>
+      </tr>
+      <tr style="border-bottom:1px solid #1e1e2e">
+        <td style="padding:8px;color:#f9e2af">workflow-auditor</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">👁 只读</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">👁 只读</td>
+        <td style="padding:8px;color:#888">输入产出物 → 分级问题清单</td>
+        <td style="text-align:center;padding:8px;color:#89b4fa">2</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;color:#f9e2af">unity-csharp-spec</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">👁 只读</td>
+        <td style="text-align:center;padding:8px;color:#6c7086">—</td>
+        <td style="padding:8px;color:#888">输入 Unity 代码 → C# 规范 MD</td>
+        <td style="text-align:center;padding:8px;color:#89b4fa">2</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 第三段：核心数据流 -->
+<div class="section">
+  <h3>③ 核心数据流（环节1→4）</h3>
+  <div style="background:#1e1e2e;border-radius:8px;padding:16px;font-size:12px;display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;align-items:flex-start;gap:8px">
+      <div style="background:#313244;border-radius:20px;padding:2px 10px;color:#a6e3a1;white-space:nowrap;font-size:11px">环节1</div>
+      <div style="color:#888">策划MD（必选）+ 竞品拆解MD（可选）→ 喂给 ia-generate</div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:8px">
+      <div style="background:#313244;border-radius:20px;padding:2px 10px;color:#89b4fa;white-space:nowrap;font-size:11px">环节2</div>
+      <div style="color:#888"><strong style="color:#89b4fa">ia-generate</strong> 读 knowledge/ + learnings/ → 推理产出 <strong style="color:#cdd6f4">IA 结构化文档.md</strong><br>
+      <span style="color:#6c7086;font-size:11px">决策层：流程推理 / 容器选择 / 布局区划 / 状态枚举 / Component选择</span></div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:8px">
+      <div style="background:#313244;border-radius:20px;padding:2px 10px;color:#fab387;white-space:nowrap;font-size:11px">环节3</div>
+      <div style="color:#888">用户审阅 IA 文档 → 确认后手动触发 <strong style="color:#fab387">官方 figma-generate-design</strong> → Figma 界面</div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:8px">
+      <div style="background:#313244;border-radius:20px;padding:2px 10px;color:#cba6f7;white-space:nowrap;font-size:11px">环节4</div>
+      <div style="color:#888"><strong style="color:#cba6f7">self-improving</strong>：反馈 → bad case → learnings/pending → 人工审批 → 蒸馏进 knowledge → learnings 清除</div>
+    </div>
+  </div>
+</div>
+
+<!-- 第四段：架构决策日志（更新） -->
+<div class="section">
+  <h3>④ 架构决策日志结构（更新）</h3>
+  <div style="background:#1e1e2e;border-radius:8px;padding:16px;font-size:12px">
+    <div style="color:#a6e3a1;font-weight:bold;margin-bottom:10px">AI-workflow-discussion-log.md 章节结构</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+
+      <div style="background:#313244;border-radius:6px;padding:10px">
+        <div style="color:#cdd6f4;margin-bottom:4px">§0 元信息</div>
+        <div style="color:#888">项目代号、游戏类型、团队规模、当前 Phase、文档位置</div>
+      </div>
+
+      <div style="background:#313244;border-radius:6px;padding:10px">
+        <div style="color:#cdd6f4;margin-bottom:4px">§1 架构决策（D 编号体系，带稳定编号）</div>
+        <div style="color:#888">每条决策：结论 + 背景 + 影响范围。新决策追加，旧决策不删改（只标注"已被 Dxx 覆盖"）</div>
+        <div style="color:#6c7086;font-size:11px;margin-top:4px">示例：D1 项目从 TGame 重命名为 XGame / D2 采用 A 方案目录结构 / D3 ia-generate 只读 decision-source ...</div>
+      </div>
+
+      <div style="background:#313244;border-radius:6px;padding:10px">
+        <div style="color:#cdd6f4;margin-bottom:4px">§2 变更日志（时间线，新 session 必读）</div>
+        <div style="color:#888">每次架构修改按时间追加，格式：<code style="color:#a6e3a1">YYYY-MM-DD | 变更内容 | 涉及决策 Dxx | 执行状态</code></div>
+        <div style="color:#888;margin-top:4px">新 session 读完 §2 即可快速定位"现在做到哪了"</div>
+      </div>
+
+      <div style="background:#313244;border-radius:6px;padding:10px">
+        <div style="color:#cdd6f4;margin-bottom:4px">§3 Skill 地图（当前状态快照）</div>
+        <div style="color:#888">5 个 Skill 的名称、状态（未建/骨架/完成）、输入输出、权限</div>
+      </div>
+
+      <div style="background:#313244;border-radius:6px;padding:10px">
+        <div style="color:#cdd6f4;margin-bottom:4px">§4 Phase 进度</div>
+        <div style="color:#888">Phase 1 / Phase 2 各步骤的完成状态，供下次 session 接续</div>
+      </div>
+
+      <div style="background:#313244;border-radius:6px;padding:10px">
+        <div style="color:#cdd6f4;margin-bottom:4px">§5 待讨论项</div>
+        <div style="color:#888">未决问题暂存，进入 Plan Mode 前必读</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:12px;background:#2a2a1a;border:1px solid #f9e2af;border-radius:6px;padding:10px;color:#888">
+      <span style="color:#f9e2af">维护约定：</span> AI 不自主更新日志。每次 Plan Mode 讨论结束后，由用户决定是否同步新结论。§2 变更日志在每次执行后由 AI 追加条目，用户确认后生效。
+    </div>
+  </div>
+</div>

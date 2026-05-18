@@ -1,0 +1,15 @@
+root = true
+
+[*.{md,json,txt,yml,yaml,js,ts,html,css}]
+charset = utf-8-bom
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = false
+
+[*.json]
+indent_style = space
+indent_size = 2
+
+[*.{js,ts,css,html,yml,yaml}]
+indent_style = space
+indent_size = 2

@@ -1,0 +1,1991 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>策划文档编辑器</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #f5f5f7;
+  --white: #ffffff;
+  --card: #ffffff;
+  --border: rgba(0,0,0,0.06);
+  --border2: rgba(0,0,0,0.1);
+  --accent: #0071e3;
+  --accent-hover: #0077ED;
+  --accent-bg: rgba(0,113,227,0.06);
+  --text: #1d1d1f;
+  --text2: #6e6e73;
+  --text3: #86868b;
+  --text4: #aeaeb2;
+  --red: #ff3b30;
+  --green: #34c759;
+  --orange: #ff9500;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow: 0 4px 16px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.1), 0 4px 16px rgba(0,0,0,0.06);
+  --transition: 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+body {
+  font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* =========== 顶部导航 =========== */
+.top-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 28px;
+  height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.top-bar-left {
+  display: flex; align-items: center; gap: 16px;
+}
+.top-bar-logo {
+  width: 28px; height: 28px; border-radius: 7px;
+  background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 14px;
+}
+.top-bar h1 {
+  font-size: 15px; font-weight: 600; color: var(--text);
+  letter-spacing: -0.01em;
+}
+.top-bar h1 span {
+  color: var(--text3); font-weight: 400; font-size: 13px;
+  margin-left: 8px;
+}
+
+.top-actions { display: flex; gap: 8px; align-items: center; }
+
+.btn {
+  padding: 6px 16px; border-radius: 980px; border: none; cursor: pointer;
+  font-size: 13px; font-weight: 500; transition: all var(--transition);
+  font-family: inherit; display: inline-flex; align-items: center; gap: 5px;
+  line-height: 1.4;
+}
+.btn-primary {
+  background: var(--accent); color: #fff;
+}
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-secondary {
+  background: rgba(0,0,0,0.04); color: var(--text);
+}
+.btn-secondary:hover { background: rgba(0,0,0,0.08); }
+.btn-success {
+  background: var(--green); color: #fff;
+}
+.btn-success:hover { opacity: 0.88; }
+.btn-icon {
+  font-size: 15px; line-height: 1;
+}
+
+/* =========== 布局 =========== */
+.layout {
+  display: flex; margin-top: 52px; min-height: calc(100vh - 52px);
+}
+
+/* =========== 侧边导航 =========== */
+.sidebar {
+  width: 220px; min-width: 220px;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid var(--border);
+  padding: 20px 12px;
+  position: fixed; top: 52px; left: 0; bottom: 0;
+  overflow-y: auto;
+}
+.sidebar::-webkit-scrollbar { width: 0; }
+
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px; cursor: pointer;
+  color: var(--text2); font-size: 13px; font-weight: 500;
+  transition: all var(--transition);
+  border-radius: 8px; margin-bottom: 2px;
+  user-select: none;
+}
+.nav-item:hover { background: rgba(0,0,0,0.04); color: var(--text); }
+.nav-item.active {
+  background: var(--accent-bg); color: var(--accent); font-weight: 600;
+}
+.nav-num {
+  font-size: 11px; color: var(--text4); min-width: 18px;
+  font-weight: 600; font-variant-numeric: tabular-nums;
+}
+.nav-item.active .nav-num { color: var(--accent); opacity: 0.6; }
+
+/* =========== 主内容区 =========== */
+.main {
+  flex: 1; margin-left: 220px; padding: 40px 48px 100px;
+  max-width: 840px;
+}
+
+/* =========== 章节 =========== */
+.section {
+  margin-bottom: 56px;
+}
+.section-header {
+  margin-bottom: 28px;
+}
+.section-header h2 {
+  font-size: 28px; font-weight: 700; color: var(--text);
+  letter-spacing: -0.02em; line-height: 1.2;
+}
+.section-header p {
+  font-size: 14px; color: var(--text3); margin-top: 6px; font-weight: 400;
+}
+
+.sub-section { margin-bottom: 32px; }
+.sub-section h3 {
+  font-size: 17px; font-weight: 600; color: var(--text);
+  margin-bottom: 14px; letter-spacing: -0.01em;
+}
+.sub-section h4 {
+  font-size: 14px; font-weight: 600; color: var(--text2);
+  margin-bottom: 10px; margin-top: 20px;
+}
+
+/* =========== 卡片 =========== */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border);
+  position: relative; overflow: visible;
+}
+.card-title {
+  font-size: 13px; font-weight: 600; color: var(--text3);
+  text-transform: uppercase; letter-spacing: 0.03em;
+  margin-bottom: 16px;
+}
+
+/* =========== 表单元素 =========== */
+.form-row { margin-bottom: 18px; }
+.form-label {
+  display: block; font-size: 13px; color: var(--text2);
+  margin-bottom: 6px; font-weight: 500;
+}
+.form-label .req { color: var(--red); }
+
+.form-hint {
+  font-size: 12px; color: var(--text4); margin-top: 4px; line-height: 1.5;
+}
+
+input[type="text"], input[type="date"], select, textarea {
+  width: 100%; padding: 10px 14px;
+  background: var(--bg); border: 1px solid var(--border2);
+  border-radius: var(--radius-sm); color: var(--text);
+  font-size: 14px; font-family: inherit;
+  transition: all var(--transition);
+  line-height: 1.5;
+}
+input[type="text"]:hover, input[type="date"]:hover,
+select:hover, textarea:hover {
+  border-color: var(--border2);
+}
+input[type="text"]:focus, input[type="date"]:focus,
+select:focus, textarea:focus {
+  outline: none; background: var(--white);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0,113,227,0.12);
+}
+textarea { resize: vertical; min-height: 76px; }
+input::placeholder, textarea::placeholder { color: var(--text4); }
+select { display: none !important; }
+
+/* Custom Select */
+.custom-select {
+  position: relative; display: inline-flex; width: 100%;
+}
+.custom-select-trigger {
+  width: 100%; padding: 10px 14px; padding-right: 36px;
+  background: var(--bg); border: 1px solid var(--border2);
+  border-radius: var(--radius-sm); color: var(--text);
+  font-size: 14px; font-family: inherit;
+  cursor: pointer; transition: all var(--transition);
+  line-height: 1.5; user-select: none;
+  position: relative;
+}
+.custom-select-trigger::after {
+  content: ''; position: absolute; right: 14px; top: 50%;
+  width: 7px; height: 7px; border-right: 1.8px solid var(--text3);
+  border-bottom: 1.8px solid var(--text3);
+  transform: translateY(-65%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.custom-select.open .custom-select-trigger::after {
+  transform: translateY(-35%) rotate(-135deg);
+}
+.custom-select-trigger:hover { border-color: var(--border2); }
+.custom-select.open .custom-select-trigger {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0,113,227,0.12);
+  background: var(--white);
+}
+.custom-select-trigger .placeholder { color: var(--text4); }
+
+.custom-select-dropdown {
+  display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+  background: var(--white); border: 1px solid var(--border2);
+  border-radius: var(--radius); padding: 5px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06);
+  z-index: 9999; max-height: 220px; overflow-y: auto;
+  animation: dropIn 0.15s ease;
+}
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+.custom-select.open .custom-select-dropdown { display: block; }
+
+.custom-select-option {
+  padding: 9px 12px; border-radius: 7px; cursor: pointer;
+  font-size: 14px; color: var(--text); transition: background 0.1s;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.custom-select-option:hover { background: var(--bg); }
+.custom-select-option.selected {
+  color: var(--accent); font-weight: 500;
+}
+.custom-select-option.selected::after {
+  content: '✓'; font-size: 13px; font-weight: 600; color: var(--accent);
+}
+
+/* Table内的精简版 */
+.dyn-table .custom-select-trigger {
+  background: transparent; border: none; border-radius: 0;
+  padding: 10px; padding-right: 28px;
+}
+.dyn-table .custom-select-trigger:hover { background: rgba(0,0,0,0.02); }
+.dyn-table .custom-select.open .custom-select-trigger {
+  background: var(--accent-bg); border: none; box-shadow: none;
+}
+.dyn-table .custom-select-dropdown {
+  min-width: 140px;
+}
+
+.input-row { display: flex; gap: 12px; }
+.input-row > * { flex: 1; }
+
+/* =========== 复选框组 =========== */
+.checkbox-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.cb-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: 980px;
+  background: var(--bg); border: 1px solid transparent;
+  cursor: pointer; transition: all var(--transition);
+  font-size: 13px; font-weight: 500; color: var(--text2);
+  user-select: none;
+}
+.cb-item:hover { border-color: var(--border2); }
+.cb-item input { display: none; }
+.cb-item.checked {
+  background: var(--accent-bg); border-color: rgba(0,113,227,0.2);
+  color: var(--accent);
+}
+.cb-box {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid var(--text4); display: flex;
+  align-items: center; justify-content: center;
+  transition: all var(--transition); flex-shrink: 0;
+}
+.cb-item.checked .cb-box {
+  background: var(--accent); border-color: var(--accent);
+}
+.cb-item.checked .cb-box::after {
+  content: "";
+  width: 5px; height: 8px;
+  border: solid #fff; border-width: 0 1.8px 1.8px 0;
+  transform: rotate(45deg) translate(-0.5px, -0.5px);
+}
+
+/* =========== 动态表格 =========== */
+.dyn-table-wrap {
+  background: var(--white); border-radius: var(--radius);
+  border: 1px solid var(--border); overflow: visible;
+  margin-top: 8px;
+}
+.dyn-table {
+  width: 100%; border-collapse: collapse;
+}
+.dyn-table th {
+  background: var(--bg);
+  font-size: 12px; font-weight: 600; color: var(--text3);
+  padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid var(--border);
+  text-transform: uppercase; letter-spacing: 0.03em;
+}
+.dyn-table td {
+  padding: 2px 4px; border-bottom: 1px solid var(--border);
+}
+.dyn-table tbody tr:last-child td { border-bottom: none; }
+.dyn-table input {
+  border: none; background: transparent; padding: 10px;
+  font-size: 14px; border-radius: 0;
+}
+.dyn-table input:focus {
+  background: var(--accent-bg); box-shadow: none;
+}
+
+.btn-add-row {
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  margin-top: 10px; padding: 8px 16px; border-radius: 980px;
+  background: transparent; color: var(--accent); border: none;
+  cursor: pointer; font-size: 13px; font-weight: 500;
+  font-family: inherit; transition: all var(--transition);
+}
+.btn-add-row:hover { background: var(--accent-bg); }
+
+.btn-del-row {
+  background: none; border: none; color: var(--text4); cursor: pointer;
+  font-size: 16px; padding: 4px 8px; border-radius: 4px;
+  transition: all var(--transition);
+}
+.btn-del-row:hover { color: var(--red); background: rgba(255,59,48,0.08); }
+
+/* =========== 子系统 =========== */
+.subsys-block {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px;
+  margin-bottom: 16px; box-shadow: var(--shadow-sm);
+}
+.subsys-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px; padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.subsys-header input {
+  font-size: 17px; font-weight: 600; background: transparent;
+  border: none; color: var(--text); padding: 0; width: 300px;
+  outline: none;
+}
+.subsys-header input::placeholder { color: var(--text4); }
+.subsys-header input:focus {
+  box-shadow: none;
+}
+
+.btn-del-subsys {
+  padding: 6px 14px; border-radius: 980px; border: none;
+  background: rgba(255,59,48,0.08); color: var(--red);
+  cursor: pointer; font-size: 12px; font-weight: 500;
+  font-family: inherit; transition: all var(--transition);
+}
+.btn-del-subsys:hover { background: rgba(255,59,48,0.15); }
+
+.btn-add-subsys {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; padding: 16px; border-radius: var(--radius);
+  background: transparent; border: 2px dashed var(--border2);
+  color: var(--text3); cursor: pointer; font-size: 14px; font-weight: 500;
+  font-family: inherit; transition: all var(--transition);
+}
+.btn-add-subsys:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
+
+/* =========== 提示信息 =========== */
+.note-box {
+  background: var(--accent-bg); border-radius: var(--radius-sm);
+  padding: 12px 16px; margin-bottom: 16px;
+  font-size: 13px; color: var(--accent); line-height: 1.6;
+  font-weight: 500; border-left: 3px solid var(--accent);
+}
+
+/* =========== 预览弹窗 =========== */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(8px);
+  align-items: center; justify-content: center;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: var(--white); border-radius: 16px;
+  width: 80vw; max-width: 880px; max-height: 85vh;
+  display: flex; flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  animation: modalIn 0.25s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.97) translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 24px; border-bottom: 1px solid var(--border);
+}
+.modal-header h3 { font-size: 17px; font-weight: 600; color: var(--text); }
+.modal-close {
+  width: 30px; height: 30px; border-radius: 50%; border: none;
+  background: var(--bg); color: var(--text3); cursor: pointer;
+  font-size: 16px; display: flex; align-items: center; justify-content: center;
+  transition: all var(--transition);
+}
+.modal-close:hover { background: rgba(0,0,0,0.1); }
+.modal-body {
+  flex: 1; overflow-y: auto; padding: 24px;
+}
+.modal-body pre {
+  white-space: pre-wrap; word-break: break-all;
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 13px; line-height: 1.7; color: var(--text);
+  background: var(--bg); border-radius: var(--radius-sm);
+  padding: 20px; border: 1px solid var(--border);
+}
+.modal-footer {
+  padding: 16px 24px; border-top: 1px solid var(--border);
+  display: flex; justify-content: flex-end; gap: 8px;
+}
+
+/* =========== Toast =========== */
+.toast {
+  position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%) translateY(12px);
+  padding: 12px 24px; border-radius: 980px;
+  background: var(--text); color: #fff; font-size: 14px; font-weight: 500;
+  opacity: 0; transition: all 0.3s cubic-bezier(0.25,0.1,0.25,1);
+  z-index: 300; pointer-events: none;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* =========== 分割线 =========== */
+.divider {
+  height: 1px; background: var(--border); margin: 40px 0;
+}
+
+/* =========== 滚动条 =========== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.25); }
+
+/* =========== 过渡进入 =========== */
+.section { animation: fadeUp 0.4s ease both; position: relative; z-index: 1; }
+.section:has(.custom-select.open) { z-index: 10; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+/* =========== 弹窗类型禁用态 =========== */
+.popup-type-disabled .custom-select-trigger {
+  opacity: 0.35; pointer-events: none;
+}
+.popup-type-disabled select { pointer-events: none; }
+
+/* =========== 自定义日期选择器 =========== */
+.custom-date-wrap {
+  position: relative; width: 100%;
+}
+.custom-date-hidden {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0; pointer-events: none; z-index: -1;
+}
+.custom-date-trigger {
+  width: 100%; padding: 10px 14px;
+  background: var(--bg); border: 1px solid var(--border2);
+  border-radius: var(--radius-sm); color: var(--text);
+  font-size: 14px; font-family: inherit;
+  cursor: pointer; transition: all var(--transition);
+  line-height: 1.5; user-select: none;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px;
+}
+.custom-date-trigger:hover { border-color: var(--border2); }
+.custom-date-trigger:active,
+.custom-date-trigger:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0,113,227,0.12);
+  background: var(--white);
+}
+.custom-date-trigger svg { color: var(--text3); }
+.custom-date-text { flex: 1; }
+.custom-date-text:empty::after {
+  content: '选择日期'; color: var(--text4);
+}
+
+</style>
+</head>
+<body>
+
+<!-- 顶部栏 -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <div class="top-bar-logo">策</div>
+    <h1>策划文档编辑器 <span>可视化 MD 生成</span></h1>
+  </div>
+  <div class="top-actions">
+    <button class="btn btn-secondary" onclick="loadDraft()"><span class="btn-icon">↑</span> 载入草稿</button>
+    <button class="btn btn-secondary" onclick="saveDraft()"><span class="btn-icon">↓</span> 保存草稿</button>
+    <span style="width:1px;height:24px;background:var(--border2);margin:0 4px"></span>
+    <button class="btn btn-secondary" onclick="importMD()"><span class="btn-icon">📄</span> 导入 MD</button>
+    <button class="btn btn-primary" onclick="generateMD()"><span class="btn-icon">⚡</span> 生成 MD</button>
+  </div>
+</div>
+
+<!-- 布局 -->
+<div class="layout">
+  <!-- 侧边导航 -->
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-item active" data-target="sec-meta"><span class="nav-num">0</span> 文档信息</div>
+    <div class="nav-item" data-target="sec-1"><span class="nav-num">1</span> 需求分析</div>
+    <div class="nav-item" data-target="sec-2"><span class="nav-num">2</span> 概述</div>
+    <div class="nav-item" data-target="sec-3"><span class="nav-num">3</span> 功能开启</div>
+    <div class="nav-item" data-target="sec-4"><span class="nav-num">4</span> UI 示意图</div>
+    <div class="nav-item" data-target="sec-5"><span class="nav-num">5</span> 功能规则详情</div>
+    <div class="nav-item" data-target="sec-6"><span class="nav-num">6</span> 通用功能</div>
+    <div class="nav-item" data-target="sec-7"><span class="nav-num">7</span> 数值设计</div>
+    <div class="nav-item" data-target="sec-8"><span class="nav-num">8</span> 奖励规划</div>
+    <div class="nav-item" data-target="sec-9"><span class="nav-num">9</span> 数据与日志</div>
+    <div class="nav-item" data-target="sec-10"><span class="nav-num">10</span> 美术资源</div>
+    <div class="nav-item" data-target="sec-11"><span class="nav-num">11</span> 后续拓展</div>
+    <div class="nav-item" data-target="sec-append"><span class="nav-num">附</span> 附录</div>
+  </nav>
+
+  <!-- 主内容 -->
+  <div class="main">
+
+    <!-- ===== 0. 文档信息 ===== -->
+    <div class="section" id="sec-meta">
+      <div class="section-header">
+        <h2>文档信息</h2>
+        <p>基础信息，带 * 为必填项</p>
+      </div>
+      <div class="card">
+        <div class="input-row">
+          <div class="form-row">
+            <label class="form-label">项目名称 <span class="req">*</span></label>
+            <input type="text" id="meta-project" placeholder="如：三国杀OL">
+          </div>
+          <div class="form-row">
+            <label class="form-label">系统名称 <span class="req">*</span></label>
+            <input type="text" id="meta-system" placeholder="如：排位赛系统">
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="form-row">
+            <label class="form-label">文档版本</label>
+            <input type="text" id="meta-version" value="v1.0">
+          </div>
+          <div class="form-row">
+            <label class="form-label">作者 <span class="req">*</span></label>
+            <input type="text" id="meta-author" placeholder="策划姓名">
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="form-row">
+            <label class="form-label">日期</label>
+            <div class="custom-date-wrap">
+              <input type="date" id="meta-date" class="custom-date-hidden">
+              <div class="custom-date-trigger" id="meta-date-trigger" onclick="document.getElementById('meta-date').showPicker ? document.getElementById('meta-date').showPicker() : document.getElementById('meta-date').click()">
+                <span class="custom-date-text" id="meta-date-text"></span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0"><rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M2 6.5h12" stroke="currentColor" stroke-width="1.3"/><path d="M5.5 1.5v3M10.5 1.5v3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">评审状态</label>
+            <select id="meta-status">
+              <option value="待评审">待评审</option>
+              <option value="已通过">已通过</option>
+              <option value="需修改">需修改</option>
+            </select>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="form-row">
+            <label class="form-label">文档类型 <span class="req">*</span></label>
+            <select id="meta-doctype">
+              <option value="创建新系统">创建新系统</option>
+              <option value="原有系统更改">原有系统更改</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label">关联文档</label>
+            <input type="text" id="meta-related" placeholder="GDD链接 / 其他系统案链接">
+          </div>
+        </div>
+        <div class="form-row">
+          <label class="form-label">双端标注</label>
+          <select id="meta-platform">
+            <option value="默认双端">默认双端，仅单端功能需标明</option>
+            <option value="仅PC">仅PC</option>
+            <option value="仅移动端">仅移动端</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 1. 需求分析 ===== -->
+    <div class="section" id="sec-1">
+      <div class="section-header">
+        <h2>需求分析</h2>
+        <p>明确问题、目标用户和成功标准</p>
+      </div>
+
+      <!-- 1.1 -->
+      <div class="sub-section">
+        <h3>1.1 设计目的</h3>
+        <div class="card">
+          <div class="card-title">主要解决的问题</div>
+          <div class="checkbox-group" id="cb-problems">
+            <label class="cb-item"><input type="checkbox" value="修复现有功能问题（功能/规则/交互/引导/红点/漏洞等）"><span class="cb-box"></span> 修复现有功能问题</label>
+            <label class="cb-item"><input type="checkbox" value="目前某些数据问题或数据不达标"><span class="cb-box"></span> 数据问题 / 不达标</label>
+          </div>
+          <textarea id="problems-detail" rows="2" placeholder="补充说明具体要解决的问题..." style="margin-top:12px"></textarea>
+        </div>
+
+        <div class="card">
+          <div class="card-title">想要达到的目的</div>
+          <div class="checkbox-group" id="cb-goals">
+            <label class="cb-item"><input type="checkbox" value="提升表现力（美术风格/细节/精致度）"><span class="cb-box"></span> 提升表现力</label>
+            <label class="cb-item"><input type="checkbox" value="提升产品数据（活跃/留存/LTV/付费率）"><span class="cb-box"></span> 提升产品数据</label>
+            <label class="cb-item"><input type="checkbox" value="提升功能自身数据（参与量/匹配时长/胜率等）"><span class="cb-box"></span> 提升功能数据</label>
+            <label class="cb-item"><input type="checkbox" value="优化功能体验（吐槽点/趣味性/策略性）"><span class="cb-box"></span> 优化功能体验</label>
+            <label class="cb-item"><input type="checkbox" value="提升产品特性（文化性/切合度）"><span class="cb-box"></span> 提升产品特性</label>
+          </div>
+          <textarea id="goals-detail" rows="2" placeholder="补充说明想达到的目的..." style="margin-top:12px"></textarea>
+        </div>
+      </div>
+
+      <!-- 1.2 -->
+      <div class="sub-section">
+        <h3>1.2 面向用户</h3>
+        <div class="dyn-table-wrap">
+          <table class="dyn-table" id="tbl-users">
+            <thead><tr>
+              <th style="width:140px">划分维度</th>
+              <th>目标用户</th>
+              <th>群体大小 / 估算</th>
+              <th style="width:40px"></th>
+            </tr></thead>
+            <tbody><tr>
+              <td><select><option value="新老划分">新老划分</option><option value="玩法划分">玩法划分</option><option value="付费划分">付费划分</option><option value="活跃度划分">活跃度划分</option><option value="其他">其他</option></select></td>
+              <td><input type="text" placeholder="如：等级 ≥ 30 的玩家"></td>
+              <td><input type="text" placeholder="估算数据"></td>
+              <td><button class="btn-del-row" onclick="delRow(this)">×</button></td>
+            </tr></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" onclick="addUserRow()">+ 添加用户群体</button>
+      </div>
+
+      <!-- 1.3 -->
+      <div class="sub-section">
+        <h3>1.3 成功标准</h3>
+        <div class="note-box">量化对应指标，能拉数据分析和优化。指标尽量不受太多变量影响。</div>
+        <textarea id="success-criteria" rows="3" placeholder="例如：留存提升 / 付费转化 / 在线时长 / 社交活跃度"></textarea>
+      </div>
+
+      <!-- 1.4 -->
+      <div class="sub-section">
+        <h3>1.4 竞品分析</h3>
+        <div class="dyn-table-wrap">
+          <table class="dyn-table" id="tbl-compete">
+            <thead><tr>
+              <th style="width:140px">竞品名称</th>
+              <th>对应功能介绍</th>
+              <th>差异化 / 优势</th>
+              <th style="width:40px"></th>
+            </tr></thead>
+            <tbody><tr>
+              <td><input type="text" placeholder="竞品名称"></td>
+              <td><input type="text" placeholder="功能介绍"></td>
+              <td><input type="text" placeholder="差异化 / 优势"></td>
+              <td><button class="btn-del-row" onclick="delRow(this)">×</button></td>
+            </tr></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" onclick="addCompeteRow()">+ 添加竞品</button>
+      </div>
+
+      <!-- 1.5 -->
+      <div class="sub-section">
+        <h3>1.5 产品特点与脱颖而出的原因</h3>
+        <textarea id="product-features" rows="3" placeholder="结合产品独有特点、竞争点，如表现力突破 / 玩法新颖点 / 与其他功能结合"></textarea>
+      </div>
+
+      <!-- 1.6 -->
+      <div class="sub-section">
+        <h3>1.6 传播与推广</h3>
+        <div class="card">
+          <div class="card-title">游戏内推广</div>
+          <textarea id="promote-inner" rows="3" placeholder="功能入口 / 红点 / 排行榜 / 动态消息 / 跑马灯 / 系统消息&#10;功能命名（简洁 / 易读 / 朗朗上口 / 有标签性）"></textarea>
+        </div>
+        <div class="card">
+          <div class="card-title">游戏外推广</div>
+          <textarea id="promote-outer" rows="4" placeholder="传播性：拉新 / 拉回归 / 留存策略&#10;讨论点 / 话题衍生 / 关键词口号&#10;游戏外推广：预约 / 社区投票 / 比赛 / 抖音 / 直播 / 知乎"></textarea>
+        </div>
+      </div>
+
+      <!-- 1.7 -->
+      <div class="sub-section">
+        <h3>1.7 成功关键因素</h3>
+        <textarea id="success-factors" rows="3" placeholder="核心要点和难点（美术表现力 / 数值计算 / 玩法趣味性）&#10;抓住玩家本质需求（奖励驱动 / 社交需求 / 炫耀展示）"></textarea>
+      </div>
+    </div>
+
+    <!-- ===== 2. 概述 ===== -->
+    <div class="section" id="sec-2">
+      <div class="section-header">
+        <h2>概述</h2>
+        <p>功能要点、流程与核心循环</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>2.1 功能要点</h3>
+        <textarea id="func-points" rows="4" placeholder="1. 要点一&#10;2. 要点二&#10;3. 要点三"></textarea>
+      </div>
+
+      <div class="sub-section">
+        <h3>2.2 脑图框架</h3>
+        <div class="note-box">大型功能需要有，支持添加多个子系统描述</div>
+        <div class="dyn-table-wrap" style="overflow-x:auto">
+          <table class="dyn-table" id="tbl-mindmap">
+            <thead><tr>
+              <th style="min-width:110px">子系统名称</th>
+              <th style="min-width:140px">核心功能介绍</th>
+              <th style="min-width:100px">备注</th>
+              <th style="min-width:100px">界面类型</th>
+              <th style="min-width:100px">布局模式</th>
+              <th style="min-width:100px">呼出弹窗按钮</th>
+              <th style="min-width:90px">弹窗类型</th>
+              <th style="min-width:90px">货币信息</th>
+              <th style="min-width:100px">返回上一界面</th>
+              <th style="min-width:120px">跳转下一界面方式</th>
+              <th style="width:40px"></th>
+            </tr></thead>
+            <tbody><tr>
+              <td><input type="text" placeholder="子系统名称"></td>
+              <td><input type="text" placeholder="核心功能介绍"></td>
+              <td><input type="text" placeholder="备注"></td>
+              <td><select class="view-type-toggle" onchange="toggleLayoutMode(this)"><option value="全屏界面">全屏界面</option><option value="弹窗界面">弹窗界面</option></select></td>
+              <td><select class="layout-mode-sel"><option value="无Tab">无Tab</option><option value="侧边Tab">侧边Tab</option><option value="顶部Tab">顶部Tab</option><option value="侧边二级Tab">侧边二级Tab</option><option value="局部Tab">局部Tab</option><option value="左列表+右详情">左列表+右详情</option><option value="卡片网格">卡片网格</option></select></td>
+              <td><select class="popup-toggle" onchange="togglePopupType(this)"><option value="是">是</option><option value="否">否</option></select></td>
+              <td><select class="popup-type-sel"><option value="中弹窗">中弹窗</option><option value="小弹窗">小弹窗</option><option value="大弹窗">大弹窗</option></select></td>
+              <td><select><option value="是">是</option><option value="否">否</option></select></td>
+              <td><select><option value="是">是</option><option value="否">否</option></select></td>
+              <td><input type="text" placeholder="跳转方式"></td>
+              <td><button class="btn-del-row" onclick="delRow(this)">×</button></td>
+            </tr></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" onclick="addMindmapRow()">+ 添加子系统</button>
+      </div>
+
+      <div class="sub-section">
+        <h3>2.2b 界面层级结构</h3>
+        <div class="note-box">描述界面之间的层级关系，如：大厅 → 全屏界面A → 弹窗B，建议不超过 3~4 级</div>
+        <textarea id="ui-hierarchy" rows="3" placeholder="大厅 → 全屏界面A → 弹窗B&#10;大厅 → 全屏界面C → 弹窗D"></textarea>
+      </div>
+
+      <div class="sub-section">
+        <h3>2.3 逻辑流程图</h3>
+        <div class="note-box">服务端负责的逻辑流程需要有</div>
+        <textarea id="flowchart" rows="3" placeholder="描述逻辑流程或粘贴链接"></textarea>
+      </div>
+
+      <div class="sub-section">
+        <h3>2.4 核心循环</h3>
+        <div class="card">
+          <textarea id="core-loop" rows="2" placeholder="[玩家行为] → [系统反馈] → [资源获取/消耗] → [能力成长] → [再次进入循环]"></textarea>
+          <div class="input-row" style="margin-top:14px">
+            <div class="form-row">
+              <label class="form-label">循环周期</label>
+              <input type="text" id="loop-cycle" placeholder="单次循环耗时 / 每日可执行次数">
+            </div>
+            <div class="form-row">
+              <label class="form-label">循环驱动</label>
+              <input type="text" id="loop-driver" placeholder="数值成长 / 收集 / 竞争 / 社交 / 随机性">
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">循环瓶颈</label>
+            <input type="text" id="loop-bottleneck" placeholder="体力 / 时间 / 资源 / 关卡进度">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 3. 功能开启 ===== -->
+    <div class="section" id="sec-3">
+      <div class="section-header">
+        <h2>功能开启</h2>
+        <p>入口、开放条件与渠道设置</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">入口</div>
+        <div class="input-row">
+          <div class="form-row">
+            <label class="form-label">入口位置</label>
+            <input type="text" id="entry-pos" placeholder="主界面 / 侧边栏 / 特定场景">
+          </div>
+          <div class="form-row">
+            <label class="form-label">入口样式</label>
+            <input type="text" id="entry-style" placeholder="图标 / 红点 / 文字">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">开放条件</div>
+        <div class="input-row">
+          <div class="form-row">
+            <label class="form-label">等级限制</label>
+            <input type="text" id="cond-level" placeholder="最低等级">
+          </div>
+          <div class="form-row">
+            <label class="form-label">时间限制</label>
+            <input type="text" id="cond-time" placeholder="开服天数 / 特定时间">
+          </div>
+        </div>
+        <div class="form-row">
+          <label class="form-label">其他条件</label>
+          <input type="text" id="cond-other" placeholder="前置任务 / 付费状态">
+        </div>
+        <div class="form-hint">所有功能（含子功能、分支功能）默认需要等级和时间条件，服务端需做限制</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">渠道开放</div>
+        <div class="input-row">
+          <div class="form-row">
+            <label class="form-label">是否对渠道开放</label>
+            <select id="channel-open">
+              <option value="否">否</option>
+              <option value="是">是</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label">子项独立渠道开关</label>
+            <input type="text" id="channel-sub" placeholder="二维码 / 按钮 / 图片 / 链接">
+          </div>
+        </div>
+        <div class="form-hint">涉及官方导流 / 网站 / 公众号等内容，默认对所有渠道不开放，需可配置</div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">开启展示</label>
+        <textarea id="open-display" rows="2" placeholder="开启动画 / 弹窗 / 引导说明"></textarea>
+      </div>
+    </div>
+
+    <!-- ===== 4. UI 示意图 ===== -->
+    <div class="section" id="sec-4">
+      <div class="section-header">
+        <h2>UI 示意图</h2>
+        <p>原型、设计稿与界面说明</p>
+      </div>
+
+      <div class="sub-section">
+        <h3>4.1 原型图</h3>
+        <div class="note-box">核心功能 / 复杂流程功能需要有</div>
+        <textarea id="prototype" rows="3" placeholder="描述原型或粘贴链接"></textarea>
+      </div>
+
+      <div class="sub-section">
+        <h3>4.2 UI 设计</h3>
+        <textarea id="ui-design" rows="3" placeholder="双端 UI 示意图、各种状态、操作流程、特效、tips 说明"></textarea>
+      </div>
+
+      <div class="sub-section">
+        <h3>4.3 界面说明</h3>
+        <div class="dyn-table-wrap">
+          <table class="dyn-table" id="tbl-ui">
+            <thead><tr>
+              <th style="width:50px">序号</th>
+              <th style="width:130px">按钮 / 区域</th>
+              <th>状态 / 内容说明</th>
+              <th>操作说明</th>
+              <th style="min-width:110px">按钮优先级</th>
+              <th style="width:40px"></th>
+            </tr></thead>
+            <tbody><tr>
+              <td><input type="text" value="1" style="width:36px;text-align:center"></td>
+              <td><input type="text" placeholder="名称"></td>
+              <td><input type="text" placeholder="状态说明"></td>
+              <td><input type="text" placeholder="操作说明"></td>
+              <td><select class="btn-priority-sel"><option value="核心">核心</option><option value="核心（交易）">核心（交易）</option><option value="重要">重要</option><option value="可选">可选</option><option value="可选（领取）">可选（领取）</option><option value="辅助">辅助</option><option value="非按钮">非按钮</option></select></td>
+              <td><button class="btn-del-row" onclick="delRow(this)">×</button></td>
+            </tr></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" onclick="addUIRow()">+ 添加界面说明</button>
+      </div>
+
+      <div class="sub-section">
+        <h3>4.4 界面适配</h3>
+        <div class="checkbox-group" id="cb-adapt">
+          <label class="cb-item"><input type="checkbox" value="移动端机型适配：遵守通用适配规则" checked><span class="cb-box"></span> 移动端机型适配</label>
+          <label class="cb-item"><input type="checkbox" value="小游戏适配：返回按钮在左上角，右上角内容需规避小游戏退出按钮" checked><span class="cb-box"></span> 小游戏适配</label>
+          <label class="cb-item"><input type="checkbox" value="界面表现：进入/打开时不能出现闪白块/资源闪烁/数字闪烁" checked><span class="cb-box"></span> 无闪烁表现</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 5. 功能规则详情 ===== -->
+    <div class="section" id="sec-5">
+      <div class="section-header">
+        <h2>功能规则详情</h2>
+        <p>支持添加多个子系统模块</p>
+      </div>
+
+      <div id="subsystems-container">
+        <div class="subsys-block" data-idx="1">
+          <div class="subsys-header">
+            <input type="text" class="subsys-name" placeholder="输入子系统名称">
+            <button class="btn-del-subsys" onclick="delSubsys(this)">移除</button>
+          </div>
+
+          <div class="form-row" style="margin-top:10px">
+            <label class="form-label">Tab 类型</label>
+            <select class="subsys-tab-type"><option value="无Tab">无Tab</option><option value="侧边一级Tab">侧边一级Tab</option><option value="顶部一级Tab">顶部一级Tab</option><option value="侧边二级Tab">侧边二级Tab</option><option value="局部二级Tab">局部二级Tab</option></select>
+          </div>
+
+          <div class="card-title">配置表</div>
+          <textarea class="subsys-config" rows="3" placeholder="配置表结构、字段规则等"></textarea>
+
+          <div class="form-row" style="margin-top:14px">
+            <label class="form-label">周期型配置注意事项</label>
+            <div class="checkbox-group subsys-period-checks">
+              <label class="cb-item"><input type="checkbox" value="多个周期重叠（周期性活动）"><span class="cb-box"></span> 周期重叠</label>
+              <label class="cb-item"><input type="checkbox" value="预配置问题（排位将池）"><span class="cb-box"></span> 预配置问题</label>
+              <label class="cb-item"><input type="checkbox" value="循环重复问题（山河图）"><span class="cb-box"></span> 循环重复</label>
+              <label class="cb-item"><input type="checkbox" value="重启服务器影响（商店周刷新）"><span class="cb-box"></span> 重启影响</label>
+            </div>
+          </div>
+
+          <div class="card-title" style="margin-top:20px">功能规则</div>
+          <textarea class="subsys-rules" rows="4" placeholder="1. 规则一&#10;2. 规则二&#10;3. 规则三"></textarea>
+
+          <div class="form-row" style="margin-top:14px">
+            <label class="form-label">异常情况处理</label>
+            <div class="checkbox-group subsys-exception-checks">
+              <label class="cb-item"><input type="checkbox" value="空状态处理"><span class="cb-box"></span> 空状态处理</label>
+              <label class="cb-item"><input type="checkbox" value="服务器重启"><span class="cb-box"></span> 服务器重启</label>
+              <label class="cb-item"><input type="checkbox" value="断线和重连"><span class="cb-box"></span> 断线重连</label>
+              <label class="cb-item"><input type="checkbox" value="GM命令支持"><span class="cb-box"></span> GM 命令</label>
+              <label class="cb-item"><input type="checkbox" value="无限制按钮增加CD（涉及服务端协议）"><span class="cb-box"></span> 按钮 CD 限制</label>
+              <label class="cb-item"><input type="checkbox" value="兼容线上已有数据，不置空/改变玩家已有数据或设置"><span class="cb-box"></span> 兼容已有数据</label>
+              <label class="cb-item"><input type="checkbox" value="PC和移动端数据记录区分"><span class="cb-box"></span> 双端数据区分</label>
+              <label class="cb-item"><input type="checkbox" value="双端字段/功能配置统一"><span class="cb-box"></span> 双端配置统一</label>
+            </div>
+          </div>
+          <textarea class="subsys-exception-detail" rows="2" placeholder="其他异常处理补充" style="margin-top:10px"></textarea>
+
+          <div class="card-title" style="margin-top:20px">红点规则</div>
+          <div class="input-row">
+            <div class="form-row">
+              <label class="form-label">红点类型</label>
+              <input type="text" class="subsys-reddot-type" placeholder="符合红点总规则">
+            </div>
+            <div class="form-row">
+              <label class="form-label">触发条件</label>
+              <input type="text" class="subsys-reddot-trigger" placeholder="什么情况下显示红点">
+            </div>
+          </div>
+          <div class="form-row">
+            <label class="form-label">消除条件</label>
+            <input type="text" class="subsys-reddot-clear" placeholder="什么情况下消除红点">
+          </div>
+        </div>
+      </div>
+      <button class="btn-add-subsys" onclick="addSubsys()">+ 添加子系统</button>
+    </div>
+
+    <!-- ===== 6. 通用功能支持 ===== -->
+    <div class="section" id="sec-6">
+      <div class="section-header">
+        <h2>通用功能支持</h2>
+      </div>
+      <div class="card">
+        <div class="input-row">
+          <div class="form-row">
+            <label class="form-label">引导</label>
+            <input type="text" id="common-guide" placeholder="新手引导 / 功能引导">
+          </div>
+          <div class="form-row">
+            <label class="form-label">排行榜</label>
+            <input type="text" id="common-rank" placeholder="排行维度 / 刷新周期 / 奖励">
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="form-row">
+            <label class="form-label">红点</label>
+            <input type="text" id="common-reddot" placeholder="属于哪一类红点，符合红点总规则">
+          </div>
+          <div class="form-row">
+            <label class="form-label">分享</label>
+            <input type="text" id="common-share" placeholder="分享渠道 / 分享内容 / 分享奖励">
+          </div>
+        </div>
+        <div class="form-row">
+          <label class="form-label">其他</label>
+          <textarea id="common-other" rows="2" placeholder="其他通用功能支持"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 7. 数值设计 ===== -->
+    <div class="section" id="sec-7">
+      <div class="section-header">
+        <h2>数值设计</h2>
+      </div>
+      <div class="card">
+        <div class="form-row">
+          <label class="form-label">道具物品列表</label>
+          <textarea id="num-items" rows="3" placeholder="道具 / 物品列表"></textarea>
+        </div>
+        <div class="form-row">
+          <label class="form-label">成长曲线</label>
+          <textarea id="num-curve" rows="3" placeholder="描述成长曲线"></textarea>
+        </div>
+        <div class="form-row">
+          <label class="form-label">经济循环</label>
+          <textarea id="num-economy" rows="3" placeholder="经济循环设计"></textarea>
+        </div>
+        <div class="form-row">
+          <label class="form-label">掉落 / 概率表</label>
+          <textarea id="num-drop" rows="3" placeholder="掉落规则、概率表"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 8. 奖励规划 ===== -->
+    <div class="section" id="sec-8">
+      <div class="section-header">
+        <h2>奖励规划</h2>
+      </div>
+      <div class="card">
+        <div class="form-row">
+          <label class="form-label">奖励组成</label>
+          <textarea id="reward-comp" rows="3" placeholder="奖励类型 / 来源"></textarea>
+        </div>
+        <div class="form-row">
+          <label class="form-label">奖励内容规划</label>
+          <textarea id="reward-content" rows="3" placeholder="具体奖励内容 / 数量 / 频率"></textarea>
+        </div>
+        <div class="form-row">
+          <label class="form-label">奖励计算</label>
+          <textarea id="reward-calc" rows="3" placeholder="计算公式 / 规则"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 9. 数据与日志 ===== -->
+    <div class="section" id="sec-9">
+      <div class="section-header">
+        <h2>数据与日志</h2>
+      </div>
+
+      <div class="sub-section">
+        <h3>9.1 数据兼容</h3>
+        <div class="note-box">各种数据相关的调整需要兼容线上已有数据，使线上老玩家功能表现正常。数据无法兼容需讨论是否调整功能设计。</div>
+        <textarea id="data-compat" rows="2" placeholder="本系统特殊的数据兼容说明"></textarea>
+      </div>
+
+      <div class="sub-section">
+        <h3>9.2 日志规划</h3>
+        <div class="form-row">
+          <label class="form-label">日志用途</label>
+          <textarea id="log-purpose" rows="2" placeholder="后续想要分析的内容"></textarea>
+        </div>
+        <div class="form-row">
+          <label class="form-label">埋点字段</label>
+          <div class="dyn-table-wrap">
+            <table class="dyn-table" id="tbl-log">
+              <thead><tr>
+                <th>字段名</th>
+                <th style="width:100px">类型</th>
+                <th>说明</th>
+                <th style="width:40px"></th>
+              </tr></thead>
+              <tbody><tr>
+                <td><input type="text" placeholder="字段名"></td>
+                <td><input type="text" placeholder="类型"></td>
+                <td><input type="text" placeholder="说明"></td>
+                <td><button class="btn-del-row" onclick="delRow(this)">×</button></td>
+              </tr></tbody>
+            </table>
+          </div>
+          <button class="btn-add-row" onclick="addLogRow()">+ 添加埋点字段</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 10. 美术资源 ===== -->
+    <div class="section" id="sec-10">
+      <div class="section-header">
+        <h2>美术 / 资源需求</h2>
+      </div>
+
+      <div class="sub-section">
+        <h3>10.1 特效 / 动态需求</h3>
+        <div class="dyn-table-wrap">
+          <table class="dyn-table" id="tbl-fx">
+            <thead><tr>
+              <th>特效名称</th>
+              <th>需求内容</th>
+              <th style="width:55px">时长</th>
+              <th style="width:55px">循环</th>
+              <th>参考</th>
+              <th>界面</th>
+              <th style="width:60px">端</th>
+              <th style="width:45px">分级</th>
+              <th style="width:36px"></th>
+            </tr></thead>
+            <tbody><tr>
+              <td><input type="text" placeholder="名称"></td>
+              <td><input type="text" placeholder="描述"></td>
+              <td><input type="text" placeholder="1s"></td>
+              <td><select><option>是</option><option>否</option></select></td>
+              <td><input type="text" placeholder="参考"></td>
+              <td><input type="text" placeholder="界面"></td>
+              <td><select><option>双端</option><option>仅PC</option><option>仅移动</option></select></td>
+              <td><select><option>0</option><option>1</option><option>2</option><option>3</option></select></td>
+              <td><button class="btn-del-row" onclick="delRow(this)">×</button></td>
+            </tr></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" onclick="addFxRow()">+ 添加特效需求</button>
+        <div class="form-hint" style="margin-top:8px">分级说明 — 0: 同 APP 一致 ｜ 1: 削弱动态 ｜ 2: 静态替代 ｜ 3: 完全去除</div>
+      </div>
+
+      <div class="card">
+        <div class="input-row">
+          <div class="form-row">
+            <label class="form-label">10.2 原画 / 场景需求</label>
+            <input type="text" id="art-scene" placeholder="需求单链接">
+          </div>
+          <div class="form-row">
+            <label class="form-label">10.3 PV 需求</label>
+            <input type="text" id="art-pv" placeholder="需求单链接">
+          </div>
+        </div>
+        <div class="form-row">
+          <label class="form-label">10.4 道具 icon 需求</label>
+          <textarea id="art-icon" rows="2" placeholder="无 / 具体列表"></textarea>
+        </div>
+        <div class="input-row">
+          <div class="form-row">
+            <label class="form-label">10.5 配音需求</label>
+            <input type="text" id="art-voice" placeholder="需求单链接">
+          </div>
+          <div class="form-row">
+            <label class="form-label">10.6 音效需求</label>
+            <input type="text" id="art-sound-short" placeholder="简要说明">
+          </div>
+        </div>
+        <div class="form-row">
+          <label class="form-label">音效详细说明</label>
+          <textarea id="art-sound" rows="3" placeholder="通用操作音效（尽量复用）&#10;新增操作音效和语音&#10;新增特效/动画音效"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 11. 后续拓展 ===== -->
+    <div class="section" id="sec-11">
+      <div class="section-header">
+        <h2>后续拓展规则</h2>
+      </div>
+      <div class="card">
+        <div class="form-row">
+          <label class="form-label">拓展方向</label>
+          <textarea id="expand-dir" rows="3" placeholder="该系统后续可拓展的方向"></textarea>
+        </div>
+        <div class="form-row">
+          <label class="form-label">版本迭代计划</label>
+          <textarea id="expand-plan" rows="2" placeholder="版本迭代计划"></textarea>
+        </div>
+        <div class="form-row">
+          <label class="form-label">预留接口 / 配置</label>
+          <textarea id="expand-api" rows="2" placeholder="预留接口 / 配置说明"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 附录 ===== -->
+    <div class="section" id="sec-append">
+      <div class="section-header">
+        <h2>附录</h2>
+      </div>
+
+      <div class="sub-section">
+        <h3>A. 相关配置表名</h3>
+        <textarea id="app-config" rows="2" placeholder="配置表名称列表"></textarea>
+      </div>
+
+      <div class="sub-section">
+        <h3>B. 术语表</h3>
+        <div class="dyn-table-wrap">
+          <table class="dyn-table" id="tbl-terms">
+            <thead><tr>
+              <th style="width:200px">术语</th>
+              <th>定义</th>
+              <th style="width:40px"></th>
+            </tr></thead>
+            <tbody><tr>
+              <td><input type="text" placeholder="术语"></td>
+              <td><input type="text" placeholder="定义"></td>
+              <td><button class="btn-del-row" onclick="delRow(this)">×</button></td>
+            </tr></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" onclick="addTermRow()">+ 添加术语</button>
+      </div>
+
+      <div class="sub-section">
+        <h3>F. 修改记录</h3>
+        <div class="dyn-table-wrap">
+          <table class="dyn-table" id="tbl-changelog">
+            <thead><tr>
+              <th style="width:80px">版本</th>
+              <th style="width:130px">日期</th>
+              <th>修改内容</th>
+              <th style="width:100px">修改人</th>
+              <th style="width:40px"></th>
+            </tr></thead>
+            <tbody><tr>
+              <td><input type="text" value="v1.0"></td>
+              <td><input type="date"></td>
+              <td><input type="text" value="初始版本"></td>
+              <td><input type="text" placeholder="姓名"></td>
+              <td><button class="btn-del-row" onclick="delRow(this)">×</button></td>
+            </tr></tbody>
+          </table>
+        </div>
+        <button class="btn-add-row" onclick="addChangelogRow()">+ 添加记录</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 预览弹窗 -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Markdown 预览</h3>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <pre id="md-output"></pre>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="copyMD()">复制到剪贴板</button>
+      <button class="btn btn-primary" onclick="downloadMD()">下载 .md 文件</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<input type="file" id="file-input" accept=".json" style="display:none" onchange="handleLoadFile(event)">
+<input type="file" id="md-file-input" accept=".md,.txt" style="display:none" onchange="handleImportMD(event)">
+
+<script>
+/* ========== 复选框交互 ========== */
+document.addEventListener('click', e => {
+  const item = e.target.closest('.cb-item');
+  if (!item) return;
+  const cb = item.querySelector('input[type="checkbox"]');
+  cb.checked = !cb.checked;
+  item.classList.toggle('checked', cb.checked);
+});
+document.querySelectorAll('.cb-item input:checked').forEach(cb => cb.closest('.cb-item').classList.add('checked'));
+
+/* ========== 侧边导航 ========== */
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    item.classList.add('active');
+    const t = document.getElementById(item.dataset.target);
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+const sections = document.querySelectorAll('.section');
+const navItems = document.querySelectorAll('.nav-item');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (s.getBoundingClientRect().top < 160) cur = s.id; });
+  navItems.forEach(n => n.classList.toggle('active', n.dataset.target === cur));
+});
+
+/* ========== 动态行 ========== */
+function delRow(btn) { const tb = btn.closest('tbody'); if (tb.rows.length > 1) btn.closest('tr').remove(); }
+
+function addUserRow() {
+  document.querySelector('#tbl-users tbody').insertAdjacentHTML('beforeend', `<tr><td><select><option value="新老划分">新老划分</option><option value="玩法划分">玩法划分</option><option value="付费划分">付费划分</option><option value="活跃度划分">活跃度划分</option><option value="其他">其他</option></select></td><td><input type="text" placeholder="目标用户"></td><td><input type="text" placeholder="估算数据"></td><td><button class="btn-del-row" onclick="delRow(this)">×</button></td></tr>`);
+}
+function addCompeteRow() {
+  document.querySelector('#tbl-compete tbody').insertAdjacentHTML('beforeend', `<tr><td><input type="text" placeholder="竞品名称"></td><td><input type="text" placeholder="功能介绍"></td><td><input type="text" placeholder="差异化/优势"></td><td><button class="btn-del-row" onclick="delRow(this)">×</button></td></tr>`);
+}
+function addMindmapRow() {
+  document.querySelector('#tbl-mindmap tbody').insertAdjacentHTML('beforeend', `<tr><td><input type="text" placeholder="子系统名称"></td><td><input type="text" placeholder="核心功能介绍"></td><td><input type="text" placeholder="备注"></td><td><select class="view-type-toggle" onchange="toggleLayoutMode(this)"><option value="全屏界面">全屏界面</option><option value="弹窗界面">弹窗界面</option></select></td><td><select class="layout-mode-sel"><option value="无Tab">无Tab</option><option value="侧边Tab">侧边Tab</option><option value="顶部Tab">顶部Tab</option><option value="侧边二级Tab">侧边二级Tab</option><option value="局部Tab">局部Tab</option><option value="左列表+右详情">左列表+右详情</option><option value="卡片网格">卡片网格</option></select></td><td><select class="popup-toggle" onchange="togglePopupType(this)"><option value="是">是</option><option value="否">否</option></select></td><td><select class="popup-type-sel"><option value="中弹窗">中弹窗</option><option value="小弹窗">小弹窗</option><option value="大弹窗">大弹窗</option></select></td><td><select><option value="是">是</option><option value="否">否</option></select></td><td><select><option value="是">是</option><option value="否">否</option></select></td><td><input type="text" placeholder="跳转方式"></td><td><button class="btn-del-row" onclick="delRow(this)">×</button></td></tr>`);
+}
+function addUIRow() {
+  const tb = document.querySelector('#tbl-ui tbody');
+  const n = tb.rows.length + 1;
+  tb.insertAdjacentHTML('beforeend', `<tr><td><input type="text" value="${n}" style="width:36px;text-align:center"></td><td><input type="text" placeholder="名称"></td><td><input type="text" placeholder="状态说明"></td><td><input type="text" placeholder="操作说明"></td><td><select class="btn-priority-sel"><option value="核心">核心</option><option value="核心（交易）">核心（交易）</option><option value="重要">重要</option><option value="可选">可选</option><option value="可选（领取）">可选（领取）</option><option value="辅助">辅助</option><option value="非按钮">非按钮</option></select></td><td><button class="btn-del-row" onclick="delRow(this)">×</button></td></tr>`);
+}
+function addLogRow() {
+  document.querySelector('#tbl-log tbody').insertAdjacentHTML('beforeend', `<tr><td><input type="text" placeholder="字段名"></td><td><input type="text" placeholder="类型"></td><td><input type="text" placeholder="说明"></td><td><button class="btn-del-row" onclick="delRow(this)">×</button></td></tr>`);
+}
+function addFxRow() {
+  document.querySelector('#tbl-fx tbody').insertAdjacentHTML('beforeend', `<tr><td><input type="text" placeholder="名称"></td><td><input type="text" placeholder="描述"></td><td><input type="text" placeholder="1s"></td><td><select><option>是</option><option>否</option></select></td><td><input type="text" placeholder="参考"></td><td><input type="text" placeholder="界面"></td><td><select><option>双端</option><option>仅PC</option><option>仅移动</option></select></td><td><select><option>0</option><option>1</option><option>2</option><option>3</option></select></td><td><button class="btn-del-row" onclick="delRow(this)">×</button></td></tr>`);
+}
+function addTermRow() {
+  document.querySelector('#tbl-terms tbody').insertAdjacentHTML('beforeend', `<tr><td><input type="text" placeholder="术语"></td><td><input type="text" placeholder="定义"></td><td><button class="btn-del-row" onclick="delRow(this)">×</button></td></tr>`);
+}
+function addChangelogRow() {
+  document.querySelector('#tbl-changelog tbody').insertAdjacentHTML('beforeend', `<tr><td><input type="text" placeholder="版本号"></td><td><input type="date"></td><td><input type="text" placeholder="修改内容"></td><td><input type="text" placeholder="姓名"></td><td><button class="btn-del-row" onclick="delRow(this)">×</button></td></tr>`);
+}
+
+/* ========== 子系统 ========== */
+let subsysCount = 1;
+function addSubsys() {
+  subsysCount++;
+  const c = document.getElementById('subsystems-container');
+  const b = document.createElement('div');
+  b.className = 'subsys-block'; b.dataset.idx = subsysCount;
+  b.innerHTML = `<div class="subsys-header"><input type="text" class="subsys-name" placeholder="输入子系统名称"><button class="btn-del-subsys" onclick="delSubsys(this)">移除</button></div><div class="form-row" style="margin-top:10px"><label class="form-label">Tab 类型</label><select class="subsys-tab-type"><option value="无Tab">无Tab</option><option value="侧边一级Tab">侧边一级Tab</option><option value="顶部一级Tab">顶部一级Tab</option><option value="侧边二级Tab">侧边二级Tab</option><option value="局部二级Tab">局部二级Tab</option></select></div><div class="card-title">配置表</div><textarea class="subsys-config" rows="3" placeholder="配置表结构、字段规则等"></textarea><div class="form-row" style="margin-top:14px"><label class="form-label">周期型配置注意事项</label><div class="checkbox-group subsys-period-checks"><label class="cb-item"><input type="checkbox" value="多个周期重叠（周期性活动）"><span class="cb-box"></span> 周期重叠</label><label class="cb-item"><input type="checkbox" value="预配置问题（排位将池）"><span class="cb-box"></span> 预配置问题</label><label class="cb-item"><input type="checkbox" value="循环重复问题（山河图）"><span class="cb-box"></span> 循环重复</label><label class="cb-item"><input type="checkbox" value="重启服务器影响（商店周刷新）"><span class="cb-box"></span> 重启影响</label></div></div><div class="card-title" style="margin-top:20px">功能规则</div><textarea class="subsys-rules" rows="4" placeholder="1. 规则一&#10;2. 规则二"></textarea><div class="form-row" style="margin-top:14px"><label class="form-label">异常情况处理</label><div class="checkbox-group subsys-exception-checks"><label class="cb-item"><input type="checkbox" value="空状态处理"><span class="cb-box"></span> 空状态处理</label><label class="cb-item"><input type="checkbox" value="服务器重启"><span class="cb-box"></span> 服务器重启</label><label class="cb-item"><input type="checkbox" value="断线和重连"><span class="cb-box"></span> 断线重连</label><label class="cb-item"><input type="checkbox" value="GM命令支持"><span class="cb-box"></span> GM 命令</label><label class="cb-item"><input type="checkbox" value="无限制按钮增加CD（涉及服务端协议）"><span class="cb-box"></span> 按钮 CD 限制</label><label class="cb-item"><input type="checkbox" value="兼容线上已有数据，不置空/改变玩家已有数据或设置"><span class="cb-box"></span> 兼容已有数据</label><label class="cb-item"><input type="checkbox" value="PC和移动端数据记录区分"><span class="cb-box"></span> 双端数据区分</label><label class="cb-item"><input type="checkbox" value="双端字段/功能配置统一"><span class="cb-box"></span> 双端配置统一</label></div></div><textarea class="subsys-exception-detail" rows="2" placeholder="其他异常处理补充" style="margin-top:10px"></textarea><div class="card-title" style="margin-top:20px">红点规则</div><div class="input-row"><div class="form-row"><label class="form-label">红点类型</label><input type="text" class="subsys-reddot-type" placeholder="符合红点总规则"></div><div class="form-row"><label class="form-label">触发条件</label><input type="text" class="subsys-reddot-trigger" placeholder="什么情况下显示红点"></div></div><div class="form-row"><label class="form-label">消除条件</label><input type="text" class="subsys-reddot-clear" placeholder="什么情况下消除红点"></div>`;
+  c.appendChild(b);
+}
+function delSubsys(btn) {
+  const c = document.getElementById('subsystems-container');
+  if (c.children.length > 1) btn.closest('.subsys-block').remove();
+  else showToast('至少保留一个子系统');
+}
+
+/* ========== 工具函数 ========== */
+function val(id) { return document.getElementById(id)?.value?.trim() || ''; }
+function checked(cid) { const r=[]; document.querySelectorAll(`#${cid} input[type="checkbox"]:checked`).forEach(cb=>r.push(cb.value)); return r; }
+function checkedInEl(el, sel) { const r=[]; el.querySelectorAll(`${sel} input[type="checkbox"]:checked`).forEach(cb=>r.push(cb.value)); return r; }
+function tableData(tid) { const r=[]; document.querySelectorAll(`#${tid} tbody tr`).forEach(tr=>{ const c=[]; tr.querySelectorAll('input,select').forEach(el=>c.push(el.value.trim())); if(c.some(x=>x)) r.push(c); }); return r; }
+function showToast(msg) { const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2200); }
+
+/* ========== 生成 MD ========== */
+function generateMD() {
+  let md = '';
+  const project = val('meta-project') || '[项目名称]';
+  const system = val('meta-system') || '[系统名称]';
+
+  md += `# ${project} - ${system} 系统策划案\n\n`;
+  md += `> **文档版本**：${val('meta-version')||'v1.0'}\n`;
+  md += `> **作者**：${val('meta-author')||'[策划姓名]'}\n`;
+  md += `> **日期**：${val('meta-date')||'[YYYY-MM-DD]'}\n`;
+  md += `> **评审状态**：${val('meta-status')}\n`;
+  md += `> **文档类型**：${val('meta-doctype')}\n`;
+  if(val('meta-related')) md += `> **关联文档**：${val('meta-related')}\n`;
+  md += `> **双端标注**：${val('meta-platform')}\n\n---\n\n`;
+
+  // 1
+  md += `## 1. 需求分析\n\n### 1.1 设计目的\n\n`;
+  const probs = checked('cb-problems');
+  if(probs.length){ md += `- **主要解决的问题**：\n`; probs.forEach(p=>md+=`  - [x] ${p}\n`); }
+  if(val('problems-detail')) md += `  - ${val('problems-detail')}\n`;
+  const goals = checked('cb-goals');
+  if(goals.length){ md += `- **想要达到的目的**：\n`; goals.forEach(g=>md+=`  - [x] ${g}\n`); }
+  if(val('goals-detail')) md += `  - ${val('goals-detail')}\n`;
+  md += `\n`;
+
+  const users = tableData('tbl-users');
+  if(users.length){ md += `### 1.2 面向用户\n\n| 划分维度 | 目标用户 | 群体大小/估算 |\n|---------|---------|-------------|\n`; users.forEach(r=>md+=`| ${r[0]} | ${r[1]} | ${r[2]} |\n`); md+=`\n`; }
+  if(val('success-criteria')) md += `### 1.3 成功标准\n\n${val('success-criteria')}\n\n`;
+  const comp = tableData('tbl-compete');
+  if(comp.length&&comp[0][0]){ md += `### 1.4 竞品分析\n\n`; comp.forEach(r=>{ md += `- **${r[0]}**：${r[1]}`; if(r[2]) md+=`\n  - 差异化/优势：${r[2]}`; md+=`\n`; }); md+=`\n`; }
+  if(val('product-features')) md += `### 1.5 产品特点与脱颖而出的原因\n\n${val('product-features')}\n\n`;
+  if(val('promote-inner')||val('promote-outer')){ md += `### 1.6 应该如何传播与推广\n\n`; if(val('promote-inner')) md += `- **游戏内如何推广本功能**：\n  ${val('promote-inner').replace(/\n/g,'\n  ')}\n`; if(val('promote-outer')) md += `- **游戏外如何推广本功能**：\n  ${val('promote-outer').replace(/\n/g,'\n  ')}\n`; md+=`\n`; }
+  if(val('success-factors')) md += `### 1.7 成功关键因素\n\n${val('success-factors')}\n\n`;
+  md += `---\n\n`;
+
+  // 2
+  md += `## 2. 概述\n\n`;
+  if(val('func-points')) md += `### 2.1 功能要点\n\n${val('func-points')}\n\n`;
+  const mm = tableData('tbl-mindmap');
+  if(mm.length&&mm[0][0]){ md += `### 2.2 脑图框架\n\n| 子系统名称 | 核心功能介绍 | 备注 | 界面类型 | 布局模式 | 呼出弹窗按钮 | 弹窗类型 | 货币信息 | 返回上一界面 | 跳转下一界面方式 |\n|-----------|------------|------|---------|---------|------------|---------|---------|------------|---------------|\n`; mm.forEach(r=>md+=`| ${r[0]} | ${r[1]} | ${r[2]} | ${r[3]} | ${r[3]==='全屏界面'?r[4]:'-'} | ${r[5]} | ${r[5]==='是'?r[6]:'-'} | ${r[7]} | ${r[8]} | ${r[9]} |\n`); md+=`\n`; }
+  if(val('ui-hierarchy')) md += `### 2.2b 界面层级结构\n\n${val('ui-hierarchy')}\n\n`;
+  if(val('flowchart')) md += `### 2.3 逻辑流程图\n\n${val('flowchart')}\n\n`;
+  if(val('core-loop')||val('loop-cycle')||val('loop-driver')||val('loop-bottleneck')){ md += `### 2.4 核心循环\n\n`; if(val('core-loop')) md+=`${val('core-loop')}\n\n`; if(val('loop-cycle')) md+=`- **循环周期**：${val('loop-cycle')}\n`; if(val('loop-driver')) md+=`- **循环驱动**：${val('loop-driver')}\n`; if(val('loop-bottleneck')) md+=`- **循环瓶颈**：${val('loop-bottleneck')}\n`; md+=`\n`; }
+  md += `---\n\n`;
+
+  // 3
+  md += `## 3. 功能开启\n\n`;
+  if(val('entry-pos')) md += `- **入口位置**：${val('entry-pos')}\n`;
+  if(val('entry-style')) md += `- **入口样式**：${val('entry-style')}\n`;
+  md += `- **开放条件**：\n`;
+  if(val('cond-level')) md += `  - **等级限制**：${val('cond-level')}\n`;
+  if(val('cond-time')) md += `  - **时间限制**：${val('cond-time')}\n`;
+  if(val('cond-other')) md += `  - **其他条件**：${val('cond-other')}\n`;
+  md += `  > 所有功能（含子功能、分支功能）默认需要等级和时间条件，服务端需做限制\n`;
+  md += `- **渠道开放**：\n  - 是否对渠道开放：${val('channel-open')}\n`;
+  if(val('channel-sub')) md += `  - 子项独立渠道开关：${val('channel-sub')}\n`;
+  md += `  > 涉及官方导流/网站/公众号等内容，默认对所有渠道不开放，需可配置\n`;
+  if(val('open-display')) md += `- **开启展示**：${val('open-display')}\n`;
+  md += `\n---\n\n`;
+
+  // 4
+  md += `## 4. UI示意图\n\n`;
+  if(val('prototype')) md += `### 4.1 原型图\n\n${val('prototype')}\n\n`;
+  if(val('ui-design')) md += `### 4.2 UI设计\n\n${val('ui-design')}\n\n`;
+  const uiR = tableData('tbl-ui');
+  if(uiR.length&&uiR[0][1]){ md += `### 4.3 界面说明\n\n| 序号 | 按钮/区域名称 | 状态/内容/开关说明 | 操作说明 | 按钮优先级 |\n|------|-------------|------------------|--------|----------|\n`; uiR.forEach(r=>md+=`| ${r[0]} | ${r[1]} | ${r[2]} | ${r[3]} | ${r[4]} |\n`); md+=`\n`; }
+  const ad = []; document.querySelectorAll('#cb-adapt input:checked').forEach(cb=>ad.push(cb.value));
+  if(ad.length){ md += `### 4.4 界面适配\n\n`; ad.forEach(a=>md+=`- ${a}\n`); md+=`\n`; }
+  md += `---\n\n`;
+
+  // 5
+  md += `## 5. 功能规则详情\n\n`;
+  document.querySelectorAll('.subsys-block').forEach((bl,i)=>{
+    const nm = bl.querySelector('.subsys-name').value.trim()||`[子系统${i+1}名称]`;
+    const n = `5.${i+1}`;
+    md += `### ${n} ${nm}\n\n`;
+    const tabType = bl.querySelector('.subsys-tab-type')?.value;
+    if(tabType && tabType !== '无Tab') md += `- **Tab 类型**：${tabType}\n\n`;
+    const cfg = bl.querySelector('.subsys-config').value.trim();
+    if(cfg) md += `#### ${n}.1 配置表\n\n${cfg}\n\n`;
+    const pc = checkedInEl(bl,'.subsys-period-checks');
+    if(pc.length){ md += `- **周期型配置注意事项**：\n`; pc.forEach(p=>md+=`  - [x] ${p}\n`); md+=`\n`; }
+    const ru = bl.querySelector('.subsys-rules').value.trim();
+    if(ru) md += `#### ${n}.2 功能规则\n\n${ru}\n\n`;
+    const ec = checkedInEl(bl,'.subsys-exception-checks');
+    const ed = bl.querySelector('.subsys-exception-detail').value.trim();
+    if(ec.length||ed){ md += `#### ${n}.3 异常情况处理\n\n`; ec.forEach(e=>md+=`- [x] ${e}\n`); if(ed) md+=`- ${ed}\n`; md+=`\n`; }
+    const rt = bl.querySelector('.subsys-reddot-type').value.trim();
+    const rtr = bl.querySelector('.subsys-reddot-trigger').value.trim();
+    const rc = bl.querySelector('.subsys-reddot-clear').value.trim();
+    if(rt||rtr||rc){ md += `#### ${n}.4 红点规则\n\n`; if(rt) md+=`- 红点类型：${rt}\n`; if(rtr) md+=`- 触发条件：${rtr}\n`; if(rc) md+=`- 消除条件：${rc}\n`; md+=`\n`; }
+  });
+  md += `---\n\n`;
+
+  // 6
+  md += `## 6. 通用功能支持\n\n`;
+  if(val('common-guide')) md += `- **引导**：${val('common-guide')}\n`;
+  if(val('common-rank')) md += `- **排行榜**：${val('common-rank')}\n`;
+  if(val('common-reddot')) md += `- **红点**：${val('common-reddot')}\n`;
+  if(val('common-share')) md += `- **分享**：${val('common-share')}\n`;
+  if(val('common-other')) md += `- **其他**：${val('common-other')}\n`;
+  md += `\n---\n\n`;
+
+  // 7
+  md += `## 7. 数值设计\n\n`;
+  if(val('num-items')) md += `- 道具物品列表：\n${val('num-items')}\n\n`;
+  if(val('num-curve')) md += `- 成长曲线：\n${val('num-curve')}\n\n`;
+  if(val('num-economy')) md += `- 经济循环：\n${val('num-economy')}\n\n`;
+  if(val('num-drop')) md += `- 掉落/概率表：\n${val('num-drop')}\n\n`;
+  md += `---\n\n`;
+
+  // 8
+  md += `## 8. 奖励规划\n\n`;
+  if(val('reward-comp')) md += `### 8.1 奖励组成\n\n${val('reward-comp')}\n\n`;
+  if(val('reward-content')) md += `### 8.2 奖励内容规划\n\n${val('reward-content')}\n\n`;
+  if(val('reward-calc')) md += `### 8.3 奖励计算\n\n${val('reward-calc')}\n\n`;
+  md += `---\n\n`;
+
+  // 9
+  md += `## 9. 数据与日志\n\n### 9.1 数据兼容\n\n- 各种数据相关的调整需要兼容线上已有的数据\n- 使得线上老玩家对应数据和功能表现正常\n- 数据无法兼容的请讨论是否调整功能设计\n- 数据/协议的调整需要兼容老包新服功能\n`;
+  if(val('data-compat')) md += `\n${val('data-compat')}\n`;
+  md += `\n`;
+  if(val('log-purpose')) md += `### 9.2 日志规划\n\n- **日志用途**：${val('log-purpose')}\n`;
+  const lr = tableData('tbl-log');
+  if(lr.length&&lr[0][0]){ md += `- **埋点字段**：\n\n| 字段名 | 类型 | 说明 |\n|--------|------|------|\n`; lr.forEach(r=>md+=`| ${r[0]} | ${r[1]} | ${r[2]} |\n`); }
+  md += `\n---\n\n`;
+
+  // 10
+  md += `## 10. 其他美术/资源需求\n\n`;
+  const fx = tableData('tbl-fx');
+  if(fx.length&&fx[0][0]){ md += `### 10.1 特效/动态需求\n\n| 特效名称 | 需求内容 | 持续时间 | 是否循环 | 参考效果 | 对应应用界面 | 需求端 | 小游戏特效分级(0-3) |\n|---------|---------|---------|---------|---------|------------|--------|------------------|\n`; fx.forEach(r=>md+=`| ${r[0]} | ${r[1]} | ${r[2]} | ${r[3]} | ${r[4]} | ${r[5]} | ${r[6]} | ${r[7]} |\n`); md+=`\n`; }
+  if(val('art-scene')) md += `### 10.2 原画/场景需求\n\n- 需求单链接：${val('art-scene')}\n\n`;
+  if(val('art-pv')) md += `### 10.3 PV需求\n\n- 需求单链接：${val('art-pv')}\n\n`;
+  if(val('art-icon')) md += `### 10.4 道具icon需求\n\n${val('art-icon')}\n\n`;
+  if(val('art-voice')) md += `### 10.5 配音需求\n\n- 需求单链接：${val('art-voice')}\n\n`;
+  if(val('art-sound')) md += `### 10.6 音效需求\n\n${val('art-sound')}\n\n`;
+  md += `---\n\n`;
+
+  // 11
+  md += `## 11. 后续拓展规则\n\n`;
+  if(val('expand-dir')) md += `- ${val('expand-dir')}\n`;
+  if(val('expand-plan')) md += `- ${val('expand-plan')}\n`;
+  if(val('expand-api')) md += `- ${val('expand-api')}\n`;
+  md += `\n---\n\n`;
+
+  // 附录
+  md += `## 附录\n\n`;
+  if(val('app-config')) md += `### A. 相关配置表名\n\n${val('app-config')}\n\n`;
+  const tm = tableData('tbl-terms');
+  if(tm.length&&tm[0][0]){ md += `### B. 术语表\n\n| 术语 | 定义 |\n|------|------|\n`; tm.forEach(r=>md+=`| ${r[0]} | ${r[1]} |\n`); md+=`\n`; }
+  md += `### C. 通用组件规范要求\n\n#### C.1 通用组件\n\n> 文档内无特殊说明时需要使用通用组件\n\n- **道具icon**：品质框、品质特效、道具名字...\n- **武将头像**：品质、名字、未拥有灰置、标签\n- **恭喜获得/道具获得弹窗**\n- **局外武将框**：自己的武将显示信息、系统展示/抽卡的武将显示体力\n- **局内武将框**\n- **排行榜界面**...\n\n#### C.2 通用交互\n\n> 文档内无特殊说明时需要满足通用交互操作\n\n`;
+  md += `### D. 文档通用规范\n\n1. 所有内容都需要双端示意图，仅单端功能需标明，否则默认双端\n2. 所有需要放到配置中的内容旁边需备注（需配置）\n3. 非双端或双端有差异的内容需备注（仅PC/仅移动）\n4. 文档右上角加目录\n5. 涉及界面的需写明：界面跳转关系、默认项、重复打开保存项、界面内tips等\n6. 较大文档或涉及未实现过的新规则需先和开发讨论\n7. 需要美术的地方标记（需美术）或（需美术特效）\n8. 文档引用规则：复用已有功能时不要重新写规则，加上引用链接\n9. 文档位置：新功能文档需在正确模块分类下\n\n`;
+  md += `### E. 自测标准\n\n- [ ] 流程跑通，所有点击/按钮功能正常\n- [ ] 和UI效果图、UE交互图一致\n\n`;
+  const cl = tableData('tbl-changelog');
+  if(cl.length&&cl[0][0]){ md += `### F. 修改记录\n\n| 版本 | 日期 | 修改内容 | 修改人 |\n|------|------|---------|--------|\n`; cl.forEach(r=>md+=`| ${r[0]} | ${r[1]} | ${r[2]} | ${r[3]} |\n`); md+=`\n`; }
+
+  document.getElementById('md-output').textContent = md;
+  document.getElementById('modal').classList.add('show');
+  window._generatedMD = md;
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('show'); }
+function copyMD() { navigator.clipboard.writeText(window._generatedMD).then(()=>showToast('已复制到剪贴板')); }
+function downloadMD() {
+  const fn = `${val('meta-project')||'策划文档'}_${val('meta-system')||'系统'}_策划案.md`;
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([window._generatedMD],{type:'text/markdown;charset=utf-8'}));
+  a.download = fn; a.click(); URL.revokeObjectURL(a.href); showToast('文件已下载');
+}
+
+/* ========== 草稿 ========== */
+function collectAllData() {
+  const d = {};
+  document.querySelectorAll('input[id],textarea[id],select[id]').forEach(el=>d[el.id]=el.value);
+  ['cb-problems','cb-goals','cb-adapt'].forEach(id=>d[`_ck_${id}`]=checked(id));
+  ['tbl-users','tbl-compete','tbl-mindmap','tbl-ui','tbl-log','tbl-fx','tbl-terms','tbl-changelog'].forEach(id=>d[`_tb_${id}`]=tableData(id));
+  const ss = [];
+  document.querySelectorAll('.subsys-block').forEach(b=>ss.push({
+    name:b.querySelector('.subsys-name').value, tabType:b.querySelector('.subsys-tab-type')?.value||'无Tab', config:b.querySelector('.subsys-config').value,
+    pc:checkedInEl(b,'.subsys-period-checks'), rules:b.querySelector('.subsys-rules').value,
+    ec:checkedInEl(b,'.subsys-exception-checks'), ed:b.querySelector('.subsys-exception-detail').value,
+    rt:b.querySelector('.subsys-reddot-type').value, rtr:b.querySelector('.subsys-reddot-trigger').value,
+    rc:b.querySelector('.subsys-reddot-clear').value
+  }));
+  d._ss = ss; return d;
+}
+function saveDraft() {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(collectAllData(),null,2)],{type:'application/json'}));
+  a.download = `${val('meta-project')||'文档'}_${val('meta-system')||'草稿'}_draft.json`;
+  a.click(); URL.revokeObjectURL(a.href); showToast('草稿已保存');
+}
+function loadDraft() { document.getElementById('file-input').click(); }
+function handleLoadFile(e) {
+  const f = e.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = ev => { try { restoreData(JSON.parse(ev.target.result)); showToast('草稿已载入'); } catch(err) { showToast('文件格式错误'); } };
+  r.readAsText(f); e.target.value = '';
+}
+function restoreData(d) {
+  Object.keys(d).forEach(k=>{ if(k.startsWith('_')) return; const el=document.getElementById(k); if(el) el.value=d[k]; });
+  // sync custom select triggers after restoring values
+  syncAllSelectTriggers();
+  if (typeof syncDateDisplay === 'function') syncDateDisplay();
+  ['cb-problems','cb-goals','cb-adapt'].forEach(id=>{
+    const v = d[`_ck_${id}`]||[];
+    document.querySelectorAll(`#${id} input[type="checkbox"]`).forEach(cb=>{ cb.checked=v.includes(cb.value); cb.closest('.cb-item').classList.toggle('checked',cb.checked); });
+  });
+  if(d._ss&&d._ss.length){
+    const c = document.getElementById('subsystems-container'); c.innerHTML=''; subsysCount=0;
+    d._ss.forEach((s,i)=>{
+      addSubsys(); const b=c.children[i];
+      b.querySelector('.subsys-name').value=s.name||''; const tabSel=b.querySelector('.subsys-tab-type'); if(tabSel&&s.tabType) tabSel.value=s.tabType; b.querySelector('.subsys-config').value=s.config||'';
+      b.querySelector('.subsys-rules').value=s.rules||''; b.querySelector('.subsys-exception-detail').value=s.ed||'';
+      b.querySelector('.subsys-reddot-type').value=s.rt||''; b.querySelector('.subsys-reddot-trigger').value=s.rtr||'';
+      b.querySelector('.subsys-reddot-clear').value=s.rc||'';
+      (s.pc||[]).forEach(v=>b.querySelectorAll('.subsys-period-checks input').forEach(cb=>{ if(cb.value===v){cb.checked=true;cb.closest('.cb-item').classList.add('checked');} }));
+      (s.ec||[]).forEach(v=>b.querySelectorAll('.subsys-exception-checks input').forEach(cb=>{ if(cb.value===v){cb.checked=true;cb.closest('.cb-item').classList.add('checked');} }));
+    });
+  }
+  syncAllSelectTriggers();
+  syncPopupToggles();
+  syncLayoutToggles();
+}
+
+function syncAllSelectTriggers() {
+  document.querySelectorAll('.custom-select').forEach(wrap => {
+    const sel = wrap.querySelector('select');
+    const trigger = wrap.querySelector('.custom-select-trigger');
+    if (!sel || !trigger) return;
+    const opt = sel.options[sel.selectedIndex];
+    if (opt) {
+      trigger.textContent = opt.textContent;
+      wrap.querySelectorAll('.custom-select-option').forEach(o => {
+        o.classList.toggle('selected', o.dataset.value === opt.value);
+      });
+    }
+  });
+}
+
+document.getElementById('meta-date').valueAsDate = new Date();
+// sync custom date display
+function syncDateDisplay() {
+  const d = document.getElementById('meta-date');
+  const t = document.getElementById('meta-date-text');
+  if (d.value) {
+    const [y, m, day] = d.value.split('-');
+    t.textContent = `${y} 年 ${parseInt(m)} 月 ${parseInt(day)} 日`;
+  } else {
+    t.textContent = '';
+  }
+}
+document.getElementById('meta-date').addEventListener('change', syncDateDisplay);
+syncDateDisplay();
+
+/* ========== Custom Select ========== */
+function togglePopupType(sel) {
+  const tr = sel.closest('tr');
+  if (!tr) return;
+  const typeTd = tr.querySelectorAll('td')[6]; // 弹窗类型 column (shifted +2)
+  if (!typeTd) return;
+  const wrap = typeTd.querySelector('.custom-select') || typeTd;
+  if (sel.value === '否') {
+    wrap.classList.add('popup-type-disabled');
+    typeTd.classList.add('popup-type-disabled');
+  } else {
+    wrap.classList.remove('popup-type-disabled');
+    typeTd.classList.remove('popup-type-disabled');
+  }
+}
+function toggleLayoutMode(sel) {
+  const tr = sel.closest('tr');
+  if (!tr) return;
+  const layoutTd = tr.querySelectorAll('td')[4]; // 布局模式 column
+  if (!layoutTd) return;
+  const wrap = layoutTd.querySelector('.custom-select') || layoutTd;
+  if (sel.value === '弹窗界面') {
+    wrap.classList.add('popup-type-disabled');
+    layoutTd.classList.add('popup-type-disabled');
+  } else {
+    wrap.classList.remove('popup-type-disabled');
+    layoutTd.classList.remove('popup-type-disabled');
+  }
+}
+function syncLayoutToggles() {
+  document.querySelectorAll('#tbl-mindmap .view-type-toggle').forEach(s => toggleLayoutMode(s));
+}
+function syncPopupToggles() {
+  document.querySelectorAll('#tbl-mindmap .popup-toggle').forEach(s => togglePopupType(s));
+}
+function buildCustomSelect(sel) {
+  const wrap = document.createElement('div');
+  wrap.className = 'custom-select';
+
+  const trigger = document.createElement('div');
+  trigger.className = 'custom-select-trigger';
+
+  const dropdown = document.createElement('div');
+  dropdown.className = 'custom-select-dropdown';
+
+  const options = Array.from(sel.options);
+  const selected = sel.selectedIndex >= 0 ? sel.selectedIndex : 0;
+
+  options.forEach((opt, i) => {
+    const item = document.createElement('div');
+    item.className = 'custom-select-option' + (i === selected ? ' selected' : '');
+    item.textContent = opt.textContent;
+    item.dataset.value = opt.value;
+    item.addEventListener('click', e => {
+      e.stopPropagation();
+      sel.value = opt.value;
+      sel.dispatchEvent(new Event('change'));
+      if (sel.classList.contains('popup-toggle')) togglePopupType(sel);
+      if (sel.classList.contains('view-type-toggle')) toggleLayoutMode(sel);
+      trigger.textContent = opt.textContent;
+      dropdown.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('selected'));
+      item.classList.add('selected');
+      wrap.classList.remove('open');
+    });
+    dropdown.appendChild(item);
+  });
+
+  trigger.textContent = options[selected]?.textContent || '';
+  sel.parentNode.insertBefore(wrap, sel);
+  wrap.appendChild(sel);
+  wrap.appendChild(trigger);
+  wrap.appendChild(dropdown);
+
+  trigger.addEventListener('click', e => {
+    e.stopPropagation();
+    // close all others
+    document.querySelectorAll('.custom-select.open').forEach(s => { if (s !== wrap) s.classList.remove('open'); });
+    wrap.classList.toggle('open');
+  });
+}
+
+function initAllSelects(root) {
+  (root || document).querySelectorAll('select:not([data-cs-init])').forEach(sel => {
+    sel.dataset.csInit = '1';
+    buildCustomSelect(sel);
+  });
+}
+
+// close on outside click
+document.addEventListener('click', () => {
+  document.querySelectorAll('.custom-select.open').forEach(s => s.classList.remove('open'));
+});
+
+initAllSelects();
+syncPopupToggles();
+syncLayoutToggles();
+
+// Patch dynamic row functions to init new selects
+const _origAddUserRow = addUserRow;
+addUserRow = function() { _origAddUserRow(); initAllSelects(document.querySelector('#tbl-users')); };
+const _origAddFxRow = addFxRow;
+addFxRow = function() { _origAddFxRow(); initAllSelects(document.querySelector('#tbl-fx')); };
+const _origAddMindmapRow = addMindmapRow;
+addMindmapRow = function() { _origAddMindmapRow(); initAllSelects(document.querySelector('#tbl-mindmap')); syncPopupToggles(); syncLayoutToggles(); };
+const _origAddUIRow = addUIRow;
+addUIRow = function() { _origAddUIRow(); initAllSelects(document.querySelector('#tbl-ui')); };
+const _origAddSubsys = addSubsys;
+addSubsys = function() { _origAddSubsys(); const c = document.getElementById('subsystems-container'); initAllSelects(c.lastElementChild); };
+
+/* ========== MD 导入 ========== */
+function importMD() { document.getElementById('md-file-input').click(); }
+function handleImportMD(e) {
+  const f = e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = ev => { try { parseMDToForm(ev.target.result); showToast('MD 文档已导入'); } catch(err) { console.error(err); showToast('导入失败，请检查 MD 格式'); } };
+  r.readAsText(f); e.target.value = '';
+}
+
+function parseMDToForm(md) {
+  lines = md.split('\n');
+
+  // helpers
+  function extract(pattern) {
+    for (const l of lines) { const m = l.match(pattern); if (m) return m[1].trim(); }
+    return '';
+  }
+  function sectionText(startPattern, endPattern) {
+    let collecting = false, result = [];
+    for (const l of lines) {
+      if (endPattern && endPattern.test(l) && collecting) break;
+      if (startPattern.test(l)) { collecting = true; continue; }
+      if (collecting) result.push(l);
+    }
+    return result.join('\n').trim();
+  }
+  function between(startRe, endRe) {
+    let inside = false, buf = [];
+    for (const l of lines) {
+      if (endRe && endRe.test(l) && inside) break;
+      if (startRe.test(l)) { inside = true; continue; }
+      if (inside) buf.push(l);
+    }
+    return buf;
+  }
+
+  // 0. Meta - parse title
+  const titleMatch = md.match(/^#\s+(.+?)\s*-\s*(.+?)\s*系统策划案/m);
+  if (titleMatch) {
+    setVal('meta-project', titleMatch[1].trim());
+    setVal('meta-system', titleMatch[2].trim());
+  }
+  setVal('meta-version', extract(/\*\*文档版本\*\*[：:]\s*(.+)/));
+  setVal('meta-author', extract(/\*\*作者\*\*[：:]\s*(.+)/));
+  const dateStr = extract(/\*\*日期\*\*[：:]\s*(.+)/);
+  if (dateStr && dateStr !== '[YYYY-MM-DD]') setVal('meta-date', dateStr);
+  setSelect('meta-status', extract(/\*\*评审状态\*\*[：:]\s*(.+)/));
+  setVal('meta-related', extract(/\*\*关联文档\*\*[：:]\s*(.+)/));
+  const plat = extract(/\*\*双端标注\*\*[：:]\s*(.+)/);
+  if (plat) setSelect('meta-platform', plat.startsWith('仅PC') ? '仅PC' : plat.startsWith('仅移动') ? '仅移动端' : '默认双端');
+  const doctype = extract(/\*\*文档类型\*\*[：:]\s*(.+)/);
+  if (doctype) setSelect('meta-doctype', doctype.includes('更改') ? '原有系统更改' : '创建新系统');
+
+  // 1.1 checkboxes
+  const problemLines = between(/主要解决的问题/, /想要达到的目的|###\s/);
+  checkByContent('cb-problems', problemLines);
+  const goalLines = between(/想要达到的目的/, /###\s|---/);
+  checkByContent('cb-goals', goalLines);
+
+  // 1.2 users table
+  parseTableInto('tbl-users', /###\s*1\.2/, /###\s|---/, addUserRow);
+
+  // 1.3
+  setVal('success-criteria', sectionText(/###\s*1\.3/, /###\s|---/));
+
+  // 1.4 compete table
+  parseCompete(between(/###\s*1\.4/, /###\s|---/));
+
+  // 1.5
+  setVal('product-features', sectionText(/###\s*1\.5/, /###\s|---/));
+
+  // 1.6
+  setVal('promote-inner', extractSubBlock(between(/###\s*1\.6/, /###\s|---/), /游戏内/));
+  setVal('promote-outer', extractSubBlock(between(/###\s*1\.6/, /###\s|---/), /游戏外/));
+
+  // 1.7
+  setVal('success-factors', sectionText(/###\s*1\.7/, /###\s|---/));
+
+  // 2.1-2.4
+  setVal('func-points', sectionText(/###\s*2\.1/, /###\s|---/));
+  parseTableInto('tbl-mindmap', /###\s*2\.2\b/, /###\s|---/, addMindmapRow);
+  setVal('ui-hierarchy', sectionText(/###\s*2\.2b/, /###\s|---/));
+  setVal('flowchart', sectionText(/###\s*2\.3/, /###\s|---/));
+  const loopBlock = between(/###\s*2\.4/, /###\s|---/);
+  const loopLines = loopBlock.filter(l => !l.match(/\*\*循环/));
+  setVal('core-loop', loopLines.filter(l => l.trim() && !l.startsWith('-')).join('\n'));
+  setVal('loop-cycle', extractBold(loopBlock, '循环周期'));
+  setVal('loop-driver', extractBold(loopBlock, '循环驱动'));
+  setVal('loop-bottleneck', extractBold(loopBlock, '循环瓶颈'));
+
+  // 3
+  setVal('entry-pos', extractBold(lines, '入口位置'));
+  setVal('entry-style', extractBold(lines, '入口样式'));
+  setVal('cond-level', extractBold(lines, '等级限制'));
+  setVal('cond-time', extractBold(lines, '时间限制'));
+  setVal('cond-other', extractBold(lines, '其他条件'));
+  const chOpen = extractBold(lines, '是否对渠道开放');
+  if (chOpen) setSelect('channel-open', chOpen.startsWith('是') ? '是' : '否');
+  setVal('channel-sub', extract(/子项独立渠道开关[：:]\s*(.+)/));
+  setVal('open-display', extractBold(lines, '开启展示'));
+
+  // 4
+  setVal('prototype', sectionText(/###\s*4\.1/, /###\s|---/));
+  setVal('ui-design', sectionText(/###\s*4\.2/, /###\s|---/));
+  parseTableInto('tbl-ui', /###\s*4\.3/, /###\s|---/, addUIRow);
+  const adaptLines = between(/###\s*4\.4/, /###\s|---/);
+  checkByContent('cb-adapt', adaptLines);
+
+  // 6
+  setVal('common-guide', extractBold(lines, '引导'));
+  setVal('common-rank', extractBold(lines, '排行榜'));
+  setVal('common-reddot', extractBold(lines, '红点'));
+  setVal('common-share', extractBold(lines, '分享'));
+  setVal('common-other', extractBold(lines, '其他'));
+
+  // 7
+  setVal('num-items', sectionText(/道具物品列表/, /- 成长曲线|###\s|---/));
+  setVal('num-curve', sectionText(/成长曲线/, /- 经济循环|###\s|---/));
+  setVal('num-economy', sectionText(/经济循环/, /- 掉落|###\s|---/));
+  setVal('num-drop', sectionText(/掉落\/概率表|掉落/, /###\s|---/));
+
+  // 8
+  setVal('reward-comp', sectionText(/###\s*8\.1/, /###\s|---/));
+  setVal('reward-content', sectionText(/###\s*8\.2/, /###\s|---/));
+  setVal('reward-calc', sectionText(/###\s*8\.3/, /###\s|---/));
+
+  // 9
+  setVal('data-compat', sectionText(/###\s*9\.1/, /###\s|---/).replace(/^- .+\n?/gm, '').trim());
+  setVal('log-purpose', extractBold(lines, '日志用途'));
+  parseTableInto('tbl-log', /埋点字段|###\s*9\.2/, /###\s|---/, addLogRow);
+
+  // 10
+  parseTableInto('tbl-fx', /###\s*10\.1/, /###\s|---/, addFxRow);
+  setVal('art-scene', extract(/10\.2.*需求单链接[：:]\s*(.+)/));
+  setVal('art-pv', extract(/10\.3.*需求单链接[：:]\s*(.+)/));
+  setVal('art-icon', sectionText(/###\s*10\.4/, /###\s|---/));
+  setVal('art-voice', extract(/10\.5.*需求单链接[：:]\s*(.+)/));
+  setVal('art-sound', sectionText(/###\s*10\.6/, /###\s|---/));
+
+  // 11
+  setVal('expand-dir', sectionText(/##\s*11/, /###\s|---/).split('\n').filter(l => l.trim()).map(l => l.replace(/^-\s*/, '')).join('\n'));
+
+  // appendix
+  setVal('app-config', sectionText(/###\s*A\./, /###\s|---/));
+  parseTableInto('tbl-terms', /###\s*B\./, /###\s|---/, addTermRow);
+  parseTableInto('tbl-changelog', /###\s*F\./, /###\s|---/, addChangelogRow);
+
+  // sync custom selects
+  initAllSelects();
+  syncAllSelectTriggers();
+  syncPopupToggles();
+  syncLayoutToggles();
+  if (typeof syncDateDisplay === 'function') syncDateDisplay();
+}
+
+// --- Parse helpers ---
+function setVal(id, v) { const el = document.getElementById(id); if (el && v) el.value = v; }
+
+function setSelect(id, v) {
+  const sel = document.getElementById(id);
+  if (!sel || !v) return;
+  for (const opt of sel.options) {
+    if (opt.value === v || opt.textContent.includes(v)) { sel.value = opt.value; break; }
+  }
+}
+
+function extractBold(arr, label) {
+  const src = Array.isArray(arr) ? arr : lines;
+  for (const l of src) {
+    const m = l.match(new RegExp('\\*\\*' + label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\*\\*[：:：]\\s*(.+)'));
+    if (m) return m[1].trim();
+  }
+  return '';
+}
+
+function checkByContent(containerId, mdLines) {
+  const text = mdLines.join('\n');
+  document.querySelectorAll(`#${containerId} input[type="checkbox"]`).forEach(cb => {
+    const match = text.includes(cb.value) || text.includes(cb.value.substring(0, 6));
+    cb.checked = match;
+    cb.closest('.cb-item').classList.toggle('checked', match);
+  });
+}
+
+function extractSubBlock(arr, labelRe) {
+  let found = false, buf = [];
+  for (const l of arr) {
+    if (labelRe.test(l)) { found = true; buf.push(l.replace(/^-\s*\*\*.+?\*\*[：:]\s*/, '').trim()); continue; }
+    if (found && /^\s*-\s*\*\*/.test(l)) break;
+    if (found && l.trim()) buf.push(l.replace(/^\s+/, ''));
+  }
+  return buf.filter(l => l).join('\n');
+}
+
+function parseTableInto(tableId, startRe, endRe, addRowFn) {
+  const block = [];
+  let inside = false;
+  for (const l of lines) {
+    if (endRe && endRe.test(l) && inside && !startRe.test(l)) break;
+    if (startRe.test(l)) { inside = true; continue; }
+    if (inside) block.push(l);
+  }
+  // find table rows
+  const rows = block.filter(l => l.startsWith('|') && !l.match(/^\|\s*[-:]+/));
+  if (rows.length < 2) return; // need header + at least one data row
+  const dataRows = rows.slice(1); // skip header
+  const tbody = document.querySelector(`#${tableId} tbody`);
+  if (!tbody) return;
+  // ensure enough rows
+  while (tbody.rows.length < dataRows.length) addRowFn();
+  dataRows.forEach((row, i) => {
+    const cells = row.split('|').map(c => c.trim()).filter(c => c);
+    const tr = tbody.rows[i];
+    if (!tr) return;
+    const inputs = tr.querySelectorAll('input, select');
+    cells.forEach((c, j) => { if (inputs[j]) inputs[j].value = c; });
+  });
+}
+
+function parseCompete(arr) {
+  const items = [];
+  let cur = null;
+  for (const l of arr) {
+    const m = l.match(/^-\s*\*\*(.+?)\*\*[：:]\s*(.+)/);
+    if (m) { cur = { name: m[1], desc: m[2], diff: '' }; items.push(cur); continue; }
+    const d = l.match(/差异化|优势[：:]\s*(.+)/);
+    if (d && cur) cur.diff = d[1] || l.replace(/.*[：:]/, '').trim();
+  }
+  if (!items.length) return;
+  const tbody = document.querySelector('#tbl-compete tbody');
+  while (tbody.rows.length < items.length) addCompeteRow();
+  items.forEach((it, i) => {
+    const inputs = tbody.rows[i].querySelectorAll('input');
+    if (inputs[0]) inputs[0].value = it.name;
+    if (inputs[1]) inputs[1].value = it.desc;
+    if (inputs[2]) inputs[2].value = it.diff;
+  });
+}
+
+// make `lines` accessible to helpers inside parseMDToForm
+let lines = [];
+</script>
+</body>
+</html>

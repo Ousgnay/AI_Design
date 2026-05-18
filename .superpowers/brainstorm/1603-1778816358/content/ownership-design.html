@@ -1,0 +1,62 @@
+<h2>知识库归属设计</h2>
+<p class="subtitle">核心问题：knowledge/ 放在哪里，三个 Skill 才能无耦合地各自读写？</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>knowledge 放在项目根目录（推荐）</h3>
+      <p>decision-source/ 是<strong>项目资产</strong>，不属于任何 Skill。三个 Skill 都是访问项目资产的工具，CLAUDE.md 统一注册路径。</p>
+      <div style="font-size:12px;margin-top:10px;background:#1e1e2e;border-radius:6px;padding:10px;font-family:monospace;line-height:1.8">
+        <div style="color:#888">[项目根]/</div>
+        <div style="color:#fab387">&nbsp;&nbsp;decision-source/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 项目资产，中立</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;knowledge/</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;common/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← ux-collect 写</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specific/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← ux-collect 写</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;learnings/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← self-improving 写</div>
+        <div style="color:#888;margin-top:6px">.claude/skills/</div>
+        <div style="color:#89b4fa">&nbsp;&nbsp;ia-generate/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 只读 decision-source/knowledge/</div>
+        <div style="color:#a6e3a1">&nbsp;&nbsp;ux-collect/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 写 decision-source/knowledge/</div>
+        <div style="color:#cba6f7">&nbsp;&nbsp;self-improving/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 读写 decision-source/</div>
+        <div style="color:#f9e2af">&nbsp;&nbsp;unity-csharp-spec/ &nbsp;&nbsp;&nbsp;← 独立</div>
+        <div style="color:#f9e2af">&nbsp;&nbsp;workflow-auditor/ &nbsp;&nbsp;&nbsp;&nbsp;← 独立</div>
+      </div>
+      <div class="pros-cons" style="margin-top:8px;font-size:12px">
+        <div class="pros"><h4>优</h4><ul><li>零跨 Skill 耦合</li><li>三者都是平级独立 Skill，用户可独立触发</li><li>ia-generate 天然只读（物理路径隔离）</li><li>CLAUDE.md 统一注册路径，符合 D8 精神</li></ul></div>
+        <div class="cons"><h4>劣</h4><ul><li>knowledge 不在 .claude/ 内，显得"游离"</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>knowledge 放在 .claude/ 内的共享目录</h3>
+      <p>在 .claude/ 下建一个独立的 <code>knowledge/</code> 目录（不属于任何 Skill），三个 Skill 通过 CLAUDE.md 注册路径访问。</p>
+      <div style="font-size:12px;margin-top:10px;background:#1e1e2e;border-radius:6px;padding:10px;font-family:monospace;line-height:1.8">
+        <div style="color:#888">.claude/</div>
+        <div style="color:#fab387">&nbsp;&nbsp;knowledge/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 共享数据层</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;common/</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;specific/</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;learnings/</div>
+        <div style="color:#888">&nbsp;&nbsp;skills/</div>
+        <div style="color:#89b4fa">&nbsp;&nbsp;&nbsp;&nbsp;ia-generate/</div>
+        <div style="color:#a6e3a1">&nbsp;&nbsp;&nbsp;&nbsp;ux-collect/</div>
+        <div style="color:#cba6f7">&nbsp;&nbsp;&nbsp;&nbsp;self-improving/</div>
+        <div style="color:#f9e2af">&nbsp;&nbsp;&nbsp;&nbsp;unity-csharp-spec/</div>
+        <div style="color:#f9e2af">&nbsp;&nbsp;&nbsp;&nbsp;workflow-auditor/</div>
+      </div>
+      <div class="pros-cons" style="margin-top:8px;font-size:12px">
+        <div class="pros"><h4>优</h4><ul><li>所有东西都在 .claude/ 内，整洁</li><li>同样零耦合</li></ul></div>
+        <div class="cons"><h4>劣</h4><ul><li>.claude/ 内 knowledge 和 skills 平级，结构稍混</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:16px;background:#1e1e2e;border:1px solid #6c7086;border-radius:8px;padding:12px;font-size:12px;color:#888">
+  📌 两方案的权限约定（CLAUDE.md 注册）：<br><br>
+  <span style="color:#a6e3a1">ux-collect</span>：写 knowledge/common/ 和 knowledge/specific/<br>
+  <span style="color:#cba6f7">self-improving</span>：读 knowledge/（比对现有规则）+ 写 learnings/ + 批准后更新 knowledge/<br>
+  <span style="color:#89b4fa">ia-generate</span>：只读 knowledge/（不可写）
+</div>

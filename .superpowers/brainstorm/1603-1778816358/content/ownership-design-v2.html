@@ -1,0 +1,84 @@
+<h2>知识库归属设计 v2</h2>
+<p class="subtitle">ia-generate 需要同时读 knowledge/ 和 learnings/</p>
+
+<div style="background:#1e1e2e;border:1px solid #6c7086;border-radius:8px;padding:16px;margin-bottom:20px;font-size:12px">
+  <div style="color:#cdd6f4;font-weight:bold;margin-bottom:12px">权限矩阵（已更新）</div>
+  <table style="width:100%;border-collapse:collapse">
+    <thead>
+      <tr style="color:#888;border-bottom:1px solid #313244">
+        <th style="text-align:left;padding:6px 8px">Skill</th>
+        <th style="text-align:center;padding:6px 8px">knowledge/</th>
+        <th style="text-align:center;padding:6px 8px">learnings/</th>
+        <th style="text-align:left;padding:6px 8px">用途</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #313244">
+        <td style="padding:8px;color:#a6e3a1">ux-collect</td>
+        <td style="text-align:center;padding:8px;color:#fab387">✍️ 写</td>
+        <td style="text-align:center;padding:8px;color:#6c7086">—</td>
+        <td style="padding:8px;color:#888">采集 Figma 规则 → 沉淀进 knowledge/</td>
+      </tr>
+      <tr style="border-bottom:1px solid #313244">
+        <td style="padding:8px;color:#cba6f7">self-improving</td>
+        <td style="text-align:center;padding:8px;color:#fab387">✍️ 读写</td>
+        <td style="text-align:center;padding:8px;color:#fab387">✍️ 写</td>
+        <td style="padding:8px;color:#888">归纳 bad case → learnings/；批准后蒸馏回 knowledge/</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;color:#89b4fa">ia-generate</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">👁 只读</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">👁 只读</td>
+        <td style="padding:8px;color:#888">读规则 + 读历史错误案例，作为 IA 推理输入</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>共享数据放项目根目录</h3>
+      <div style="font-size:12px;margin-top:8px;background:#1e1e2e;border-radius:6px;padding:10px;font-family:monospace;line-height:1.8">
+        <div style="color:#fab387">[项目根]/decision-source/ &nbsp;← 项目资产</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;knowledge/</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;common/</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;specific/</div>
+        <div style="color:#cba6f7">&nbsp;&nbsp;learnings/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← self-improving 写 / ia-generate 读</div>
+        <div style="color:#888;margin-top:4px">.claude/skills/</div>
+        <div style="color:#89b4fa">&nbsp;&nbsp;ia-generate/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 读 knowledge/ + learnings/</div>
+        <div style="color:#a6e3a1">&nbsp;&nbsp;ux-collect/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 写 knowledge/</div>
+        <div style="color:#cba6f7">&nbsp;&nbsp;self-improving/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 读写 knowledge/ + learnings/</div>
+        <div style="color:#f9e2af">&nbsp;&nbsp;unity-csharp-spec/</div>
+        <div style="color:#f9e2af">&nbsp;&nbsp;workflow-auditor/</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>共享数据放 .claude/ 内</h3>
+      <div style="font-size:12px;margin-top:8px;background:#1e1e2e;border-radius:6px;padding:10px;font-family:monospace;line-height:1.8">
+        <div style="color:#888">.claude/</div>
+        <div style="color:#fab387">&nbsp;&nbsp;decision-source/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 共享数据层</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;knowledge/</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;common/</div>
+        <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specific/</div>
+        <div style="color:#cba6f7">&nbsp;&nbsp;&nbsp;&nbsp;learnings/</div>
+        <div style="color:#888">&nbsp;&nbsp;skills/</div>
+        <div style="color:#89b4fa">&nbsp;&nbsp;&nbsp;&nbsp;ia-generate/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 读 knowledge/ + learnings/</div>
+        <div style="color:#a6e3a1">&nbsp;&nbsp;&nbsp;&nbsp;ux-collect/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 写 knowledge/</div>
+        <div style="color:#cba6f7">&nbsp;&nbsp;&nbsp;&nbsp;self-improving/ &nbsp;&nbsp;&nbsp;&nbsp;← 读写 knowledge/ + learnings/</div>
+        <div style="color:#f9e2af">&nbsp;&nbsp;&nbsp;&nbsp;unity-csharp-spec/</div>
+        <div style="color:#f9e2af">&nbsp;&nbsp;&nbsp;&nbsp;workflow-auditor/</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:16px;background:#1e1e2e;border:1px solid #6c7086;border-radius:8px;padding:12px;font-size:12px;color:#888">
+  两个方案的权限约定完全相同，区别只是 <code>decision-source/</code> 的物理位置。<br>
+  推荐 <strong>B</strong>：所有 AI 工作文件统一在 .claude/ 下，Git 管理更清晰（.gitignore 一条规则覆盖所有）。
+</div>

@@ -1,0 +1,131 @@
+<h2>XGame AI 设计工作流 — 完整架构设计</h2>
+<p class="subtitle">请逐段确认，有问题随时在终端说</p>
+
+<!-- 第一段：目录结构 -->
+<div class="section">
+  <h3>① 目录结构</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+    <div style="background:#1e1e2e;border-radius:8px;padding:14px;font-family:monospace;font-size:12px;line-height:2">
+      <div style="color:#f9e2af;font-family:sans-serif;font-size:11px;margin-bottom:8px">项目根目录</div>
+      <div style="color:#fab387">decision-source/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 项目知识库</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;knowledge/</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;common/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 通用规则（hard/soft）</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;flow-decision.md &nbsp;&nbsp;← 流程推理案例</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout-decision.md &nbsp;← 容器选择+布局规则</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout-spec.json &nbsp;&nbsp;&nbsp;← 布局模板数据</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;component-decision.md &nbsp;← 组件使用规范</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;component-spec.json &nbsp;&nbsp;← 组件数据</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;specific/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 专项规则（按需加载）</div>
+      <div style="color:#cba6f7">&nbsp;&nbsp;learnings/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 复盘 bad case</div>
+      <div style="color:#cba6f7">&nbsp;&nbsp;&nbsp;&nbsp;pending/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 待审批</div>
+      <div style="color:#cba6f7">&nbsp;&nbsp;&nbsp;&nbsp;approved/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← 已批准（蒸馏前暂存）</div>
+      <div style="color:#a6e3a1;margin-top:4px">AI-workflow-discussion-log.md &nbsp;← 架构决策日志</div>
+      <div style="color:#6c7086">CLAUDE.md &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← Skill地图+路径注册</div>
+    </div>
+    <div style="background:#1e1e2e;border-radius:8px;padding:14px;font-family:monospace;font-size:12px;line-height:2">
+      <div style="color:#f9e2af;font-family:sans-serif;font-size:11px;margin-bottom:8px">.claude/</div>
+      <div style="color:#888">skills/</div>
+      <div style="color:#a6e3a1">&nbsp;&nbsp;ux-collect/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← Phase 1</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;SKILL.md</div>
+      <div style="color:#89b4fa">&nbsp;&nbsp;ia-generate/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← Phase 1</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;SKILL.md</div>
+      <div style="color:#cba6f7">&nbsp;&nbsp;self-improving/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← Phase 2</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;SKILL.md</div>
+      <div style="color:#f9e2af">&nbsp;&nbsp;workflow-auditor/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← Phase 2</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;SKILL.md</div>
+      <div style="color:#f9e2af">&nbsp;&nbsp;unity-csharp-spec/ &nbsp;&nbsp;&nbsp;← Phase 2</div>
+      <div style="color:#cdd6f4">&nbsp;&nbsp;&nbsp;&nbsp;SKILL.md</div>
+    </div>
+  </div>
+</div>
+
+<!-- 第二段：Skill 权限矩阵 -->
+<div class="section">
+  <h3>② Skill 权限矩阵</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:12px">
+    <thead>
+      <tr style="color:#888;border-bottom:1px solid #313244">
+        <th style="text-align:left;padding:8px">Skill</th>
+        <th style="text-align:center;padding:8px">knowledge/</th>
+        <th style="text-align:center;padding:8px">learnings/</th>
+        <th style="text-align:left;padding:8px">用户触发方式</th>
+        <th style="text-align:center;padding:8px">Phase</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #1e1e2e">
+        <td style="padding:8px;color:#a6e3a1">ux-collect</td>
+        <td style="text-align:center;padding:8px">✍️ 读写</td>
+        <td style="text-align:center;padding:8px;color:#6c7086">—</td>
+        <td style="padding:8px;color:#888">提供 Figma URL → 采集规则</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">1</td>
+      </tr>
+      <tr style="border-bottom:1px solid #1e1e2e">
+        <td style="padding:8px;color:#89b4fa">ia-generate</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">👁 只读</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">👁 只读</td>
+        <td style="padding:8px;color:#888">输入策划MD → 产出 IA 文档.md</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">1</td>
+      </tr>
+      <tr style="border-bottom:1px solid #1e1e2e">
+        <td style="padding:8px;color:#cba6f7">self-improving</td>
+        <td style="text-align:center;padding:8px">✍️ 读写</td>
+        <td style="text-align:center;padding:8px">✍️ 读写</td>
+        <td style="padding:8px;color:#888">输入反馈（会话/Figma批注）→ 更新决策源</td>
+        <td style="text-align:center;padding:8px;color:#89b4fa">2</td>
+      </tr>
+      <tr style="border-bottom:1px solid #1e1e2e">
+        <td style="padding:8px;color:#f9e2af">workflow-auditor</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">👁 只读</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">👁 只读</td>
+        <td style="padding:8px;color:#888">输入产出物 → 分级问题清单</td>
+        <td style="text-align:center;padding:8px;color:#89b4fa">2</td>
+      </tr>
+      <tr>
+        <td style="padding:8px;color:#f9e2af">unity-csharp-spec</td>
+        <td style="text-align:center;padding:8px;color:#a6e3a1">👁 只读</td>
+        <td style="text-align:center;padding:8px;color:#6c7086">—</td>
+        <td style="padding:8px;color:#888">输入 Unity 代码 → C# 规范 MD</td>
+        <td style="text-align:center;padding:8px;color:#89b4fa">2</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 第三段：核心数据流 -->
+<div class="section">
+  <h3>③ 核心数据流（环节1→4）</h3>
+  <div style="background:#1e1e2e;border-radius:8px;padding:16px;font-size:12px">
+    <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px">
+      <div style="background:#313244;border-radius:20px;padding:2px 10px;color:#a6e3a1;white-space:nowrap;font-size:11px">环节1</div>
+      <div style="color:#888">策划MD（必选）+ 竞品拆解MD（可选）→ 喂给 ia-generate</div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px">
+      <div style="background:#313244;border-radius:20px;padding:2px 10px;color:#89b4fa;white-space:nowrap;font-size:11px">环节2</div>
+      <div style="color:#888"><strong style="color:#89b4fa">ia-generate</strong> 读 knowledge/（只读）+ learnings/（只读）→ 推理产出 <strong style="color:#cdd6f4">IA 结构化文档.md</strong><br>
+      <span style="color:#6c7086;font-size:11px">决策层：流程推理 / 界面容器 / 布局区划 / 状态枚举 / Component选择</span></div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:12px">
+      <div style="background:#313244;border-radius:20px;padding:2px 10px;color:#fab387;white-space:nowrap;font-size:11px">环节3</div>
+      <div style="color:#888">用户审阅 IA 文档.md → 确认后手动触发 <strong style="color:#fab387">官方 figma-generate-design</strong> → 产出 Figma 界面<br>
+      <span style="color:#6c7086;font-size:11px">能复用的 component 严格引用，不能复用的按 token 凭空绘制</span></div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:8px">
+      <div style="background:#313244;border-radius:20px;padding:2px 10px;color:#cba6f7;white-space:nowrap;font-size:11px">环节4</div>
+      <div style="color:#888"><strong style="color:#cba6f7">self-improving</strong>：人类反馈 → AI 复盘归纳 bad case → 写 learnings/pending/ → 人工审批 → 蒸馏更新 knowledge/ → learnings 清除<br>
+      <span style="color:#6c7086;font-size:11px">同时由 ux-collect 持续采集新规则补充 knowledge/</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 第四段：决策日志 -->
+<div class="section">
+  <h3>④ 架构决策日志</h3>
+  <div style="background:#1e1e2e;border-radius:8px;padding:14px;font-size:12px;color:#888">
+    <div style="color:#a6e3a1;margin-bottom:6px">AI-workflow-discussion-log.md（项目根，与 TGame 模式一致）</div>
+    <div>• 记录所有架构级决策（D1、D2…编号体系延续）</div>
+    <div>• 重大变更进 Plan Mode 讨论后同步</div>
+    <div>• AI 不自作主张更新，由用户决定同步时机</div>
+    <div>• 包含 §Skill地图 / §数据流 / §决策历史 / §Phase进度</div>
+  </div>
+</div>

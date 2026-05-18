@@ -1,0 +1,68 @@
+<h2>整体构建路径</h2>
+<p class="subtitle">XGame 新架构从零开始，两种推进节奏</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>核心流先跑通，学习环后补（推荐）</h3>
+      <p>分两阶段：先把主干闭合，验证 IA 产出质量；再接入学习闭环。</p>
+      <div style="font-size:12px;margin-top:10px;display:flex;flex-direction:column;gap:8px">
+        <div style="background:#1e1e2e;border-left:3px solid #a6e3a1;border-radius:4px;padding:10px">
+          <div style="color:#a6e3a1;margin-bottom:4px">Phase 1：主干（优先）</div>
+          <div style="color:#888">1. 清空 XGame 旧文件，建立新目录结构</div>
+          <div style="color:#888">2. ux-collect Skill — 从 Figma 采集决策源</div>
+          <div style="color:#888">3. ia-generate Skill — 读决策源 → 产 IA 文档</div>
+          <div style="color:#888">4. 端到端跑一个真实界面（如城市主界面）</div>
+        </div>
+        <div style="background:#1e1e2e;border-left:3px solid #89b4fa;border-radius:4px;padding:10px">
+          <div style="color:#89b4fa;margin-bottom:4px">Phase 2：学习环 + 配套（Phase 1 验证后）</div>
+          <div style="color:#888">5. self-improving Skill — feedback → bad case → 更新决策源</div>
+          <div style="color:#888">6. workflow-auditor Skill — 验收审计</div>
+          <div style="color:#888">7. unity-csharp-spec Skill — C# 规范产出</div>
+        </div>
+      </div>
+      <div class="pros-cons" style="margin-top:8px;font-size:12px">
+        <div class="pros"><h4>优</h4><ul><li>主干先验证，问题早暴露</li><li>Phase 1 完成即可投入真实使用</li></ul></div>
+        <div class="cons"><h4>劣</h4><ul><li>Phase 2 有等待期</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>5 个 Skill 一次性全建</h3>
+      <p>同步建好全部 5 个 Skill 的骨架和 SKILL.md，一次完成脚手架，再逐步填充内容。</p>
+      <div style="font-size:12px;margin-top:10px;background:#1e1e2e;border-left:3px solid #f9e2af;border-radius:4px;padding:10px">
+        <div style="color:#f9e2af;margin-bottom:4px">一次性完成</div>
+        <div style="color:#888">建目录结构 + 5 个 SKILL.md 骨架 + CLAUDE.md + decision-source/ 初始文件</div>
+        <div style="color:#888;margin-top:6px">优：结构一次到位；劣：内容还是要逐步填，验证时间更长，风险更集中</div>
+      </div>
+      <div class="pros-cons" style="margin-top:8px;font-size:12px">
+        <div class="pros"><h4>优</h4><ul><li>架构全貌一次成型，团队可并行认知</li></ul></div>
+        <div class="cons"><h4>劣</h4><ul><li>5 个 Skill 同时开工，验证周期长，问题晚暴露</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:16px;background:#1e1e2e;border:1px solid #6c7086;border-radius:8px;padding:14px;font-size:12px">
+  <div style="color:#cdd6f4;font-weight:bold;margin-bottom:8px">📐 架构总览（两条路径共同的最终状态）</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;color:#888">
+    <div>
+      <div style="color:#fab387;margin-bottom:4px">[项目根]/decision-source/</div>
+      <div>knowledge/common/ — 通用规则（flow/layout/component）</div>
+      <div>knowledge/specific/ — 专项规则</div>
+      <div>learnings/ — 复盘 bad case</div>
+    </div>
+    <div>
+      <div style="color:#fab387;margin-bottom:4px">.claude/skills/</div>
+      <div style="color:#a6e3a1">ux-collect/ — 采集决策源</div>
+      <div style="color:#89b4fa">ia-generate/ — IA 推理</div>
+      <div style="color:#cba6f7">self-improving/ — 学习闭环</div>
+      <div style="color:#f9e2af">unity-csharp-spec/ — C# 规范</div>
+      <div style="color:#f9e2af">workflow-auditor/ — 验收审计</div>
+    </div>
+  </div>
+</div>

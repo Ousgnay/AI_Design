@@ -1,0 +1,103 @@
+<h2>旧架构 vs 新架构</h2>
+<p class="subtitle">XGame AI 设计工作流 — 系统性重构前的认知对齐</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">❌ 旧架构（TGame时代，8个Skill）</div>
+    <div class="mockup-body" style="padding:16px;font-size:13px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="background:#1e1e2e;border:1px solid #444;border-radius:6px;padding:10px">
+          <div style="color:#888;font-size:11px;margin-bottom:4px">输入层</div>
+          <div style="color:#cdd6f4">策划文档 → <span style="color:#a6e3a1">planning-doc-to-tasks</span></div>
+          <div style="color:#cdd6f4;margin-top:4px">Figma竞品页 → <span style="color:#a6e3a1">figma-competitive-extractor</span></div>
+        </div>
+        <div style="color:#888;text-align:center;font-size:11px">↓</div>
+        <div style="background:#1e1e2e;border:1px solid #444;border-radius:6px;padding:10px">
+          <div style="color:#888;font-size:11px;margin-bottom:4px">规范层</div>
+          <div style="color:#cdd6f4"><span style="color:#89b4fa">figma-design-spec</span> → rules/common + rules/specific</div>
+        </div>
+        <div style="color:#888;text-align:center;font-size:11px">↓</div>
+        <div style="background:#1e1e2e;border:1px solid #444;border-radius:6px;padding:10px">
+          <div style="color:#888;font-size:11px;margin-bottom:4px">原型层（三轨）</div>
+          <div style="color:#f38ba8"><span style="color:#fab387">web-prototype-builder</span> → HTML原型</div>
+          <div style="color:#f38ba8;margin-top:4px"><span style="color:#fab387">figma-design-builder</span> → Figma原型</div>
+          <div style="color:#888;margin-top:4px;font-size:11px">↔ figma-web-bridge（手动桥接）</div>
+        </div>
+        <div style="color:#888;text-align:center;font-size:11px">↓</div>
+        <div style="background:#1e1e2e;border:1px solid #444;border-radius:6px;padding:10px">
+          <div style="color:#888;font-size:11px;margin-bottom:4px">验收 + Unity</div>
+          <div style="color:#cdd6f4"><span style="color:#cba6f7">workflow-auditor</span> + <span style="color:#cba6f7">unity-csharp-spec</span></div>
+        </div>
+        <div style="background:#313244;border:1px solid #f38ba8;border-radius:6px;padding:8px;margin-top:4px">
+          <div style="color:#f38ba8;font-size:11px">⚠️ 问题：8个Skill职责交叉 / figma-design-builder vs Plan B官方Skill主权不明 / 缓存层不可行 / 路径全是TGame</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-header">✅ 新架构（XGame，4个环节 + 3个Skill）</div>
+    <div class="mockup-body" style="padding:16px;font-size:13px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="background:#1e1e2e;border:1px solid #a6e3a1;border-radius:6px;padding:10px">
+          <div style="color:#a6e3a1;font-size:11px;margin-bottom:4px">环节1：业务逻辑输入</div>
+          <div style="color:#cdd6f4">策划MD（必选）+ 竞品拆解MD（可选）</div>
+        </div>
+        <div style="color:#888;text-align:center;font-size:11px">↓</div>
+        <div style="background:#1e1e2e;border:1px solid #89b4fa;border-radius:6px;padding:10px">
+          <div style="color:#89b4fa;font-size:11px;margin-bottom:4px">环节2：信息架构IA处理</div>
+          <div style="color:#cdd6f4"><span style="color:#89b4fa">ia-generate</span> skill</div>
+          <div style="color:#888;font-size:11px;margin-top:4px">决策源：流程推理 / 容器选择 / 信息层级 / 状态枚举 / Component决策</div>
+          <div style="color:#888;font-size:11px">约束：hard（强制）/ soft（参考）</div>
+          <div style="color:#888;font-size:11px">格式：JSON数据集 + MD决策链</div>
+          <div style="color:#cdd6f4;margin-top:6px">输出：IA结构化文档.md</div>
+        </div>
+        <div style="color:#888;text-align:center;font-size:11px">↓</div>
+        <div style="background:#1e1e2e;border:1px solid #fab387;border-radius:6px;padding:10px">
+          <div style="color:#fab387;font-size:11px;margin-bottom:4px">环节3：信息实例化</div>
+          <div style="color:#cdd6f4">官方Figma Skill包（figma-use / figma-generate-design）</div>
+          <div style="color:#888;font-size:11px;margin-top:4px">输出：Figma Frame（能复用的component严格引用，不能复用的按token凭空绘制）</div>
+        </div>
+        <div style="color:#888;text-align:center;font-size:11px">↓</div>
+        <div style="background:#1e1e2e;border:1px solid #cba6f7;border-radius:6px;padding:10px">
+          <div style="color:#cba6f7;font-size:11px;margin-bottom:4px">环节4：自我学习</div>
+          <div style="color:#cdd6f4"><span style="color:#cba6f7">self-improving</span> skill</div>
+          <div style="color:#888;font-size:11px;margin-top:4px">输入：人类反馈（会话/Figma批注）</div>
+          <div style="color:#888;font-size:11px">处理：AI复盘 → bad case归纳 → 人工审批 → 更新决策源</div>
+        </div>
+        <div style="background:#1e1e2e;border:1px dashed #89b4fa;border-radius:6px;padding:8px;margin-top:4px">
+          <div style="color:#89b4fa;font-size:11px"><span style="color:#a6e3a1">ux-collect</span> skill（横切）：采集Figma规则/案例 → 补充IA决策源</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:24px;background:#1e1e2e;border:1px solid #6c7086;border-radius:8px;padding:16px">
+  <div style="color:#cdd6f4;font-weight:bold;margin-bottom:12px">🔑 核心变化</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;font-size:12px">
+    <div style="background:#313244;border-radius:6px;padding:10px">
+      <div style="color:#a6e3a1;margin-bottom:6px">废弃</div>
+      <div style="color:#888">• web-prototype-builder（去掉HTML原型）</div>
+      <div style="color:#888">• figma-design-builder（执行交给官方）</div>
+      <div style="color:#888">• figma-web-bridge（无双轨）</div>
+      <div style="color:#888">• figma-competitive-extractor（并入ux-collect）</div>
+      <div style="color:#888">• planning-doc-to-tasks（并入ia-generate）</div>
+    </div>
+    <div style="background:#313244;border-radius:6px;padding:10px">
+      <div style="color:#89b4fa;margin-bottom:6px">重组为3个Skill</div>
+      <div style="color:#cdd6f4">• ux-collect（采集决策源）</div>
+      <div style="color:#cdd6f4">• ia-generate（IA推理）</div>
+      <div style="color:#cdd6f4">• self-improving（自我学习）</div>
+      <div style="color:#888;margin-top:6px">+ 官方Figma Skill包（执行层）</div>
+    </div>
+    <div style="background:#313244;border-radius:6px;padding:10px">
+      <div style="color:#fab387;margin-bottom:6px">待确认</div>
+      <div style="color:#888">• unity-csharp-spec 去留？</div>
+      <div style="color:#888">• workflow-auditor 去留？</div>
+      <div style="color:#888">• 环节4: 独立Skill还是扩展？</div>
+      <div style="color:#888">• 环节4: 决策源与bad case分离？</div>
+      <div style="color:#888">• 上下文积累怎么解决？</div>
+    </div>
+  </div>
+</div>

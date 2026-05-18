@@ -1,0 +1,46 @@
+<h2>self-improving 与 ia-generate 的关系</h2>
+<p class="subtitle">核心问题：谁拥有决策源的写权限？</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>共享目录 + CLAUDE.md 注册路径</h3>
+      <p>决策源放在独立的 <code>decision-source/</code> 目录，CLAUDE.md 统一注册该路径。ia-generate 只读，self-improving 读写。两个 Skill 解耦，通过约定路径通信。</p>
+      <div class="pros-cons" style="margin-top:8px;font-size:12px">
+        <div class="pros"><h4>优</h4><ul><li>职责纯粹</li><li>扩展性好</li><li>符合 D8 精神</li></ul></div>
+        <div class="cons"><h4>劣</h4><ul><li>需要 CLAUDE.md 严格维护路径</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>ia-generate 子命令（推荐）</h3>
+      <p>将学习能力做成 ia-generate 的子命令：<code>ia-generate improve</code>。决策源由 ia-generate "拥有"，self-improving 的逻辑编写在 ia-generate skill 内部，自然访问所有资源，无需跨 Skill 路径。</p>
+      <div class="pros-cons" style="margin-top:8px;font-size:12px">
+        <div class="pros"><h4>优</h4><ul><li>零耦合风险</li><li>决策源所有权清晰</li><li>与 figma-design-spec 的 learn 子命令设计一致</li></ul></div>
+        <div class="cons"><h4>劣</h4><ul><li>ia-generate 体量变大</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>完全独立 Skill（但依赖路径约定）</h3>
+      <p>self-improving 独立，但在 SKILL.md 里硬编码 ia-generate 的资源路径。实现最简单，但引入跨 Skill 硬耦合。</p>
+      <div class="pros-cons" style="margin-top:8px;font-size:12px">
+        <div class="pros"><h4>优</h4><ul><li>开发最快</li></ul></div>
+        <div class="cons"><h4>劣</h4><ul><li>违反 D8（路径硬编码）</li><li>ia-generate 重构时必须同步改 self-improving</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:20px;background:#1e1e2e;border:1px solid #6c7086;border-radius:8px;padding:14px;font-size:12px">
+  <div style="color:#cdd6f4;font-weight:bold;margin-bottom:8px">📐 架构事实</div>
+  <div style="color:#888">ia-generate 的决策源（decision-source/）是整个系统的核心知识库。它既是 ia-generate 的"燃料"，也是 self-improving 的"目标"。谁拥有这个目录的写权限，直接决定了两个 Skill 之间的依赖方向。</div>
+  <div style="margin-top:8px;color:#888">方案 B 是推荐方向：ia-generate 既是"使用者"又是"维护者"，逻辑自洽，self-improving 的名称成为 ia-generate 的一个模式，而非独立实体。</div>
+</div>

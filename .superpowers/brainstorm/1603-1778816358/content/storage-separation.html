@@ -1,0 +1,65 @@
+<h2>决策源 vs Bad Case：分开存还是放一起？</h2>
+<p class="subtitle">核心问题：错误案例是"污染"还是"养料"？</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>完全分离</h3>
+      <p>两个独立目录：<code>decision-source/rules/</code>（干净的决策规则）和 <code>decision-source/bad-cases/</code>（错误档案）。ia-generate 执行时只读 rules/，bad cases 只在 improve 阶段参与。</p>
+      <div style="font-size:12px;margin-top:8px;background:#1e1e2e;border-radius:6px;padding:8px">
+        <div style="color:#888">目录结构：</div>
+        <div style="color:#a6e3a1;font-family:monospace;margin-top:4px">
+          decision-source/<br>
+          ├── rules/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← ia-generate 常驻读取<br>
+          │ &nbsp;&nbsp;├── common/ &nbsp;（硬约束 + 软约束）<br>
+          │ &nbsp;&nbsp;└── specific/<br>
+          └── bad-cases/ ← 仅 improve 时读取<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── 2026-05-15-case.md
+        </div>
+      </div>
+      <div class="pros-cons" style="margin-top:8px;font-size:12px">
+        <div class="pros"><h4>优</h4><ul><li>rules 永远干净</li><li>ia-generate 执行时上下文轻量</li></ul></div>
+        <div class="cons"><h4>劣</h4><ul><li>bad case 与规则脱节，improve 时需要交叉引用</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Bad Case 是临时中间态（推荐）</h3>
+      <p>Bad case 在 <code>bad-cases/</code> 暂存，<strong>一旦被批准蒸馏进 rules 就删除</strong>。rules 里只有"结论"，bad-cases 是"加工厂"。执行时永远只看干净的 rules，improve 后 bad-cases 自动清空。</p>
+      <div style="font-size:12px;margin-top:8px;background:#1e1e2e;border-radius:6px;padding:8px">
+        <div style="color:#888">生命周期：</div>
+        <div style="color:#fab387;font-family:monospace;margin-top:4px">
+          反馈进来 → bad-cases/pending/<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ AI 复盘归纳<br>
+          bad-cases/reviewed/<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ 人工批准<br>
+          规则蒸馏进 rules/ + bad-cases 清除
+        </div>
+      </div>
+      <div class="pros-cons" style="margin-top:8px;font-size:12px">
+        <div class="pros"><h4>优</h4><ul><li>rules 永远是结论，没有历史噪音</li><li>bad-cases 不堆积（批准即清除）</li><li>上下文积累问题自然解决</li></ul></div>
+        <div class="cons"><h4>劣</h4><ul><li>历史 bad case 不可回溯</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>不分离，inline 标注</h3>
+      <p>Bad case 直接作为规则文件里的 <code>❌ 反例</code> 注释写入。规则和反例在同一个文件，便于 AI 对照理解，但文件会越来越大。</p>
+      <div class="pros-cons" style="margin-top:8px;font-size:12px">
+        <div class="pros"><h4>优</h4><ul><li>最简单，无额外目录</li><li>AI 可同时看规则和反例</li></ul></div>
+        <div class="cons"><h4>劣</h4><ul><li>文件随时间膨胀</li><li>上下文会越来越重</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:16px;background:#1e1e2e;border:1px solid #fab387;border-radius:8px;padding:12px;font-size:12px;color:#888">
+  💡 方案 B 同时回答了复盘文档里另一个待讨论点：<strong>「未来资料堆积导致上下文效率问题」</strong>——bad case 批准后即清除，rules 只保留蒸馏后的结论，上下文不会随时间线性膨胀。
+</div>
