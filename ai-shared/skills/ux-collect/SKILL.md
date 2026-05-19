@@ -1,6 +1,6 @@
 ﻿---
 name: ux-collect
-description: 从 Figma URL 采集 IA 决策源规则（含 design system tokens），写入 decision-source/knowledge/。触发条件：用户提供 Figma URL 并要求采集。
+description: 从 Figma URL 采集 IA 决策源规则（含 design system tokens 与 responsive 规则），写入 decision-source/knowledge/。触发条件：用户提供 Figma URL 并要求采集。
 disable-model-invocation: false
 ---
 
@@ -57,6 +57,9 @@ disable-model-invocation: false
 - `layout`
   - 数据写入 `layout-spec.json`
   - 规则写入 `layout-decision.md`
+- `responsive`
+  - 数据写入 `responsive-spec.json`
+  - 规则写入 `responsive-decision.md`
 - `flow`
   - 规则默认写入 `flow-decision.md`
 
@@ -65,6 +68,7 @@ disable-model-invocation: false
 - 若采集对象是颜色、字号、样式、effect、变量等设计 token，归为 `tokens`
 - 若采集对象是可实例化组件、组件层级、变体与实例化规则，归为 `component`
 - 若采集对象是页面骨架、分区方式、界面分类、容器结构与布局范式，归为 `layout`
+- 若采集对象是安全区、屏幕比例、元素挂靠逻辑、位置/尺寸适配策略、背景/列表/tips/弹窗的多分辨率适配规则，归为 `responsive`
 - 若采集对象是页面之间的关系、入口跳转、交互链路、状态流转、步骤顺序与前后置依赖，归为 `flow`
 
 ### 步骤 3 — 与用户协作提炼规则
@@ -76,6 +80,12 @@ AI 整理初步采集内容后，必须先呈现给用户。
 - 若一个页面同时包含“空白模板 + 多个具体变体”，应先抽取空白模板的共性骨架，再抽取各变体的差异结构
 - 若对象同时具备 layout template 与真实 component 双重属性，必须先向用户说明会并行写入 `layout-*` 与 `component-*`
 - 若页面是满屏结果层、全屏浮窗、主界面覆盖层等特殊界面，应默认按 `layout-first` 方式解释整页结构，只把其中真实存在的子级 `COMPONENT` / `COMPONENT_SET` 单独归入 `component-*`
+
+若本次采集属于 responsive 规范页、适配规范页或图片化规则页，还必须先完成以下解释动作，再给用户确认：
+- 若页面内容量很大，必须按用户指定或按自然分页分批读取，避免一次性读取整页导致上下文爆量
+- 若页面包含大量 image、比例框、裁切对比图或截图示意，必须先做语义归纳，再抽象成“可复用规则”；不得把示意图本身误记为 layout template
+- 若当前规范页没有稳定的结构化 frame 可记录 `responsive-spec.json` 的区块数据，允许先只写 `responsive-decision.md` 为权威规则，并在 `responsive-spec.json` 中保留来源页与“待后续结构化”的占位元数据
+- 若同一规则在多个示意图中重复出现，应提炼为单条通用规则，并补充适用范围与例外条件，而不是逐图重复抄写
 
 ### 步骤 4 — 写入 knowledge/
 
@@ -99,6 +109,13 @@ AI 整理初步采集内容后，必须先呈现给用户。
 - 若来源是弹窗家族、模板家族或 `component_set` 家族，应优先录入空白模板或共性骨架，再录入具体变体
 - 若 layout 与 component 同源共存，layout 侧记录家族骨架和变体结构，component 侧记录真实可实例化入口与 `componentKey`
 - 若页面为满屏覆盖层、结果层或主界面叠加层，不得因视觉完整就把整页 frame 误记为普通组件；应以 layout 为主，仅拆出真实发布组件
+
+如果本次写入包含 `responsive-spec.json`，写入前必须完成以下校验：
+- `responsive-decision.md` 必须作为本次 responsive 采集的权威规则文件
+- `responsive-spec.json` 至少要记录来源 file/page/node、采集状态、当前是否具备结构化模板、以及后续是否需要补 region 级数据
+- 若当前来源只是规范说明页、对比图或图片化案例，而非稳定模板，不得伪造 `regions`、`anchors` 或整页结构化坐标
+- 若已经可以抽象出稳定适配类别，可在 `responsive-spec.json` 中记录类别骨架、设备比例范围、规则覆盖面等轻结构化信息
+- 若用户明确说明“当前先只要通用规则”，应优先保证 `responsive-decision.md` 的可读性和可复用性，不为凑结构强行补 spec 细节
 
 ---
 

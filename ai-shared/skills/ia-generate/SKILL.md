@@ -36,6 +36,8 @@ disable-model-invocation: false
 - `decision-source/knowledge/common/flow-decision.md` - 流程推理案例
 - `decision-source/knowledge/common/layout-decision.md` - 容器选择 + 布局规则
 - `decision-source/knowledge/common/layout-spec.json` - 布局模板数据
+- `decision-source/knowledge/common/responsive-decision.md` - 通用适配规则
+- `decision-source/knowledge/common/responsive-spec.json` - 适配规则元数据 / 结构化骨架
 - `decision-source/knowledge/common/component-decision.md` - 组件使用规范
 - `decision-source/knowledge/common/component-spec.json` - 组件数据
 - `decision-source/knowledge/common/tokens-decision.md` - Design token 使用规范

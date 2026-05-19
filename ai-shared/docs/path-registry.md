@@ -75,6 +75,16 @@ ai-shared/
 | `ai-shared/state/active-session.md` | 当前会话交接唯一真实源 |
 | `AI-workflow-discussion-log.md` | 历史档案与变更日志，只追加 |
 
+## Common Knowledge Files
+
+| 类别 | 规则文件 | 数据文件 |
+|---|---|---|
+| `tokens` | `decision-source/knowledge/common/tokens-decision.md` | `decision-source/knowledge/common/tokens-data.json` |
+| `component` | `decision-source/knowledge/common/component-decision.md` | `decision-source/knowledge/common/component-spec.json` |
+| `layout` | `decision-source/knowledge/common/layout-decision.md` | `decision-source/knowledge/common/layout-spec.json` |
+| `responsive` | `decision-source/knowledge/common/responsive-decision.md` | `decision-source/knowledge/common/responsive-spec.json` |
+| `flow` | `decision-source/knowledge/common/flow-decision.md` | 当前先无独立 spec 文件 |
+
 ## Encoding Governance
 
 | 文件 | 作用 |

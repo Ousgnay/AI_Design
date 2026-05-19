@@ -70,6 +70,11 @@
         "page": "英雄卡牌",
         "page_node_id": "1928:3750",
         "collected": "2026-05-19"
+      },
+      {
+        "page": "组件 模板 Copy",
+        "page_node_id": "6207:17158",
+        "collected": "2026-05-19"
       }
     ],
     "last_synced": "2026-05-19",
@@ -6547,6 +6552,196 @@
         "地块/主城/关卡/城池提示面板"
       ],
       "instantiation_rule": "若目标是地图对象的完整 tips 面板，应优先实例化该组织层组件，并按对象类型选择变体，不回退为底板、标题、按钮和信息块重新拼装。"
+    },
+    {
+      "name": "城池-城主府",
+      "nodeId": "6654:25357",
+      "componentKey": "15fe5d2961a6d00391cde1ea8230ba00525d3db1",
+      "layer": "organism",
+      "category": "map_building_tip_panel",
+      "size": { "w": 585, "h": 857 },
+      "variants": [
+        { "state": "城池-我盟", "nodeId": "6654:25356", "componentKey": "6b8c29b0b5390c09c2479fc74ef3395f9c6bb460" },
+        { "state": "城池-友盟", "nodeId": "6654:25355", "componentKey": "2088dc6d0b89f98b85ceeca4e269843ec990d4b8" },
+        { "state": "城池-敌盟", "nodeId": "6654:25354", "componentKey": "5eaf44ea6693c5a25fd423451bc14f352f52612d" },
+        { "state": "城池-中立", "nodeId": "6654:25353", "componentKey": "17b32e50beba973b746cb9587ed9f46fc84ae552" }
+      ],
+      "use_scenes": ["地图建筑点击后 tips", "城池城主府信息面板"],
+      "instantiation_rule": "若目标是城池-城主府的完整 tips，应优先整体实例化该组织层组件，并按阵营关系选择 `城池-我盟 / 友盟 / 敌盟 / 中立` 变体，不回退为通用场景卡或底板、标题、信息项和按钮重新拼装。"
+    },
+    {
+      "name": "城池-城门",
+      "nodeId": "6654:25956",
+      "componentKey": "76fa7ace4b17a07e06da95a9aa07ba94389b7d42",
+      "layer": "organism",
+      "category": "map_building_tip_panel",
+      "size": { "w": 490, "h": 773 },
+      "variants": [
+        { "state": "城池-城门-我盟", "nodeId": "6654:25955", "componentKey": "ab8b633440bb636ff6912a02230d57edb56e14eb" },
+        { "state": "城池-城门-友盟", "nodeId": "6654:25953", "componentKey": "eb075c6995b5e28622625d9e87251b1e0b6b35ee" },
+        { "state": "城池-城门-敌盟", "nodeId": "6654:25952", "componentKey": "a6603519e627cf6aeaf8ec7ca190e6f0cee12293" },
+        { "state": "城池-城门-中立", "nodeId": "6654:25954", "componentKey": "6a4fc26a1aca3e3f2a9ebe843ae1612d42cf319c" }
+      ],
+      "use_scenes": ["地图建筑点击后 tips", "城池城门信息面板"],
+      "instantiation_rule": "若目标是城池-城门的完整 tips，应优先整体实例化该组织层组件，并按阵营关系选择对应变体，不回退为通用场景卡或底板、标题、信息项和按钮重新拼装。"
+    },
+    {
+      "name": "城池-兵营",
+      "nodeId": "6654:26254",
+      "componentKey": "61c94b08baf44c361318a34b2d3908197a51983b",
+      "layer": "organism",
+      "category": "map_building_tip_panel",
+      "size": { "w": 490, "h": 773 },
+      "variants": [
+        { "state": "城池-兵营-我盟", "nodeId": "6654:26255", "componentKey": "c103c35d317d0c2e40afae7bc7b7f9d793e699e6" },
+        { "state": "城池-兵营-友盟", "nodeId": "6654:26281", "componentKey": "fff1128059eae36a3edd7234d7d3a37935202fc3" },
+        { "state": "城池-兵营-敌盟", "nodeId": "6654:26307", "componentKey": "31f03dd1ba0efc221e1c774fa885797dee1b25ae" },
+        { "state": "城池-兵营-中立", "nodeId": "6654:26334", "componentKey": "9b04cf10c54fcf814545c45b96367d1a79fb41fa" }
+      ],
+      "use_scenes": ["地图建筑点击后 tips", "城池兵营信息面板"],
+      "instantiation_rule": "若目标是城池-兵营的完整 tips，应优先整体实例化该组织层组件，并按阵营关系选择对应变体，不回退为通用场景卡或底板、标题、信息项和按钮重新拼装。"
+    },
+    {
+      "name": "城池-城内道路",
+      "nodeId": "6654:25957",
+      "componentKey": "a7f1b488627a411c628f65dfaa57e5df05284d6a",
+      "layer": "organism",
+      "category": "map_building_tip_panel",
+      "size": { "w": 490, "h": 368 },
+      "variants": [
+        { "state": "城池-城内道路-我盟", "nodeId": "6654:25958", "componentKey": "87a1bd5c6a5b6b68bcf4232262adf9e365c4420e" },
+        { "state": "城池-城内道路-友盟", "nodeId": "6654:25984", "componentKey": "1b819445b2fb7363ef8e975b3bb8d62fc6ca749a" },
+        { "state": "城池-城内道路-敌盟", "nodeId": "6654:26010", "componentKey": "f5ed09ccf0c13bb5c191f2c164e232a5a599a50d" },
+        { "state": "城池-城内道路-中立", "nodeId": "6654:31542", "componentKey": "89261c6ddd289161b0b2643734e452ace60ea44f" }
+      ],
+      "use_scenes": ["地图建筑点击后 tips", "城池道路信息面板"],
+      "instantiation_rule": "若目标是城池-城内道路的完整 tips，应优先整体实例化该组织层组件，并按阵营关系选择对应变体，不回退为通用场景卡或底板、标题和信息项重新拼装。"
+    },
+    {
+      "name": "关卡-建筑tips",
+      "nodeId": "6654:27076",
+      "componentKey": "11738afe5d16dd41b0e7c081b5f93523ca0c1515",
+      "layer": "organism",
+      "category": "map_building_tip_panel",
+      "size": { "w": 585, "h": 857 },
+      "variants": [
+        { "state": "我盟", "nodeId": "6654:27075", "componentKey": "91b342ceb23ac78c2f58fe6f6df93bc1e3ed25cb" },
+        { "state": "友盟", "nodeId": "6654:27074", "componentKey": "5022cf88ee0550b7bb7aab2000df8852270c566f" },
+        { "state": "敌盟", "nodeId": "6654:27073", "componentKey": "0be754b0ee6b94b33fd94ba68fecbde6baa27579" },
+        { "state": "中立", "nodeId": "6654:27072", "componentKey": "fad3ba4c917085f9037c0471b287d69a16164b37" }
+      ],
+      "use_scenes": ["地图建筑点击后 tips", "关卡信息面板"],
+      "instantiation_rule": "若目标是关卡的完整 tips，应优先整体实例化该组织层组件，并按阵营关系选择对应变体，不回退为旧 `tips-场景卡` 的关卡泛化变体或底板、标题、信息项和按钮重新拼装。"
+    },
+    {
+      "name": "码头-建筑tips",
+      "nodeId": "6654:27077",
+      "componentKey": "0a64130af282cf31f9c513a964b4efad05899725",
+      "layer": "organism",
+      "category": "map_building_tip_panel",
+      "size": { "w": 585, "h": 857 },
+      "variants": [
+        { "state": "我盟", "nodeId": "6654:27078", "componentKey": "144225522a651890e8d1f8dae53b2250ec1eb266" },
+        { "state": "友盟", "nodeId": "6654:27107", "componentKey": "bd8eccc8648c7d3be87b7d447acef1fbcc40604d" },
+        { "state": "敌盟", "nodeId": "6654:27136", "componentKey": "3193ed9f3f10f0ac51c7ae4c1d65bc376b7cb72f" },
+        { "state": "中立", "nodeId": "6654:27165", "componentKey": "b0f729a958626eeac06071afc5098ab93e7b449b" }
+      ],
+      "use_scenes": ["地图建筑点击后 tips", "码头信息面板"],
+      "instantiation_rule": "若目标是码头的完整 tips，应优先整体实例化该组织层组件，并按阵营关系选择对应变体，不回退为通用场景卡或底板、标题、信息项和按钮重新拼装。"
+    },
+    {
+      "name": "玩家主城-建筑tips",
+      "nodeId": "6654:28080",
+      "componentKey": "0466f132d13c18241d79586a7276e6d13ec66366",
+      "layer": "organism",
+      "category": "map_building_tip_panel",
+      "size": { "w": 490, "h": 436 },
+      "variants": [
+        { "state": "我的", "nodeId": "6654:28079", "componentKey": "5c958841c3cdee16f5e35bc720ef93f7274484a7" },
+        { "state": "友盟", "nodeId": "6654:28078", "componentKey": "e5b5dab7b30d2ee88b8cded657fcde80319dfc44" },
+        { "state": "敌盟", "nodeId": "6654:28077", "componentKey": "c115564d14ea885c6d075bb17f805c4c018de903" },
+        { "state": "在野", "nodeId": "6654:28076", "componentKey": "4f8d401aa57f3aa1cdc748c0ed8fadbd17111f20" }
+      ],
+      "use_scenes": ["地图建筑点击后 tips", "玩家主城信息面板"],
+      "instantiation_rule": "若目标是玩家主城的完整 tips，应优先整体实例化该组织层组件，并按关系态选择 `我的 / 友盟 / 敌盟 / 在野` 变体，不回退为旧 `tips-场景卡` 的主城泛化变体或底板、标题和信息项重新拼装。"
+    },
+    {
+      "name": "资源地-建筑tips",
+      "nodeId": "6654:28867",
+      "componentKey": "1ae51582ce164d4dc2a44d7eea5ec54df05d96ba",
+      "layer": "organism",
+      "category": "map_building_tip_panel",
+      "size": { "w": 490, "h": 394 },
+      "variants": [
+        { "state": "我的", "nodeId": "6654:28862", "componentKey": "ab7e9dd98a40b2969a0aa8df03e9c91e4ff111d0" },
+        { "state": "我盟", "nodeId": "6654:28866", "componentKey": "608dd238de8a530726d78d6a47e99d82d7bb69d3" },
+        { "state": "友盟", "nodeId": "6654:28865", "componentKey": "c1a8df9acb30e434734cd4c77713954fe0771f35" },
+        { "state": "敌盟", "nodeId": "6654:28863", "componentKey": "f22bce969b421e6aefe6492815233eaf1b420537" },
+        { "state": "中立", "nodeId": "6654:28864", "componentKey": "cb649a3f3a1327fb25ed85d2101b79ddd9a53ff7" }
+      ],
+      "use_scenes": ["地图建筑点击后 tips", "资源地信息面板"],
+      "instantiation_rule": "若目标是资源地的完整 tips，应优先整体实例化该组织层组件，并按关系态选择 `我的 / 我盟 / 友盟 / 敌盟 / 中立` 变体，不回退为通用场景卡或底板、标题和信息项重新拼装。"
+    },
+    {
+      "name": "资源地-霸业前期-建筑tips",
+      "nodeId": "6654:29427",
+      "componentKey": "0d27cd8b1b59dc937dddf60259166e94679cc1b4",
+      "layer": "organism",
+      "category": "map_building_tip_panel",
+      "size": { "w": 490, "h": 609 },
+      "variants": [
+        { "state": "我的", "nodeId": "6654:29426", "componentKey": "d845ba5adbb147b6c357fc4b636ac7059fc209e5" },
+        { "state": "中立", "nodeId": "6654:29425", "componentKey": "916ef2addb4e4cbee03798fcf02505693b115964" }
+      ],
+      "use_scenes": ["地图建筑点击后 tips", "资源地霸业前期信息面板"],
+      "instantiation_rule": "若目标是霸业前期资源地的完整 tips，应优先整体实例化该组织层组件，并按 `我的 / 中立` 选择变体，不回退为普通资源地面板或通用场景卡重新拼装。"
+    },
+    {
+      "name": "营帐-建筑tips",
+      "nodeId": "6654:29718",
+      "componentKey": "960b0c5f8ce9a3cf23f4bff74565a78693798515",
+      "layer": "organism",
+      "category": "map_building_tip_panel",
+      "size": { "w": 490, "h": 566 },
+      "variants": [
+        { "state": "我的", "nodeId": "6654:29717", "componentKey": "5487fb64ac587f0d5e8e022c1040ea8470774ad1" },
+        { "state": "我盟", "nodeId": "6654:29714", "componentKey": "68cdd953ad924d10203adf349c1a15c54db99eae" },
+        { "state": "友盟", "nodeId": "6654:29716", "componentKey": "02c4897d35959f0e7d2f44b8892e811baafea87c" },
+        { "state": "敌盟", "nodeId": "6654:29715", "componentKey": "30a4d82307849affd60163ff2ef27de22a63e903" }
+      ],
+      "use_scenes": ["地图建筑点击后 tips", "营帐信息面板"],
+      "instantiation_rule": "若目标是营帐的完整 tips，应优先整体实例化该组织层组件，并按关系态选择 `我的 / 我盟 / 友盟 / 敌盟` 变体，不回退为营帐名称牌、图标和信息块重新拼装。"
+    },
+    {
+      "name": "设施-攻城地基-建筑tips",
+      "nodeId": "6654:30275",
+      "componentKey": "e783d50a6efcb70374c430a6c712361ad8ea9a5a",
+      "layer": "organism",
+      "category": "map_building_tip_panel",
+      "size": { "w": 490, "h": 566 },
+      "variants": [
+        { "state": "我盟", "nodeId": "6654:30274", "componentKey": "ac58e31025233156204a25235a17fe24e5f7e953" },
+        { "state": "友盟", "nodeId": "6654:30273", "componentKey": "52134b24e87399b0d0c0d61a7c67f4a211f16e2b" },
+        { "state": "敌盟", "nodeId": "6654:30272", "componentKey": "40ec149dcbb583ff30948e46ddaa4682830c4ed4" },
+        { "state": "中立", "nodeId": "6654:30271", "componentKey": "9e3fc8eadc155f7094ef07a50c4d0d8bd41d74f8" }
+      ],
+      "use_scenes": ["地图建筑点击后 tips", "攻城地基信息面板"],
+      "instantiation_rule": "若目标是攻城地基的完整 tips，应优先整体实例化该组织层组件，并按关系态选择 `我盟 / 友盟 / 敌盟 / 中立` 变体，不回退为通用场景卡或底板、标题和信息项重新拼装。"
+    },
+    {
+      "name": "设施-攻城大营-建筑tips",
+      "nodeId": "6654:30398",
+      "componentKey": "eaff56b1c3bdc1b32bde1cc05ba84963c1e1451c",
+      "layer": "organism",
+      "category": "map_building_tip_panel",
+      "size": { "w": 490, "h": 379 },
+      "variants": [
+        { "state": "我盟-官员", "nodeId": "6654:30397", "componentKey": "51d821c073705bbcd41bbb52196fc62af35f340c" },
+        { "state": "我盟-成员", "nodeId": "6654:30396", "componentKey": "7c3cb493f844543443341401b455d1db245da5fa" },
+        { "state": "敌盟", "nodeId": "6654:30395", "componentKey": "0164442e3a236514551d3b85185872c2439117a1" }
+      ],
+      "use_scenes": ["地图建筑点击后 tips", "攻城大营信息面板"],
+      "instantiation_rule": "若目标是攻城大营的完整 tips，应优先整体实例化该组织层组件，并按身份态选择 `我盟-官员 / 我盟-成员 / 敌盟` 变体，不回退为通用场景卡或底板、标题和信息项重新拼装。"
     },
     {
       "name": "选择",

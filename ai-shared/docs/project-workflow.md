@@ -71,6 +71,21 @@
 
 - `organism_components -> molecular_components -> atom fallback`
 
+## 知识文件分类
+
+`ux-collect` 当前按以下 5 类知识文件归档：
+
+- `tokens`：`tokens-decision.md` + `tokens-data.json`
+- `component`：`component-decision.md` + `component-spec.json`
+- `layout`：`layout-decision.md` + `layout-spec.json`
+- `responsive`：`responsive-decision.md` + `responsive-spec.json`
+- `flow`：`flow-decision.md`
+
+其中：
+
+- `responsive-decision.md` 负责记录通用适配规则，如安全区、屏幕比例、背景/列表/弹窗适配、元素挂靠逻辑与走查要求
+- `responsive-spec.json` 负责记录 responsive 规则的来源页、结构化采集状态与后续待补的模板骨架；若当前来源只有规范图而没有稳定模板，可先保留轻结构化元数据
+
 ---
 
 ## 读取顺序

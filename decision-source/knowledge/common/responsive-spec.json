@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "source": "Figma responsive rule pages",
+    "collected_at": "2026-05-19",
+    "collector": "codex",
+    "schema_note": "responsive-spec.json stores responsive rule sources, extraction status, and future structured responsive templates. Narrative rules belong in responsive-decision.md."
+  },
+  "rule_sources": [
+    {
+      "name": "适配规范1",
+      "nodeId": "9193:19484",
+      "file_key": "jB3vJujGbA7pKX9rNIlJUt",
+      "source_type": "frame",
+      "status": "decision_only",
+      "coverage": ["design_baseline", "safe_area", "device_ratio_baseline", "background_adaptation", "half_screen_illustration"],
+      "notes": ["当前以规范说明和图片示意为主，不适合沉淀为 region 级 responsive 模板"]
+    },
+    {
+      "name": "适配规范2",
+      "nodeId": "9193:19671",
+      "file_key": "jB3vJujGbA7pKX9rNIlJUt",
+      "source_type": "frame",
+      "status": "decision_only",
+      "coverage": ["element_adaptation_taxonomy", "vertical_list", "horizontal_list", "grid_list", "tips", "item_rows"],
+      "notes": ["当前页面主要提供规则分类和案例图，适合作为通用 responsive 规则来源"]
+    },
+    {
+      "name": "适配规范3",
+      "nodeId": "9193:19800",
+      "file_key": "jB3vJujGbA7pKX9rNIlJUt",
+      "source_type": "frame",
+      "status": "decision_only",
+      "coverage": ["dialogs", "walkthrough_devices", "qa_guidance"],
+      "notes": ["当前页面主要提供弹窗适配分类和走查规则，未提供可稳定复用的结构化模板坐标"]
+    }
+  ],
+  "responsive_dimensions": {
+    "design_baseline": { "resolution": "1920x1080", "ratio": "16:9" },
+    "long_screen_baseline": { "resolution": "2340x1080", "ratio": "19.5:9" },
+    "tablet_baseline": { "resolution": "1920x1440", "ratio": "4:3" }
+  },
+  "responsive_categories": [
+    { "name": "safe_area", "description": "安全区、刘海区、交互可触达边界" },
+    { "name": "background", "description": "全屏原画、纯色纹理背景、半屏原画的多比例适配规则" },
+    { "name": "element", "description": "元素挂靠逻辑、位置标尺与尺寸策略" },
+    { "name": "list", "description": "纵向 list、横向 list、grid 和条目适配" },
+    { "name": "tips", "description": "屏幕坐标系 tips 与世界坐标系 tips" },
+    { "name": "dialog", "description": "悬浮弹窗、全屏弹窗、通屏弹窗、侧弹窗" },
+    { "name": "qa", "description": "代表机型、模拟器走查与异常处理" }
+  ],
+  "responsive_templates": [],
+  "extraction_status": {
+    "structured_template_available": false,
+    "authoritative_rule_file": "responsive-decision.md",
+    "next_expected_work": [
+      "若后续出现专门用于响应式适配的结构化 frame，再补 responsive template 数据",
+      "如有稳定的安全区模板、弹窗模板或列表模板，可再补充 anchors / bounds / scaling rules"
+    ]
+  }
+}

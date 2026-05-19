@@ -1,4 +1,4 @@
-# Design Tokens 决策规则
+﻿# Design Tokens 决策规则
 
 > 来源：Figma 文件「组件 模板 Copy」  
 > fileKey: `jB3vJujGbA7pKX9rNIlJUt`

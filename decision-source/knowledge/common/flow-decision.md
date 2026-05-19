@@ -1,4 +1,4 @@
-# Flow Decision Rules — 界面流程与链路规则
+﻿# Flow Decision Rules — 界面流程与链路规则
 
 > 来源：文件分类约定预留入口
 > 创建日期：2026-05-19

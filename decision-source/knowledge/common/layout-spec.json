@@ -1,4 +1,4 @@
-{
+﻿{
   "meta": {
     "source": "user-defined layout classification",
     "collected_at": "2026-05-19",
@@ -4314,6 +4314,831 @@
       ],
       "summary": "覆盖主界面的攻占失败满屏浮窗，上方失败通知、下方排行榜。",
       "use_scenes": ["攻占失败结果页", "全屏失败浮层", "带排行榜的失败结算浮层"]
+    },
+    {
+      "name": "聊天系统/好友三栏",
+      "category": "common_screen",
+      "layout_source_type": "frame",
+      "page_context": {
+        "page_name": "聊天侧栏",
+        "page_node_id": "5970:5322",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "5970:5578",
+      "componentKey": null,
+      "semantic_hint": "聊天系统好友域的标准三栏 layout，后续聊天系统需求的整体布局基线之一",
+      "frame": {
+        "x": 74,
+        "y": 270,
+        "width": 2340,
+        "height": 1080
+      },
+      "adaptation": {
+        "horizontal_mode": "left_nav_plus_contact_column_plus_dialog_column",
+        "vertical_mode": "top_header_plus_scroll_content_plus_bottom_input_bar",
+        "notes": [
+          "整体布局默认保持 2340x1080 基线",
+          "左列为聊天系统导航，中列为联系人列表，右列为对话区",
+          "后续聊天系统需求若未明确要求改骨架，应优先沿用该坐标框架"
+        ]
+      },
+      "regions": [
+        {
+          "name": "左导航列",
+          "role": "nav_column",
+          "source_type": "instance_group",
+          "nodeId": "6086:5591",
+          "componentKey": null,
+          "position": { "x": 0, "y": 104 },
+          "size": { "width": 359, "height": 940 },
+          "constraints": ["left_anchor", "full_height_stack"],
+          "adaptation_notes": ["由聊天系统 tab 纵向堆叠组成，底部保留功能按钮区"]
+        },
+        {
+          "name": "中联系人列",
+          "role": "contact_column",
+          "source_type": "frame",
+          "nodeId": "6551:31219",
+          "componentKey": null,
+          "position": { "x": 358, "y": 0 },
+          "size": { "width": 414, "height": 1080 },
+          "constraints": ["left_fixed_width"],
+          "adaptation_notes": ["顶部包含搜索/标题，主体为联系人滚动区，底部可挂附加按钮"]
+        },
+        {
+          "name": "右对话列",
+          "role": "dialog_column",
+          "source_type": "frame",
+          "nodeId": "6126:7346",
+          "componentKey": null,
+          "position": { "x": 772, "y": 0 },
+          "size": { "width": 996, "height": 1080 },
+          "constraints": ["right_fill"],
+          "adaptation_notes": ["顶部玩家信息，中央消息流，底部输入与发送操作"]
+        },
+        {
+          "name": "联系人列表限制区",
+          "role": "contact_list_viewport",
+          "source_type": "frame",
+          "nodeId": "6551:31219",
+          "componentKey": null,
+          "position": { "x": 366, "y": 142 },
+          "size": { "width": 400, "height": 825 },
+          "constraints": ["scroll_viewport"],
+          "adaptation_notes": ["列表项默认宽 384，高 110，纵向间距约 14"]
+        },
+        {
+          "name": "消息区容器",
+          "role": "message_list_viewport",
+          "source_type": "frame",
+          "nodeId": "6126:7346",
+          "componentKey": null,
+          "position": { "x": 797, "y": 90 },
+          "size": { "width": 941, "height": 849 },
+          "constraints": ["scroll_viewport"],
+          "adaptation_notes": ["内部消息条目默认沿 y 轴按 0/221/402/583/804 节奏排布"]
+        },
+        {
+          "name": "底部输入区",
+          "role": "input_bar",
+          "source_type": "composite",
+          "nodeId": "6026:5017",
+          "componentKey": null,
+          "position": { "x": 896, "y": 979 },
+          "size": { "width": 829, "height": 58 },
+          "constraints": ["bottom_right_anchor"],
+          "adaptation_notes": ["输入框 615x58，发送按钮 188x58；输入区 y 锚点默认保持 979"]
+        }
+      ],
+      "summary": "聊天好友域标准三栏骨架：左导航、中联系人、右对话，后续聊天系统整体布局默认按此基准。",
+      "use_scenes": ["聊天/好友/最近", "聊天/好友/好友", "聊天/好友/群组"]
+    },
+    {
+      "name": "聊天系统/频道双栏",
+      "category": "common_screen",
+      "layout_source_type": "frame",
+      "page_context": {
+        "page_name": "聊天侧栏",
+        "page_node_id": "5970:5322",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "6147:6786",
+      "componentKey": null,
+      "semantic_hint": "聊天系统频道域的标准双栏 layout，适用于世界/地区等可发言频道",
+      "frame": {
+        "x": 74,
+        "y": 4942,
+        "width": 2340,
+        "height": 1080
+      },
+      "adaptation": {
+        "horizontal_mode": "left_nav_plus_channel_dialog_column",
+        "vertical_mode": "top_header_plus_scroll_content_plus_bottom_input_bar",
+        "notes": [
+          "频道类页面不再保留中联系人列，右侧扩展为大对话区",
+          "后续频道需求若无特别说明，优先复用该双栏骨架"
+        ]
+      },
+      "regions": [
+        {
+          "name": "左导航列",
+          "role": "nav_column",
+          "source_type": "instance_group",
+          "nodeId": "6147:6814",
+          "componentKey": null,
+          "position": { "x": 0, "y": 104 },
+          "size": { "width": 359, "height": 940 },
+          "constraints": ["left_anchor", "full_height_stack"],
+          "adaptation_notes": ["频道列表按纵向堆叠排列"]
+        },
+        {
+          "name": "右频道区",
+          "role": "dialog_column",
+          "source_type": "frame",
+          "nodeId": "6150:7241",
+          "componentKey": null,
+          "position": { "x": 358, "y": 0 },
+          "size": { "width": 996, "height": 1080 },
+          "constraints": ["right_fill"],
+          "adaptation_notes": ["承载消息流、底部输入区与局部浮层"]
+        },
+        {
+          "name": "消息区容器",
+          "role": "message_list_viewport",
+          "source_type": "frame",
+          "nodeId": "6150:7241",
+          "componentKey": null,
+          "position": { "x": 383, "y": 0 },
+          "size": { "width": 941, "height": 938 },
+          "constraints": ["scroll_viewport"],
+          "adaptation_notes": ["内部消息流可超出首屏，默认允许负 y 起始形成滚动感"]
+        },
+        {
+          "name": "底部输入区",
+          "role": "input_bar",
+          "source_type": "composite",
+          "nodeId": "6150:8603",
+          "componentKey": null,
+          "position": { "x": 482, "y": 979 },
+          "size": { "width": 829, "height": 58 },
+          "constraints": ["bottom_right_anchor"],
+          "adaptation_notes": ["输入框 615x58，发送按钮 188x58；频道页底部锚点默认保持 979"]
+        }
+      ],
+      "summary": "聊天频道域标准双栏骨架：左频道导航、右大消息区，适用于世界/地区等可发言频道。",
+      "use_scenes": ["聊天/频道/世界", "聊天/频道/地区"]
+    },
+    {
+      "name": "聊天系统/频道双栏/表情包扩展层",
+      "category": "common_screen",
+      "layout_source_type": "frame",
+      "page_context": {
+        "page_name": "聊天侧栏",
+        "page_node_id": "5970:5322",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "6174:11484",
+      "componentKey": null,
+      "semantic_hint": "聊天频道页内嵌表情包选择层，继承频道双栏骨架后叠加表情面板",
+      "frame": {
+        "x": 74,
+        "y": 6110,
+        "width": 2340,
+        "height": 1080
+      },
+      "adaptation": {
+        "horizontal_mode": "channel_layout_with_overlay_panel",
+        "vertical_mode": "base_channel_plus_center_bottom_overlay",
+        "notes": [
+          "表情包面板不是独立弹窗，而是频道双栏 layout 的内嵌扩展层",
+          "后续聊天表情/贴图需求应先继承频道骨架，再叠加此层"
+        ]
+      },
+      "regions": [
+        {
+          "name": "频道基础骨架",
+          "role": "base_layout",
+          "source_type": "frame",
+          "nodeId": "6174:11507",
+          "componentKey": null,
+          "position": { "x": 383, "y": 0 },
+          "size": { "width": 941, "height": 938 },
+          "constraints": ["inherit_channel_layout"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "表情面板容器",
+          "role": "emoji_overlay_panel",
+          "source_type": "instance",
+          "nodeId": "6174:13327",
+          "componentKey": null,
+          "position": { "x": 374, "y": 492 },
+          "size": { "width": 965, "height": 442 },
+          "constraints": ["overlay_above_input"],
+          "adaptation_notes": ["覆盖消息区下半部并贴近输入区上缘"]
+        },
+        {
+          "name": "表情网格区",
+          "role": "emoji_grid",
+          "source_type": "frame",
+          "nodeId": "6174:13473",
+          "componentKey": null,
+          "position": { "x": 414, "y": 582 },
+          "size": { "width": 882, "height": 345 },
+          "constraints": ["grid_content"],
+          "adaptation_notes": ["5列多行网格，单元 138x138，横向步进约 186，纵向步进约 163"]
+        }
+      ],
+      "summary": "频道聊天页的表情包内嵌扩展层，先继承频道双栏骨架，再在输入区上方叠加表情面板。",
+      "use_scenes": ["聊天/频道/世界/表情包", "聊天频道表情选择", "聊天频道贴图选择"]
+    },
+    {
+      "name": "聊天系统/频道双栏/系统频道只读",
+      "category": "common_screen",
+      "layout_source_type": "frame",
+      "page_context": {
+        "page_name": "聊天侧栏",
+        "page_node_id": "5970:5322",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "6156:9778",
+      "componentKey": null,
+      "semantic_hint": "系统频道只读变体，沿用频道双栏骨架，但底部替换为不可发言提示",
+      "frame": {
+        "x": 74,
+        "y": 7278,
+        "width": 2340,
+        "height": 1080
+      },
+      "adaptation": {
+        "horizontal_mode": "left_nav_plus_readonly_dialog_column",
+        "vertical_mode": "top_header_plus_scroll_content_plus_readonly_footer",
+        "notes": [
+          "系统频道保留频道双栏骨架，但底部不出现可输入控件",
+          "后续系统公告类聊天需求默认使用该只读变体"
+        ]
+      },
+      "regions": [
+        {
+          "name": "左导航列",
+          "role": "nav_column",
+          "source_type": "instance_group",
+          "nodeId": "6156:9795",
+          "componentKey": null,
+          "position": { "x": 0, "y": 104 },
+          "size": { "width": 359, "height": 940 },
+          "constraints": ["left_anchor", "full_height_stack"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "系统消息区",
+          "role": "message_list_viewport",
+          "source_type": "frame",
+          "nodeId": "6156:9803",
+          "componentKey": null,
+          "position": { "x": 397, "y": -39 },
+          "size": { "width": 941, "height": 1060 },
+          "constraints": ["right_fill"],
+          "adaptation_notes": ["消息条更窄，内层 list 宽 661，更强调系统公告阅读感"]
+        },
+        {
+          "name": "只读底部提示",
+          "role": "readonly_footer",
+          "source_type": "text",
+          "nodeId": "6172:10030",
+          "componentKey": null,
+          "position": { "x": 705, "y": 1003 },
+          "size": { "width": 272, "height": 38 },
+          "constraints": ["bottom_center"],
+          "adaptation_notes": ["替代可发言输入区，明确系统频道不能发言"]
+        }
+      ],
+      "summary": "系统频道只读布局：沿用频道双栏骨架，但底部是不可发言提示而不是输入区。",
+      "use_scenes": ["聊天/频道/系统", "系统公告频道", "只读聊天频道"]
+    },
+    {
+      "name": "聊天系统/浮窗",
+      "category": "special_screen",
+      "layout_source_type": "frame",
+      "page_context": {
+        "page_name": "聊天侧栏",
+        "page_node_id": "5970:5322",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "6156:9770",
+      "componentKey": null,
+      "semantic_hint": "聊天窗口化后的独立浮窗 layout，后续聊天浮窗需求默认按此骨架生成",
+      "frame": {
+        "x": 74,
+        "y": 9614,
+        "width": 782,
+        "height": 632
+      },
+      "adaptation": {
+        "horizontal_mode": "floating_chat_window",
+        "vertical_mode": "top_controls_plus_message_list_plus_bottom_input",
+        "notes": [
+          "浮窗不是主聊天页缩放版，而是单独一套 782x632 骨架",
+          "后续窗口化聊天、悬浮聊天、边聊边看类需求应优先复用此布局"
+        ]
+      },
+      "regions": [
+        {
+          "name": "顶部控制区",
+          "role": "window_controls",
+          "source_type": "instance_group",
+          "nodeId": "6156:9031",
+          "componentKey": null,
+          "position": { "x": 24, "y": 13 },
+          "size": { "width": 735, "height": 54 },
+          "constraints": ["top_stretch"],
+          "adaptation_notes": ["左侧返回/频道，右侧切换与关闭控制"]
+        },
+        {
+          "name": "消息区容器",
+          "role": "message_list_viewport",
+          "source_type": "frame",
+          "nodeId": "6156:9776",
+          "componentKey": null,
+          "position": { "x": 12, "y": 78 },
+          "size": { "width": 756, "height": 454 },
+          "constraints": ["center_fill"],
+          "adaptation_notes": ["浮窗消息列表默认宽 756，内部消息条高约 108，按 122 节奏排布"]
+        },
+        {
+          "name": "底部输入区",
+          "role": "input_bar",
+          "source_type": "composite",
+          "nodeId": "6156:9250",
+          "componentKey": null,
+          "position": { "x": 95, "y": 552 },
+          "size": { "width": 670, "height": 58 },
+          "constraints": ["bottom_stretch"],
+          "adaptation_notes": ["输入框 515x58，发送按钮 138x58；左侧附表情入口"]
+        }
+      ],
+      "summary": "聊天系统窗口化浮窗骨架：顶部控制、中央消息区、底部输入区三段式固定结构。",
+      "use_scenes": ["聊天浮窗", "窗口化聊天", "悬浮聊天窗口"]
+    },
+    {
+      "name": "排行榜系统/榜单页基线",
+      "category": "long_list",
+      "layout_source_type": "frame",
+      "page_context": {
+        "page_name": "排行榜界面",
+        "page_node_id": "6322:9842",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "6325:10615",
+      "componentKey": null,
+      "semantic_hint": "排行榜系统的 layout 布局框架，后续排行榜相关的衍生需求默认以这套骨架为基线",
+      "frame": {
+        "x": 77,
+        "y": 230,
+        "width": 2340,
+        "height": 1080
+      },
+      "adaptation": {
+        "horizontal_mode": "left_tabs_plus_center_ranking_board_plus_right_filter",
+        "vertical_mode": "top_title_plus_tabs_plus_header_plus_scroll_list_plus_self_row",
+        "notes": [
+          "整页以 2340x1080 横版榜单页为基准，左窄右宽",
+          "左侧承担一级和二级榜单切换，中央是表头加长列表，右上挂筛选入口",
+          "榜单主体区与自身排名区垂直串联，后续排行榜衍生页应优先继承这些固定锚点"
+        ]
+      },
+      "regions": [
+        {
+          "name": "标题区",
+          "role": "page_title",
+          "source_type": "frame",
+          "nodeId": "6347:11231",
+          "componentKey": null,
+          "position": { "x": 17, "y": 21 },
+          "size": { "width": 803, "height": 169 },
+          "constraints": ["top_left_anchor"],
+          "adaptation_notes": [
+            "作为整页标题识别区，保持在左上角，不随榜单类型切换而变化"
+          ]
+        },
+        {
+          "name": "一级榜单tab",
+          "role": "primary_tabs",
+          "source_type": "frame",
+          "nodeId": "9192:18298",
+          "componentKey": null,
+          "position": { "x": 235, "y": 93 },
+          "size": { "width": 566, "height": 86 },
+          "constraints": ["top_left_anchor"],
+          "adaptation_notes": [
+            "承担个人/同盟等一级维度切换，默认双 tab 横排"
+          ]
+        },
+        {
+          "name": "二级榜单tab",
+          "role": "secondary_tabs",
+          "source_type": "frame",
+          "nodeId": "9192:18299",
+          "componentKey": null,
+          "position": { "x": 236, "y": 208 },
+          "size": { "width": 274, "height": 266 },
+          "constraints": ["left_anchor", "vertical_stack"],
+          "adaptation_notes": [
+            "承担繁荣榜、武勋榜、首占榜等子榜单切换，默认纵向堆叠"
+          ]
+        },
+        {
+          "name": "榜单表头",
+          "role": "table_header",
+          "source_type": "instance",
+          "nodeId": "6354:13585",
+          "componentKey": null,
+          "position": { "x": 537, "y": 207 },
+          "size": { "width": 1584, "height": 52 },
+          "constraints": ["top_anchor", "center_board_width"],
+          "adaptation_notes": [
+            "与中央榜单主体同宽，列名和排序维度需与内容行严格对齐"
+          ]
+        },
+        {
+          "name": "榜单列表区",
+          "role": "ranking_list",
+          "source_type": "frame",
+          "nodeId": "6354:12197",
+          "componentKey": null,
+          "position": { "x": 549, "y": 275 },
+          "size": { "width": 1565, "height": 733 },
+          "constraints": ["center_fill", "vertical_list"],
+          "adaptation_notes": [
+            "默认由 6 行标准排名条目组成，单行高 113，行间距 11",
+            "前三、自身和普通条目都在这一榜单框架下切换，不改整体列表锚点"
+          ]
+        },
+        {
+          "name": "自身排名区",
+          "role": "self_rank_row",
+          "source_type": "instance",
+          "nodeId": "6354:12529",
+          "componentKey": null,
+          "position": { "x": 548, "y": 933 },
+          "size": { "width": 1565, "height": 113 },
+          "constraints": ["bottom_anchor", "center_board_width"],
+          "adaptation_notes": [
+            "固定贴在榜单底部，用于展示当前玩家或当前同盟排名，不并入滚动列表"
+          ]
+        },
+        {
+          "name": "展开提示箭头",
+          "role": "expand_indicator",
+          "source_type": "instance",
+          "nodeId": "6354:12201",
+          "componentKey": null,
+          "position": { "x": 1315, "y": 913 },
+          "size": { "width": 32, "height": 28 },
+          "constraints": ["centered_above_self_row"],
+          "adaptation_notes": [
+            "位于列表区和自身排名区之间，提示下方还有自身条目或附加内容"
+          ]
+        },
+        {
+          "name": "榜单筛选区",
+          "role": "filter_panel",
+          "source_type": "instance",
+          "nodeId": "6374:19063",
+          "componentKey": null,
+          "position": { "x": 1804, "y": 104 },
+          "size": { "width": 307, "height": 328 },
+          "constraints": ["top_right_anchor"],
+          "adaptation_notes": [
+            "个人繁荣榜示例为展开态；其他榜单多为 307x59 收起态，说明筛选区支持折叠但默认锚点不变"
+          ]
+        },
+        {
+          "name": "左下辅助操作区",
+          "role": "support_action",
+          "source_type": "instance",
+          "nodeId": "6363:13869",
+          "componentKey": null,
+          "position": { "x": 266, "y": 869 },
+          "size": { "width": 193, "height": 184 },
+          "constraints": ["bottom_left_anchor"],
+          "adaptation_notes": [
+            "根据榜单类型可切换为 switch-panel 或按钮，但都占用左下同一锚点"
+          ]
+        },
+        {
+          "name": "返回入口",
+          "role": "back_entry",
+          "source_type": "instance",
+          "nodeId": "6581:19306",
+          "componentKey": null,
+          "position": { "x": 234, "y": 5 },
+          "size": { "width": 248, "height": 56 },
+          "constraints": ["top_left_anchor"],
+          "adaptation_notes": [
+            "位于标题区下方左上角，作为全榜单页面的固定返回或标题入口"
+          ]
+        }
+      ],
+      "summary": "排行榜系统通用榜单页骨架。左侧双层榜单切换，中央为表头+长列表+自身排名区，右上挂筛选区，适合作为个人榜、同盟榜及其衍生排行页的统一布局基线。",
+      "use_scenes": [
+        "排行榜/个人/繁荣榜",
+        "排行榜/个人/武勋榜",
+        "排行榜/个人/首占榜",
+        "排行榜/同盟/势力榜",
+        "排行榜/同盟/武勋榜"
+      ]
+    },
+    {
+      "name": "背包系统/道具页基线",
+      "category": "left_right_structure",
+      "layout_source_type": "frame",
+      "page_context": {
+        "page_name": "背包界面",
+        "page_node_id": "6325:10610",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "6386:13440",
+      "componentKey": null,
+      "semantic_hint": "背包系统的道具页 layout 骨架，后续背包道具相关衍生需求默认以这套骨架为基线",
+      "frame": {
+        "x": 74,
+        "y": 236,
+        "width": 2340,
+        "height": 1080
+      },
+      "adaptation": {
+        "horizontal_mode": "left_category_tabs_plus_center_grid_plus_right_detail_panel",
+        "vertical_mode": "top_title_currency_plus_center_content_plus_bottom_quick_action",
+        "notes": [
+          "整页以 2340x1080 横版背包页为基准，左中右三段明确分区",
+          "左侧承担背包大类切换，中部承载物品宫格，右侧固定为选中道具详情区",
+          "后续道具背包衍生页应优先继承分类列、宫格区和详情区的固定宽度关系"
+        ]
+      },
+      "regions": [
+        {
+          "name": "标题区",
+          "role": "page_title",
+          "source_type": "instance",
+          "nodeId": "6581:19337",
+          "componentKey": null,
+          "position": { "x": 234, "y": 5 },
+          "size": { "width": 197, "height": 56 },
+          "constraints": ["top_left_anchor"],
+          "adaptation_notes": ["背包页标题入口，位于左侧导航区上方"]
+        },
+        {
+          "name": "左侧分类列",
+          "role": "category_nav",
+          "source_type": "instance_stack",
+          "nodeId": "6395:13536",
+          "componentKey": null,
+          "position": { "x": 0, "y": 124 },
+          "size": { "width": 500, "height": 438 },
+          "constraints": ["left_anchor", "vertical_stack"],
+          "adaptation_notes": [
+            "默认由 4 个背包主类 tab 纵向堆叠组成，承担道具/装备/材料等大类切换"
+          ]
+        },
+        {
+          "name": "顶部货币区",
+          "role": "currency_strip",
+          "source_type": "instance_group",
+          "nodeId": "6405:14701",
+          "componentKey": null,
+          "position": { "x": 1444, "y": 1 },
+          "size": { "width": 702, "height": 67 },
+          "constraints": ["top_right_anchor"],
+          "adaptation_notes": [
+            "右上角 3 个货币单元横排，作为背包页统一资源状态带"
+          ]
+        },
+        {
+          "name": "容量信息",
+          "role": "capacity_indicator",
+          "source_type": "text",
+          "nodeId": "6405:14304",
+          "componentKey": null,
+          "position": { "x": 602, "y": 123 },
+          "size": { "width": 77, "height": 34 },
+          "constraints": ["top_anchor"],
+          "adaptation_notes": [
+            "位于宫格区上沿，用于显示当前占用/总容量"
+          ]
+        },
+        {
+          "name": "道具宫格区",
+          "role": "item_grid",
+          "source_type": "frame",
+          "nodeId": "6453:23765",
+          "componentKey": null,
+          "position": { "x": 581, "y": 172 },
+          "size": { "width": 911, "height": 744 },
+          "constraints": ["center_fill", "grid_layout"],
+          "adaptation_notes": [
+            "5 列宫格，单格 154x154，横向步进约 180，纵向步进约 179",
+            "适用于大量可堆叠道具展示，优先复用固定格子节奏，不改整体宫格宽度"
+          ]
+        },
+        {
+          "name": "右侧详情面板",
+          "role": "detail_panel",
+          "source_type": "rectangle_instance_mix",
+          "nodeId": "6405:14763",
+          "componentKey": null,
+          "position": { "x": 1547, "y": 114 },
+          "size": { "width": 599, "height": 873 },
+          "constraints": ["right_anchor", "full_height_panel"],
+          "adaptation_notes": [
+            "用于展示选中道具的品质框、图标、名称、说明、拥有数量和状态标签"
+          ]
+        },
+        {
+          "name": "详情主视觉区",
+          "role": "detail_hero_area",
+          "source_type": "instance",
+          "nodeId": "6405:14295",
+          "componentKey": null,
+          "position": { "x": 1547, "y": 114 },
+          "size": { "width": 599, "height": 286 },
+          "constraints": ["top_stretch"],
+          "adaptation_notes": [
+            "详情区顶部大图展示位，优先承载选中物品图标、品质框和限时标签"
+          ]
+        },
+        {
+          "name": "底部快捷操作",
+          "role": "quick_action",
+          "source_type": "instance",
+          "nodeId": "6488:11750",
+          "componentKey": null,
+          "position": { "x": 581, "y": 986 },
+          "size": { "width": 284, "height": 38 },
+          "constraints": ["bottom_left_of_center"],
+          "adaptation_notes": [
+            "道具页默认提供一键分解等批量快捷操作，挂在中部内容区下沿左侧"
+          ]
+        }
+      ],
+      "summary": "背包系统道具页骨架。左侧为背包分类导航，中部为多列物品宫格，右侧为选中道具详情面板，适合作为道具、材料、信物等背包页的统一布局基线。",
+      "use_scenes": [
+        "背包/道具",
+        "背包/材料",
+        "背包/信物",
+        "背包/可堆叠物品页"
+      ]
+    },
+    {
+      "name": "背包系统/装备页基线",
+      "category": "left_right_structure",
+      "layout_source_type": "frame",
+      "page_context": {
+        "page_name": "背包界面",
+        "page_node_id": "6325:10610",
+        "file_key": "jB3vJujGbA7pKX9rNIlJUt"
+      },
+      "nodeId": "6405:15876",
+      "componentKey": null,
+      "semantic_hint": "背包系统的装备页 layout 骨架，后续装备背包相关衍生需求默认以这套骨架为基线",
+      "frame": {
+        "x": 74,
+        "y": 1392,
+        "width": 2340,
+        "height": 1080
+      },
+      "adaptation": {
+        "horizontal_mode": "left_category_tabs_plus_center_equipment_list",
+        "vertical_mode": "top_title_currency_plus_subtabs_plus_header_list_plus_bottom_actions",
+        "notes": [
+          "装备页仍保留左侧大类切换，但中央主体从宫格切为筛选 tab + 表头 + 长列表",
+          "主体区宽幅扩展到 1566 左右，强调装备条目浏览与批量处理",
+          "后续装备、坐骑、饰品等长列表背包页应优先继承这套表格化骨架"
+        ]
+      },
+      "regions": [
+        {
+          "name": "标题区",
+          "role": "page_title",
+          "source_type": "instance",
+          "nodeId": "6581:19343",
+          "componentKey": null,
+          "position": { "x": 234, "y": 5 },
+          "size": { "width": 197, "height": 56 },
+          "constraints": ["top_left_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "左侧分类列",
+          "role": "category_nav",
+          "source_type": "instance_stack",
+          "nodeId": "6405:15890",
+          "componentKey": null,
+          "position": { "x": 0, "y": 124 },
+          "size": { "width": 500, "height": 438 },
+          "constraints": ["left_anchor", "vertical_stack"],
+          "adaptation_notes": [
+            "与道具页共用左侧大类导航锚点，说明整个背包系统有统一左侧分类骨架"
+          ]
+        },
+        {
+          "name": "顶部货币区",
+          "role": "currency_strip",
+          "source_type": "instance_group",
+          "nodeId": "6405:15901",
+          "componentKey": null,
+          "position": { "x": 1444, "y": 1 },
+          "size": { "width": 702, "height": 67 },
+          "constraints": ["top_right_anchor"],
+          "adaptation_notes": []
+        },
+        {
+          "name": "装备子分类tab",
+          "role": "sub_tabs",
+          "source_type": "instance_row",
+          "nodeId": "6405:17024",
+          "componentKey": null,
+          "position": { "x": 598, "y": 114 },
+          "size": { "width": 730, "height": 66 },
+          "constraints": ["top_anchor", "horizontal_stack"],
+          "adaptation_notes": [
+            "承担装备内部子类切换，例如不同装备位或装备类型"
+          ]
+        },
+        {
+          "name": "装备表头",
+          "role": "table_header",
+          "source_type": "frame",
+          "nodeId": "6423:19220",
+          "componentKey": null,
+          "position": { "x": 572, "y": 199 },
+          "size": { "width": 1584, "height": 52 },
+          "constraints": ["top_anchor", "center_board_width"],
+          "adaptation_notes": [
+            "提供名称、筛选、附加、装配状态等列结构，属于典型装备列表表头"
+          ]
+        },
+        {
+          "name": "装备列表区",
+          "role": "equipment_list",
+          "source_type": "frame",
+          "nodeId": "6423:21006",
+          "componentKey": null,
+          "position": { "x": 595, "y": 264 },
+          "size": { "width": 1539, "height": 655 },
+          "constraints": ["center_fill", "vertical_list"],
+          "adaptation_notes": [
+            "默认纵向装备条目列表，单条高约 141~151，纵向步进约 153~163",
+            "适用于装备、马匹、坐骑等带多列属性信息的对象列表"
+          ]
+        },
+        {
+          "name": "列表内进度信息",
+          "role": "inline_progress_info",
+          "source_type": "instance",
+          "nodeId": "6423:19664",
+          "componentKey": null,
+          "position": { "x": 1161, "y": 617 },
+          "size": { "width": 331, "height": 18 },
+          "constraints": ["inline_in_list"],
+          "adaptation_notes": [
+            "说明装备行内允许嵌入进度或耐久类状态，不需要额外开启右详情栏"
+          ]
+        },
+        {
+          "name": "底部快捷操作",
+          "role": "quick_action",
+          "source_type": "instance",
+          "nodeId": "6488:11755",
+          "componentKey": null,
+          "position": { "x": 581, "y": 986 },
+          "size": { "width": 284, "height": 38 },
+          "constraints": ["bottom_left_of_center"],
+          "adaptation_notes": [
+            "与道具页一致保留一键分解等批量操作入口"
+          ]
+        },
+        {
+          "name": "底部主操作按钮组",
+          "role": "primary_actions",
+          "source_type": "instance_pair",
+          "nodeId": "6405:17085",
+          "componentKey": null,
+          "position": { "x": 1421, "y": 959 },
+          "size": { "width": 726, "height": 88 },
+          "constraints": ["bottom_right_anchor", "horizontal_stack"],
+          "adaptation_notes": [
+            "右下默认双一级按钮，适合装备、卸下、穿戴、强化等强操作"
+          ]
+        }
+      ],
+      "summary": "背包系统装备页骨架。左侧为背包分类导航，中央为装备子 tab、表头和长列表，底部保留批量操作与主按钮组，适合作为装备、坐骑、饰品等对象型背包页的统一布局基线。",
+      "use_scenes": [
+        "背包/装备",
+        "背包/马匹",
+        "背包/坐骑",
+        "背包/对象型长列表页"
+      ]
     }
   ]
 }
