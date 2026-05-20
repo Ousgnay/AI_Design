@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>终身卡交互原型</title>
+<style>
+@font-face {
+  font-family: "FZLiBianLocal";
+  src: url("../fonts/方正隶变.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FZLiBianLocal";
+  src: url("../fonts/方正隶变粗体.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --stage-w: 2340;
+  --stage-h: 1080;
+
+  /* tokens-data.json / textStyles */
+  --type-title-48: 48px;
+  --type-button-42: 42px;
+  --type-tab-38: 38px;
+  --type-body-34: 34px;
+
+  /* tokens-data.json / paintStyles / 浅色底 */
+  --light-title-1: #321D14;
+  --light-title-2: #593323;
+  --light-secondary: #645840;
+  --light-blue: #204B93;
+  --light-purple: #9E47A6;
+  --light-gold: #AC591A;
+  --light-red: #A82F23;
+  --light-green: #2A6D3F;
+
+  /* tokens-data.json / paintStyles / 深色底 */
+  --dark-title-1: #BFBDB0;
+  --dark-title-2: #FEE7C2;
+  --dark-body-3: #F4F2EE;
+  --dark-secondary: #A2A098;
+  --dark-blue: #538DD9;
+  --dark-purple: #BE6BC5;
+  --dark-gold: #DD8441;
+  --dark-red: #C33C3C;
+  --dark-green: #409B6D;
+
+  /* tokens-data.json / variables */
+  --variable-desc: #A0A0A0;
+  --variable-relation-enemy: #A82F23;
+  --variable-relation-self: #2A6D3F;
+  --variable-relation-ally: #204B93;
+  --variable-relation-camp: #AC591A;
+
+  /* tokens-data.json / effectStyles */
+  --effect-text-stroke: 0 2px 1px rgba(0, 0, 0, 1);
+  --effect-text-shadow: 0 2px 1px rgba(0, 0, 0, 0.72);
+
+  --surface-light-a: color-mix(in srgb, var(--dark-title-2) 82%, transparent);
+  --surface-light-b: color-mix(in srgb, var(--dark-title-1) 74%, transparent);
+  --surface-dark-a: color-mix(in srgb, var(--light-title-1) 86%, transparent);
+  --surface-dark-b: color-mix(in srgb, var(--light-title-2) 70%, transparent);
+  --line-light: color-mix(in srgb, var(--light-secondary) 36%, transparent);
+  --line-dark: color-mix(in srgb, var(--dark-secondary) 38%, transparent);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: var(--light-title-1);
+  color: var(--light-title-1);
+  font-family: "FZLiBianLocal", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.viewport {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 48%, color-mix(in srgb, var(--light-gold) 24%, transparent), transparent 54%),
+    var(--light-title-1);
+}
+
+.stage {
+  position: relative;
+  width: calc(var(--stage-w) * 1px);
+  height: calc(var(--stage-h) * 1px);
+  overflow: hidden;
+  transform-origin: center;
+  background: var(--dark-title-1);
+}
+
+.stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--light-title-1) 88%, transparent), transparent 18%, transparent 82%, color-mix(in srgb, var(--light-title-1) 68%, transparent)),
+    url("./assets/backpack-bg-bag-01.png") center / cover no-repeat;
+  filter: saturate(0.92) brightness(0.96);
+}
+
+.left-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 500px;
+  height: 1080px;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--light-title-1) 94%, transparent), color-mix(in srgb, var(--light-title-2) 42%, transparent)),
+    url("./assets/backpack-left-panel.png") center / 100% 100% no-repeat;
+  box-shadow: inset -2px 0 0 var(--line-dark);
+}
+
+.screen-title {
+  position: absolute;
+  left: 232px;
+  top: 8px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--dark-title-2);
+  font-size: var(--type-title-48);
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: var(--effect-text-stroke);
+  white-space: nowrap;
+}
+
+.screen-title::before {
+  content: "";
+  width: 74px;
+  height: 38px;
+  background:
+    linear-gradient(135deg, transparent 36%, var(--dark-title-2) 37% 48%, transparent 49%),
+    linear-gradient(var(--dark-title-2), var(--dark-title-2));
+  background-repeat: no-repeat;
+  background-size: 60px 34px, 48px 8px;
+  background-position: 0 2px, 24px 25px;
+}
+
+.main-tabs {
+  position: absolute;
+  left: 0;
+  top: 124px;
+  width: 500px;
+}
+
+.main-tab {
+  position: relative;
+  width: 500px;
+  height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 78px;
+  color: var(--dark-title-1);
+  font-size: var(--type-tab-38);
+  line-height: 1;
+  text-shadow: var(--effect-text-shadow);
+}
+
+.main-tab::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 402px;
+  height: 2px;
+  background: var(--line-dark);
+}
+
+.main-tab.is-active {
+  color: var(--dark-title-2);
+  font-size: var(--type-button-42);
+  background: url("./assets/backpack-tab-selected.png") center / 500px 108px no-repeat;
+}
+
+.red-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--dark-red);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--dark-title-2) 72%, transparent), 0 3px 8px color-mix(in srgb, var(--light-red) 54%, transparent);
+}
+
+.main-tab .red-dot {
+  position: absolute;
+  right: 48px;
+  top: 28px;
+}
+
+.top-bar {
+  position: absolute;
+  left: 560px;
+  top: 0;
+  width: 1586px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 44px;
+}
+
+.currency {
+  position: relative;
+  min-width: 178px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px 0 58px;
+  color: var(--dark-body-3);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 20px;
+  background: linear-gradient(90deg, var(--surface-dark-b), var(--surface-dark-a));
+  border-radius: 4px;
+  text-shadow: var(--effect-text-shadow);
+}
+
+.currency::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: -5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 38% 34%, var(--dark-title-2), var(--dark-gold) 42%, var(--light-gold) 72%, var(--light-title-2));
+  box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--dark-title-2) 58%, transparent), 0 3px 6px color-mix(in srgb, var(--light-title-1) 54%, transparent);
+}
+
+.content {
+  position: absolute;
+  left: 560px;
+  top: 114px;
+  width: 1586px;
+  height: 870px;
+  display: grid;
+  grid-template-columns: 916px 610px;
+  gap: 60px;
+}
+
+.hero-panel {
+  position: relative;
+  min-width: 0;
+  height: 870px;
+  padding: 38px 42px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--dark-title-2) 82%, transparent), color-mix(in srgb, var(--dark-title-1) 68%, transparent)),
+    linear-gradient(135deg, color-mix(in srgb, var(--light-gold) 18%, transparent), transparent 46%);
+  box-shadow: inset 0 0 0 2px var(--line-light), 0 18px 46px color-mix(in srgb, var(--light-title-1) 24%, transparent);
+}
+
+.hero-panel::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 2px solid color-mix(in srgb, var(--light-gold) 42%, transparent);
+  pointer-events: none;
+}
+
+.sub-tabs {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 12px;
+}
+
+.sub-tab {
+  width: 232px;
+  height: 66px;
+  display: grid;
+  place-items: center;
+  color: var(--light-title-2);
+  font-size: var(--type-tab-38);
+  background: color-mix(in srgb, var(--dark-title-2) 42%, transparent);
+  border: 2px solid color-mix(in srgb, var(--light-secondary) 42%, transparent);
+}
+
+.sub-tab.is-active {
+  color: var(--dark-title-2);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--light-red) 88%, transparent), color-mix(in srgb, var(--light-title-2) 78%, transparent));
+  text-shadow: var(--effect-text-shadow);
+}
+
+.product-header {
+  position: relative;
+  z-index: 1;
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: 1fr 258px;
+  gap: 28px;
+  align-items: center;
+}
+
+.product-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding: 0 18px;
+  color: var(--dark-title-2);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 22px;
+  background: linear-gradient(90deg, var(--surface-dark-a), var(--surface-dark-b));
+  text-shadow: var(--effect-text-shadow);
+}
+
+.product-title {
+  margin: 18px 0 0;
+  color: var(--light-title-1);
+  font-size: 64px;
+  line-height: 1;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.product-title span {
+  color: var(--light-gold);
+}
+
+.product-copy {
+  margin-top: 18px;
+  color: var(--light-title-2);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 26px;
+  line-height: 1.55;
+  letter-spacing: 0;
+}
+
+.emblem {
+  position: relative;
+  width: 258px;
+  height: 258px;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 40%, var(--dark-title-2), var(--dark-gold) 34%, var(--light-gold) 58%, var(--light-title-1) 59% 100%);
+  box-shadow: inset 0 0 0 8px color-mix(in srgb, var(--dark-title-2) 36%, transparent), 0 12px 30px color-mix(in srgb, var(--light-title-1) 34%, transparent);
+}
+
+.emblem::before {
+  content: "令";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--light-title-1);
+  font-size: 122px;
+  font-weight: 700;
+  text-shadow: 0 2px 0 color-mix(in srgb, var(--dark-title-2) 56%, transparent);
+}
+
+.reward-strip {
+  position: relative;
+  z-index: 1;
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.reward-card {
+  min-height: 188px;
+  padding: 22px 20px 18px;
+  background: color-mix(in srgb, var(--dark-title-2) 44%, transparent);
+  border: 1px solid color-mix(in srgb, var(--light-secondary) 38%, transparent);
+}
+
+.reward-card strong {
+  display: block;
+  color: var(--light-title-1);
+  font-size: var(--type-tab-38);
+  font-weight: 400;
+}
+
+.reward-card p {
+  margin: 12px 0 0;
+  color: var(--light-secondary);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 22px;
+  line-height: 1.45;
+}
+
+.reward-icons {
+  margin-top: 16px;
+  display: flex;
+  gap: 14px;
+}
+
+.item-frame {
+  position: relative;
+  width: 82px;
+  height: 82px;
+  background: url("./assets/backpack-item-frame.png") center / 100% 100% no-repeat;
+}
+
+.item-frame::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 66px;
+  height: 66px;
+  background:
+    radial-gradient(circle at 45% 34%, var(--dark-title-2), var(--dark-gold) 42%, var(--light-gold) 72%, var(--light-title-2));
+}
+
+.item-frame.is-purple::before {
+  background:
+    radial-gradient(circle at 45% 34%, var(--dark-title-2), var(--dark-purple) 45%, var(--light-purple) 72%, var(--light-title-2));
+}
+
+.item-frame.is-blue::before {
+  background:
+    radial-gradient(circle at 45% 34%, var(--dark-title-2), var(--dark-blue) 45%, var(--light-blue) 72%, var(--light-title-2));
+}
+
+.item-frame span {
+  position: absolute;
+  right: 6px;
+  bottom: 2px;
+  color: var(--dark-body-3);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 20px;
+  text-shadow: var(--effect-text-shadow);
+}
+
+.status-board {
+  position: relative;
+  z-index: 1;
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.state-card {
+  min-height: 150px;
+  padding: 20px 22px;
+  background: color-mix(in srgb, var(--light-title-1) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--light-secondary) 34%, transparent);
+}
+
+.state-card header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--light-title-1);
+  font-size: var(--type-tab-38);
+}
+
+.state-card p {
+  margin: 12px 0 0;
+  color: var(--light-secondary);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 22px;
+  line-height: 1.45;
+}
+
+.state-card.is-ready header {
+  color: var(--light-green);
+}
+
+.state-card.is-locked {
+  filter: grayscale(0.8);
+}
+
+.state-card.is-locked header {
+  color: var(--light-secondary);
+}
+
+.action-row {
+  position: absolute;
+  z-index: 2;
+  left: 42px;
+  right: 42px;
+  bottom: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.price strong {
+  color: var(--light-red);
+  font-size: 58px;
+  line-height: 1;
+}
+
+.price span {
+  color: var(--light-secondary);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 24px;
+}
+
+.primary-btn,
+.secondary-btn {
+  position: relative;
+  width: 340px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  color: var(--light-title-1);
+  font-size: var(--type-button-42);
+  line-height: 1;
+  background: url("./assets/btn_c_lv1_normal_1.png") center / 100% 100% no-repeat;
+}
+
+.secondary-btn {
+  background-image: url("./assets/backpack-btn-lv1-normal-2.png");
+}
+
+.primary-btn:disabled,
+.secondary-btn:disabled {
+  filter: grayscale(0.9) brightness(0.78);
+  cursor: default;
+}
+
+.primary-btn:hover:not(:disabled),
+.secondary-btn:hover:not(:disabled) {
+  filter: brightness(1.05);
+}
+
+.primary-btn:active:not(:disabled),
+.secondary-btn:active:not(:disabled) {
+  transform: translateY(1px);
+  filter: brightness(0.94);
+}
+
+.info-panel {
+  position: relative;
+  min-width: 0;
+  height: 870px;
+  display: grid;
+  grid-template-rows: 292px 260px 1fr;
+  gap: 22px;
+}
+
+.panel-card {
+  position: relative;
+  padding: 26px 28px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--light-title-1) 84%, transparent), color-mix(in srgb, var(--light-title-2) 72%, transparent));
+  border: 1px solid var(--line-dark);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--dark-title-2) 12%, transparent);
+}
+
+.panel-card h2 {
+  margin: 0;
+  color: var(--dark-title-2);
+  font-size: var(--type-tab-38);
+  font-weight: 400;
+  text-shadow: var(--effect-text-shadow);
+}
+
+.panel-card p,
+.panel-card li {
+  color: var(--dark-title-1);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 23px;
+  line-height: 1.48;
+  letter-spacing: 0;
+}
+
+.panel-card ul {
+  margin: 18px 0 0;
+  padding-left: 28px;
+}
+
+.privilege-list {
+  margin-top: 22px;
+  display: grid;
+  gap: 14px;
+}
+
+.privilege {
+  display: grid;
+  grid-template-columns: 62px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  min-height: 62px;
+  padding: 8px 12px;
+  background: color-mix(in srgb, var(--dark-title-2) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--dark-secondary) 24%, transparent);
+}
+
+.privilege-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  color: var(--light-title-1);
+  font-size: 32px;
+  background: radial-gradient(circle at 44% 34%, var(--dark-title-2), var(--dark-gold) 45%, var(--light-gold));
+}
+
+.privilege strong {
+  display: block;
+  color: var(--dark-body-3);
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.privilege span {
+  color: var(--dark-secondary);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 20px;
+}
+
+.status-pill {
+  min-width: 82px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: var(--dark-body-3);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 18px;
+  background: var(--surface-dark-b);
+}
+
+.status-pill.is-on {
+  color: var(--dark-title-2);
+  background: var(--light-green);
+}
+
+.status-pill.is-off {
+  color: var(--dark-secondary);
+  background: color-mix(in srgb, var(--light-secondary) 46%, transparent);
+}
+
+.rule-tip {
+  margin-top: 18px;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  color: var(--dark-secondary);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 21px;
+  line-height: 1.3;
+  background: color-mix(in srgb, var(--light-title-1) 64%, transparent);
+  border-left: 6px solid var(--dark-gold);
+}
+
+.state-tools {
+  position: absolute;
+  left: 581px;
+  bottom: 34px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.tool-btn {
+  min-width: 190px;
+  height: 54px;
+  padding: 0 22px;
+  color: var(--light-title-1);
+  font-size: 30px;
+  background: color-mix(in srgb, var(--dark-title-2) 48%, transparent);
+  border: 1px solid color-mix(in srgb, var(--light-secondary) 38%, transparent);
+}
+
+.tool-btn.is-active {
+  color: var(--dark-title-2);
+  background: color-mix(in srgb, var(--light-red) 84%, transparent);
+  text-shadow: var(--effect-text-shadow);
+}
+
+.modal-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--light-title-1) 64%, transparent);
+}
+
+.modal-layer.is-open {
+  display: flex;
+}
+
+.modal {
+  position: relative;
+  width: 920px;
+  min-height: 540px;
+  padding: 92px 72px 54px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--dark-title-2) 94%, var(--dark-title-1)), color-mix(in srgb, var(--dark-title-1) 88%, var(--light-secondary)));
+  box-shadow: 0 18px 60px color-mix(in srgb, var(--light-title-1) 62%, transparent), inset 0 0 0 3px color-mix(in srgb, var(--light-title-2) 38%, transparent);
+}
+
+.modal.is-small {
+  width: 760px;
+  min-height: 486px;
+}
+
+.modal-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 68px;
+  display: grid;
+  place-items: center;
+  color: var(--dark-title-2);
+  font-size: var(--type-tab-38);
+  background: linear-gradient(90deg, var(--light-title-2), var(--light-red), var(--light-title-2));
+  text-shadow: var(--effect-text-shadow);
+}
+
+.modal-close {
+  position: absolute;
+  right: -24px;
+  top: -24px;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  color: var(--dark-title-2);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 38px;
+  background: var(--light-title-1);
+  border-radius: 50%;
+  box-shadow: 0 3px 8px color-mix(in srgb, var(--light-title-1) 54%, transparent);
+}
+
+.modal-copy {
+  color: var(--light-title-1);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 28px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.confirm-layout {
+  display: grid;
+  gap: 24px;
+}
+
+.confirm-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 18px;
+  color: var(--light-red);
+  font-size: 58px;
+}
+
+.confirm-price span {
+  color: var(--light-secondary);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 24px;
+}
+
+.modal-actions {
+  margin-top: 42px;
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+}
+
+.reward-preview {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 34px;
+  align-items: start;
+}
+
+.reward-preview .big-token {
+  width: 180px;
+  height: 180px;
+  background: url("./assets/backpack-item-frame.png") center / 100% 100% no-repeat;
+  position: relative;
+}
+
+.reward-preview .big-token::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  background: radial-gradient(circle at 48% 34%, var(--dark-title-2), var(--dark-gold) 38%, var(--light-gold) 70%, var(--light-title-2));
+}
+
+.reward-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 112px);
+  gap: 22px;
+  margin-top: 20px;
+}
+
+.reward-grid .item-frame {
+  width: 112px;
+  height: 112px;
+}
+
+.reward-grid .item-frame::before {
+  left: 11px;
+  top: 11px;
+  width: 90px;
+  height: 90px;
+}
+
+.toast {
+  position: absolute;
+  left: 50%;
+  bottom: 96px;
+  z-index: 30;
+  display: none;
+  min-width: 420px;
+  height: 58px;
+  transform: translateX(-50%);
+  place-items: center;
+  color: var(--dark-title-2);
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 24px;
+  background: var(--surface-dark-a);
+  text-shadow: var(--effect-text-shadow);
+}
+
+.toast.is-open {
+  display: grid;
+}
+
+.owned-only,
+.unowned-only {
+  display: none;
+}
+
+.stage[data-owned="true"] .owned-only {
+  display: block;
+}
+
+.stage[data-owned="false"] .unowned-only {
+  display: block;
+}
+
+.stage[data-owned="true"] .unowned-action {
+  display: none;
+}
+
+.stage[data-owned="false"] .owned-action {
+  display: none;
+}
+</style>
+</head>
+<body>
+<div class="viewport">
+  <main class="stage" id="stage" data-owned="false" data-source-ia="../doc-ia/终身卡策划案_V2-IA.md" data-layout-source="../decision-source/knowledge/common/layout-spec.json" data-token-source="../decision-source/knowledge/common/tokens-data.json">
+    <section class="left-panel" aria-label="商坊页签">
+      <div class="screen-title">商坊</div>
+      <nav class="main-tabs" data-component-name="二级tab" data-node-id="4883:4887">
+        <button class="main-tab" type="button">商城</button>
+        <button class="main-tab is-active" type="button">终身卡<span class="red-dot owned-only" aria-hidden="true"></span></button>
+        <button class="main-tab" type="button">月卡</button>
+        <button class="main-tab" type="button">礼包</button>
+      </nav>
+    </section>
+
+    <div class="top-bar" aria-label="货币">
+      <div class="currency">9985</div>
+      <div class="currency">1680</div>
+      <div class="currency">320</div>
+    </div>
+
+    <section class="content" data-layout-name="背包系统/道具页基线" data-node-id="6325:10610">
+      <section class="hero-panel" aria-label="终身卡权益">
+        <div class="sub-tabs" data-component-name="二级tab" data-node-id="4883:4888">
+          <button class="sub-tab is-active" type="button">权益总览</button>
+          <button class="sub-tab" type="button">每日奖励</button>
+          <button class="sub-tab" type="button">规则说明</button>
+        </div>
+
+        <div class="product-header">
+          <div>
+            <div class="product-kicker unowned-only">一次开通 · 永久生效 · 绑定当前角色</div>
+            <div class="product-kicker owned-only">已激活 · 每日奖励待领取 · 永久特权生效</div>
+            <h1 class="product-title">终身<span>豪礼令</span></h1>
+            <div class="product-copy unowned-only">立即获得神器自选箱与专属头像，之后每日登录领取抽卡券，并长期享有跨模块特权加成。</div>
+            <div class="product-copy owned-only">权益已绑定当前角色。今日奖励与购买前累计奖励可在本页一键领取。</div>
+          </div>
+          <div class="emblem" aria-hidden="true"></div>
+        </div>
+
+        <div class="reward-strip" data-component-name="UIRewardsPreviewPopUp" data-node-id="4909:15972">
+          <article class="reward-card">
+            <strong>开通即得</strong>
+            <p>神器自选箱、专属头像框与一次性资源补给。</p>
+            <div class="reward-icons">
+              <span class="item-frame"><span>1</span></span>
+              <span class="item-frame is-purple"><span>1</span></span>
+              <span class="item-frame is-blue"><span>8</span></span>
+            </div>
+          </article>
+          <article class="reward-card">
+            <strong>每日可领</strong>
+            <p>普通抽卡券与专属抽卡券按登录日累计。</p>
+            <div class="reward-icons">
+              <span class="item-frame is-blue"><span>2</span></span>
+              <span class="item-frame"><span>1</span></span>
+            </div>
+          </article>
+          <article class="reward-card">
+            <strong>永久特权</strong>
+            <p>商坊折扣、月卡钻石加成与专属身份展示。</p>
+            <div class="reward-icons">
+              <span class="item-frame"><span>∞</span></span>
+              <span class="item-frame is-purple"><span>+</span></span>
+            </div>
+          </article>
+        </div>
+
+        <div class="status-board">
+          <article class="state-card is-ready owned-only">
+            <header>今日奖励<span class="red-dot" aria-hidden="true"></span></header>
+            <p>可领取 1 日奖励：普通抽卡券 ×2、专属抽卡券 ×1。</p>
+          </article>
+          <article class="state-card is-locked unowned-only">
+            <header>今日奖励</header>
+            <p>开通后从本日起可领取每日奖励，未领取天数可累计。</p>
+          </article>
+          <article class="state-card is-ready owned-only">
+            <header>累计奖励<span class="red-dot" aria-hidden="true"></span></header>
+            <p>购买前累计登录 7 天，开通后可一次性补领。</p>
+          </article>
+          <article class="state-card is-locked unowned-only">
+            <header>累计奖励</header>
+            <p>购买前登录天数会记录，开通后按规则补发。</p>
+          </article>
+        </div>
+
+        <div class="action-row">
+          <div class="price unowned-action"><strong>¥168</strong><span>终身一次付费</span></div>
+          <div class="price owned-action"><strong>已开通</strong><span>今日仍有奖励可领</span></div>
+          <button class="primary-btn unowned-action" id="buyBtn" type="button" data-component-name="btn_c_lv1_normal_1" data-node-id="4786:929">立即开通</button>
+          <button class="primary-btn owned-action" id="dailyBtn" type="button" data-component-name="btn_c_lv1_normal_1" data-node-id="4786:929">领取今日</button>
+        </div>
+      </section>
+
+      <aside class="info-panel" aria-label="权益说明">
+        <section class="panel-card">
+          <h2>特权摘要</h2>
+          <div class="privilege-list">
+            <div class="privilege">
+              <span class="privilege-icon">令</span>
+              <div><strong>专属身份</strong><span>头像与身份展示永久解锁</span></div>
+              <span class="status-pill is-on owned-only">生效</span><span class="status-pill is-off unowned-only">未开通</span>
+            </div>
+            <div class="privilege">
+              <span class="privilege-icon">钻</span>
+              <div><strong>月卡联动</strong><span>持有月卡时钻石加成提高</span></div>
+              <span class="status-pill is-off" id="monthCardPill">未持有</span>
+            </div>
+            <div class="privilege">
+              <span class="privilege-icon">坊</span>
+              <div><strong>商坊加成</strong><span>部分长期商品享受额外折扣</span></div>
+              <span class="status-pill is-on owned-only">生效</span><span class="status-pill is-off unowned-only">未开通</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel-card">
+          <h2>领取状态</h2>
+          <p class="unowned-only">当前未开通。系统会继续记录购买前登录天数，完成购买后可在累计奖励弹窗中领取。</p>
+          <p class="owned-only">今日待领取 1 天奖励；购买前累计登录 7 天未领取。背包空间不足时奖励保留，不清零。</p>
+          <div class="rule-tip" data-component-name="bg_tip_短条">奖励按角色维度绑定，不跨服、不转移；重复购买会被服务端拦截。</div>
+        </section>
+
+        <section class="panel-card">
+          <h2>规则说明</h2>
+          <ul>
+            <li>终身卡为当前角色永久权益，支付成功并通过服务端校验后生效。</li>
+            <li>每日奖励支持跨日累计，一键领取后按实际天数结算。</li>
+            <li>一次性奖励若背包空间不足，将通过邮件补发。</li>
+          </ul>
+        </section>
+      </aside>
+    </section>
+
+    <div class="state-tools" aria-label="原型状态切换">
+      <button class="tool-btn is-active" id="stateUnowned" type="button">未购买</button>
+      <button class="tool-btn" id="stateOwned" type="button">已购买</button>
+      <button class="tool-btn" id="monthToggle" type="button">月卡联动</button>
+      <button class="tool-btn owned-action" id="cumulativeBtn" type="button">累计奖励</button>
+    </div>
+
+    <section class="modal-layer" id="modalLayer" aria-live="polite">
+      <div class="modal" id="modalBox"></div>
+    </section>
+    <div class="toast" id="toast"></div>
+  </main>
+</div>
+
+<script>
+const stage = document.getElementById("stage");
+const modalLayer = document.getElementById("modalLayer");
+const modalBox = document.getElementById("modalBox");
+const toast = document.getElementById("toast");
+const stateUnowned = document.getElementById("stateUnowned");
+const stateOwned = document.getElementById("stateOwned");
+const monthToggle = document.getElementById("monthToggle");
+const monthCardPill = document.getElementById("monthCardPill");
+
+let hasMonthCard = false;
+let toastTimer = 0;
+
+function scaleStage() {
+  const scale = Math.min(window.innerWidth / 2340, window.innerHeight / 1080);
+  stage.style.transform = `scale(${scale})`;
+}
+
+function setOwned(value) {
+  stage.dataset.owned = value ? "true" : "false";
+  stateUnowned.classList.toggle("is-active", !value);
+  stateOwned.classList.toggle("is-active", value);
+  if (value) {
+    showToast("已切换为已购买状态，可领取每日与累计奖励");
+  } else {
+    showToast("已切换为未购买状态，可触发购买确认弹窗");
+  }
+}
+
+function setMonthCard(value) {
+  hasMonthCard = value;
+  monthToggle.classList.toggle("is-active", value);
+  monthCardPill.classList.toggle("is-on", value);
+  monthCardPill.classList.toggle("is-off", !value);
+  monthCardPill.textContent = value ? "生效" : "未持有";
+  showToast(value ? "月卡钻石加成已显示为生效态" : "月卡联动已显示为未生效态");
+}
+
+function showToast(message) {
+  window.clearTimeout(toastTimer);
+  toast.textContent = message;
+  toast.classList.add("is-open");
+  toastTimer = window.setTimeout(() => toast.classList.remove("is-open"), 1800);
+}
+
+function openModal(title, body, small = false) {
+  modalBox.className = `modal ${small ? "is-small" : ""}`;
+  modalBox.innerHTML = `
+    <div class="modal-title">${title}</div>
+    <button class="modal-close" type="button" aria-label="关闭">×</button>
+    ${body}
+  `;
+  modalBox.querySelector(".modal-close").addEventListener("click", closeModal);
+  modalLayer.classList.add("is-open");
+}
+
+function closeModal() {
+  modalLayer.classList.remove("is-open");
+  modalBox.innerHTML = "";
+}
+
+function openPurchaseConfirm() {
+  openModal("购买确认", `
+    <div class="confirm-layout" data-component-name="中弹窗空白模板" data-node-id="6617:13137">
+      <div class="confirm-price">¥168 <span>终身一次开通</span></div>
+      <div class="modal-copy">终身卡权益将绑定当前角色。购买后立即发放神器自选箱、专属头像，并永久开放每日奖励与长期特权。该权益不可转移至其他角色。</div>
+      <div class="rule-tip" data-component-name="bg_tip_短条">确认后将进入系统支付流程；若已拥有终身卡，服务端会拦截重复购买。</div>
+      <div class="modal-actions">
+        <button class="secondary-btn" id="cancelPurchase" type="button" data-component-name="btn_c_lv1_normal_2" data-node-id="4786:926">取消</button>
+        <button class="primary-btn" id="confirmPurchase" type="button" data-component-name="btn_c_lv1_normal_1" data-node-id="4786:929">确认购买</button>
+      </div>
+    </div>
+  `);
+  document.getElementById("cancelPurchase").addEventListener("click", closeModal);
+  document.getElementById("confirmPurchase").addEventListener("click", () => {
+    document.getElementById("confirmPurchase").disabled = true;
+    document.getElementById("confirmPurchase").textContent = "支付中";
+    window.setTimeout(openActivationSuccess, 420);
+  });
+}
+
+function openActivationSuccess() {
+  setOwned(true);
+  openModal("开通成功", `
+    <div class="reward-preview" data-component-name="UIRewardsPreviewPopUp" data-node-id="4909:15972">
+      <div class="big-token" aria-hidden="true"></div>
+      <div>
+        <div class="modal-copy">终身卡已激活。一次性奖励已发放，若背包空间不足将通过邮件补发。购买前累计登录 7 天，可继续领取累计奖励。</div>
+        <div class="reward-grid">
+          <span class="item-frame"><span>1</span></span>
+          <span class="item-frame is-purple"><span>1</span></span>
+          <span class="item-frame is-blue"><span>8</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="secondary-btn" id="backShop" type="button" data-component-name="btn_c_lv1_normal_2" data-node-id="4786:926">返回商坊</button>
+      <button class="primary-btn" id="goCumulative" type="button" data-component-name="btn_c_lv1_normal_1" data-node-id="4786:929">领累计</button>
+    </div>
+  `, true);
+  document.getElementById("backShop").addEventListener("click", closeModal);
+  document.getElementById("goCumulative").addEventListener("click", openCumulativeReward);
+}
+
+function openCumulativeReward() {
+  openModal("累计奖励", `
+    <div data-component-name="中小弹窗空白模板" data-node-id="4804:1400">
+      <div class="modal-copy">购买前累计登录 7 天，可一次性领取补发奖励。背包空间不足时奖励保留，不清零。</div>
+      <div class="reward-grid" data-component-name="UIRewardsPreviewPopUp" data-node-id="4909:15972">
+        <span class="item-frame is-blue"><span>14</span></span>
+        <span class="item-frame"><span>7</span></span>
+        <span class="item-frame is-purple"><span>1</span></span>
+      </div>
+      <div class="modal-actions">
+        <button class="secondary-btn" id="closeCumulative" type="button" data-component-name="btn_c_lv1_normal_2" data-node-id="4786:926">关闭</button>
+        <button class="primary-btn" id="claimCumulative" type="button" data-component-name="btn_c_lv1_normal_1" data-node-id="4786:929">一键领取</button>
+      </div>
+    </div>
+  `, true);
+  document.getElementById("closeCumulative").addEventListener("click", closeModal);
+  document.getElementById("claimCumulative").addEventListener("click", () => {
+    closeModal();
+    showToast("累计奖励已领取");
+  });
+}
+
+function openDailyReward() {
+  openModal("每日奖励", `
+    <div data-component-name="中小弹窗空白模板" data-node-id="4804:1400">
+      <div class="modal-copy">今日可领取 1 天奖励。若跨日未领，会按待领取天数一次性结算。</div>
+      <div class="reward-grid">
+        <span class="item-frame is-blue"><span>2</span></span>
+        <span class="item-frame"><span>1</span></span>
+      </div>
+      <div class="modal-actions">
+        <button class="secondary-btn" id="closeDaily" type="button" data-component-name="btn_c_lv1_normal_2" data-node-id="4786:926">关闭</button>
+        <button class="primary-btn" id="claimDaily" type="button" data-component-name="btn_c_lv1_normal_1" data-node-id="4786:929">一键领取</button>
+      </div>
+    </div>
+  `, true);
+  document.getElementById("closeDaily").addEventListener("click", closeModal);
+  document.getElementById("claimDaily").addEventListener("click", () => {
+    closeModal();
+    showToast("今日奖励已领取");
+  });
+}
+
+document.getElementById("buyBtn").addEventListener("click", openPurchaseConfirm);
+document.getElementById("dailyBtn").addEventListener("click", openDailyReward);
+document.getElementById("cumulativeBtn").addEventListener("click", openCumulativeReward);
+stateUnowned.addEventListener("click", () => setOwned(false));
+stateOwned.addEventListener("click", () => setOwned(true));
+monthToggle.addEventListener("click", () => setMonthCard(!hasMonthCard));
+modalLayer.addEventListener("click", event => {
+  if (event.target === modalLayer) closeModal();
+});
+window.addEventListener("resize", scaleStage);
+
+scaleStage();
+</script>
+</body>
+</html>

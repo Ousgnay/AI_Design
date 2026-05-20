@@ -1,7 +1,7 @@
 ﻿# XGame Project Status
 
 **last_updated**: 2026-05-19  
-**last_change_ref**: `doc-ia/背包系统/背包系统-IA结构化文档.md` -> Figma `11ik4XGiSBLUNIjT2EfrNE` `验证1/背包系统需求实例化` 首次 IA -> Figma 实例化验证完成
+**last_change_ref**: `doc-ia/终身卡策划案_V2-IA.md` -> `prototype/lifetime-card-interactive-prototype.html` HTML 交互原型完成
 
 ---
 
@@ -13,6 +13,7 @@ Phase 1 - 核心流验证推进中
 
 ## Current Todo
 
+- 人工查看 `prototype/lifetime-card-interactive-prototype.html` 终身卡交互原型
 - 人工复核 `test 背包需求` 中 `背包系统需求实例化` 版面
 - 补采背包 case 中缺失的关键 `componentKey`，优先补 `btn_c_lv1_normal_1`
 - 评估“批量分解弹窗”是否需要专用 published organism 模板
@@ -29,6 +30,7 @@ Phase 1 - 核心流验证推进中
 
 ## Next Step
 
+- 浏览器打开 `prototype/lifetime-card-interactive-prototype.html` 检查终身卡未购买 / 已购买 / 购买确认 / 激活成功 / 累计奖励 / 每日领取交互
 - 人工复核 Figma `11ik4XGiSBLUNIjT2EfrNE` `验证1/背包系统需求实例化`
 - 针对本次背包 case 中缺失 `componentKey` 的条目补采，优先补 `btn_c_lv1_normal_1`
 - 判断“批量分解弹窗”是否继续沿用 `中弹窗空白模板`，还是补采专用 organism
@@ -93,4 +95,6 @@ Phase 1 - 核心流验证推进中
 - repository encoding policy is documented in `ai-shared/docs/encoding-governance.md` and enforced for common text types via `.editorconfig` and `.gitattributes`
 - read-only encoding audit entry point is `tools/encoding-audit.ps1`; in Windows PowerShell 5.1, inspect text with explicit UTF-8 reads
 - shared workflow entry documents now explicitly require future text files to follow UTF-8 with BOM + LF and route encoding checks through `tools/encoding-audit.ps1`
+- 已根据 `doc-ia/终身卡策划案_V2-IA.md` 产出 `prototype/lifetime-card-interactive-prototype.html`，原型显式引用 `tokens-data.json` / `tokens-decision.md` 中的文本层级、深浅底语义色与文本投影规则，并复用现有按钮、tab、奖励预览、弹窗等 component 语义
+- 本次按用户要求未执行 UTF-8 with BOM 限制校验
 - 历史背景与结构变更过程见 `AI-workflow-discussion-log.md`

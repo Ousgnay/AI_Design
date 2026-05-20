@@ -1,0 +1,1157 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>背包系统交互原型</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --stage-w: 2340;
+  --stage-h: 1080;
+  --ink: #2f251b;
+  --brown: #593323;
+  --paper: #d8d2c1;
+  --gold: #e8d093;
+  --red: #6b282b;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #171110;
+  color: var(--ink);
+  font-family: "Microsoft YaHei", "Noto Sans SC", "PingFang SC", sans-serif;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.viewport {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(112, 74, 54, 0.18), transparent 58%),
+    #130f0e;
+}
+
+.stage {
+  position: relative;
+  width: 2340px;
+  height: 1080px;
+  overflow: hidden;
+  transform-origin: center center;
+  background: #d6d0c0;
+}
+
+.stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/backpack-bg-bag-01.png") center / cover no-repeat;
+}
+
+.left-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 500px;
+  height: 1080px;
+  background: url("assets/backpack-left-panel.png") center / 100% 100% no-repeat;
+}
+
+.title {
+  position: absolute;
+  left: 234px;
+  top: 5px;
+  width: 197px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #573121;
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.title::before {
+  content: "";
+  width: 72px;
+  height: 38px;
+  background: linear-gradient(90deg, rgba(87, 49, 33, 0) 0, rgba(87, 49, 33, 0.82) 45%, rgba(87, 49, 33, 0) 100%);
+  clip-path: polygon(0 50%, 100% 8%, 82% 50%, 100% 92%);
+}
+
+.currencies {
+  position: absolute;
+  left: 1444px;
+  top: 1px;
+  width: 702px;
+  height: 67px;
+  display: flex;
+  gap: 42px;
+  align-items: center;
+}
+
+.currency {
+  min-width: 178px;
+  height: 42px;
+  padding: 0 20px 0 58px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #efe7dd;
+  font-size: 20px;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
+  background: linear-gradient(90deg, rgba(68, 55, 49, 0.82), rgba(37, 32, 30, 0.82));
+  border-radius: 5px;
+  position: relative;
+}
+
+.currency::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  top: -4px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 42% 38%, #d8e56c 0 18%, #8fb43d 19% 54%, #5c7829 55% 100%);
+  box-shadow: 0 0 0 3px rgba(68, 89, 28, 0.55), inset 0 3px 8px rgba(255, 255, 255, 0.55);
+}
+
+.tabs {
+  position: absolute;
+  left: 0;
+  top: 124px;
+  width: 500px;
+}
+
+.main-tab {
+  position: relative;
+  width: 500px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 73px;
+  font-size: 44px;
+  color: #26231b;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.main-tab::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 402px;
+  height: 2px;
+  background: rgba(64, 47, 35, 0.18);
+}
+
+.main-tab.is-active {
+  color: #efe7dd;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.72);
+  background: url("assets/backpack-tab-selected.png") center / 500px 108px no-repeat;
+}
+
+.capacity {
+  position: absolute;
+  left: 602px;
+  top: 124px;
+  height: 34px;
+  color: #26231b;
+  font-size: 30px;
+}
+
+.grid-shell,
+.equipment-shell {
+  position: absolute;
+  left: 581px;
+  top: 114px;
+  width: 911px;
+  height: 823px;
+}
+
+.grid-header {
+  height: 47px;
+  background: rgba(226, 220, 202, 0.74);
+}
+
+.grid-board {
+  position: absolute;
+  left: 0;
+  top: 57px;
+  width: 911px;
+  height: 766px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 154px);
+  grid-auto-rows: 154px;
+  gap: 25px 26px;
+  background: rgba(172, 166, 146, 0.22);
+  box-shadow: inset 0 0 0 1px rgba(91, 75, 58, 0.18);
+}
+
+.slot {
+  position: relative;
+  width: 154px;
+  height: 154px;
+}
+
+.slot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/backpack-item-frame.png") center / 100% 100% no-repeat;
+  opacity: 0.9;
+}
+
+.slot.has-item .item-icon {
+  position: absolute;
+  left: 3px;
+  top: 5px;
+  width: 144px;
+  height: 144px;
+  object-fit: cover;
+}
+
+.slot .count {
+  position: absolute;
+  right: 8px;
+  bottom: 5px;
+  color: #f0efef;
+  font-size: 28px;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.72);
+}
+
+.slot .time {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 36px;
+  height: 36px;
+}
+
+.slot .tag {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  width: 32px;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #452416;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 0.83;
+  writing-mode: vertical-rl;
+  background: url("assets/backpack-choice-tag.png") center / 100% 100% no-repeat;
+}
+
+.slot.is-selected::after {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border: 4px solid #d4bd6a;
+  box-shadow: inset 0 0 0 2px rgba(70, 44, 25, 0.72), 0 0 18px rgba(210, 175, 84, 0.48);
+  pointer-events: none;
+}
+
+.empty-slot {
+  background: rgba(94, 89, 78, 0.16);
+}
+
+.detail {
+  position: absolute;
+  left: 1547px;
+  top: 114px;
+  width: 599px;
+  height: 873px;
+  background: url("assets/backpack-detail-panel.png") top / 599px 873px no-repeat;
+}
+
+.detail-hero {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 599px;
+  height: 286px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(128, 33, 42, 0.72), rgba(147, 42, 52, 0.78)),
+    rgba(120, 42, 45, 0.86);
+}
+
+.detail-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background: repeating-linear-gradient(135deg, transparent 0 20px, rgba(255, 255, 255, 0.14) 22px 23px);
+}
+
+.detail-hero .detail-icon {
+  position: absolute;
+  right: 74px;
+  top: 28px;
+  width: 168px;
+  height: 168px;
+  object-fit: cover;
+  transform: rotate(-8deg);
+}
+
+.limit-badge {
+  position: absolute;
+  left: 18px;
+  top: 24px;
+  min-width: 148px;
+  height: 34px;
+  padding: 0 12px 0 42px;
+  display: flex;
+  align-items: center;
+  color: #efe7dd;
+  font-size: 18px;
+  background: rgba(45, 22, 19, 0.64);
+  border-radius: 5px;
+}
+
+.limit-badge img {
+  position: absolute;
+  left: 8px;
+  width: 24px;
+  height: 24px;
+}
+
+.owner {
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+  color: #f8e8ca;
+  font-size: 24px;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.72);
+}
+
+.detail-name {
+  position: absolute;
+  left: 18px;
+  top: 318px;
+  margin: 0;
+  color: var(--brown);
+  font-size: 46px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.detail-copy {
+  position: absolute;
+  left: 18px;
+  top: 414px;
+  width: 542px;
+  color: #312e2a;
+  font-size: 30px;
+  line-height: 1.42;
+}
+
+.route-title {
+  position: absolute;
+  left: 18px;
+  top: 590px;
+  color: var(--brown);
+  font-size: 34px;
+}
+
+.routes {
+  position: absolute;
+  left: 18px;
+  top: 642px;
+  width: 545px;
+  display: grid;
+  gap: 14px;
+}
+
+.route {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: #3d3328;
+  font-size: 28px;
+  background: rgba(230, 221, 199, 0.54);
+  border: 1px solid rgba(88, 65, 46, 0.28);
+}
+
+.primary-btn,
+.secondary-btn {
+  width: 340px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  color: #321d14;
+  font-size: 42px;
+  text-align: center;
+  background: url("assets/btn_c_lv1_normal_1.png") center / 100% 100% no-repeat;
+}
+
+.secondary-btn {
+  background-image: url("assets/backpack-btn-lv1-normal-2.png");
+}
+
+.detail .primary-btn {
+  position: absolute;
+  left: 130px;
+  bottom: 28px;
+}
+
+.quick-actions {
+  position: absolute;
+  left: 581px;
+  top: 986px;
+  display: flex;
+  gap: 34px;
+  align-items: center;
+}
+
+.toggle {
+  width: 284px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #3a352c;
+  font-size: 34px;
+}
+
+.toggle-switch {
+  width: 139px;
+  height: 34px;
+  border-radius: 17px;
+  background: rgba(166, 150, 125, 0.46);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.42);
+  position: relative;
+}
+
+.toggle-switch::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 3px;
+  width: 59px;
+  height: 28px;
+  border-radius: 14px;
+  background: #8e6244;
+}
+
+.quick-btn {
+  min-width: 190px;
+  height: 54px;
+  padding: 0 24px;
+  color: #3e2a1c;
+  font-size: 30px;
+  background: rgba(224, 209, 179, 0.55);
+  border: 1px solid rgba(95, 70, 47, 0.34);
+}
+
+.equipment-shell {
+  left: 572px;
+  width: 1584px;
+  height: 805px;
+}
+
+.sub-tabs {
+  position: absolute;
+  left: 26px;
+  top: 0;
+  display: flex;
+}
+
+.sub-tab {
+  width: 234px;
+  height: 66px;
+  display: grid;
+  place-items: center;
+  color: #26231b;
+  font-size: 34px;
+  background: rgba(222, 212, 190, 0.75);
+  border: 2px solid rgba(114, 88, 58, 0.45);
+}
+
+.sub-tab.is-active {
+  color: #efe7dd;
+  background: linear-gradient(180deg, rgba(107, 40, 42, 0.9), rgba(93, 34, 37, 0.78));
+}
+
+.table-head {
+  position: absolute;
+  top: 85px;
+  left: 0;
+  width: 1584px;
+  height: 52px;
+  display: grid;
+  grid-template-columns: 446px 594px 273px 271px;
+  align-items: center;
+  text-align: center;
+  color: var(--brown);
+  font-size: 34px;
+  background: rgba(222, 216, 199, 0.78);
+  border-top: 1px solid rgba(84, 65, 47, 0.38);
+  border-bottom: 1px solid rgba(84, 65, 47, 0.38);
+}
+
+.equipment-list {
+  position: absolute;
+  left: 23px;
+  top: 150px;
+  width: 1539px;
+  height: 655px;
+  overflow: hidden;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.equipment-row {
+  position: relative;
+  height: 141px;
+  display: grid;
+  grid-template-columns: 422px 594px 273px 246px;
+  align-items: center;
+  color: #26231b;
+  background: rgba(222, 214, 196, 0.64);
+}
+
+.equipment-row.is-selected {
+  color: #f8f4e6;
+  background: linear-gradient(90deg, rgba(104, 43, 45, 0.9), rgba(108, 65, 55, 0.7));
+}
+
+.eq-name {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 28px;
+  font-size: 40px;
+}
+
+.eq-slot {
+  width: 121px;
+  height: 121px;
+  position: relative;
+}
+
+.eq-slot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/backpack-item-frame.png") center / 100% 100% no-repeat;
+}
+
+.eq-slot img {
+  position: absolute;
+  left: 2px;
+  top: 4px;
+  width: 113px;
+  height: 113px;
+  object-fit: cover;
+}
+
+.stats {
+  display: grid;
+  gap: 8px;
+  font-size: 34px;
+}
+
+.stat {
+  display: grid;
+  grid-template-columns: 70px 331px 80px;
+  align-items: center;
+  gap: 16px;
+}
+
+.bar {
+  height: 18px;
+  background: rgba(42, 40, 35, 0.72);
+  padding: 2px;
+}
+
+.bar span {
+  display: block;
+  width: 64%;
+  height: 14px;
+  background: #4bb383;
+}
+
+.chips {
+  display: grid;
+  gap: 12px;
+  justify-content: center;
+}
+
+.chip {
+  width: 165px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  color: #f4f2ee;
+  font-size: 34px;
+  background: url("assets/backpack-chip-blue.png") center / 100% 100% no-repeat;
+}
+
+.hero-portrait {
+  width: 170px;
+  height: 130px;
+  margin-left: 32px;
+  border-radius: 4px;
+  background:
+    linear-gradient(135deg, transparent 0 46%, rgba(27, 18, 16, 0.86) 47% 100%),
+    radial-gradient(circle at 65% 40%, #7b4a32 0 16%, #35221d 17% 56%, transparent 57%);
+}
+
+.equipment-actions {
+  position: absolute;
+  left: 1421px;
+  top: 959px;
+  display: flex;
+  gap: 46px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.modal-layer {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 14, 12, 0.55);
+}
+
+.modal-layer.is-open {
+  display: flex;
+}
+
+.modal {
+  position: relative;
+  width: 820px;
+  min-height: 520px;
+  padding: 72px 66px 48px;
+  background:
+    linear-gradient(180deg, rgba(235, 226, 204, 0.98), rgba(204, 192, 166, 0.98));
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.48), inset 0 0 0 3px rgba(98, 71, 48, 0.34);
+}
+
+.modal.is-wide {
+  width: 1040px;
+  min-height: 600px;
+}
+
+.modal-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  color: #f8f1df;
+  font-size: 38px;
+  background: linear-gradient(90deg, #6b282b, #8b3e37, #6b282b);
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
+}
+
+.modal-close {
+  position: absolute;
+  right: -22px;
+  top: -22px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #f7e8d2;
+  font-size: 34px;
+  line-height: 50px;
+  background: #37231d;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.42);
+}
+
+.use-layout {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.big-item {
+  width: 154px;
+  height: 154px;
+  position: relative;
+}
+
+.big-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/backpack-item-frame.png") center / 100% 100% no-repeat;
+}
+
+.big-item img {
+  position: absolute;
+  left: 3px;
+  top: 5px;
+  width: 144px;
+  height: 144px;
+}
+
+.modal-copy {
+  color: #33291f;
+  font-size: 30px;
+  line-height: 1.45;
+}
+
+.quantity {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.quantity button {
+  width: 58px;
+  height: 58px;
+  color: #f8ecd4;
+  font-size: 42px;
+  background: #604134;
+}
+
+.quantity strong {
+  min-width: 96px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  color: #321d14;
+  font-size: 34px;
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.modal-actions {
+  margin-top: 44px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.promote-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.hero-card-lite {
+  width: 211px;
+  height: 300px;
+  padding: 18px;
+  color: #f5e9d2;
+  background: linear-gradient(180deg, #8b633a, #2d2018);
+  border: 3px solid #d0ad62;
+  position: relative;
+}
+
+.hero-card-lite::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 92px;
+  height: 110px;
+  background: radial-gradient(circle at 50% 30%, #c29365, #3a2018 64%);
+}
+
+.hero-card-lite strong {
+  position: relative;
+  z-index: 1;
+  font-size: 34px;
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 28px;
+}
+
+.split-list {
+  display: grid;
+  gap: 12px;
+}
+
+.split-row {
+  height: 70px;
+  display: grid;
+  grid-template-columns: 52px 1fr 90px;
+  align-items: center;
+  gap: 14px;
+  padding: 0 16px;
+  color: #31271d;
+  font-size: 28px;
+  background: rgba(246, 241, 224, 0.45);
+  border: 1px solid rgba(98, 71, 48, 0.25);
+}
+
+.checkbox {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: #f3e8ce;
+  background: #3b2f29;
+}
+
+.checkbox::before {
+  content: "✓";
+  font-size: 30px;
+}
+
+.reward-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 154px);
+  gap: 28px;
+  justify-content: center;
+  margin-top: 10px;
+}
+</style>
+</head>
+<body>
+<div class="viewport">
+  <main class="stage" data-source-ia="../doc-ia/背包系统/背包系统-IA结构化文档.md" data-layout-node-id="6386:13440" data-layout-source="decision-source/knowledge/common/layout-spec.json">
+    <section class="left-panel" aria-label="背包分类">
+      <div class="title">背包</div>
+      <nav class="tabs">
+        <button class="main-tab is-active" data-tab="items" data-node-id="6395:13544" data-component-key="eeac30174ff5aa2f09d279583a45fcf1139ba32e">文本</button>
+        <button class="main-tab" data-tab="equipment" data-node-id="6395:13544" data-component-key="eeac30174ff5aa2f09d279583a45fcf1139ba32e">装备</button>
+        <button class="main-tab" data-tab="materials" data-node-id="6395:13544" data-component-key="eeac30174ff5aa2f09d279583a45fcf1139ba32e">材料</button>
+        <button class="main-tab" data-tab="souls" data-node-id="6395:13544" data-component-key="eeac30174ff5aa2f09d279583a45fcf1139ba32e">将魂</button>
+      </nav>
+    </section>
+
+    <div class="currencies" aria-label="货币">
+      <div class="currency">9985</div>
+      <div class="currency">9985</div>
+      <div class="currency">9985</div>
+    </div>
+
+    <div class="capacity" id="capacity">3/300</div>
+
+    <section class="grid-shell" id="gridShell" data-layout-node-id="6386:13440">
+      <div class="grid-header"></div>
+      <div class="grid-board" id="gridBoard" data-component-name="道具格" data-node-id="6405:14820" data-component-key="9564eb243dfa5cb92cfb82891b25449e00f4df85"></div>
+    </section>
+
+    <section class="equipment-shell hidden" id="equipmentShell" data-layout-node-id="6405:15876">
+      <div class="sub-tabs" data-component-name="背包装备tab" data-node-id="6405:17043" data-component-key="d8586cf61121f3271ae7add38a50d63a61a19ec1">
+        <button class="sub-tab is-active">文本</button>
+        <button class="sub-tab">铠甲</button>
+        <button class="sub-tab">武器</button>
+      </div>
+      <div class="table-head">
+        <div>名称</div>
+        <div>全部</div>
+        <div>附加</div>
+        <div>装配状态</div>
+      </div>
+      <div class="equipment-list" id="equipmentList"></div>
+    </section>
+
+    <aside class="detail" id="detailPanel">
+      <div class="detail-hero">
+        <div class="limit-badge"><img src="assets/backpack-time-badge.png" alt="">限时 15:12:00</div>
+        <img class="detail-icon" id="detailIcon" src="assets/backpack-item-icon-token.png" alt="">
+        <div class="owner" id="detailOwner">当前拥有：1</div>
+      </div>
+      <h1 class="detail-name" id="detailName">水淹七军 战法信物</h1>
+      <div class="detail-copy" id="detailCopy">获得的重复武将将转化成信物，可用于对应武将的升阶。</div>
+      <div class="route-title">获取途径</div>
+      <div class="routes" id="routes"></div>
+      <button class="primary-btn" id="detailAction" data-node-id="4786:929" data-component-name="btn_c_lv1_normal_1">使用</button>
+    </aside>
+
+    <div class="quick-actions" id="quickActions">
+      <button class="toggle" id="oneClickSplit" data-node-id="6488:11747"><span class="toggle-switch"></span><span>一键分解</span></button>
+      <button class="quick-btn hidden" id="batchPromote">批量进阶</button>
+      <button class="quick-btn hidden" id="starShop">将星阁</button>
+    </div>
+
+    <div class="equipment-actions hidden" id="equipmentActions">
+      <button class="secondary-btn">重塑</button>
+      <button class="secondary-btn">锻造</button>
+    </div>
+
+    <section class="modal-layer" id="modalLayer" aria-live="polite">
+      <div class="modal" id="modalBox"></div>
+    </section>
+  </main>
+</div>
+
+<script>
+const items = [
+  { id: "token", tab: "items", name: "水淹七军 战法信物", count: 1, timed: true, choice: true, action: "use", owner: "当前拥有：1", copy: "获得的重复武将将转化成信物，可用于对应武将的升阶。", routes: ["招募", "战法演练", "商店兑换"] },
+  { id: "chest", tab: "items", name: "自选资源宝箱", count: 6, timed: false, choice: true, action: "use", owner: "当前拥有：6", copy: "打开后可在多类基础资源中选择一种获得。", routes: ["主线任务", "活动奖励", "同盟商店"] },
+  { id: "speed", tab: "items", name: "行军加速令", count: 12, timed: true, choice: false, action: "use", owner: "当前拥有：12", copy: "使用后减少当前行军队列的剩余时间。", routes: ["每日任务", "战功商店"] },
+  { id: "iron", tab: "materials", name: "精铁", count: 248, timed: false, choice: false, action: "route", owner: "当前拥有：248", copy: "装备打造与重塑所需的基础材料。", routes: ["讨伐山贼", "资源商店", "装备分解"] },
+  { id: "stone", tab: "materials", name: "玄纹石", count: 37, timed: false, choice: false, action: "route", owner: "当前拥有：37", copy: "用于高阶装备词条重塑的稀有材料。", routes: ["赛季奖励", "战役掉落"] },
+  { id: "soul-caocao", tab: "souls", name: "曹操将魂", count: 80, timed: false, choice: false, action: "promote", owner: "当前拥有：80", copy: "武将进阶材料。当前数量满足下一阶段进阶。", routes: ["招募转化", "将星阁"] },
+  { id: "soul-zhouyu", tab: "souls", name: "周瑜将魂", count: 36, timed: false, choice: false, action: "split", owner: "当前拥有：36", copy: "该武将已满阶，多余将魂可分解为英魄。", routes: ["招募转化", "将星阁"] }
+];
+
+const equipment = [
+  { name: "赤黄飞电", selected: true, chips: ["万象", "万象"], state: "曹操" },
+  { name: "抓黄飞电", selected: false, chips: ["万象"], state: "曹操" },
+  { name: "赤黄飞电", selected: false, chips: ["万象", "万象"], state: "曹操" },
+  { name: "抓黄飞电", selected: false, chips: ["万象"], state: "曹操" }
+];
+
+let currentTab = "items";
+let selectedItemId = "token";
+let quantity = 1;
+
+const stage = document.querySelector(".stage");
+const gridBoard = document.getElementById("gridBoard");
+const detailName = document.getElementById("detailName");
+const detailCopy = document.getElementById("detailCopy");
+const detailOwner = document.getElementById("detailOwner");
+const routes = document.getElementById("routes");
+const detailAction = document.getElementById("detailAction");
+const gridShell = document.getElementById("gridShell");
+const equipmentShell = document.getElementById("equipmentShell");
+const detailPanel = document.getElementById("detailPanel");
+const quickActions = document.getElementById("quickActions");
+const equipmentActions = document.getElementById("equipmentActions");
+const modalLayer = document.getElementById("modalLayer");
+const modalBox = document.getElementById("modalBox");
+const capacity = document.getElementById("capacity");
+
+function scaleStage() {
+  const scale = Math.min(window.innerWidth / 2340, window.innerHeight / 1080);
+  stage.style.transform = `scale(${scale})`;
+}
+
+function visibleItems() {
+  return items.filter(item => item.tab === currentTab);
+}
+
+function renderGrid() {
+  const pageItems = visibleItems();
+  if (!pageItems.some(item => item.id === selectedItemId)) {
+    selectedItemId = pageItems[0]?.id || selectedItemId;
+  }
+  gridBoard.innerHTML = "";
+  const cells = 20;
+  for (let index = 0; index < cells; index += 1) {
+    const item = pageItems[index];
+    const button = document.createElement("button");
+    button.className = `slot ${item ? "has-item" : "empty-slot"} ${item?.id === selectedItemId ? "is-selected" : ""}`;
+    button.dataset.nodeId = "6405:14820";
+    button.dataset.componentKey = "9564eb243dfa5cb92cfb82891b25449e00f4df85";
+    if (item) {
+      button.dataset.itemId = item.id;
+      button.innerHTML = `
+        <img class="item-icon" src="assets/backpack-item-icon-token.png" alt="">
+        ${item.timed ? '<img class="time" src="assets/backpack-time-badge.png" alt="">' : ""}
+        ${item.choice ? '<span class="tag">自选</span>' : ""}
+        <span class="count">${item.count}</span>
+      `;
+      button.addEventListener("click", () => {
+        selectedItemId = item.id;
+        renderGrid();
+        renderDetail();
+      });
+    }
+    gridBoard.appendChild(button);
+  }
+  capacity.textContent = `${pageItems.length}/300`;
+}
+
+function renderDetail() {
+  const item = items.find(entry => entry.id === selectedItemId) || visibleItems()[0];
+  if (!item) return;
+  detailName.textContent = item.name;
+  detailCopy.textContent = item.copy;
+  detailOwner.textContent = item.owner;
+  routes.innerHTML = item.routes.map(route => `<button class="route"><span>${route}</span><span>前往</span></button>`).join("");
+  detailAction.textContent = item.action === "split" ? "分解" : item.action === "route" ? "前往" : "使用";
+  detailAction.onclick = () => {
+    if (item.action === "promote") openPromoteModal(item);
+    else if (item.action === "split") openRewardsModal("分解结果");
+    else if (item.action === "route") routes.querySelector(".route")?.focus();
+    else openUseModal(item);
+  };
+}
+
+function renderEquipment() {
+  document.getElementById("equipmentList").innerHTML = equipment.map((entry, index) => `
+    <button class="equipment-row ${entry.selected ? "is-selected" : ""}">
+      <div class="eq-name">
+        <span class="eq-slot" data-node-id="6405:14820" data-component-key="9564eb243dfa5cb92cfb82891b25449e00f4df85"><img src="assets/backpack-item-icon-token.png" alt=""></span>
+        <span>${entry.name}</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><span>武力</span><span class="bar"><span></span></span><span>+8.1</span></div>
+        <div class="stat"><span>先攻</span><span class="bar"><span></span></span><span>+8.1</span></div>
+      </div>
+      <div class="chips">${entry.chips.map(chip => `<span class="chip">${chip}</span>`).join("")}</div>
+      <div class="hero-portrait" aria-label="${entry.state}"></div>
+    </button>
+  `).join("");
+}
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll(".main-tab").forEach(btn => btn.classList.toggle("is-active", btn.dataset.tab === tab));
+  const isEquipment = tab === "equipment";
+  gridShell.classList.toggle("hidden", isEquipment);
+  equipmentShell.classList.toggle("hidden", !isEquipment);
+  detailPanel.classList.toggle("hidden", isEquipment);
+  equipmentActions.classList.toggle("hidden", !isEquipment);
+  document.getElementById("batchPromote").classList.toggle("hidden", tab !== "souls");
+  document.getElementById("starShop").classList.toggle("hidden", tab !== "souls");
+  stage.dataset.layoutNodeId = isEquipment ? "6405:15876" : "6386:13440";
+  if (isEquipment) {
+    capacity.textContent = "4/300";
+  } else {
+    renderGrid();
+    renderDetail();
+  }
+}
+
+function modalFrame(title, body, wide = false) {
+  modalBox.className = `modal ${wide ? "is-wide" : ""}`;
+  modalBox.innerHTML = `
+    <div class="modal-title">${title}</div>
+    <button class="modal-close" aria-label="关闭">×</button>
+    ${body}
+  `;
+  modalBox.querySelector(".modal-close").addEventListener("click", closeModal);
+  modalLayer.classList.add("is-open");
+}
+
+function closeModal() {
+  modalLayer.classList.remove("is-open");
+  modalBox.innerHTML = "";
+}
+
+function openUseModal(item) {
+  quantity = 1;
+  modalFrame("使用道具", `
+    <div class="use-layout" data-component-name="UIBagUsePanel" data-node-id="4873:5530" data-component-key="3d5df0da3b62cf16a7004e7c1dbf398b9d910c33">
+      <div class="big-item"><img src="assets/backpack-item-icon-token.png" alt=""></div>
+      <div>
+        <div class="modal-copy">${item.name}<br>${item.copy}</div>
+        <div class="quantity">
+          <button id="minusQty">−</button>
+          <strong id="qtyValue">1</strong>
+          <button id="plusQty">＋</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="secondary-btn" id="cancelUse">取消</button>
+      <button class="primary-btn" id="confirmUse">确认</button>
+    </div>
+  `);
+  document.getElementById("minusQty").onclick = () => setQuantity(Math.max(1, quantity - 1));
+  document.getElementById("plusQty").onclick = () => setQuantity(Math.min(item.count, quantity + 1));
+  document.getElementById("cancelUse").onclick = closeModal;
+  document.getElementById("confirmUse").onclick = () => openRewardsModal("获得结果");
+}
+
+function setQuantity(value) {
+  quantity = value;
+  document.getElementById("qtyValue").textContent = String(quantity);
+}
+
+function openPromoteModal(item) {
+  modalFrame("将魂进阶", `
+    <div class="promote-card" data-component-name="UIHeroPromoteWindow" data-node-id="4873:5178" data-component-key="1a492106773d070a75495daf91b3a81136894148">
+      <div class="hero-card-lite" data-component-name="武将列表" data-node-id="2040:3643" data-component-key="dce0d186fc56c45e056adbe4909ca7b3a5a27f98"><strong>曹操</strong></div>
+      <div class="modal-copy">${item.name}<br>消耗 80 个将魂，提升目标武将进阶等级。进阶后解锁更高属性成长。</div>
+    </div>
+    <div class="modal-actions">
+      <button class="secondary-btn" id="cancelPromote">取消</button>
+      <button class="primary-btn" id="confirmPromote">进阶</button>
+    </div>
+  `);
+  document.getElementById("cancelPromote").onclick = closeModal;
+  document.getElementById("confirmPromote").onclick = () => openRewardsModal("进阶成功");
+}
+
+function openSplitModal() {
+  modalFrame("批量分解", `
+    <div class="split-layout" data-component-name="中弹窗空白模板" data-node-id="6617:13137" data-component-key="1872f05dddd3b7c2a81a7bf1493c44c4a19b1a96">
+      <div class="split-list" data-component-name="勾选" data-node-id="6877:16542" data-component-key="746aff6bc4e32884f8ebcb8d615df8cf5b421dd0">
+        <div class="split-row"><span class="checkbox"></span><span>周瑜将魂</span><span>×36</span></div>
+        <div class="split-row"><span class="checkbox"></span><span>孙权将魂</span><span>×42</span></div>
+        <div class="split-row"><span class="checkbox"></span><span>甘宁将魂</span><span>×18</span></div>
+      </div>
+      <div class="modal-copy">预计获得<br><strong>英魄 × 960</strong><br>英魂符 × 12</div>
+    </div>
+    <div class="modal-actions">
+      <button class="secondary-btn" id="cancelSplit">取消</button>
+      <button class="primary-btn" id="confirmSplit">分解</button>
+    </div>
+  `, true);
+  document.getElementById("cancelSplit").onclick = closeModal;
+  document.getElementById("confirmSplit").onclick = () => openRewardsModal("获得结果");
+}
+
+function openRewardsModal(title) {
+  modalFrame(title, `
+    <div data-component-name="UIRewardsPreviewPopUp" data-node-id="4909:15972" data-component-key="8d1890e7368519548068920225efa04e07ca8d37">
+      <div class="reward-grid">
+        <div class="slot has-item"><img class="item-icon" src="assets/backpack-item-icon-token.png" alt=""><span class="count">960</span></div>
+        <div class="slot has-item"><img class="item-icon" src="assets/backpack-item-icon-token.png" alt=""><span class="count">12</span></div>
+        <div class="slot has-item"><img class="item-icon" src="assets/backpack-item-icon-token.png" alt=""><span class="count">1</span></div>
+      </div>
+      <div class="modal-actions"><button class="primary-btn" id="closeRewards">确认</button></div>
+    </div>
+  `);
+  document.getElementById("closeRewards").onclick = closeModal;
+}
+
+document.querySelectorAll(".main-tab").forEach(btn => btn.addEventListener("click", () => switchTab(btn.dataset.tab)));
+document.getElementById("oneClickSplit").addEventListener("click", openSplitModal);
+document.getElementById("batchPromote").addEventListener("click", () => openPromoteModal(items.find(item => item.id === "soul-caocao")));
+document.getElementById("starShop").addEventListener("click", () => routes.querySelector(".route")?.focus());
+modalLayer.addEventListener("click", event => {
+  if (event.target === modalLayer) closeModal();
+});
+window.addEventListener("resize", scaleStage);
+
+scaleStage();
+renderEquipment();
+switchTab("items");
+</script>
+</body>
+</html>

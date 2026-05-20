@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>武将卡 - Figma 资源版</title>
+<style>
+@font-face {
+  font-family: "FZLiBianLocal";
+  src: url("../fonts/方正隶变.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: #1f1716;
+  font-family: "FZLiBianLocal", "Microsoft YaHei", sans-serif;
+}
+
+.hero-card {
+  width: 436px;
+  height: 620px;
+  position: relative;
+  overflow: hidden;
+  background: #201616;
+  color: #fefefc;
+}
+
+.hero-card__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-card__name {
+  position: absolute;
+  left: 15px;
+  top: 166px;
+  margin: 0;
+  color: #d680ff;
+  font: 400 64px/1 "FZLiBianLocal", "Microsoft YaHei", sans-serif;
+  letter-spacing: 0;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.hero-card__level {
+  position: absolute;
+  left: 22px;
+  bottom: 18px;
+  margin: 0;
+  color: #fefefc;
+  font: 400 64px/1 "FZLiBianLocal", "Microsoft YaHei", sans-serif;
+  letter-spacing: 0;
+}
+
+.hero-card__level-unit {
+  font-size: 50px;
+}
+
+.hero-card__badge {
+  position: absolute;
+  left: 19px;
+  top: 16px;
+  width: 75px;
+  height: 74px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-card__gems {
+  position: absolute;
+  left: 154px;
+  bottom: 17px;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.hero-card__gem {
+  width: 52px;
+  height: 65px;
+  display: block;
+  object-fit: cover;
+}
+</style>
+</head>
+<body>
+  <main class="hero-card" aria-label="武将卡">
+    <img class="hero-card__bg" src="http://localhost:3845/assets/6164d5a5fe1dd238bea90cc6d397bbf47ebb6493.png" alt="" data-node-id="2040:3510">
+    <img class="hero-card__bg" src="http://localhost:3845/assets/ac5264f54ba87cb1adb7cb0ff6463268d82891c6.png" alt="" data-node-id="2040:3569">
+    <img class="hero-card__bg" src="http://localhost:3845/assets/5392af440159b882cf6b5787355a2814996fb0ee.png" alt="" data-node-id="2040:3570">
+    <img class="hero-card__badge" src="http://localhost:3845/assets/7404c77f335820f44df4af68cc71397d61f5257b.png" alt="" data-node-id="2037:3504">
+    <p class="hero-card__name" data-node-id="2040:3571">名<br>字</p>
+    <p class="hero-card__level" data-node-id="2040:3572">12 <span class="hero-card__level-unit" data-node-id="2040:3663">级</span></p>
+    <div class="hero-card__gems" data-node-id="2047:288" aria-hidden="true">
+      <img class="hero-card__gem" src="http://localhost:3845/assets/7404c77f335820f44df4af68cc71397d61f5257b.png" alt="">
+      <img class="hero-card__gem" src="http://localhost:3845/assets/7404c77f335820f44df4af68cc71397d61f5257b.png" alt="">
+      <img class="hero-card__gem" src="http://localhost:3845/assets/7404c77f335820f44df4af68cc71397d61f5257b.png" alt="">
+      <img class="hero-card__gem" src="http://localhost:3845/assets/7404c77f335820f44df4af68cc71397d61f5257b.png" alt="">
+      <img class="hero-card__gem" src="http://localhost:3845/assets/7404c77f335820f44df4af68cc71397d61f5257b.png" alt="">
+    </div>
+  </main>
+</body>
+</html>

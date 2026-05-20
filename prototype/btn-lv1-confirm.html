@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一级按钮 - 确认</title>
+<style>
+@font-face {
+  font-family: "FZLiBian";
+  src: url("../fonts/方正隶变.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: #2d2721;
+  font-family: "FZLiBian", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+}
+
+.figma-btn-lv1 {
+  width: 340px;
+  height: 88px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #321d14;
+  cursor: pointer;
+  font: 400 40px/1 "FZLiBian", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  letter-spacing: 0;
+}
+
+.figma-btn-lv1__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.figma-btn-lv1__text {
+  position: relative;
+  top: -1px;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.figma-btn-lv1:hover {
+  filter: brightness(1.04);
+}
+
+.figma-btn-lv1:active {
+  filter: brightness(0.94);
+  transform: translateY(1px);
+}
+
+.figma-btn-lv1:focus-visible {
+  outline: 3px solid rgba(254, 231, 194, 0.72);
+  outline-offset: 4px;
+}
+</style>
+</head>
+<body>
+  <button class="figma-btn-lv1" type="button" aria-label="我成功了" data-node-id="9229:20136">
+    <img class="figma-btn-lv1__bg" src="./assets/btn_c_lv1_normal_1.png" alt="" data-node-id="4786:929">
+    <span class="figma-btn-lv1__text" data-node-id="9222:3937">我成功了</span>
+  </button>
+</body>
+</html>

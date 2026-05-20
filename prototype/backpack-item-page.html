@@ -1,0 +1,718 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>背包/道具 - Figma 原型</title>
+<style>
+@font-face {
+  font-family: "FZLiBianLocal";
+  src: url("../fonts/方正隶变.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FZLiBianLocal";
+  src: url("../fonts/方正隶变粗体.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --stage-width: 2340;
+  --stage-height: 1080;
+  --ink-dark: #3a352c;
+  --ink-title: #573121;
+  --ink-body: #4a4237;
+  --paper: rgba(235, 231, 211, 0.46);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  margin: 0;
+  font: inherit;
+  background-color: transparent;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #19100e;
+  color: var(--ink-body);
+  font-family: "FZLiBianLocal", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
+
+.viewport {
+  width: min(100vw, calc(100vh * var(--stage-width) / var(--stage-height)));
+  aspect-ratio: var(--stage-width) / var(--stage-height);
+  position: relative;
+  overflow: hidden;
+}
+
+.stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--stage-width) * 1px);
+  height: calc(var(--stage-height) * 1px);
+  transform: translate(-50%, -50%) scale(var(--stage-scale, 1));
+  transform-origin: center;
+  overflow: hidden;
+  background: #e6e0cf;
+}
+
+.bg {
+  position: absolute;
+  left: -80px;
+  top: 0;
+  width: 2500px;
+  height: 1080px;
+  object-fit: cover;
+}
+
+.left-drape {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 180px;
+  height: 1080px;
+  background:
+    radial-gradient(circle at 66% 8%, rgba(122, 28, 22, 0.34), transparent 19%),
+    linear-gradient(90deg, rgba(22, 15, 13, 0.96), rgba(39, 26, 22, 0.93));
+  box-shadow: inset -16px 0 16px rgba(25, 14, 10, 0.45);
+}
+
+.side-panel {
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 500px;
+  height: 1080px;
+  background:
+    url("./assets/backpack-left-panel.png") left 124px / 500px 388px no-repeat,
+    linear-gradient(90deg, rgba(239, 237, 225, 0.88), rgba(232, 230, 214, 0.36));
+  border-right: 1px solid rgba(112, 89, 69, 0.18);
+}
+
+.title {
+  position: absolute;
+  left: 234px;
+  top: 5px;
+  width: 197px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--ink-title);
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.title::before {
+  content: "";
+  width: 72px;
+  height: 37px;
+  flex: 0 0 auto;
+  background:
+    linear-gradient(135deg, transparent 35%, #6b3320 36% 48%, transparent 49%),
+    linear-gradient(#6b3320, #6b3320);
+  background-size: 58px 34px, 45px 9px;
+  background-repeat: no-repeat;
+  background-position: 2px 2px, 22px 24px;
+  opacity: 0.9;
+}
+
+.tabs {
+  position: absolute;
+  left: 0;
+  top: 124px;
+  width: 500px;
+}
+
+.tab {
+  position: absolute;
+  left: 0;
+  width: 500px;
+  height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 154px;
+  color: #3f3329;
+  font-size: 34px;
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  background:
+    linear-gradient(180deg, rgba(252, 251, 248, 0.9), rgba(233, 231, 224, 0.86)),
+    linear-gradient(90deg, rgba(94, 72, 57, 0.08), rgba(255, 255, 255, 0));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    inset 0 -1px 0 rgba(89, 71, 54, 0.22);
+}
+
+.tab.active {
+  color: #efe7dd;
+  font-size: 44px;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.72);
+  background: linear-gradient(90deg, rgba(77, 37, 33, 0.84), rgba(105, 45, 42, 0.7) 72%, transparent);
+}
+
+.tab.active::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 0;
+  background: url("./assets/backpack-tab-selected.png") 0 0 / 500px 108px no-repeat;
+  opacity: 0.74;
+}
+
+.tab span {
+  position: relative;
+  z-index: 1;
+}
+
+.tab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 50%, rgba(126, 80, 55, 0.08), transparent 28%),
+    radial-gradient(circle at 35% 45%, rgba(255, 255, 255, 0.3), transparent 36%);
+  opacity: 0.9;
+}
+
+.tab:nth-child(1) {
+  top: 0;
+}
+
+.tab:nth-child(2) {
+  top: 108px;
+}
+
+.tab:nth-child(3) {
+  top: 218px;
+}
+
+.tab:nth-child(4) {
+  top: 328px;
+}
+
+.grid-shell {
+  position: absolute;
+  left: 581px;
+  top: 114px;
+  width: 911px;
+  height: 823px;
+}
+
+.capacity {
+  position: absolute;
+  left: 21px;
+  top: 8px;
+  width: 390px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  color: #4c4a43;
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 18px;
+}
+
+.grid-header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 911px;
+  height: 47px;
+  background: rgba(232, 229, 211, 0.58);
+}
+
+.grid-area {
+  position: absolute;
+  left: 0;
+  top: 58px;
+  width: 911px;
+  height: 744px;
+  overflow: hidden;
+  background: rgba(211, 210, 193, 0.28);
+}
+
+.grid-items {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 154px);
+  grid-auto-rows: 154px;
+  gap: 25px 26px;
+}
+
+.slot {
+  width: 154px;
+  height: 154px;
+  position: relative;
+  background: url("./assets/backpack-item-frame.png") center / 154px 154px no-repeat;
+  opacity: 0.45;
+}
+
+.slot.filled {
+  opacity: 1;
+}
+
+.item-icon {
+  position: absolute;
+  left: 3px;
+  top: 5px;
+  width: 144px;
+  height: 144px;
+  object-fit: cover;
+}
+
+.item-count {
+  position: absolute;
+  right: 8px;
+  bottom: 2px;
+  color: #f0efef;
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 28px;
+  line-height: 1;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.72);
+}
+
+.item-name {
+  position: absolute;
+  left: 0;
+  top: 74px;
+  width: 154px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tag-choice {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  width: 32px;
+  height: 66px;
+  background: url("./assets/backpack-choice-tag.png") center / contain no-repeat;
+  color: #452416;
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 0.83;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 5px;
+  writing-mode: vertical-rl;
+}
+
+.timer-dot {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 36px;
+  height: 36px;
+  background: url("./assets/backpack-time-badge.png") center / contain no-repeat;
+}
+
+.grid-line {
+  position: absolute;
+  left: 1px;
+  bottom: 14px;
+  width: 909px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(80, 74, 59, 0.42), transparent);
+}
+
+.decompose {
+  position: absolute;
+  left: 581px;
+  top: 986px;
+  width: 284px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle {
+  position: relative;
+  width: 139px;
+  height: 34px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #7d4e36 0 42%, rgba(241, 238, 221, 0.72) 42%);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.16);
+}
+
+.toggle::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 59px;
+  height: 28px;
+  background: rgba(238, 236, 221, 0.88);
+  border-radius: 2px;
+}
+
+.decompose span {
+  color: var(--ink-dark);
+  font-size: 34px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.detail-panel {
+  position: absolute;
+  left: 1547px;
+  top: 114px;
+  width: 599px;
+  height: 873px;
+  background: url("./assets/backpack-detail-panel.png") center / 604px 873px no-repeat;
+}
+
+.detail-hero {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 599px;
+  height: 286px;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(122, 27, 34, 0.86), rgba(146, 46, 52, 0.78)),
+    radial-gradient(circle at 38% 42%, rgba(236, 198, 158, 0.32), transparent 38%);
+}
+
+.detail-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 46% 38%, transparent 0 18%, rgba(66, 18, 21, 0.18) 19% 20%, transparent 21%),
+    repeating-linear-gradient(35deg, rgba(255, 255, 255, 0.06) 0 2px, transparent 2px 14px);
+  mix-blend-mode: soft-light;
+}
+
+.limit-chip {
+  position: absolute;
+  left: 0;
+  top: 23px;
+  width: 243px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-left: 16px;
+  color: #f4dfcf;
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 20px;
+  background: rgba(50, 20, 21, 0.62);
+  border-radius: 0 6px 6px 0;
+}
+
+.limit-chip::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: url("./assets/backpack-time-badge.png") center / contain no-repeat;
+}
+
+.detail-icon {
+  position: absolute;
+  right: 27px;
+  top: 41px;
+  width: 197px;
+  height: 197px;
+  object-fit: cover;
+  transform: rotate(-13deg);
+  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.3));
+}
+
+.owned {
+  position: absolute;
+  left: 22px;
+  top: 232px;
+  color: #f9e7dc;
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 20px;
+  text-shadow: 0 2px 1px rgba(65, 24, 20, 0.7);
+}
+
+.item-title {
+  position: absolute;
+  left: 18px;
+  top: 292px;
+  width: 380px;
+  height: 52px;
+  margin: 0;
+  color: #593225;
+  font-size: 40px;
+  line-height: 52px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.divider {
+  position: absolute;
+  left: 10px;
+  top: 351px;
+  width: 579px;
+  height: 2px;
+  background: rgba(111, 92, 69, 0.28);
+}
+
+.item-desc {
+  position: absolute;
+  left: 18px;
+  top: 367px;
+  width: 570px;
+  margin: 0;
+  color: #4d453a;
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 23px;
+  line-height: 34px;
+  letter-spacing: 0;
+}
+
+.currency {
+  position: absolute;
+  top: 1px;
+  width: 221px;
+  height: 67px;
+}
+
+.currency.one {
+  left: 1444px;
+}
+
+.currency.two {
+  left: 1686px;
+}
+
+.currency.three {
+  left: 1925px;
+}
+
+.coin {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 31%, #a8d15d, #668c25 58%, #33490f 100%);
+  box-shadow: inset 0 0 0 5px rgba(195, 222, 100, 0.7), 0 3px 4px rgba(0, 0, 0, 0.24);
+}
+
+.coin::after {
+  content: "兑";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #40580f;
+  font-size: 31px;
+  font-weight: 700;
+}
+
+.currency-value {
+  position: absolute;
+  left: 52px;
+  top: 17px;
+  min-width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px 0 40px;
+  background: linear-gradient(90deg, rgba(64, 57, 55, 0.72), rgba(65, 58, 55, 0.56));
+  border-radius: 4px;
+  color: #fff;
+  font-family: "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  font-size: 18px;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.72);
+}
+
+.primary-button {
+  position: absolute;
+  top: 893px;
+  width: 340px;
+  height: 88px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #321d14;
+  cursor: pointer;
+  font: 400 40px/1 "FZLiBianLocal", "Microsoft YaHei", sans-serif;
+}
+
+.primary-button.left {
+  left: 1569px;
+}
+
+.primary-button.right {
+  left: 1899px;
+}
+
+.primary-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./assets/backpack-btn-lv1-normal-2.png") center / 340px 88px no-repeat;
+}
+
+.primary-button span {
+  position: relative;
+  top: -1px;
+}
+
+.primary-button:hover {
+  filter: brightness(1.04);
+}
+
+.primary-button:active {
+  filter: brightness(0.94);
+  transform: translateY(1px);
+}
+
+.primary-button:focus-visible {
+  outline: 3px solid rgba(254, 231, 194, 0.72);
+  outline-offset: 4px;
+}
+</style>
+</head>
+<body>
+  <main class="viewport" aria-label="背包道具页原型">
+    <section class="stage" data-node-id="9226:18272" aria-label="背包/道具">
+      <img class="bg" src="./assets/backpack-bg-bag-01.png" alt="" data-node-id="9226:18275">
+      <div class="side-panel" data-node-id="9226:18276"></div>
+      <div class="left-drape" data-node-id="9226:18324"></div>
+
+      <div class="title" data-node-id="9226:18278">背包</div>
+
+      <nav class="tabs" aria-label="背包分类">
+        <button class="tab active" style="top:0" type="button" data-node-id="9226:18283"><span>文本</span></button>
+        <button class="tab" style="top:108px" type="button" data-node-id="9226:18279"><span>装备</span></button>
+        <button class="tab" style="top:218px" type="button" data-node-id="9226:18280"><span>材料</span></button>
+        <button class="tab" style="top:328px" type="button" data-node-id="9226:18281"><span>将魂</span></button>
+      </nav>
+
+      <section class="grid-shell" aria-label="道具列表">
+        <div class="grid-header" data-node-id="9226:18285"></div>
+        <div class="capacity" data-node-id="9226:18288">3/300</div>
+        <div class="grid-area" data-node-id="9226:18298">
+          <div class="grid-items">
+            <div class="slot filled" data-node-id="9226:18299">
+              <img class="item-icon" src="./assets/backpack-item-icon-token.png" alt="">
+              <span class="timer-dot" aria-hidden="true"></span>
+              <span class="tag-choice">自选</span>
+              <span class="item-count">1</span>
+            </div>
+            <div class="slot filled" data-node-id="9226:18300">
+              <img class="item-icon" src="./assets/backpack-item-icon-token.png" alt="">
+              <span class="item-name">水淹七军</span>
+              <span class="item-count">1</span>
+            </div>
+            <div class="slot filled" data-node-id="9226:18301">
+              <img class="item-icon" src="./assets/backpack-item-icon-token.png" alt="">
+              <span class="tag-choice">自选</span>
+              <span class="item-count">1</span>
+            </div>
+            <div class="slot" data-node-id="9226:18302"></div>
+            <div class="slot" data-node-id="9226:18303"></div>
+            <div class="slot" data-node-id="9226:18304"></div>
+            <div class="slot" data-node-id="9226:18305"></div>
+            <div class="slot" data-node-id="9226:18306"></div>
+            <div class="slot" data-node-id="9226:18307"></div>
+            <div class="slot" data-node-id="9226:18308"></div>
+            <div class="slot" data-node-id="9226:18309"></div>
+            <div class="slot" data-node-id="9226:18310"></div>
+            <div class="slot" data-node-id="9226:18311"></div>
+            <div class="slot" data-node-id="9226:18312"></div>
+            <div class="slot" data-node-id="9226:18313"></div>
+            <div class="slot" data-node-id="9226:18314"></div>
+            <div class="slot" data-node-id="9226:18315"></div>
+            <div class="slot" data-node-id="9226:18316"></div>
+            <div class="slot" data-node-id="9226:18317"></div>
+            <div class="slot" data-node-id="9226:18318"></div>
+            <div class="slot" data-node-id="9226:18319"></div>
+            <div class="slot" data-node-id="9226:18320"></div>
+            <div class="slot" data-node-id="9226:18321"></div>
+            <div class="slot" data-node-id="9226:18322"></div>
+            <div class="slot" data-node-id="9226:18323"></div>
+          </div>
+        </div>
+        <div class="grid-line" data-node-id="9226:18286"></div>
+      </section>
+
+      <label class="decompose" data-node-id="9226:18325">
+        <span class="toggle" aria-hidden="true"></span>
+        <span>一键分解</span>
+      </label>
+
+      <section class="detail-panel" aria-label="道具详情" data-node-id="9226:18277">
+        <div class="detail-hero" data-node-id="9226:18287"></div>
+        <div class="limit-chip" data-node-id="9226:18293">限时 15:12:00</div>
+        <img class="detail-icon" src="./assets/backpack-item-icon-token.png" alt="" data-node-id="9226:18292">
+        <div class="owned" data-node-id="9226:18291">当前拥有：1</div>
+        <h1 class="item-title" data-node-id="9226:18289">水淹七军 战法信物</h1>
+        <div class="divider" data-node-id="9226:18294"></div>
+        <p class="item-desc" data-node-id="9226:18290">获得的重复武将将转化成信物，可用于对应<br>武将的升阶</p>
+      </section>
+
+      <div class="currency one" aria-label="货币 9985" data-node-id="9226:18295">
+        <span class="coin" aria-hidden="true"></span>
+        <span class="currency-value">9985</span>
+      </div>
+      <div class="currency two" aria-label="货币 9985" data-node-id="9226:18296">
+        <span class="coin" aria-hidden="true"></span>
+        <span class="currency-value">9985</span>
+      </div>
+      <div class="currency three" aria-label="货币 9985" data-node-id="9226:18297">
+        <span class="coin" aria-hidden="true"></span>
+        <span class="currency-value">9985</span>
+      </div>
+
+      <button class="primary-button left" type="button" data-node-id="9226:18657"><span>确认</span></button>
+      <button class="primary-button right" type="button" data-node-id="9226:18650"><span>确认</span></button>
+    </section>
+  </main>
+  <script>
+  function resizeStage() {
+    const scale = Math.min(window.innerWidth / 2340, window.innerHeight / 1080);
+    document.documentElement.style.setProperty("--stage-scale", scale.toFixed(6));
+  }
+
+  window.addEventListener("resize", resizeStage);
+  resizeStage();
+  </script>
+</body>
+</html>

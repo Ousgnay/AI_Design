@@ -2,7 +2,7 @@
 
 **current_tool**: codex  
 **started_at**: 2026-05-18  
-**scope**: ux-collect hero-card molecular batches ingestion, token/style harvesting from Figma component template, organism/molecular knowledge expansion, strict published-component-only harvesting, layout knowledge expansion including chat and leaderboard baselines, responsive rule ingestion, project-level shared-source synchronization, first real ia-generate verification on backpack system Excel, and first downstream Figma instantiation in `test 背包需求`  
+**scope**: ux-collect hero-card molecular batches ingestion, token/style harvesting from Figma component template, organism/molecular knowledge expansion, strict published-component-only harvesting, layout knowledge expansion including chat and leaderboard baselines, responsive rule ingestion, project-level shared-source synchronization, first real ia-generate verification on backpack system Excel, first downstream Figma instantiation in `test 背包需求`, and HTML interactive prototype generation for lifetime card IA  
 **files_in_play**:
 - `AI-workflow-discussion-log.md`
 - `ai-shared/state/project-status.md`
@@ -24,6 +24,8 @@
 - `ai-shared/docs/path-registry.md`
 - `doc_gamedesign/背包系统.xlsx`
 - `doc-ia/背包系统/背包系统-IA结构化文档.md`
+- `doc-ia/终身卡策划案_V2-IA.md`
+- `prototype/lifetime-card-interactive-prototype.html`
 - Figma `test 背包需求` (`11ik4XGiSBLUNIjT2EfrNE`)
 **last_decisions**:
 - `ai-shared/` is the only editable shared source
@@ -81,7 +83,12 @@
 - 已在 Figma `11ik4XGiSBLUNIjT2EfrNE` 页面 `验证1` 创建 `背包系统需求实例化` 版面，含 4 个主分页与 4 个关键弹窗
 - 本轮已确认 `ia-generate` 产物可以直接驱动官方 Figma Skill 做首轮背包系统落板
 - 因 `btn_c_lv1_normal_1` 无精确 key 且组件库中文字体无法稳定通过 MCP 加载，本轮按钮与 tab 文案采用 `Noto Sans SC` 外层遮罩覆盖策略
+- 已根据 `doc-ia/终身卡策划案_V2-IA.md` 生成 `prototype/lifetime-card-interactive-prototype.html`
+- 终身卡 HTML 原型覆盖未购买、已购买、购买确认、开通成功、累计奖励领取、每日奖励领取与月卡联动状态
+- 原型 CSS 显式映射并使用 `tokens-data.json` / `tokens-decision.md` 的 4 档文本层级、深浅底语义色和文本投影规则，字体来自 `fonts/方正隶变*.otf`
+- 本次按用户要求未执行 UTF-8 with BOM 限制校验
 **next_step**:
+- review `prototype/lifetime-card-interactive-prototype.html` in browser for interaction and visual fit
 - run human review on Figma `11ik4XGiSBLUNIjT2EfrNE` `验证1/背包系统需求实例化`
 - backfill missing `componentKey` entries discovered in the backpack case, starting with `btn_c_lv1_normal_1`
 - decide whether to keep `中弹窗空白模板` for batch breakdown or harvest a dedicated organism
@@ -93,6 +100,7 @@
 - scene-style Figma boards may visually resemble organisms but still fail the published-component rule and must be skipped
 - the backpack IA currently relies on nodeId-only output for `btn_c_lv1_normal_1`, which blocks direct downstream component import until componentKey is harvested
 - current Figma board uses published component instances for structure, but button/tab Chinese labels rely on `Noto Sans SC` overlay text instead of direct component text overrides
+- lifetime-card prototype is a local HTML/CSS semantic component simulation, not a Figma published-component instantiation
 **handoff_ready**: true
 
 ---
